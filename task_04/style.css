@@ -1,0 +1,20 @@
+.flag {
+    height: 100vh;
+    display: flex;
+}
+
+.stripe {
+    flex-grow: 1;
+}
+
+.white {
+    background-color: white;
+}
+
+.green {
+    background-color: #009A49;
+}
+
+.orange {
+    background-color: #FF7900;
+}
