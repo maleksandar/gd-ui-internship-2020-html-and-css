@@ -1,29 +1,48 @@
-/* HEADER */
-.header {
-  background-color: red;
-  height: 100px;
+* {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+}
+.wrapper {
+  height: calc(100vh - 130px);
+  display: flex;
 }
 
-.header .header-text,
-.footer .footer-text {
-  margin: auto;
+.parent {
+  flex-grow: 1;
+  line-height: calc(100vh - 130px);
+  text-align: center;
 }
-
-/* MIDDLE */
 
 .middle {
-  background-color: gold;
+  background-color: #689ebd;
 }
 
-.middle .left,
-.middle .right {
-  background-color: chartreuse;
-  width: 20vw;
+.left,
+.right {
+  background-color: #bf8285;
+  max-width: 150px;
+  min-width: 20%;
 }
 
-/* FOOTER */
+.header {
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
 
 .footer {
-  background-color: orange;
   height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.header,
+.footer {
+  background-color: #bb5051;
+}
+
+.our-text {
+  font-size: 36px;
 }
