@@ -1,20 +1,29 @@
-.flag {
-    height: 100vh;
-    display: flex;
+/* HEADER */
+.header {
+  background-color: red;
+  height: 100px;
 }
 
-.stripe {
-    flex-grow: 1;
+.header .header-text,
+.footer .footer-text {
+  margin: auto;
 }
 
-.white {
-    background-color: white;
+/* MIDDLE */
+
+.middle {
+  background-color: gold;
 }
 
-.red {
-    background-color: #ef3340;
+.middle .left,
+.middle .right {
+  background-color: chartreuse;
+  width: 20vw;
 }
 
-.blue {
-    background-color: #001489;
+/* FOOTER */
+
+.footer {
+  background-color: orange;
+  height: 30px;
 }
