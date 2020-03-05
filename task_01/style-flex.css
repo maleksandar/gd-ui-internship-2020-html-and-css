@@ -1,0 +1,36 @@
+.header {
+	height: 100px;
+}
+
+.footer {
+	height: 30px;
+}
+
+.primary-background {
+	background-color: #BB5151;
+}
+
+.flex-container {
+	display: flex;
+	height: calc(100vh - 130px);
+}
+
+.sidebar {
+	max-width: 150px;
+	width: 20vw;
+	background-color: #C08285;
+}
+
+#middle-section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+	color: #e7e7e7;
+	background-color: #699EBD;
+}
+
+#greeting-message {
+	text-align: center;
+	font-size: 2.5rem;
+}
