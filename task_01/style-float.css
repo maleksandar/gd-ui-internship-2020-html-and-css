@@ -28,6 +28,7 @@
 	height: var(--main-section-height);
 	color: #e7e7e7;
 	overflow: auto;
+	position: relative;
 }
 
 #greeting-message {
