@@ -23,7 +23,7 @@
 .right {
   background-color: #bf8285;
   max-width: 150px;
-  min-width: 20%;
+  width: 20%;
 }
 
 .header {
