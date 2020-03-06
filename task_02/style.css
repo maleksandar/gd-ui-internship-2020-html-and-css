@@ -36,6 +36,11 @@
     color: white;
     font-family: sans-serif;
     font-weight: 600;
+    height: 80vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .box--blue{
     background-color: rgb(135, 216, 243);
@@ -54,6 +59,7 @@
 }
 .box__text{
     margin-top: 20px;
+    line-height: 1.2;
 }
 
 .btn{
