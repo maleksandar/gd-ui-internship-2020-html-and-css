@@ -3,9 +3,7 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
 }
-body {
-  padding-top: 90px;
-}
+
 @media (min-width: 768px) {
   body {
     padding-top: 0;
@@ -13,33 +11,39 @@ body {
 }
 @media (min-width: 768px) {
   body {
-    margin-left: 232px;
+    margin-left: 300px;
   }
 }
+
+.navbar {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.navbar-dark .navbar-toggler {
+  border: none;
+}
+
 .navbar.fixed-left {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1030;
-  background-color: #384043;
 }
 
 a.nav-link {
-  font-size: 16px;
-  font-weight: 500;
-  color: white;
+  font-size: 26px;
+  font-weight: 900;
+  color: white !important;
+  padding-bottom: 0 !important;
 }
 
 .layout-item {
-  height: calc(100vh / 4);
-}
-
-#item1,
-#item2,
-#item3,
-#item4 {
-  text-align: center;
+  height: 80vh;
+  display: flex;
+  align-items: center;
 }
 
 #item1 {
@@ -64,13 +68,21 @@ a.nav-link {
 }
 
 .large-text {
-  font-size: 24px;
+  font-size: 36px;
+  font-weight: 700;
+  padding-bottom: 6px;
+}
+
+.small-text {
+  font-size: 18px;
+  font-weight: 600;
+  word-break: break-all;
 }
 
 @media (min-width: 768px) {
   .navbar.fixed-left {
     bottom: 0;
-    width: 232px;
+    width: 300px;
     flex-flow: column nowrap;
     align-items: flex-start;
   }
@@ -90,6 +102,7 @@ a.nav-link {
     top: 0;
   }
 }
+
 @media (min-width: 768px) {
   .navbar.fixed-left {
     right: auto;
@@ -103,5 +116,45 @@ a.nav-link {
   }
   .navbar.fixed-left .navbar-nav .nav-item .dropdown-menu {
     left: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 54px;
+    left: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    width: 50%;
+    background-color: #384043;
+  }
+  .navbar-collapse.collapsing {
+    height: auto;
+    -webkit-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
+    -moz-transition: left 0.3s ease;
+    transition: left 0.3s ease;
+    left: -100%;
+  }
+  .navbar-collapse.show {
+    left: 0;
+    -webkit-transition: left 0.3s ease-in;
+    -o-transition: left 0.3s ease-in;
+    -moz-transition: left 0.3s ease-in;
+    transition: left 0.3s ease-in;
+  }
+
+  .large-text {
+    font-size: 20px;
+    font-weight: 700;
+    padding-bottom: 6px;
+  }
+
+  .small-text {
+    font-size: 12px;
+    font-weight: 600;
+    word-break: break-all;
   }
 }
