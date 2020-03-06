@@ -121,6 +121,7 @@
     }
     .box{
         padding: 80px 50px;
+        height: auto;
     }
     .btn{
         display: block;
