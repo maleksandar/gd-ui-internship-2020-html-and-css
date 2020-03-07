@@ -16,6 +16,10 @@ body {
 	position: fixed;
 	top: 0;
 	left: 0;
+	-webkit-transition: all 0.25s;
+	-moz-transition: all 0.25s;
+	-o-transition: all 0.25s;
+	-ms-transition: all 0.25s;
 	transition: all 0.25s;
 	z-index: 100;
 }
@@ -42,6 +46,10 @@ body {
 .page-content {
 	margin-left: var(--sidebar-width);
 	position: relative;
+	-webkit-transition: all 0.25s;
+	-moz-transition: all 0.25s;
+	-o-transition: all 0.25s;
+	-ms-transition: all 0.25s;
 	transition: all 0.25s;
 }
 
@@ -95,6 +103,10 @@ body {
 	border-radius: 3px;
 	width: 100%;
 	height: 4px;
+	-webkit-transition: .25s ease-in-out;
+	-moz-transition: .25s ease-in-out;
+	-o-transition: .25s ease-in-out;
+	-ms-transition: .25s ease-in-out;
 	transition: .25s ease-in-out;
 }
 
@@ -120,16 +132,28 @@ body {
 }
 
 .btn-opened span:nth-of-type(2) {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
 	transform: rotate(45deg);
 }
 
 .btn-opened span:nth-of-type(3) {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
 	transform: rotate(-45deg);
 }
 
 .btn-opened span:nth-of-type(4) {
 	top: 10px;
 	opacity: 0;
+}
+
+.lock-scroll {
+	overflow: hidden;
 }
 
 @media screen and (max-width: 576px) {
