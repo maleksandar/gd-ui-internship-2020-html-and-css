@@ -4,78 +4,71 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link
-      rel="stylesheet"
-      id="theme_link"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/materia/bootstrap.min.css"
-    />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="docs.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="docs.js"></script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarsExampleDefault"
-        aria-controls="navbarsExampleDefault"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <div class="wrapper">
+      <!-- Desktop navigation -->
+      <nav role="navigation" class="desktop-navigation">
+        <div class="nav-wrapper">
+          <div class="list-item"><a href="" class="links">Home</a></div>
+          <div class="list-item"><a href="" class="links">Approach</a></div>
+          <div class="list-item"><a href="" class="links">Work</a></div>
+          <div class="list-item"><a href="" class="links">People</a></div>
+          <div class="list-item">
+            <a href="" class="links" id="disabled">Jobs</a>
+          </div>
+          <div class="list-item">
+            <a href="" class="links" id="disabled">Blog</a>
+          </div>
+          <div class="list-item">
+            <a href="" class="links" id="disabled">Contact</a>
+          </div>
+        </div>
+      </nav>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link">Approach</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link">Work</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link">People</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link">Jobs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+      <!-- Mobile nav -->
+      <nav role="navigation" class="mobile-navigation">
+        <div id="menuToggle">
+          <!--
+        A fake / hidden checkbox is used as click reciever,
+        so you can use the :checked selector on it.
+        -->
+          <input type="checkbox" id="toggleCheckbox" onclick="moveText()" />
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 layout-item" id="item1">
-          <div class="col-12">
-            <div class="row">
-              <div class="col-10 mx-auto large-text">
-                Lorem ipsum dolor
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-10 mx-auto small-text">
+          <!--
+        Some spans to act as a hamburger.
+        
+        They are acting like a real hamburger,
+        not that McDonalds stuff.
+        -->
+          <span></span>
+          <span></span>
+          <span></span>
+
+          <!--
+        Too bad the menu has to be inside of the button
+        but hey, it's pure CSS magic.
+        -->
+          <ul id="menu">
+            <a href="#"><li>Home</li></a>
+            <a href="#"><li>Approach</li></a>
+            <a href="#"><li>Work</li></a>
+            <a href="#"><li>People</li></a>
+            <a href="#" id="disabled"><li>Jobs</li></a>
+            <a href="#" id="disabled"><li>Blog</li></a>
+            <a href="#" id="disabled"><li>Contact</li></a>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Other content -->
+      <section id="section">
+        <div class="item" id="item1">
+          <div class="section-wrapper">
+            <div class="text-wrapper">
+              <div class="post-title">This is a title</div>
+              <div class="post-text">
                 "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                 accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
                 quae ab illo inventore veritatis et quasi architecto beatae
@@ -95,18 +88,12 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-12 layout-item" id="item2">
-          <div class="col-12">
-            <div class="row">
-              <div class="col-10 mx-auto large-text">
-                Lorem ipsum dolor
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-10 mx-auto small-text">
+        <div class="item" id="item2">
+          <div class="section-wrapper">
+            <div class="text-wrapper">
+              <div class="post-title">This is a title</div>
+              <div class="post-text">
                 "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                 accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
                 quae ab illo inventore veritatis et quasi architecto beatae
@@ -126,18 +113,12 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-12 layout-item" id="item3">
-          <div class="col-12">
-            <div class="row">
-              <div class="col-10 mx-auto large-text">
-                Lorem ipsum dolor
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-10 mx-auto small-text">
+        <div class="item" id="item3">
+          <div class="section-wrapper">
+            <div class="text-wrapper">
+              <div class="post-title">This is a title</div>
+              <div class="post-text">
                 "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                 accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
                 quae ab illo inventore veritatis et quasi architecto beatae
@@ -157,18 +138,12 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-12 layout-item" id="item4">
-          <div class="col-12">
-            <div class="row">
-              <div class="col-10 mx-auto large-text">
-                Lorem ipsum dolor
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-10 mx-auto small-text">
+        <div class="item" id="item4">
+          <div class="section-wrapper">
+            <div class="text-wrapper">
+              <div class="post-title">This is a title</div>
+              <div class="post-text">
                 "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                 accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
                 quae ab illo inventore veritatis et quasi architecto beatae
@@ -188,7 +163,33 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   </body>
+  <script>
+    function moveText() {
+      if (document.getElementById("toggleCheckbox").checked === true) {
+        console.log(true);
+
+        var section = document.querySelectorAll(".section-wrapper");
+        section.forEach(el => {
+          el.style.position = "absolute";
+          el.style.right = "-250px";
+        });
+
+        var sectionTag = document.getElementById("section");
+        sectionTag.style.position = "fixed";
+      } else {
+        setTimeout(() => {
+          var section = document.querySelectorAll(".section-wrapper");
+          section.forEach(el => {
+            el.style.removeProperty("position");
+            el.style.removeProperty("right");
+          });
+          var sectionTag = document.getElementById("section");
+          sectionTag.style.removeProperty("position");
+        }, 100);
+      }
+    }
+  </script>
 </html>
