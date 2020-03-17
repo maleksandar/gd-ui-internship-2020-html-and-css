@@ -54,7 +54,7 @@
   font-size: 36px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px){
   .our-text {
     font-size: 14px;
   }

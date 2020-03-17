@@ -103,6 +103,7 @@ section {
     flex: 0 0 30vw;
   }
 }
+
 @media (max-width: 576px) {
   .desktop-navigation {
     display: none;
