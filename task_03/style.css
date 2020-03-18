@@ -1,8 +1,18 @@
+:root {
+  --primary-color: #344955;
+  --primary-color-dark: #232F34;
+  --secondary-color: #F9AA33;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
 .main-container {
   display: flex;
   align-items: center;
   flex-direction: row;
-  background-color: burlywood;
+  background-color: #e0e0e0;
 }
 
 .game-container {
@@ -11,15 +21,6 @@
   align-items: center;
   width: 70vw;
   height: 100vh;
-}
-
-.sidebar {
-  background-color: tomato;
-  width: 30vw;
-  height: 100vh;
-  overflow-y: scroll;
-  top: 0;
-  bottom: 0;
 }
 
 .board {
@@ -36,14 +37,16 @@
 }
 
 .board__box {
-  background-color: red;
+  cursor: pointer;
   width: 330px;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
   margin: 5px;
   font-size: 5.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .board__box:hover {
@@ -51,18 +54,19 @@
   box-shadow: none;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 992px) {
   .main-container {
     flex-direction: column;
   }
 
   .game-container {
-    height: 100vh;
+    height: 80vh;
     width: 100vw;
   }
 
   .sidebar {
     width: 100vw;
+    height: 300px;
   }
 
   .board {

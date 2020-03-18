@@ -3,12 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task 03</title>
+    <title>Tic Tac Toe</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../reset.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="sidebar.css" />
+    <link rel="stylesheet" href="button.css" />
   </head>
   <body>
     <div class="main-container">
+
+      <div class="game-container">
+        <button class="button button--raised" style="margin-right: 1rem;">
+          <i class="material-icons button__icon">send</i>
+          <span class="button__ripple"></span>
+          Submit
+        </button>
+      </div>
+
       <div class="game-container">
         <div class="board">
           <div class="board__row">
@@ -16,11 +29,13 @@
             <div class="board__box 1"></div>
             <div class="board__box 2"></div>
           </div>
+
           <div class="board__row">
             <div class="board__box 3"></div>
             <div class="board__box 4"></div>
             <div class="board__box 5"></div>
           </div>
+
           <div class="board__row">
             <div class="board__box 6"></div>
             <div class="board__box 7"></div>
@@ -29,8 +44,23 @@
         </div>
       </div>
 
-      <div class="sidebar">
-      </div>
+      <aside class="sidebar">
+        <div class="sidebar__header">
+          <h3 class="sidebar__title">Winners</h3>
+        </div>
+
+        <div class="sidebar__content">
+          <nav class="sidebar-list">
+            <a class="sidebar-list-item" href="#">
+              <span class="sidebar-list-item__text">Winner: naca, Symbol: O, Moves: 4</span>
+            </a>
+
+            <a class="sidebar-list-item" href="#">
+              <span class="sidebar-list-item__text">Winner: dzimiks, Symbol: X, Moves: 5</span>
+            </a>
+          </nav>
+        </div>
+      </aside>
 
       <script src="script.js"></script>
     </div>
