@@ -157,6 +157,48 @@ body {
   flex-direction: column;
 }
 
+.player-names-window {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 5rem;
+  flex-direction: column;
+}
+
+.player-names-window input {
+  margin: 2rem;
+  font-size: 2rem;
+}
+
+.player-names-window label {
+  font-size: 2rem;
+}
+
+.player-names-window button {
+  font-size: 3rem;
+  background-color: white;
+  border: 1px solid black;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+}
+
+.player-names-window button:hover {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+
+.player-names-window.show {
+  display: flex;
+}
+
 .winning-message button {
   font-size: 3rem;
   background-color: white;
@@ -175,7 +217,16 @@ body {
   display: flex;
 }
 
-@media (max-width: 480px) {
+#winnerName {
+  font-size: 2rem;
+  margin: 2rem;
+}
+
+.winner {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1024px) {
   .board {
     width: 100vw;
   }
@@ -184,5 +235,31 @@ body {
     position: relative;
     width: 100vw;
     height: auto;
+  }
+
+  .winning-message {
+    font-size: 3rem;
+  }
+
+  .winning-message button {
+    font-size: 3.5rem;
+  }
+
+  #winnerName {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .winning-message {
+    font-size: 2rem;
+  }
+
+  .winning-message button {
+    font-size: 3rem;
+  }
+
+  #winnerName {
+    font-size: 1rem;
   }
 }

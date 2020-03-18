@@ -12,19 +12,29 @@ const WINNING_COMBINATIONS = [
 ];
 const cellElements = document.querySelectorAll("[data-cell]");
 const board = document.getElementById("board");
+const getPlayerNamesElement = document.getElementById("playerNames");
 const winningMessageElement = document.getElementById("winningMessage");
 const winningMessageTextElement = document.querySelector(
   "[data-winning-message-text]"
 );
+const winnerNameField = document.getElementById("winnerName");
 const restartButton = document.getElementById("restartButton");
 
 let circleTurn;
+let circleMoves;
+let xMoves;
+let winnerId;
 
+let WINNER_NAME = "";
+
+allStorage();
 startGame();
-restartButton.addEventListener("click", startGame);
+restartButton.addEventListener("click", saveAndRestart);
 
 function startGame() {
   circleTurn = false;
+  circleMoves = 0;
+  xMoves = 0;
   cellElements.forEach(cell => {
     cell.classList.remove(X_CLASS);
     cell.classList.remove(CIRCLE_CLASS);
@@ -32,8 +42,54 @@ function startGame() {
     cell.addEventListener("click", handleClick, { once: true });
   });
   setBoardHoverClass();
-
   winningMessageElement.classList.remove("show");
+}
+
+function saveName() {
+  WINNER_NAME = document.getElementById("winnerName").value;
+}
+
+function saveAndRestart() {
+  if (!document.getElementById("winnerName").value) {
+    alert("You must enter your name!");
+  } else if (document.getElementById("winnerName").value.length > 12) {
+    alert("Your name must be between 1 and 12 charachters");
+  } else {
+    winner = {
+      winnerName: WINNER_NAME,
+      symbol: circleTurn ? "O" : "X",
+      moves: circleTurn ? circleMoves : xMoves
+    };
+
+    winnerId = Math.floor(Math.random() * 100000);
+    localStorage.setItem(winnerId, JSON.stringify(winner));
+
+    let newWinner = document.createElement("div");
+    newWinner.className = "winner";
+    newWinner.innerHTML = `Winner: ${winner.winnerName}, symbol: ${winner.symbol}, moves: ${winner.moves}`;
+    document.getElementById("list-of-winners").appendChild(newWinner);
+
+    document.getElementById("winnerName").value = "";
+    startGame();
+  }
+}
+
+function allStorage() {
+  var values = [],
+    keys = Object.keys(localStorage),
+    i = keys.length;
+
+  while (i--) {
+    values.push(localStorage.getItem(keys[i]));
+  }
+
+  for (let i = 0; i < values.length; i++) {
+    values[i] = JSON.parse(values[i]);
+    let divs = document.createElement("div");
+    divs.className = "winner";
+    divs.innerHTML = `Winner: ${values[i].winnerName}, symbol: ${values[i].symbol}, moves: ${values[i].moves}`;
+    document.getElementById("list-of-winners").appendChild(divs);
+  }
 }
 
 function handleClick(e) {
@@ -54,7 +110,11 @@ function endGame(draw) {
   if (draw) {
     winningMessageTextElement.innerText = "Draw!";
   } else {
-    winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`;
+    winningMessageTextElement.innerText = `${
+      circleTurn
+        ? `O's win within ${circleMoves} moves`
+        : `X's win within ${xMoves} moves`
+    }`;
   }
   winningMessageElement.classList.add("show");
 }
@@ -80,8 +140,10 @@ function setBoardHoverClass() {
   board.classList.remove(CIRCLE_CLASS);
   if (circleTurn) {
     board.classList.add(CIRCLE_CLASS);
+    circleMoves += 1;
   } else {
     board.classList.add(X_CLASS);
+    xMoves += 1;
   }
 }
 

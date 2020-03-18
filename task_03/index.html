@@ -23,22 +23,12 @@
 
     <div class="sidebar">
       <div class="sidebar-title">List of previous winners:</div>
-      <div class="list-of-winners">
-        <div class="winner">1.Pera</div>
-        <div class="winner">1.Pera</div>
-        <div class="winner">1.Pera</div>
-        <div class="winner">1.Pera</div>
-        <div class="winner">1.Pera</div>
-        <div class="winner">1.Pera</div>
-        <div class="winner">1.Pera</div>
-        <div class="winner">1.Pera</div>
-        <div class="winner">1.Pera</div>
-        <div class="winner">1.Pera</div>
-      </div>
+      <div class="list-of-winners" id="list-of-winners"></div>
     </div>
 
     <div class="winning-message" id="winningMessage">
       <div data-winning-message-text></div>
+      <input type="text" id="winnerName" onchange="saveName()" />
       <button id="restartButton">Restart</button>
     </div>
   </body>
