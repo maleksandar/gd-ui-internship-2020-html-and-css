@@ -14,7 +14,7 @@
       <div class="game">
 
         <h2 class="game__name">TIC TAC TOE</h2>
-        <h3 class="game__result"> Winner: O | Moves: 4</h3>
+        <h3 class="game__result"></h3>
 
         <form class="game__form">
           <div class="form__group">
@@ -31,23 +31,26 @@
 
         <div class="board">
           <div class="board__row">
-            <div class="board__box 0"></div>
-            <div class="board__box 1"></div>
-            <div class="board__box 2"></div>
+            <div data-cell-index="0" class="board__box 0"></div>
+            <div data-cell-index="1" class="board__box 1"></div>
+            <div data-cell-index="2" class="board__box 2"></div>
           </div>
 
           <div class="board__row">
-            <div class="board__box 3"></div>
-            <div class="board__box 4"></div>
-            <div class="board__box 5"></div>
+            <div data-cell-index="3" class="board__box 3"></div>
+            <div data-cell-index="4" class="board__box 4"></div>
+            <div data-cell-index="5" class="board__box 5"></div>
           </div>
 
           <div class="board__row">
-            <div class="board__box 6"></div>
-            <div class="board__box 7"></div>
-            <div class="board__box 8"></div>
+            <div data-cell-index="6" class="board__box 6"></div>
+            <div data-cell-index="7" class="board__box 7"></div>
+            <div data-cell-index="8" class="board__box 8"></div>
           </div>
         </div>
+
+        <h2 class="game--status"></h2>
+        <button class="button game--restart">Restart Game</button>
       </div>
 
       <aside class="sidebar">
