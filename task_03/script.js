@@ -79,8 +79,57 @@ const handleRestartGame = () => {
 	gameState = ['', '', '', '', '', '', '', '', ''];
 	gameResult.style.display = 'none';
 	gameForm.style.display = 'none';
-	document.querySelectorAll('.board__box').forEach((cell) => cell.innerHTML = '');
+    document.querySelectorAll('.board__box').forEach((cell) => cell.innerHTML = '');
 };
+
+const handleUsernameInput = (e) => {
+    let username = new FormData(event.target).get('username');
+    addWinner(username);
+    appendWinnerToSidebar(username);
+    handleRestartGame();
+    e.preventDefault();
+}
+
+const addWinner = (username) => {
+    let winners = JSON.parse(localStorage.getItem('winners'));
+    
+    const winner = {
+        username : username,
+        symbol : currentPlayer,
+        numberOfMoves : numberOfMoves,
+    };
+
+    if (winners) {
+        winners.push(winner);
+    } else {
+        winners = [winner];
+    }
+
+    localStorage.setItem('winners', JSON.stringify(winners));
+};
+
+const appendWinnerToSidebar = (username, symbol = currentPlayer, numOfMoves = numberOfMoves) => {
+    document.querySelector('.sidebar-list')
+      .insertAdjacentHTML(
+        'beforeend',
+        `<aside class="sidebar-list-item">
+              <span class="sidebar-list-item__text">Winner: ${username}, Symbol: ${symbol}, Moves: ${numOfMoves}</span>
+            </aside>
+        `
+      );
+}
+
+const showWinnersInSidebar = () => {
+    const winners = JSON.parse(localStorage.getItem('winners'));
+    if (winners) {
+      winners.forEach((winner) => {
+          appendWinnerToSidebar(winner.username, winner.symbol, winner.numberOfMoves);
+        })
+    }
+}
 
 document.querySelectorAll('.board__box').forEach((cell) => cell.addEventListener('click', handleCellClick));
 document.querySelector('.button--restart').addEventListener('click', handleRestartGame);
+document.querySelector('.game__form').addEventListener('submit', handleUsernameInput);
+
+showWinnersInSidebar();
