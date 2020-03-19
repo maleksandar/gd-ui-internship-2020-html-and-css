@@ -5,10 +5,8 @@ let gameState = ['', '', '', '', '', '', '', '', ''];
 
 const winningMessage = () => `Player ${currentPlayer} has won in ${numberOfMoves} moves!`;
 const drawMessage = () => `Game ended in a draw!`;
-const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
-const statusDisplay = document.querySelector('.game--status');
 const gameResult = document.querySelector('.game__result');
-statusDisplay.innerHTML = currentPlayerTurn();
+const gameForm = document.querySelector('.game__form');
 
 const COMBINATIONS = {
 	0: [[1, 2], [3, 6], [4, 8]],
@@ -30,7 +28,6 @@ const handleCellPlayed = (clickedCell, clickedCellIndex) => {
 
 const handlePlayerChange = () => {
 	currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-	statusDisplay.innerHTML = currentPlayerTurn();
 };
 
 const handleResultValidation = (clickedCellIndex) => {
@@ -44,8 +41,9 @@ const handleResultValidation = (clickedCellIndex) => {
 	});
 
 	if (roundWon) {
-		statusDisplay.innerHTML = winningMessage();
 		gameResult.innerHTML = winningMessage();
+		gameResult.style.display = 'block';
+		gameForm.style.display = 'flex';
 		gameActive = false;
 		return;
 	}
@@ -53,7 +51,8 @@ const handleResultValidation = (clickedCellIndex) => {
 	const roundDraw = !gameState.includes('');
 
 	if (roundDraw) {
-		statusDisplay.innerHTML = drawMessage();
+		gameResult.innerHTML = drawMessage();
+		gameResult.style.display = 'block';
 		gameActive = false;
 		return;
 	}
@@ -75,11 +74,13 @@ const handleCellClick = (event) => {
 
 const handleRestartGame = () => {
 	gameActive = true;
+	numberOfMoves = 0;
 	currentPlayer = 'X';
 	gameState = ['', '', '', '', '', '', '', '', ''];
-	statusDisplay.innerHTML = currentPlayerTurn();
+	gameResult.style.display = 'none';
+	gameForm.style.display = 'none';
 	document.querySelectorAll('.board__box').forEach((cell) => cell.innerHTML = '');
 };
 
 document.querySelectorAll('.board__box').forEach((cell) => cell.addEventListener('click', handleCellClick));
-document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
+document.querySelector('.button--restart').addEventListener('click', handleRestartGame);
