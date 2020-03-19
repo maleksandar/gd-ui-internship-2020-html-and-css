@@ -10,12 +10,18 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="sidebar.css" />
     <link rel="stylesheet" href="button.css" />
+    <link rel="stylesheet" href="textfield.css" />
   </head>
   <body>
     <div class="main-container">
 
       <div class="game-container">
-        <button class="button button--raised" style="margin-right: 1rem;">
+        <div class="form__group" style="margin-right: 1rem;">
+          <input type="text" id="text" class="form__field" placeholder="Your Name">
+          <label for="text" class="form__label">Your Name</label>
+        </div>
+
+        <button class="button button--raised">
           <i class="material-icons button__icon">send</i>
           <span class="button__ripple"></span>
           Submit
