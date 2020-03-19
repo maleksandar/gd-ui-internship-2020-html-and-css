@@ -1,3 +1,7 @@
+@import url("buttons.css");
+@import url("sidebar.css");
+@import url("textfield.css");
+
 :root {
   --primary-color: #344955;
   --primary-color-dark: #232F34;

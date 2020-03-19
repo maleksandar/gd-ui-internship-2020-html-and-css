@@ -38,10 +38,10 @@ label,
 }
 
 .form__field:focus ~ .form__label {
-  color: var(--primary-color);
+  color: var(--primary-color-dark);
 }
 
 .form__field:focus {
   padding-bottom: 6px;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--primary-color-dark);
 }
