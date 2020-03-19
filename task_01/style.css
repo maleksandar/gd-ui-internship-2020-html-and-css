@@ -11,14 +11,17 @@
   font-weight: 400;
   color: white;
 }
+
 .wrapper {
   height: var(--section-height);
   display: flex;
 }
 
 .section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-grow: 1;
-  line-height: var(--section-height);
   text-align: center;
 }
 
@@ -34,15 +37,17 @@
 }
 
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100px;
-  line-height: 100px;
-  text-align: center;
 }
 
 .footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 30px;
-  line-height: 30px;
-  text-align: center;
 }
 
 .header,
