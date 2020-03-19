@@ -10,8 +10,7 @@
   flex-direction: column;
   flex-shrink: 0;
   box-sizing: border-box;
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform cubic-bezier(0.4, 0, 0.2, 1);
   border-right-width: 1px;
   border-right-style: solid;
   border-color: rgba(0, 0, 0, 0.12);
@@ -30,8 +29,6 @@
 }
 
 .sidebar__title {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   font-size: 1.25rem;
   line-height: normal;
   font-weight: 500;
@@ -94,12 +91,33 @@
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
+  cursor: pointer;
 }
 
-.sidebar-list-item__text {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+.sidebar-list-item:hover::before {
+  opacity: .04;
+}
+
+.sidebar-list-item::before,
+.sidebar-list-item::after {
+  background-color: #000;
+}
+
+.sidebar-list-item::before,
+.sidebar-list-item::after {
+  top: calc(50% - 100%);
+  left: calc(50% - 100%);
+  width: 200%;
+  height: 200%;
+}
+
+.sidebar-list-item::before,
+.sidebar-list-item::after {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  content: "";
 }
 
 .sidebar-list-item:nth-child(1) {
@@ -110,32 +128,8 @@
   margin-bottom: 0;
 }
 
-:not(.sidebar-list--non-interactive) > :not(.sidebar-list-item--disabled).sidebar-list-item {
-  cursor: pointer;
-}
-
-:not(.sidebar-list--non-interactive) > :not(.sidebar-list-item--disabled).sidebar-list-item:hover::before {
-  opacity: .04;
-}
-
-:not(.sidebar-list--non-interactive) > :not(.sidebar-list-item--disabled).sidebar-list-item::before,
-:not(.sidebar-list--non-interactive) > :not(.sidebar-list-item--disabled).sidebar-list-item::after {
-  background-color: #000;
-}
-
-:not(.sidebar-list--non-interactive) > :not(.sidebar-list-item--disabled).sidebar-list-item::before,
-:not(.sidebar-list--non-interactive) > :not(.sidebar-list-item--disabled).sidebar-list-item::after {
-  top: calc(50% - 100%);
-  left: calc(50% - 100%);
-  width: 200%;
-  height: 200%;
-}
-
-:not(.sidebar-list--non-interactive) > :not(.sidebar-list-item--disabled).sidebar-list-item::before,
-:not(.sidebar-list--non-interactive) > :not(.sidebar-list-item--disabled).sidebar-list-item::after {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0;
-  pointer-events: none;
-  content: "";
+.sidebar-list-item__text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }

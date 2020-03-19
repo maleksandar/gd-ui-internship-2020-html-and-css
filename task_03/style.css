@@ -1,6 +1,6 @@
 @import url("buttons.css");
-@import url("sidebar.css");
-@import url("textfield.css");
+@import url("layouts.css");
+@import url("forms.css");
 
 :root {
   --primary-color: #344955;
