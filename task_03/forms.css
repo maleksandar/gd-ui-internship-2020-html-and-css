@@ -1,5 +1,5 @@
 .game__form {
-  display: none;
+  display: flex;
   flex-direction: column;
 }
 

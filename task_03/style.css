@@ -3,6 +3,7 @@
 @import url("layouts.css");
 @import url("forms.css");
 @import url("typography.css");
+@import url("transitions.css");
 
 body {
   font-family: Roboto, sans-serif;

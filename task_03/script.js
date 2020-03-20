@@ -42,8 +42,10 @@ const handleResultValidation = (clickedCellIndex) => {
 
 	if (roundWon) {
 		gameResult.innerHTML = winningMessage();
-		gameResult.style.display = 'block';
-		gameForm.style.display = 'flex';
+		// gameResult.style.display = 'block';
+		// gameForm.style.display = 'flex';
+		gameResult.classList.toggle('hide');
+		gameForm.classList.toggle('hide');
 		gameActive = false;
 		handlePointerEvents('none');
 		return;
@@ -53,7 +55,7 @@ const handleResultValidation = (clickedCellIndex) => {
 
 	if (roundDraw) {
 		gameResult.innerHTML = drawMessage();
-		gameResult.style.display = 'block';
+		gameResult.classList.toggle('hide');
 		gameActive = false;
 		handlePointerEvents('none');
 		return;
@@ -65,6 +67,7 @@ const handleResultValidation = (clickedCellIndex) => {
 const handlePointerEvents = (pointerEvent) => {
 	document.querySelectorAll('.board__box').forEach((cell) => {
 		cell.style.pointerEvents = pointerEvent;
+		cell.style.opacity = '0.87';
 	});
 };
 
@@ -85,15 +88,17 @@ const handleRestartGame = () => {
 	numberOfMoves = 0;
 	currentPlayer = 'X';
 	gameState = ['', '', '', '', '', '', '', '', ''];
-	gameResult.style.display = 'none';
-	gameForm.style.display = 'none';
+	// gameResult.style.display = 'none';
+	// gameForm.style.display = 'none';
+	gameResult.classList.toggle('hide');
+	gameForm.classList.toggle('hide');
 	document.querySelector('.button--submit').disabled = false;
 	document.getElementById('username').disabled = false;
 	document.querySelectorAll('.board__box').forEach((cell) => {
 		cell.innerHTML = '';
 		cell.style.pointerEvents = 'initial';
+		cell.style.opacity = '1';
 	});
-	// handlePointerEvents('initial');
 };
 
 const handleUsernameInput = (event) => {
