@@ -79,10 +79,13 @@ const handleRestartGame = () => {
 	gameState = ['', '', '', '', '', '', '', '', ''];
 	gameResult.style.display = 'none';
 	gameForm.style.display = 'none';
+	document.querySelector('.button--submit').disabled = false;
+	document.getElementById('username').disabled = false;
 	document.querySelectorAll('.board__box').forEach((cell) => cell.innerHTML = '');
 };
 
 const handleUsernameInput = (event) => {
+	event.preventDefault();
 	const username = new FormData(event.target).get('username');
 
 	if (username === '') {
@@ -92,7 +95,6 @@ const handleUsernameInput = (event) => {
 
 	addWinner(username);
 	appendWinnerToSidebar(username);
-	event.preventDefault();
 };
 
 const addWinner = (username) => {
@@ -111,6 +113,9 @@ const addWinner = (username) => {
 	}
 
 	localStorage.setItem('winners', JSON.stringify(winners));
+	document.querySelector('.button--submit').disabled = true;
+	document.getElementById('username').disabled = true;
+	document.getElementById('username').value = '';
 };
 
 const appendWinnerToSidebar = (username, symbol = currentPlayer, numOfMoves = numberOfMoves) => {
