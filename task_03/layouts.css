@@ -1,5 +1,6 @@
 .sidebar {
-  background-color: #fff;
+  background-color: var(--primary-color);
+  color: rgba(249, 170, 51, 0.87);
   width: 30vw;
   height: 100vh;
   overflow: hidden;
@@ -13,10 +14,6 @@
   transition: transform cubic-bezier(0.4, 0, 0.2, 1);
   border-left: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 0;
-}
-
-.sidebar__title {
-  color: rgba(0, 0, 0, 0.87);
 }
 
 .sidebar__header {
@@ -66,7 +63,6 @@
   text-transform: inherit;
   line-height: 1.5rem;
   list-style-type: none;
-  color: rgba(0, 0, 0, 0.87);
   margin: 0;
   padding: 8px 0;
 }
@@ -78,7 +74,6 @@
   margin: 8px;
   padding: 0 8px;
   border-radius: 4px;
-  color: rgba(0, 0, 0, 0.87);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-decoration: inherit;
@@ -98,7 +93,7 @@
 
 .sidebar-list-item::before,
 .sidebar-list-item::after {
-  background-color: #000;
+  background-color: #fff;
 }
 
 .sidebar-list-item::before,
