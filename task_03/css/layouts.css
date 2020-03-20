@@ -1,6 +1,7 @@
-.main-container {
+.container {
   display: flex;
-  background-color: #eeeeee;
+  background-color: var(--background-light);
+  min-height: 100vh;
 }
 
 .game {
@@ -11,6 +12,27 @@
   max-height: 100vh;
   box-sizing: border-box;
   overflow: auto;
+}
+
+.game__name {
+  font-size: 3rem;
+  line-height: 3rem;
+  font-weight: 400;
+  letter-spacing: -0.0083333333em;
+  text-decoration: inherit;
+  text-transform: inherit;
+  margin-bottom: 1rem;
+}
+
+.game__result {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  height: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.0073529412em;
+  text-decoration: inherit;
+  text-transform: inherit;
+  margin-bottom: 1rem;
 }
 
 .board {
@@ -35,7 +57,7 @@
   color: var(--secondary-color);
   background-color: var(--primary-color);
   margin: 0.4rem;
-  font-size: 5.5rem;
+  font-size: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -140,7 +162,7 @@
 
 .sidebar-list-item::before,
 .sidebar-list-item::after {
-  background-color: #fff;
+  background-color: var(--white-color);
 }
 
 .sidebar-list-item::before,
@@ -175,7 +197,7 @@
 }
 
 @media screen and (max-width: 992px) {
-  .main-container {
+  .container {
     flex-direction: column;
   }
 
@@ -192,8 +214,8 @@
   }
 
   .board {
-    height: 300px;
-    width: 300px;
+    height: 285px;
+    width: 285px;
   }
 
   .game__name {

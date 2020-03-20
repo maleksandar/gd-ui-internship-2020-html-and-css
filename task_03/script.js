@@ -8,16 +8,6 @@ const tableCells = document.querySelectorAll('.board__box');
 const userInput = document.getElementById('username');
 const formErrorMessage = document.getElementById('form-error-message');
 
-let numberOfMoves = 0;
-let gameActive = true;
-let currentPlayer = 'X';
-let gameState = ['', '', '', '', '', '', '', '', ''];
-
-const handlePlayerChange = () => currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-const clearUserInput = () => userInput.value = '';
-const winningMessage = () => `Player ${currentPlayer} has won in ${numberOfMoves} moves!`;
-const drawMessage = () => `Game ended in a draw!`;
-
 const COMBINATIONS = {
 	0: [[1, 2], [3, 6], [4, 8]],
 	1: [[0, 2], [4, 7]],
@@ -30,6 +20,16 @@ const COMBINATIONS = {
 	8: [[6, 7], [2, 5], [0, 4]],
 };
 
+let numberOfMoves = 0;
+let gameActive = true;
+let currentPlayer = 'X';
+let gameState = ['', '', '', '', '', '', '', '', ''];
+
+const handlePlayerChange = () => currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+const clearUserInput = () => userInput.value = '';
+const winningMessage = () => `Player ${currentPlayer} has won in ${numberOfMoves} moves!`;
+const drawMessage = () => `Game ended in a draw!`;
+
 const handleCellPlayed = (clickedCell, clickedCellIndex) => {
 	gameState[clickedCellIndex] = currentPlayer;
 	clickedCell.innerHTML = currentPlayer;
@@ -40,43 +40,41 @@ const handleResultValidation = (clickedCellIndex) => {
 	let roundWon = false;
 	const combinations = COMBINATIONS[clickedCellIndex];
 
-	combinations.forEach(([first, second]) => {
-		if (gameState[first] === currentPlayer && gameState[second] === currentPlayer) {
+	combinations.forEach(([firstIndex, secondIndex]) => {
+		if (gameState[firstIndex] === currentPlayer && gameState[secondIndex] === currentPlayer) {
 			roundWon = true;
 		}
 	});
 
 	if (roundWon) {
-		formErrorMessage.style.display = 'none';
-		formField.style.borderBottom = '1px solid #d2d2d2';
-		formLabel.style.color = 'var(--primary-color-dark)';
+		clearForm();
 		gameResult.innerHTML = winningMessage();
-		gameResult.classList.toggle('hide');
 		gameForm.classList.toggle('hide');
-		gameActive = false;
-		handlePointerEvents('none');
+		handlePointerEvents();
 		return;
 	}
 
 	const roundDraw = !gameState.includes('');
 
 	if (roundDraw) {
-		formErrorMessage.style.display = 'none';
-		formField.style.borderBottom = '1px solid #d2d2d2';
-		formLabel.style.color = 'var(--primary-color-dark)';
+		clearForm();
 		gameResult.innerHTML = drawMessage();
-		gameResult.classList.toggle('hide');
-		gameActive = false;
-		handlePointerEvents('none');
+		handlePointerEvents();
 		return;
 	}
 
 	handlePlayerChange();
 };
 
-const handlePointerEvents = (pointerEvent) => {
+const clearForm = () => {
+	resetFormField();
+	gameResult.classList.toggle('hide');
+	gameActive = false;
+};
+
+const handlePointerEvents = () => {
 	tableCells.forEach((cell) => {
-		cell.style.pointerEvents = pointerEvent;
+		cell.style.pointerEvents = 'none';
 		cell.style.opacity = '0.87';
 	});
 };
@@ -98,40 +96,51 @@ const handleRestartGame = () => {
 	numberOfMoves = 0;
 	currentPlayer = 'X';
 	gameState = ['', '', '', '', '', '', '', '', ''];
-	formErrorMessage.style.display = 'none';
-	formField.style.borderBottom = '1px solid #d2d2d2';
-	formLabel.style.color = 'var(--primary-color-dark)';
+	buttonSubmit.disabled = false;
+	userInput.disabled = false;
+	clearUserInput();
+	resetFormField();
 
 	if (!gameForm.classList.contains('hide')) {
-		gameResult.classList.add('hide');
 		gameForm.classList.add('hide');
 	}
 
-	clearUserInput();
-	buttonSubmit.disabled = false;
-	userInput.disabled = false;
-	tableCells.forEach((cell) => {
-		cell.innerHTML = '';
-		cell.style.pointerEvents = 'initial';
-		cell.style.opacity = '1';
-	});
+	if (!gameResult.classList.contains('hide')) {
+		gameResult.classList.toggle('hide');
+	}
+
+	tableCells.forEach((cell) => clearBoard(cell));
+};
+
+const clearBoard = (cell) => {
+	cell.innerHTML = '';
+	cell.style.pointerEvents = 'initial';
+	cell.style.opacity = '1';
+};
+
+const resetFormField = () => {
+	formErrorMessage.style.display = 'none';
+	formField.style.borderBottom = '1px solid #d2d2d2';
+	formLabel.style.color = 'var(--primary-color-dark)';
+};
+
+const showErrorMessage = (message) => {
+	formLabel.style.color = 'var(--error-color)';
+	formField.style.borderBottom = '2px solid var(--error-color)';
+	formField.focus();
+	formErrorMessage.innerHTML = message;
+	formErrorMessage.style.display = 'block';
 };
 
 const handleUsernameInput = (event) => {
 	event.preventDefault();
 	const username = new FormData(event.target).get('username');
-	formErrorMessage.style.display = 'none';
-	formField.style.borderBottom = '1px solid #d2d2d2';
-	formLabel.style.color = 'var(--primary-color-dark)';
+	resetFormField();
 
 	const inputLength = checkInputLength(username);
 
 	if (inputLength === false) {
-		formLabel.style.color = 'var(--error-color)';
-		formField.style.borderBottom = '2px solid var(--error-color)';
-		formField.focus();
-		formErrorMessage.innerHTML = 'Length must be below 12 characters';
-		formErrorMessage.style.display = 'block';
+		showErrorMessage('Length must be below 12 characters');
 		clearUserInput();
 		return;
 	}
@@ -139,11 +148,7 @@ const handleUsernameInput = (event) => {
 	const inputValidity = checkInputValidity(username);
 
 	if (inputValidity === false) {
-		formLabel.style.color = 'var(--error-color)';
-		formField.style.borderBottom = '2px solid var(--error-color)';
-		formField.focus();
-		formErrorMessage.innerHTML = 'Use only alphanumeric characters';
-		formErrorMessage.style.display = 'block';
+		showErrorMessage('Use only alphanumeric characters');
 		clearUserInput();
 		return;
 	}
@@ -203,7 +208,7 @@ const checkInputLength = (input) => {
 };
 
 const checkInputValidity = (input) => {
-	const alphanumericRegex = /^[a-zA-Z0-9]+$/g;
+	const alphanumericRegex = /^[a-zA-Z0-9_]+$/g;
 	return alphanumericRegex.test(input);
 };
 
