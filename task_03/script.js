@@ -3,6 +3,7 @@ let gameActive = true;
 let currentPlayer = 'X';
 let gameState = ['', '', '', '', '', '', '', '', ''];
 
+const clearUserInput = () => document.getElementById('username').value = '';
 const winningMessage = () => `Player ${currentPlayer} has won in ${numberOfMoves} moves!`;
 const drawMessage = () => `Game ended in a draw!`;
 const gameResult = document.querySelector('.game__result');
@@ -96,6 +97,7 @@ const handleRestartGame = () => {
 		gameForm.classList.add('hide');
 	}
 
+	clearUserInput();
 	document.querySelector('.button--submit').disabled = false;
 	document.getElementById('username').disabled = false;
 	document.querySelectorAll('.board__box').forEach((cell) => {
@@ -111,6 +113,7 @@ const handleUsernameInput = (event) => {
 
 	if (username === '' || username.length < 3 || username.length > 12) {
 		alert('Enter an username of length between 3 and 12 characters');
+		clearUserInput();
 		return;
 	}
 
@@ -119,6 +122,7 @@ const handleUsernameInput = (event) => {
 
 	if (regexResult === false) {
 		alert('Enter a valid username (alphanumeric only)');
+		clearUserInput();
 		return;
 	}
 
@@ -144,7 +148,7 @@ const addWinner = (username) => {
 	localStorage.setItem('winners', JSON.stringify(winners));
 	document.querySelector('.button--submit').disabled = true;
 	document.getElementById('username').disabled = true;
-	document.getElementById('username').value = '';
+	clearUserInput();
 };
 
 const appendWinnerToSidebar = (username, symbol = currentPlayer, numOfMoves = numberOfMoves) => {
