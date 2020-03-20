@@ -1,5 +1,6 @@
 const gameResult = document.querySelector('.game__result');
 const gameForm = document.querySelector('.game__form');
+const formField = document.querySelector('.form__field');
 const buttonSubmit = document.querySelector('.button--submit');
 const sidebarList = document.querySelector('.sidebar-list');
 const tableCells = document.querySelectorAll('.board__box');
@@ -46,6 +47,7 @@ const handleResultValidation = (clickedCellIndex) => {
 
 	if (roundWon) {
 		formErrorMessage.style.display = 'none';
+		formField.style.borderBottom = '1px solid #d2d2d2';
 		gameResult.innerHTML = winningMessage();
 		// gameResult.style.display = 'block';
 		// gameForm.style.display = 'flex';
@@ -60,6 +62,7 @@ const handleResultValidation = (clickedCellIndex) => {
 
 	if (roundDraw) {
 		formErrorMessage.style.display = 'none';
+		formField.style.borderBottom = '1px solid #d2d2d2';
 		gameResult.innerHTML = drawMessage();
 		gameResult.classList.toggle('hide');
 		gameActive = false;
@@ -95,6 +98,7 @@ const handleRestartGame = () => {
 	currentPlayer = 'X';
 	gameState = ['', '', '', '', '', '', '', '', ''];
 	formErrorMessage.style.display = 'none';
+	formField.style.borderBottom = '1px solid #d2d2d2';
 	// gameResult.style.display = 'none';
 	// gameForm.style.display = 'none';
 
@@ -117,10 +121,12 @@ const handleUsernameInput = (event) => {
 	event.preventDefault();
 	const username = new FormData(event.target).get('username');
 	formErrorMessage.style.display = 'none';
+	formField.style.borderBottom = '1px solid #d2d2d2';
 
 	const inputLength = checkInputLength(username);
 
 	if (inputLength === false) {
+		formField.style.borderBottom = '2px solid var(--error-color)';
 		formErrorMessage.innerHTML = 'Enter an username of length between 3 and 12 characters';
 		formErrorMessage.style.display = 'block';
 		clearUserInput();
@@ -130,6 +136,7 @@ const handleUsernameInput = (event) => {
 	const inputValidity = checkInputValidity(username);
 
 	if (inputValidity === false) {
+		formField.style.borderBottom = '2px solid var(--error-color)';
 		formErrorMessage.innerHTML = 'Enter a valid username (alphanumeric only)';
 		formErrorMessage.style.display = 'block';
 		clearUserInput();
