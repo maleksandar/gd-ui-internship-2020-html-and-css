@@ -1,13 +1,19 @@
+const gameResult = document.querySelector('.game__result');
+const gameForm = document.querySelector('.game__form');
+const buttonSubmit = document.querySelector('.button--submit');
+const sidebarList = document.querySelector('.sidebar-list');
+const tableCells = document.querySelectorAll('.board__box');
+const userInput = document.getElementById('username');
+
 let numberOfMoves = 0;
 let gameActive = true;
 let currentPlayer = 'X';
 let gameState = ['', '', '', '', '', '', '', '', ''];
 
-const clearUserInput = () => document.getElementById('username').value = '';
+const handlePlayerChange = () => currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+const clearUserInput = () => userInput.value = '';
 const winningMessage = () => `Player ${currentPlayer} has won in ${numberOfMoves} moves!`;
 const drawMessage = () => `Game ended in a draw!`;
-const gameResult = document.querySelector('.game__result');
-const gameForm = document.querySelector('.game__form');
 
 const COMBINATIONS = {
 	0: [[1, 2], [3, 6], [4, 8]],
@@ -25,10 +31,6 @@ const handleCellPlayed = (clickedCell, clickedCellIndex) => {
 	gameState[clickedCellIndex] = currentPlayer;
 	clickedCell.innerHTML = currentPlayer;
 	numberOfMoves++;
-};
-
-const handlePlayerChange = () => {
-	currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
 };
 
 const handleResultValidation = (clickedCellIndex) => {
@@ -66,7 +68,7 @@ const handleResultValidation = (clickedCellIndex) => {
 };
 
 const handlePointerEvents = (pointerEvent) => {
-	document.querySelectorAll('.board__box').forEach((cell) => {
+	tableCells.forEach((cell) => {
 		cell.style.pointerEvents = pointerEvent;
 		cell.style.opacity = '0.87';
 	});
@@ -98,9 +100,9 @@ const handleRestartGame = () => {
 	}
 
 	clearUserInput();
-	document.querySelector('.button--submit').disabled = false;
-	document.getElementById('username').disabled = false;
-	document.querySelectorAll('.board__box').forEach((cell) => {
+	buttonSubmit.disabled = false;
+	userInput.disabled = false;
+	tableCells.forEach((cell) => {
 		cell.innerHTML = '';
 		cell.style.pointerEvents = 'initial';
 		cell.style.opacity = '1';
@@ -127,7 +129,7 @@ const handleUsernameInput = (event) => {
 	}
 
 	addWinner(username);
-	appendWinnerToSidebar(username);
+	appendWinnerToSidebar(username, currentPlayer, numberOfMoves);
 };
 
 const addWinner = (username) => {
@@ -146,21 +148,20 @@ const addWinner = (username) => {
 	}
 
 	localStorage.setItem('winners', JSON.stringify(winners));
-	document.querySelector('.button--submit').disabled = true;
-	document.getElementById('username').disabled = true;
+	buttonSubmit.disabled = true;
+	userInput.disabled = true;
 	clearUserInput();
 };
 
-const appendWinnerToSidebar = (username, symbol = currentPlayer, numOfMoves = numberOfMoves) => {
-	document.querySelector('.sidebar-list')
-		.insertAdjacentHTML(
-			'beforeend',
-			`<aside class="sidebar-list-item">
-              <span class="sidebar-list-item__text">
-              	Winner: ${username}, Symbol: ${symbol}, Moves: ${numOfMoves}
-              </span>
-             </aside>`
-		);
+const appendWinnerToSidebar = (username, symbol, numOfMoves) => {
+	sidebarList.insertAdjacentHTML(
+		'beforeend',
+		`<aside class="sidebar-list-item">
+						 <span class="sidebar-list-item__text">
+						   Winner: ${username}, Symbol: ${symbol}, Moves: ${numOfMoves}
+						 </span>
+					 </aside>`
+	);
 };
 
 const showWinnersInSidebar = () => {
@@ -168,16 +169,13 @@ const showWinnersInSidebar = () => {
 
 	if (winners) {
 		winners.forEach((winner) => {
-			const {symbol, numberOfMoves, username} = winner;
+			const {username, symbol, numberOfMoves} = winner;
 			appendWinnerToSidebar(username, symbol, numberOfMoves);
 		})
 	}
 };
 
-document.querySelectorAll('.board__box').forEach((cell) => {
-	cell.addEventListener('click', handleCellClick);
-});
-
+tableCells.forEach((cell) => cell.addEventListener('click', handleCellClick));
 document.querySelector('.button--restart').addEventListener('click', handleRestartGame);
 document.querySelector('.game__form').addEventListener('submit', handleUsernameInput);
 showWinnersInSidebar();
