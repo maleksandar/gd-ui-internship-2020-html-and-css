@@ -119,7 +119,7 @@ const clearBoard = (cell) => {
 };
 
 const resetFormField = () => {
-	formErrorMessage.style.display = 'none';
+	formErrorMessage.style.visibility = 'hidden';
 	formField.style.borderBottom = '1px solid #d2d2d2';
 	formLabel.style.color = 'var(--primary-color-dark)';
 };
@@ -129,7 +129,7 @@ const showErrorMessage = (message) => {
 	formField.style.borderBottom = '2px solid var(--error-color)';
 	formField.focus();
 	formErrorMessage.innerHTML = message;
-	formErrorMessage.style.display = 'block';
+	formErrorMessage.style.visibility = 'initial';
 };
 
 const handleUsernameInput = (event) => {

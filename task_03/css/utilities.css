@@ -8,8 +8,9 @@ body {
 }
 
 #form-error-message {
-  display: none;
+  visibility: hidden;
   color: var(--error-color);
   margin-top: 1rem;
   text-align: left;
+  height: 1rem;
 }
