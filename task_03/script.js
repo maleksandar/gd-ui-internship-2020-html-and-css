@@ -118,19 +118,18 @@ const handleUsernameInput = (event) => {
 	const username = new FormData(event.target).get('username');
 	formErrorMessage.style.display = 'none';
 
-	if (username === '' || username.length < 3 || username.length > 12) {
-		// alert('Enter an username of length between 3 and 12 characters');
+	const inputLength = checkInputLength(username);
+
+	if (inputLength === false) {
 		formErrorMessage.innerHTML = 'Enter an username of length between 3 and 12 characters';
 		formErrorMessage.style.display = 'block';
 		clearUserInput();
 		return;
 	}
 
-	const alphanumericRegex = /^[a-zA-Z0-9]+$/g;
-	const regexResult = alphanumericRegex.test(username);
+	const inputValidity = checkInputValidity(username);
 
-	if (regexResult === false) {
-		// alert('Enter a valid username (alphanumeric only)');
+	if (inputValidity === false) {
 		formErrorMessage.innerHTML = 'Enter a valid username (alphanumeric only)';
 		formErrorMessage.style.display = 'block';
 		clearUserInput();
@@ -179,9 +178,21 @@ const showWinnersInSidebar = () => {
 	if (winners) {
 		winners.forEach((winner) => {
 			const {username, symbol, numberOfMoves} = winner;
-			appendWinnerToSidebar(username, symbol, numberOfMoves);
+
+			if (checkInputLength(username) && checkInputValidity(username)) {
+				appendWinnerToSidebar(username, symbol, numberOfMoves);
+			}
 		})
 	}
+};
+
+const checkInputLength = (input) => {
+	return !(input === '' || input.length < 3 || input.length > 12);
+};
+
+const checkInputValidity = (input) => {
+	const alphanumericRegex = /^[a-zA-Z0-9]+$/g;
+	return alphanumericRegex.test(input);
 };
 
 tableCells.forEach((cell) => cell.addEventListener('click', handleCellClick));
