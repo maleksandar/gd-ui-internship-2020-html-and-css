@@ -146,6 +146,7 @@ const UICtrl = (function() {
         .querySelector('.game__form')
         .classList.remove('game__form--show');
       document.querySelector('input').disabled = false;
+      document.querySelector('input').value = '';
       document.querySelector('.btn--submit').disabled = false;
       document.querySelector('.btn--submit').classList.remove('btn--disabled');
     },
@@ -194,7 +195,6 @@ const ctrl = (function(LogicCtrl, UICtrl) {
     const winnerInfo = LogicCtrl.getWinnerInfo();
     LogicCtrl.addWinner(name);
     UICtrl.addWinner(name, winnerInfo);
-    LogicCtrl.reset();
   }
   function restart() {
     LogicCtrl.reset();
