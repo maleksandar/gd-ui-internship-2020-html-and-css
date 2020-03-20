@@ -90,8 +90,12 @@ const handleRestartGame = () => {
 	gameState = ['', '', '', '', '', '', '', '', ''];
 	// gameResult.style.display = 'none';
 	// gameForm.style.display = 'none';
-	gameResult.classList.toggle('hide');
-	gameForm.classList.toggle('hide');
+
+	if (!gameForm.classList.contains('hide')) {
+		gameResult.classList.add('hide');
+		gameForm.classList.add('hide');
+	}
+
 	document.querySelector('.button--submit').disabled = false;
 	document.getElementById('username').disabled = false;
 	document.querySelectorAll('.board__box').forEach((cell) => {
