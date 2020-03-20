@@ -109,8 +109,16 @@ const handleUsernameInput = (event) => {
 	event.preventDefault();
 	const username = new FormData(event.target).get('username');
 
-	if (username === '') {
-		alert('Enter username');
+	if (username === '' || username.length < 3 || username.length > 12) {
+		alert('Enter an username of length between 3 and 12 characters');
+		return;
+	}
+
+	const alphanumericRegex = /^[a-zA-Z0-9]$/g;
+	const regexResult = alphanumericRegex.test(username);
+
+	if (regexResult === false) {
+		alert('Enter a valid username (alphanumeric only)');
 		return;
 	}
 
