@@ -35,6 +35,7 @@ function startGame() {
   circleTurn = false;
   circleMoves = 0;
   xMoves = 0;
+  allMoves = 0;
   cellElements.forEach(cell => {
     cell.classList.remove(X_CLASS);
     cell.classList.remove(CIRCLE_CLASS);
@@ -58,7 +59,7 @@ function saveAndRestart() {
     winner = {
       winnerName: WINNER_NAME,
       symbol: circleTurn ? "O" : "X",
-      moves: circleTurn ? circleMoves : xMoves
+      moves: allMoves
     };
 
     winnerId = Math.floor(Math.random() * 100000);
@@ -112,9 +113,9 @@ function endGame(draw) {
   } else {
     winningMessageTextElement.innerText = `${
       circleTurn
-        ? `O's win within ${circleMoves} moves`
-        : `X's win within ${xMoves} moves`
-    }`;
+        ? `O's win within ${allMoves} moves`
+        : `X's win within ${allMoves} moves`
+      }`;
   }
   winningMessageElement.classList.add("show");
 }
@@ -140,10 +141,10 @@ function setBoardHoverClass() {
   board.classList.remove(CIRCLE_CLASS);
   if (circleTurn) {
     board.classList.add(CIRCLE_CLASS);
-    circleMoves += 1;
+    allMoves += 1;
   } else {
     board.classList.add(X_CLASS);
-    xMoves += 1;
+    allMoves += 1;
   }
 }
 
