@@ -117,7 +117,7 @@ const handleUsernameInput = (event) => {
 		return;
 	}
 
-	const alphanumericRegex = /^[a-zA-Z0-9]$/g;
+	const alphanumericRegex = /^[a-zA-Z0-9]+$/g;
 	const regexResult = alphanumericRegex.test(username);
 
 	if (regexResult === false) {
