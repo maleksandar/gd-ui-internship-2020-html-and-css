@@ -4,6 +4,7 @@ const buttonSubmit = document.querySelector('.button--submit');
 const sidebarList = document.querySelector('.sidebar-list');
 const tableCells = document.querySelectorAll('.board__box');
 const userInput = document.getElementById('username');
+const formErrorMessage = document.getElementById('form-error-message');
 
 let numberOfMoves = 0;
 let gameActive = true;
@@ -44,6 +45,7 @@ const handleResultValidation = (clickedCellIndex) => {
 	});
 
 	if (roundWon) {
+		formErrorMessage.style.display = 'none';
 		gameResult.innerHTML = winningMessage();
 		// gameResult.style.display = 'block';
 		// gameForm.style.display = 'flex';
@@ -57,6 +59,7 @@ const handleResultValidation = (clickedCellIndex) => {
 	const roundDraw = !gameState.includes('');
 
 	if (roundDraw) {
+		formErrorMessage.style.display = 'none';
 		gameResult.innerHTML = drawMessage();
 		gameResult.classList.toggle('hide');
 		gameActive = false;
@@ -91,6 +94,7 @@ const handleRestartGame = () => {
 	numberOfMoves = 0;
 	currentPlayer = 'X';
 	gameState = ['', '', '', '', '', '', '', '', ''];
+	formErrorMessage.style.display = 'none';
 	// gameResult.style.display = 'none';
 	// gameForm.style.display = 'none';
 
@@ -112,9 +116,12 @@ const handleRestartGame = () => {
 const handleUsernameInput = (event) => {
 	event.preventDefault();
 	const username = new FormData(event.target).get('username');
+	formErrorMessage.style.display = 'none';
 
 	if (username === '' || username.length < 3 || username.length > 12) {
-		alert('Enter an username of length between 3 and 12 characters');
+		// alert('Enter an username of length between 3 and 12 characters');
+		formErrorMessage.innerHTML = 'Enter an username of length between 3 and 12 characters';
+		formErrorMessage.style.display = 'block';
 		clearUserInput();
 		return;
 	}
@@ -123,7 +130,9 @@ const handleUsernameInput = (event) => {
 	const regexResult = alphanumericRegex.test(username);
 
 	if (regexResult === false) {
-		alert('Enter a valid username (alphanumeric only)');
+		// alert('Enter a valid username (alphanumeric only)');
+		formErrorMessage.innerHTML = 'Enter a valid username (alphanumeric only)';
+		formErrorMessage.style.display = 'block';
 		clearUserInput();
 		return;
 	}
