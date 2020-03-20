@@ -45,6 +45,7 @@ const handleResultValidation = (clickedCellIndex) => {
 		gameResult.style.display = 'block';
 		gameForm.style.display = 'flex';
 		gameActive = false;
+		handlePointerEvents('none');
 		return;
 	}
 
@@ -54,10 +55,17 @@ const handleResultValidation = (clickedCellIndex) => {
 		gameResult.innerHTML = drawMessage();
 		gameResult.style.display = 'block';
 		gameActive = false;
+		handlePointerEvents('none');
 		return;
 	}
 
 	handlePlayerChange();
+};
+
+const handlePointerEvents = (pointerEvent) => {
+	document.querySelectorAll('.board__box').forEach((cell) => {
+		cell.style.pointerEvents = pointerEvent;
+	});
 };
 
 const handleCellClick = (event) => {
@@ -81,7 +89,11 @@ const handleRestartGame = () => {
 	gameForm.style.display = 'none';
 	document.querySelector('.button--submit').disabled = false;
 	document.getElementById('username').disabled = false;
-	document.querySelectorAll('.board__box').forEach((cell) => cell.innerHTML = '');
+	document.querySelectorAll('.board__box').forEach((cell) => {
+		cell.innerHTML = '';
+		cell.style.pointerEvents = 'initial';
+	});
+	// handlePointerEvents('initial');
 };
 
 const handleUsernameInput = (event) => {
