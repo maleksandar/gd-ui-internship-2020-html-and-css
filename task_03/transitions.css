@@ -1,10 +1,8 @@
 .collapse {
   opacity: 1;
-  height: auto;
   transition: opacity 0.2s linear;
 }
 
 .collapse.hide {
   opacity: 0;
-  height: 0;
 }

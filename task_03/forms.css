@@ -6,7 +6,8 @@
 .form__group {
   position: relative;
   padding: 15px 0 0;
-  margin: 1rem 0;
+  margin: auto;
+  width: 300px;
 }
 
 .form__field {

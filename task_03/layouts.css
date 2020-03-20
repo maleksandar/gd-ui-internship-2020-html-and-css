@@ -1,7 +1,6 @@
 .main-container {
   display: flex;
   background-color: #eeeeee;
-  height: 100vh;
 }
 
 .game {
@@ -12,11 +11,6 @@
   max-height: 100vh;
   box-sizing: border-box;
   overflow: auto;
-  width: 70vw;
-}
-
-.game > * {
-  margin: auto;
 }
 
 .board {
@@ -24,7 +18,7 @@
   height: 30vw;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin: 1rem auto;
   transition: all 0.2s linear;
 }
 
@@ -210,5 +204,11 @@
   .game__result {
     font-size: 1.2rem;
     line-height: 1.2rem;
+  }
+
+  .game {
+    width: 100%;
+    max-height: 100%;
+    overflow: hidden;
   }
 }

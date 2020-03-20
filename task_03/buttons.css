@@ -32,7 +32,6 @@
   border: none;
 }
 
-/* Overlay */
 .button::before {
   content: "";
   position: absolute;
@@ -45,7 +44,6 @@
   transition: opacity 0.2s;
 }
 
-/* Ripple */
 .button::after {
   content: "";
   position: absolute;
@@ -53,8 +51,8 @@
   top: 50%;
   border-radius: 50%;
   padding: 50%;
-  width: 32px; /* Safari */
-  height: 32px; /* Safari */
+  width: 32px;
+  height: 32px;
   background-color: #fff;
   opacity: 0;
   transform: translate(-50%, -50%) scale(1);
@@ -78,7 +76,6 @@
   opacity: 0.3;
 }
 
-/* Active */
 .button:active {
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
@@ -89,7 +86,6 @@
   transition: transform 0s;
 }
 
-/* Disabled */
 .button:disabled {
   color: rgba(0, 0, 0, 0.38);
   background-color: rgba(0, 0, 0, 0.12);

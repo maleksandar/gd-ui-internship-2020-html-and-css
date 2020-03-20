@@ -1,6 +1,6 @@
 .game__name {
-  font-size: 3.75rem;
-  line-height: 3.75rem;
+  font-size: 3rem;
+  line-height: 3rem;
   font-weight: 300;
   letter-spacing: -0.0083333333em;
   text-decoration: inherit;
@@ -9,8 +9,9 @@
 }
 
 .game__result {
-  font-size: 2.125rem;
-  line-height: 2.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  height: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.0073529412em;
   text-decoration: inherit;
