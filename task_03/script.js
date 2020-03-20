@@ -79,6 +79,9 @@ const LogicCtrl = (function() {
     getWinCombination() {
       return state.winCombination;
     },
+    validateName(name) {
+      return /[a-zA-Z][^#&<>\"~;$^%{}?]{1,20}$/g.test(name);
+    },
   };
 })();
 
@@ -192,9 +195,13 @@ const ctrl = (function(LogicCtrl, UICtrl) {
     console.log(e);
     e.preventDefault();
     const name = UICtrl.getName(e);
-    const winnerInfo = LogicCtrl.getWinnerInfo();
-    LogicCtrl.addWinner(name);
-    UICtrl.addWinner(name, winnerInfo);
+    if (LogicCtrl.validateName(name)) {
+      const winnerInfo = LogicCtrl.getWinnerInfo();
+      LogicCtrl.addWinner(name);
+      UICtrl.addWinner(name, winnerInfo);
+    } else {
+      alert('Name not valid, please try again!');
+    }
   }
   function restart() {
     LogicCtrl.reset();
