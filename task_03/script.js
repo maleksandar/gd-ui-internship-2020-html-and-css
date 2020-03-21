@@ -158,8 +158,17 @@ const handleUsernameInput = (event) => {
 };
 
 const addWinner = (username) => {
-	let winners = JSON.parse(localStorage.getItem('winners'));
+	const winnersFromStorage = JSON.parse(localStorage.getItem('winners'));
+	let winners = [];
 
+	if (winnersFromStorage) {
+		winnersFromStorage.forEach((winner) => {
+			if (checkInputLength(winner.username) && checkInputValidity(winner.username)) {
+				winners.push(winner);
+			}
+		});
+	}
+	
 	const winner = {
 		username: username,
 		symbol: currentPlayer,
@@ -199,7 +208,7 @@ const showWinnersInSidebar = () => {
 			if (checkInputLength(username) && checkInputValidity(username)) {
 				appendWinnerToSidebar(username, symbol, numberOfMoves);
 			}
-		})
+		});
 	}
 };
 
