@@ -124,9 +124,6 @@ section {
   body {
     margin: 0;
     padding: 0;
-
-    /* make it look decent enough */
-    /* background: #232323; */
     color: #cdcdcd;
     font-family: "Avenir Next", "Avenir", sans-serif;
   }
@@ -164,15 +161,12 @@ section {
 
     cursor: pointer;
 
-    opacity: 0; /* hide this */
-    z-index: 2; /* and place it over the hamburger */
+    opacity: 0; 
+    z-index: 2;
 
     -webkit-touch-callout: none;
   }
 
-  /*
-  * Just a quick hamburger
-  */
   #menuToggle span {
     display: block;
     width: 33px;
@@ -254,9 +248,14 @@ section {
     font-weight: 900;
   }
 
-  /*
-  * And let's slide it in from the left
-  */
+  #menu li a.link {
+    color: white;
+  }
+
+  #menu li a.disabled {
+    color: #232323
+  }
+
   #menuToggle input:checked ~ ul {
     transform: none;
   }

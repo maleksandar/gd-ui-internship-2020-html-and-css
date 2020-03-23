@@ -13,18 +13,18 @@
     <!-- Desktop navigation -->
     <nav role="navigation" class="desktop-navigation">
       <div class="nav-wrapper">
-        <div class="list-item"><a href="" class="links">Home</a></div>
-        <div class="list-item"><a href="" class="links">Approach</a></div>
-        <div class="list-item"><a href="" class="links">Work</a></div>
-        <div class="list-item"><a href="" class="links">People</a></div>
+        <div class="list-item"><a href="#" class="links">Home</a></div>
+        <div class="list-item"><a href="#" class="links">Approach</a></div>
+        <div class="list-item"><a href="#" class="links">Work</a></div>
+        <div class="list-item"><a href="#" class="links">People</a></div>
         <div class="list-item">
-          <a href="" class="links" id="disabled">Jobs</a>
+          <a href="#" class="links" id="disabled">Jobs</a>
         </div>
         <div class="list-item">
-          <a href="" class="links" id="disabled">Blog</a>
+          <a href="#" class="links" id="disabled">Blog</a>
         </div>
         <div class="list-item">
-          <a href="" class="links" id="disabled">Contact</a>
+          <a href="#" class="links" id="disabled">Contact</a>
         </div>
       </div>
     </nav>
@@ -39,27 +39,13 @@
         <span></span>
 
         <ul id="menu">
-          <a href="#">
-            <li>Home</li>
-          </a>
-          <a href="#">
-            <li>Approach</li>
-          </a>
-          <a href="#">
-            <li>Work</li>
-          </a>
-          <a href="#">
-            <li>People</li>
-          </a>
-          <a href="#" class="disabled">
-            <li>Jobs</li>
-          </a>
-          <a href="#" class="disabled">
-            <li>Blog</li>
-          </a>
-          <a href="#" class="disabled">
-            <li>Contact</li>
-          </a>
+          <li><a href="#" class="link">Home</a></li>
+          <li><a href="#" class="link">Approach</a></li>
+          <li><a href="#" class="link">Work</a></li>
+          <li><a href="#" class="link">People</a></li>
+          <li><a href="#" disabled class="disabled">Jobs</a></li>
+          <li><a href="#" disabled class="disabled">Blog</a></li>
+          <li><a href="#" disabled class="disabled">Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -173,7 +159,7 @@
     const section = document.querySelectorAll(".section-wrapper");
     const sectionTag = document.getElementById("section");
 
-    if (document.getElementById("toggleCheckbox").checked === true) {
+    if (document.getElementById("toggleCheckbox").checked) {
       section.forEach(el => {
         el.style.position = "absolute";
         el.style.right = "-250px";

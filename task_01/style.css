@@ -1,8 +1,8 @@
 :root {
   --section-height: calc(100vh - 130px);
-  --lr-color: #bf8285;
-  --middle-color: #689ebd;
-  --hf-color: #bb5051;
+  --lighter-red: #bf8285;
+  --darker-blue: #689ebd;
+  --darker-pink: #bb5051;
 }
 
 * {
@@ -26,12 +26,12 @@
 }
 
 .middle {
-  background-color: var(--middle-color);
+  background-color: var(--darker-blue);
 }
 
-.left,
-.right {
-  background-color: var(--lr-color);
+.left-column,
+.right-column {
+  background-color: var(--lighter-red);
   max-width: 150px;
   width: 20%;
 }
@@ -52,15 +52,15 @@
 
 .header,
 .footer {
-  background-color: var(--hf-color);
+  background-color: var(--darker-pink);
 }
 
-.our-text {
+.middle-column-text {
   font-size: 36px;
 }
 
 @media (max-width: 480px){
-  .our-text {
+  .middle-column-text {
     font-size: 14px;
   }
 }
