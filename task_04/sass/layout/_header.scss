@@ -3,7 +3,8 @@
 	background-size: cover;
 	text-align: center;
 	position: relative;
-	height: 90vh;
+	height: calc(100vh - 10rem);
+	margin: 5rem;
 
 	&__content {
 		width: 100%;
@@ -16,5 +17,26 @@
 	&__mouse {
 		position: absolute;
 		bottom: 3.8rem;
+	}
+
+	&__description {
+		font-size: 1.6rem;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.header {
+		margin: 0;
+		height: 100vh;
+		background-position-x: right;
+
+		&__logo {
+			height: 4rem;
+		}
+
+		&__mouse {
+			height: 3rem;
+			bottom: 2rem;
+		}
 	}
 }
