@@ -20,7 +20,12 @@
 	}
 
 	&__description {
-		font-size: 1.6rem;
+		font-size: 2rem;
+
+		@media screen and (max-width: 768px) {
+			padding: 0 3rem;
+			width: 100%;
+		}
 	}
 }
 

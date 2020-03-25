@@ -1,21 +1,18 @@
 .gallery {
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	gap: 1rem;
+
+	@media only screen and (max-width: 992px) {
+		grid-template-columns: 1fr;
+		grid-auto-rows: 1fr;
+	}
+
 	&__item {
-		flex: 0 0 auto;
 		width: 100%;
 		position: relative;
-		margin-bottom: 1.5rem;
 		overflow: hidden;
 		cursor: pointer;
-
-		@media screen and(min-width: 992px) {
-			width: 25%;
-		}
-
-		&__half {
-			@media screen and(min-width: 992px) {
-				width: 50%;
-			}
-		}
 	}
 
 	&__photo {
