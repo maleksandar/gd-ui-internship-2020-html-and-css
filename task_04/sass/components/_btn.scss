@@ -1,0 +1,27 @@
+.btn {
+   display:block;
+   width: 20rem;
+   height: 4rem;
+   margin: 2rem 0;
+   position: relative;
+   
+   &__text {
+       position: absolute;
+       left: 50%;
+       top: 50%;    
+       transform: translate(-50%, -50%);
+       text-transform: uppercase;
+   }
+}
+
+.btn--dark {
+    background-color: $color-dark;
+    color: $color-light;
+    transition: 0.15s;
+
+    &:hover {
+        background-color: lighten($color: $color-dark, $amount: 15);
+        font-size: 1.1rem;
+    }
+}
+
