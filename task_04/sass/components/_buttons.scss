@@ -16,5 +16,9 @@
 	&:active {
 		outline: none;
 	}
+
+	@media screen and (max-width: 768px) {
+		padding: 1rem 7rem;
+	}
 }
 
