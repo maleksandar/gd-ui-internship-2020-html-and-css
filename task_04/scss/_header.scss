@@ -1,0 +1,15 @@
+$white: #fff;
+
+.header-image{
+  width: 100vw;
+}
+
+.header-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: 'Lato';
+  font-weight: bold;
+  color: $white;
+  text-transform: uppercase;
+}
