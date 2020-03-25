@@ -1,5 +1,5 @@
 .box {
-	border-bottom: 2px solid $primary-color;
+	border-bottom: 2px solid $color-primary;
 	flex-direction: column;
 	text-align: center;
 	position: relative;
@@ -63,8 +63,8 @@
 	}
 
 	&--light {
-		border-color: $white-color;
-		color: $white-color;
+		border-color: $color-white;
+		color: $color-white;
 	}
 }
 
