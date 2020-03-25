@@ -5,25 +5,6 @@ $white-color: #fff;
 // Font size
 $title-font-size: 3.5rem;
 
-// Grid
-$grid-breakpoints: (
-				xs: 0,
-				sm: 576px,
-				md: 768px,
-				lg: 992px,
-				xl: 1200px
-) !default;
-
-$grid-gutter-width: 1.5rem !default;
-
-// Container
-$container-max-widths: (
-				sm: 54rem,
-				md: 72rem,
-				lg: 96rem,
-				xl: 114rem
-) !default;
-
 // Container padding
 $container-padding-x: 1rem !default;
 $container-padding-y: 5rem !default;
