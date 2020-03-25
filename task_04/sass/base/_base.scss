@@ -28,3 +28,7 @@ body {
 .margin-y {
 	margin: 2rem 0;
 }
+
+.center-both {
+	@include center();
+}
