@@ -7,14 +7,11 @@
 @import "base/typography";
 
 @import "components/btn";
-@import "components/card-box";
 @import "components/card";
 
-@import "layout/footer";
-@import "layout/gallery";
-@import "layout/header";
-
-
-
-
-
+@import 'layout/footer';
+@import 'layout/gallery';
+@import 'layout/header';
+@import 'layout/about';
+@import 'layout/services';
+@import 'layout/activities';
