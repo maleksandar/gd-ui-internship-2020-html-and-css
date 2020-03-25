@@ -1,28 +1,33 @@
 .gallery {
 	&__item {
-		display: flex;
 		flex: 0 0 auto;
 		width: 100%;
 		position: relative;
 		margin-bottom: 1.5rem;
+		overflow: hidden;
+		cursor: pointer;
 
 		@media screen and(min-width: 768px) {
-			flex: 0 0 auto;
 			width: 25%;
 		}
 
 		&__half {
 			@media screen and(min-width: 768px) {
-				flex: 0 0 auto;
 				width: 50%;
 			}
 		}
 	}
 
 	&__photo {
-		height: auto;
+		height: 100%;
 		max-width: 100%;
 		width: 100%;
+		transition: all .5s;
+
+		&:hover {
+			transform: scale(1.2);
+			filter: blur(1px);
+		}
 	}
 
 	&__title {

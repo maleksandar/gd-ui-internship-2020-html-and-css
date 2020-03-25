@@ -58,24 +58,27 @@ body {
     padding-left: 0.75rem; }
 
 .gallery__item {
-  display: flex;
   flex: 0 0 auto;
   width: 100%;
   position: relative;
-  margin-bottom: 1.5rem; }
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  cursor: pointer; }
   @media screen and (min-width: 768px) {
     .gallery__item {
-      flex: 0 0 auto;
       width: 25%; } }
   @media screen and (min-width: 768px) {
     .gallery__item__half {
-      flex: 0 0 auto;
       width: 50%; } }
 
 .gallery__photo {
-  height: auto;
+  height: 100%;
   max-width: 100%;
-  width: 100%; }
+  width: 100%;
+  transition: all .5s; }
+  .gallery__photo:hover {
+    transform: scale(1.2);
+    filter: blur(1px); }
 
 .gallery__title {
   position: absolute;
@@ -127,8 +130,8 @@ body {
 
 @media screen and (max-width: 768px) {
   .box {
-    width: 100% !important; }
+    width: 100%; }
     .box__title {
-      padding: 0 5rem !important; }
+      padding: 0 5rem; }
     .box__content {
-      padding: 1rem 5rem !important; } }
+      padding: 1rem 4rem; } }
