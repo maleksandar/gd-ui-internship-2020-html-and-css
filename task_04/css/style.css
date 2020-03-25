@@ -10,6 +10,9 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 50%; } }
 
 body {
   font-family: 'Lato', sans-serif;
@@ -17,11 +20,71 @@ body {
   line-height: 1.6;
   min-height: 100vh; }
 
+.margin-y {
+  margin: 2rem 0; }
+
 .primary-title {
   font-size: 2.5rem; }
 
 .container {
-  margin: 5rem 10rem; }
+  width: 100%;
+  padding: 5rem 0.75rem;
+  margin-right: auto;
+  margin-left: auto; }
+  @media (min-width: 576px) {
+    .container {
+      max-width: 54rem; } }
+  @media (min-width: 768px) {
+    .container {
+      max-width: 72rem; } }
+  @media (min-width: 992px) {
+    .container {
+      max-width: 96rem; } }
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 114rem; } }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -0.75rem;
+  margin-left: -0.75rem; }
+  .row > * {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem; }
+
+.gallery__item {
+  display: flex;
+  flex: 0 0 auto;
+  width: 100%;
+  position: relative;
+  margin-bottom: 1.5rem; }
+  @media screen and (min-width: 768px) {
+    .gallery__item {
+      flex: 0 0 auto;
+      width: 25%; } }
+  @media screen and (min-width: 768px) {
+    .gallery__item__half {
+      flex: 0 0 auto;
+      width: 50%; } }
+
+.gallery__photo {
+  height: auto;
+  max-width: 100%;
+  width: 100%; }
+
+.gallery__title {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 3.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  font-size: 2.6rem;
+  color: #fff; }
 
 .btn-contact {
   text-transform: uppercase;
@@ -41,7 +104,9 @@ body {
 .box {
   border: 2px solid #3C3C3C;
   display: flex;
-  text-align: center; }
+  text-align: center;
+  width: 60%;
+  margin: auto; }
   .box__title {
     text-transform: uppercase;
     text-align: center;
@@ -49,6 +114,21 @@ body {
     font-size: 3rem;
     font-weight: bold;
     letter-spacing: 0.25rem; }
+  .box__photo {
+    margin-bottom: 4rem; }
   .box__content {
-    padding: 5rem 10rem;
+    padding: 3rem 10rem;
     font-size: 1.6rem; }
+    .box__content__title {
+      text-transform: uppercase;
+      margin-bottom: 4rem;
+      font-size: 3.3rem;
+      letter-spacing: 0.25rem; }
+
+@media screen and (max-width: 768px) {
+  .box {
+    width: 100% !important; }
+    .box__title {
+      padding: 0 5rem !important; }
+    .box__content {
+      padding: 1rem 5rem !important; } }

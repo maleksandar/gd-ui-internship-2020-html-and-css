@@ -12,6 +12,10 @@
 html {
 	box-sizing: border-box;
 	font-size: 62.5%;
+
+	@media only screen and (max-width: 75em) {
+		font-size: 50%;
+	}
 }
 
 body {
@@ -21,6 +25,6 @@ body {
 	min-height: 100vh;
 }
 
-.primary-title {
-	font-size: $title-font-size;
+.margin-y {
+	margin: 2rem 0;
 }

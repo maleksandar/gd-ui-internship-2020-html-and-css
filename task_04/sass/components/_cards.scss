@@ -1,0 +1,46 @@
+.box {
+	border: 2px solid $primary-color;
+	display: flex;
+	text-align: center;
+	width: 60%;
+	margin: auto;
+
+	&__title {
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0 10rem;
+		font-size: 3rem;
+		font-weight: bold;
+		letter-spacing: 0.25rem;
+	}
+
+	&__photo {
+		margin-bottom: 4rem;
+	}
+
+	&__content {
+		padding: 3rem 10rem;
+		font-size: 1.6rem;
+
+		&__title {
+			text-transform: uppercase;
+			margin-bottom: 4rem;
+			font-size: 3.3rem;
+			letter-spacing: 0.25rem;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.box {
+		width: 100% !important;
+
+		&__title {
+			padding: 0 5rem !important;
+		}
+
+		&__content {
+			padding: 1rem 5rem !important;
+		}
+	}
+}
