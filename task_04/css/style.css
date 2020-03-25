@@ -7,3 +7,41 @@
 
 html {
   font-size: 62.5%; }
+
+.heading--3 {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 2px; }
+
+.footer {
+  margin-bottom: 10px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  grid-auto-flow: column; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 0.8rem; }
+  .gallery__item {
+    overflow: hidden;
+    position: relative; }
+    .gallery__item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      transition: all 0.5s; }
+    .gallery__item img:hover {
+      transform: scale(1.2); }
+    .gallery__item h3 {
+      position: absolute;
+      color: white;
+      text-transform: uppercase;
+      left: 2rem;
+      bottom: 2rem; }
+  @media only screen and (max-width: 568px) {
+    .gallery {
+      grid-template-columns: 1fr;
+      grid-auto-rows: 1fr; } }
