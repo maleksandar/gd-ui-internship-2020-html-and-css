@@ -26,6 +26,18 @@ body {
 .primary-title {
   font-size: 2.5rem; }
 
+.header__title {
+  font-size: 2.5rem;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.7rem; }
+
+.header__description {
+  color: white;
+  width: 40%;
+  margin: 2rem auto;
+  text-align: center; }
+
 .container {
   width: 100%;
   padding: 5rem 0.75rem;
@@ -88,6 +100,19 @@ body {
   letter-spacing: 0.5rem;
   font-size: 2.6rem;
   color: #fff; }
+
+.header {
+  background-image: url("../assets/images/heading-image.png");
+  background-size: cover;
+  text-align: center;
+  position: relative;
+  height: 90vh; }
+  .header__logo {
+    margin-top: 9.4rem;
+    margin-bottom: 4rem; }
+  .header__mouse {
+    position: absolute;
+    bottom: 3.8rem; }
 
 .btn-contact {
   text-transform: uppercase;

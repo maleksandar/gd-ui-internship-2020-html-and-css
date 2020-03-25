@@ -1,0 +1,17 @@
+.header {
+    background-image: url("../assets/images/heading-image.png");
+    background-size: cover;
+    text-align: center;
+    position: relative;
+    height: 90vh;
+   
+    &__logo {
+        margin-top: 9.4rem;
+        margin-bottom: 4rem;
+    }
+
+    &__mouse {
+        position: absolute;
+        bottom: 3.8rem;
+    }
+}
