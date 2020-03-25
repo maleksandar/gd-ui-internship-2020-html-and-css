@@ -9,6 +9,15 @@
 		gap: 3rem;
 	}
 
+	&__title {
+		position: absolute;
+		bottom: 2.2rem;
+		left: 3.7rem;
+		text-transform: uppercase;
+		letter-spacing: $letter-spacing-secondary;
+		color: $white-color;
+	}
+
 	&__item {
 		width: 100%;
 		position: relative;
@@ -26,14 +35,5 @@
 			transform: scale(1.2);
 			filter: blur(1px);
 		}
-	}
-
-	&__title {
-		position: absolute;
-		bottom: 2.2rem;
-		left: 3.7rem;
-		text-transform: uppercase;
-		letter-spacing: $letter-spacing-secondary;
-		color: $white-color;
 	}
 }
