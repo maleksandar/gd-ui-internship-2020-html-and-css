@@ -4,9 +4,9 @@
 	background-color: $primary-color;
 	height: 6rem;
 	color: $white-color;
-	font-size: 1.6rem;
+	font-size: $font-size-primary;
 	text-align: center;
-	letter-spacing: 0.25rem;
+	letter-spacing: $letter-spacing-primary;
 	margin-top: 3rem;
 
 	&:hover {

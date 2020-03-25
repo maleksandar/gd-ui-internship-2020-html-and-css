@@ -1,9 +1,18 @@
 // Colors
-$primary-color: #3C3C3C;
-$white-color: #fff;
+$primary-color: #3C3C3C !default;
+$white-color: #fff !default;
+
+// Typography
+$title-primary: 3.5rem !default;
+$title-secondary: 3rem !default;
+$title-tertiary: 2.5rem !default;
 
 // Font size
-$title-font-size: 3.5rem;
+$font-size-primary: 1.6rem !default;
+
+// Letter spacing
+$letter-spacing-primary: 0.25rem !default;
+$letter-spacing-secondary: 0.5rem !default;
 
 // Container padding
 $container-padding-x: 1rem !default;

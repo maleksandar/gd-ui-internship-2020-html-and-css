@@ -38,9 +38,8 @@
 		text-transform: uppercase;
 		text-align: center;
 		padding: 0 10rem;
-		font-size: 3rem;
 		font-weight: bold;
-		letter-spacing: 0.25rem;
+		letter-spacing: $letter-spacing-primary;
 		top: 0;
 		left: 50%;
 		width: 100%;
@@ -54,13 +53,12 @@
 
 	&__content {
 		padding: 4rem 10rem;
-		font-size: 1.6rem;
+		font-size: $font-size-primary;
 
 		&__title {
 			text-transform: uppercase;
 			margin-bottom: 2rem;
-			font-size: 2.5rem;
-			letter-spacing: 0.25rem;
+			letter-spacing: $letter-spacing-primary;
 		}
 	}
 
