@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap");
 * {
-  box-sizing: border-box;
-  font-family: Lato; }
+  box-sizing: border-box; }
 
 body {
+  font-family: Lato;
   margin: 0;
   padding: 0; }
 
@@ -102,10 +102,16 @@ p {
       color: white;
       font-size: 12px;
       text-transform: unset; }
+    .services fieldset .text-wrapper {
+      margin: 30px 0; }
 
 .what-we-do {
   display: flex;
   justify-content: center; }
+  .what-we-do p {
+    color: black;
+    font-size: 14px;
+    text-transform: unset; }
 
 fieldset {
   border: 2px solid black;
@@ -123,12 +129,6 @@ legend {
   padding-left: 100px;
   letter-spacing: 5px;
   color: #3C3C3C; }
-
-p {
-  color: #3C3C3C;
-  font-size: 14px;
-  text-transform: none;
-  font-weight: 300; }
 
 .feature__image1 {
   height: 84px;
@@ -157,7 +157,9 @@ p {
   display: flex;
   justify-content: center; }
   .contact-us p {
-    font-size: 16px; }
+    color: black;
+    font-size: 14px;
+    text-transform: unset; }
   .contact-us fieldset {
     margin-bottom: 70px; }
   .contact-us__button {
@@ -178,7 +180,8 @@ p {
     display: inline-block; }
   .copyrights__text {
     display: inline-block;
-    font-weight: 300; }
+    font-weight: 300;
+    font-size: 14px; }
 
 @media (max-width: 800px) {
   fieldset {

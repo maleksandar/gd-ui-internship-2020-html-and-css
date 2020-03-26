@@ -1,6 +1,12 @@
 .what-we-do {
   display: flex;
   justify-content: center;
+
+  p {
+    color: black;
+    font-size: 14px;
+    text-transform: unset;
+  }
 }
 
 fieldset {
@@ -20,13 +26,6 @@ legend {
   padding-left: 100px;
   letter-spacing: 5px;
   color: $dark-grey;
-}
-
-p {
-  color: $dark-grey;
-  font-size: 14px;
-  text-transform: none;
-  font-weight: 300;
 }
 
 .feature {
@@ -64,7 +63,9 @@ p {
   justify-content: center;
 
   p {
-    font-size: 16px;
+    color: black;
+    font-size: 14px;
+    text-transform: unset;
   }
 
   fieldset{
@@ -93,6 +94,7 @@ p {
   &__text {
     display: inline-block;
     font-weight: 300;
+    font-size: 14px;
   }
 }
 
