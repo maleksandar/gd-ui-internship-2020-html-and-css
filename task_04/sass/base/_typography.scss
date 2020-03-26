@@ -1,10 +1,8 @@
-
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .header {
-
   .heading--1 {
     text-transform: uppercase;
     color: $color-light;
@@ -18,19 +16,18 @@
     transform: translate(-50%, -50%);
     animation: pop-out 1s linear;
 
-    @media only screen and (max-width: 768px) {
-      top:38%;
-      font-size:3.4rem;
+    @media only screen and (max-width: $bp-md) {
+      top: 38%;
+      font-size: 3.4rem;
     }
 
-    @media only screen and (max-width: 320px) {
+    @media only screen and (max-width: $bp-xs) {
       font-size: 3rem;
-      top:42%;
+      top: 42%;
     }
-    
   }
 
-.heading--2 {
+  .heading--2 {
     text-transform: uppercase;
     color: $color-light;
     font-weight: 400;
@@ -43,20 +40,17 @@
     transform: translate(-50%, -50%);
     animation: pop-out 1s linear;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: $bp-md) {
       font-size: 0.8rem;
       top: 67%;
     }
 
-    @media only screen and (max-width: 320px) {
+    @media only screen and (max-width: $bp-xs) {
       font-size: 0.5rem;
       line-height: 1.3rem;
       top: 70%;
     }
-
-    
-}
-
+  }
 }
 
 .heading-3 {
@@ -64,6 +58,3 @@
   font-size: 1.8rem;
   font-weight: 400px;
 }
-
-
-

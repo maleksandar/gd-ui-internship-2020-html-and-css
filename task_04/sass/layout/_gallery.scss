@@ -24,12 +24,12 @@
     }
   }
 
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: $bp-lg) {
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: 1fr;
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: $bp-sm) {
     grid-template-columns: 1fr;
   }
 }
