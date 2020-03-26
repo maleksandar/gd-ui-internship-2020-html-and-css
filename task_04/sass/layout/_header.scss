@@ -11,6 +11,10 @@
         top: 30%;
         transform: translate(-50%, -50%);
         animation: pop-out 1s linear;
+
+        @media only screen and (max-width:768px) {
+            top: 13%;
+        }
     }
 
     &__mouse {
@@ -20,6 +24,10 @@
         left: 50%;
         transform: translate(-50%, -50%);
         animation: pop-out 1s linear;
+    }
+
+    @media only screen and (max-width:768px) {
+        height: 70vh;
     }
 }
 

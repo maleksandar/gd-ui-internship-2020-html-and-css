@@ -59,4 +59,18 @@
   &--dark {
     color: $color-dark;
   }
+
+  @media only screen and (max-width: 768px) {
+    min-width: 10rem;
+    width: 90vw;
+    padding: 1rem 0 0.5rem 0;
+
+    &::before,
+    &::after {
+    content: '';
+    width: 20%;
+  }
+  }
 }
+
+

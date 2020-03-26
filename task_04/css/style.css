@@ -35,6 +35,14 @@ a:active {
   letter-spacing: 0.4rem;
   transform: translate(-50%, -50%);
   animation: pop-out 1s linear; }
+  @media only screen and (max-width: 768px) {
+    .header .heading--1 {
+      top: 38%;
+      font-size: 3.4rem; } }
+  @media only screen and (max-width: 320px) {
+    .header .heading--1 {
+      font-size: 3rem;
+      top: 42%; } }
 
 .header .heading--2 {
   text-transform: uppercase;
@@ -48,6 +56,15 @@ a:active {
   line-height: 2rem;
   transform: translate(-50%, -50%);
   animation: pop-out 1s linear; }
+  @media only screen and (max-width: 768px) {
+    .header .heading--2 {
+      font-size: 0.8rem;
+      top: 67%; } }
+  @media only screen and (max-width: 320px) {
+    .header .heading--2 {
+      font-size: 0.5rem;
+      line-height: 1.3rem;
+      top: 70%; } }
 
 .heading-3 {
   text-transform: uppercase;
@@ -122,6 +139,14 @@ a:active {
     color: #fff; }
   .card--dark {
     color: #3C3C3C; }
+  @media only screen and (max-width: 768px) {
+    .card {
+      min-width: 10rem;
+      width: 90vw;
+      padding: 1rem 0 0.5rem 0; }
+      .card::before, .card::after {
+        content: '';
+        width: 20%; } }
 
 .footer {
   margin-bottom: 10px;
@@ -172,6 +197,9 @@ a:active {
     top: 30%;
     transform: translate(-50%, -50%);
     animation: pop-out 1s linear; }
+    @media only screen and (max-width: 768px) {
+      .header__logo {
+        top: 13%; } }
   .header__mouse {
     position: absolute;
     width: 1.5rem;
@@ -179,6 +207,9 @@ a:active {
     left: 50%;
     transform: translate(-50%, -50%);
     animation: pop-out 1s linear; }
+  @media only screen and (max-width: 768px) {
+    .header {
+      height: 70vh; } }
 
 .about {
   padding: 10rem 0; }
