@@ -62,6 +62,33 @@ p {
     .about-us fieldset .bottom-text-wrapper {
       margin-bottom: 30px; }
 
+.services {
+  display: flex;
+  justify-content: center;
+  background: url("../../assets/services.png");
+  background-size: cover; }
+  .services fieldset {
+    border: 2px solid white;
+    border-radius: 2px;
+    width: 750px;
+    margin-top: 110px;
+    margin-bottom: 110px; }
+    .services fieldset legend {
+      color: #fff;
+      font-size: 28px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding-right: 100px;
+      padding-left: 100px;
+      letter-spacing: 5px; }
+    .services fieldset p {
+      color: white;
+      font-size: 12px;
+      text-transform: unset; }
+    .services fieldset .text-wrapper {
+      margin-top: 25px;
+      margin-bottom: 30px; }
+
 * {
   box-sizing: border-box;
   font-family: Lato; }
