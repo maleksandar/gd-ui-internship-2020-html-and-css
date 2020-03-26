@@ -1,0 +1,4 @@
+// Returns the name with a dash in front.
+@function get-infix($name) {
+	@return "-#{$name}";
+}

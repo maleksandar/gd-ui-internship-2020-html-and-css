@@ -1,0 +1,16 @@
+// Colors
+$color-primary: #F38181 !default;
+$color-secondary: #FCE38A !default;
+$color-link: #2ec06c !default;
+$color-white: #fff !default;
+
+// Fonts
+$font-roboto: 'Roboto', sans-serif !default;
+$font-montserrat: 'Montserrat', sans-serif !default;
+$font-kaushan-script: 'Kaushan Script', cursive !default;
+
+$font-families: (
+				'roboto': $font-roboto,
+				'montserrat': $font-montserrat,
+				'kaushan-script': $font-kaushan-script
+) !default;
