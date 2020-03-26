@@ -66,14 +66,13 @@ a:active {
     top: 50%;
     transform: translate(-50%, -50%);
     text-transform: uppercase; }
-
-.btn--dark {
-  background-color: #3C3C3C;
-  color: #fff;
-  transition: 0.15s; }
-  .btn--dark:hover {
-    background-color: #626262;
-    font-size: 1.1rem; }
+  .btn--dark {
+    background-color: #3C3C3C;
+    color: #fff;
+    transition: 0.15s; }
+    .btn--dark:hover {
+      background-color: #626262;
+      font-size: 1.1rem; }
 
 .card {
   position: relative;
