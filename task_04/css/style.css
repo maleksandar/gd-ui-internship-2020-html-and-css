@@ -113,15 +113,16 @@ a:active {
     margin: 2rem auto;
     width: 60%;
     text-align: center;
-    font-size: 1.4rem; }
+    font-size: 1.4rem;
+    line-height: 1.5; }
     .card__text--secondary {
       width: 50%; }
   .card__icon {
     width: 5rem; }
-
-.card--light {
-  border-color: #fff;
-  color: white; }
+  .card--light {
+    color: #fff; }
+  .card--dark {
+    color: #3C3C3C; }
 
 .footer {
   margin-bottom: 10px;
@@ -187,3 +188,8 @@ a:active {
 
 .activities {
   padding: 10rem 0; }
+
+.contact {
+  padding: 10rem 0; }
+  .contact .btn {
+    margin: 2rem auto; }

@@ -44,7 +44,7 @@
     width: 60%;
     text-align: center;
     font-size: 1.4rem;
-
+    line-height: 1.5;
     &--secondary {
       width: 50%;
     }
@@ -52,9 +52,11 @@
   &__icon {
     width: 5rem;
   }
-}
 
-.card--light {
-  border-color: #fff;
-  color: white;
+  &--light {
+    color: $color-light;
+  }
+  &--dark {
+    color: $color-dark;
+  }
 }
