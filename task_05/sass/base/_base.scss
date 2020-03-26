@@ -21,15 +21,26 @@ html {
 body {
 	@include font-roboto();
 	font-weight: 400;
-	min-height: 100vh;
-	color: $color-white;
-	background: linear-gradient(to bottom, $color-primary, $color-secondary);
+	color: $color-grey-dark-3;
+	background-color: $color-white;
 }
 
-#work-in-progress {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100vh;
-	font-size: 10rem;
+a {
+	text-decoration: none;
+	outline: none;
+	color: $color-link;
+	transition: all .3s ease-in-out;
+
+	&:hover {
+		color: $color-grey-dark-2;
+		text-decoration: none;
+	}
+
+	&:active {
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline: none;
+	}
 }

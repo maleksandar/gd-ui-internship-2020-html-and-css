@@ -1,0 +1,23 @@
+.btn-learn-more {
+	display: inline-block;
+	color: $color-white;
+	text-transform: uppercase;
+	padding: 1rem 2rem;
+	text-align: center;
+	border: 2px solid $color-white;
+	font-size: 1.2rem;
+	line-height: 100%;
+	background-color: transparent;
+
+	a {
+		color: $color-white;
+	}
+
+	&:hover {
+		background-color: $color-white;
+
+		a {
+			color: $color-grey-dark-1;
+		}
+	}
+}
