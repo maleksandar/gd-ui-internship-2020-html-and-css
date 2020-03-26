@@ -1,8 +1,11 @@
 @import './base/typography';
 @import './components/header';
+@import './components/about';
+@import './utils/variables';
 
 * {
   box-sizing: border-box;
+  font-family: Lato;
 }
 
 body {

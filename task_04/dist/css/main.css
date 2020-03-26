@@ -1,29 +1,70 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900);
-body {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/header.png");
-  background-size: cover;
-  font-family: 'Source Sans Pro', sans-serif; }
-
+@import url("https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap");
 header {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center; }
+  background: url("../../assets/header.png");
+  background-size: cover;
+  height: 100%; }
 
-h1 {
+.elipsis-wrapper {
+  display: flex;
+  justify-content: center; }
+  .elipsis-wrapper img {
+    margin-top: 210px;
+    margin-bottom: 35px;
+    width: 50px; }
+
+.header-title span {
+  display: flex;
+  justify-content: center;
   text-transform: uppercase;
-  margin: 0;
-  font-size: 3rem;
-  white-space: nowrap; }
+  color: #fff;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 6px; }
 
 p {
-  margin: 0;
-  font-size: 1.5rem; }
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase; }
+
+.mouse-logo-wrapper {
+  display: flex;
+  justify-content: center; }
+  .mouse-logo-wrapper img {
+    margin-top: 180px;
+    margin-bottom: 35px;
+    width: 20px; }
+
+.about-us {
+  display: flex;
+  justify-content: center; }
+  .about-us fieldset {
+    border: 2px solid black;
+    border-radius: 2px;
+    width: 750px;
+    margin-top: 110px;
+    margin-bottom: 110px; }
+    .about-us fieldset legend {
+      font-size: 28px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding-right: 100px;
+      padding-left: 100px;
+      letter-spacing: 5px; }
+    .about-us fieldset p {
+      color: black;
+      font-size: 12px;
+      text-transform: unset; }
+    .about-us fieldset .upper-text-wrapper {
+      margin: 40px 0; }
+    .about-us fieldset .bottom-text-wrapper {
+      margin-bottom: 30px; }
 
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: Lato; }
 
 body {
   margin: 0;

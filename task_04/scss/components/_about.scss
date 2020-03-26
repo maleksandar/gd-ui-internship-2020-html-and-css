@@ -1,0 +1,35 @@
+.about-us {
+  display: flex;
+  justify-content: center;
+
+  fieldset {
+    border: 2px solid black;
+    border-radius: 2px;
+    width: 750px;
+    margin-top: 110px;
+    margin-bottom: 110px;
+
+    legend {
+      font-size: 28px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding-right: 100px;
+      padding-left: 100px;
+      letter-spacing: 5px;
+    }
+
+    p {
+      color: black;
+      font-size: 12px;
+      text-transform: unset;
+    }
+
+    .upper-text-wrapper {
+      margin: 40px 0;
+    }
+
+    .bottom-text-wrapper{
+      margin-bottom: 30px;
+    }
+  }
+}
