@@ -1,7 +1,11 @@
 @import './base/typography';
+@import './base/utilities';
 @import './components/header';
 @import './components/about';
+@import './components/composition';
+@import './layout/images';
 @import './utils/variables';
+
 
 * {
   box-sizing: border-box;
