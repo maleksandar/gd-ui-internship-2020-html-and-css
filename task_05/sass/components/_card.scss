@@ -1,0 +1,50 @@
+.card {
+  height: 200px;
+  margin: 2rem;
+  position: relative;
+  transition: transform $card-animation-time;
+
+  &__picture,
+  &::before {
+    @include absolute($top: 0, $left: 0);
+    @include size(100%, 100%);
+  }
+
+  &__overlay {
+    @include absolute($top: 0, $left: 0);
+    @include size(100%, 100%);
+    transition: opacity $card-animation-time;
+    background-image: $primary-color-gradient;
+    z-index: 1;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &__icon {
+    width: 5rem;
+  }
+  &__title {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+  }
+
+  &::before {
+    content: '';
+    transition: transform $card-animation-time;
+    background-color: $secondary-color;
+  }
+
+  &:hover {
+    transform: translate(-1rem, -1rem);
+  }
+  &:hover::before {
+    transform: translate(1rem, 1rem);
+  }
+}
