@@ -1,0 +1,14 @@
+{
+  "name": "task_05",
+  "version": "1.0.0",
+  "description": "code for task_5 of internship",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css --watch"
+  },
+  "author": "vuk i ivan",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  }
+}
