@@ -242,7 +242,7 @@ a {
 .carousel {
   display: flex;
   flex-direction: column;
-  padding: 4rem; }
+  padding: 4rem 0 0; }
   @media screen and (max-width: 768px) {
     .carousel {
       padding-top: 10px; } }
@@ -353,7 +353,7 @@ a {
       color: #faf3e0;
       text-transform: uppercase;
       margin: 0 1.2rem;
-      padding: 1rem 0;
+      padding: 1.2rem 0;
       font-size: 1.3rem; }
       @media screen and (max-width: 480px) {
         .carousel__indicators__inner::after {
@@ -429,6 +429,32 @@ a {
         height: auto;
         width: 100%;
         max-width: 100%; }
+  .section__devices {
+    position: relative;
+    text-align: center; }
+    .section__devices__tablet {
+      width: 38rem; }
+      @media screen and (max-width: 992px) {
+        .section__devices__tablet {
+          width: 25rem; } }
+    .section__devices__mobile {
+      position: absolute;
+      bottom: -6rem;
+      left: 50%;
+      margin-left: 14rem;
+      width: 17rem; }
+      @media screen and (max-width: 992px) {
+        .section__devices__mobile {
+          bottom: -3.8rem;
+          margin-left: 8.8rem;
+          width: 11rem; } }
+      @media screen and (max-width: 768px) {
+        .section__devices__mobile {
+          margin-left: 6.5rem; } }
+      @media screen and (max-width: 640px) {
+        .section__devices__mobile {
+          margin-left: 5rem;
+          width: 9rem; } }
 
 .section-counting {
   font-family: "Montserrat", sans-serif;
@@ -497,6 +523,14 @@ a {
 
 .section-services__description {
   font-size: 1.3rem; }
+
+.section-unique-design {
+  padding-bottom: 0;
+  margin-bottom: 3rem;
+  background: #e0e0e0 url("../assets/images/unique-design/bg-unique-design.jpg") no-repeat center center;
+  background-size: cover; }
+  .section-unique-design .section__content {
+    justify-content: center; }
 
 .container {
   width: 100%;
