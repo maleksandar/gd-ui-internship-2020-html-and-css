@@ -113,14 +113,22 @@ legend {
 }
 
 @media (max-width: 600px) {
-  fieldset {
-    width: 350px;
-  }
+  .about-us,
+  .services,
+  .what-we-do {
+    fieldset {
+      width: 350px;
+    }
+  
+    legend {
+      font-size: 22px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
 
-  legend {
-    font-size: 22px;
-    padding-left: 20px;
-    padding-right: 20px;
+    p {
+      font-size: 12px;
+    }
   }
 
   .feature {
@@ -155,12 +163,6 @@ legend {
     }
   }
 
-  .what-we-do {
-    p {
-      font-size: 12px;
-    }
-  }
-
   .copyrights {
     &__text {
       font-size: 10px;
@@ -179,15 +181,23 @@ legend {
   }
 
   @media (max-width: 360px) {
-    fieldset {
-      width: 250px;
-    }
+    .what-we-do,
+    .services,
+    .about-us {
+      fieldset {
+        width: 250px;
+      }
+  
+      legend {
+        font-size: 17px;
+        padding-left: 10px;
+        padding-right: 10px;
+        letter-spacing: 3px;
+      }
 
-    legend {
-      font-size: 17px;
-      padding-left: 10px;
-      padding-right: 10px;
-      letter-spacing: 3px;
+      p {
+        font-size: 10px;
+      }
     }
 
     .contact-us {
@@ -200,12 +210,6 @@ legend {
         font-size: 12px;
         letter-spacing: 1px;
         height: 30px;
-      }
-    }
-
-    .what-we-do {
-      p {
-        font-size: 10px;
       }
     }
 

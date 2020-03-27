@@ -8,7 +8,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "myScript": "node-sass --watch scss/ -o dist/css"
+    "scss": "node-sass --watch scss/ -o dist/css"
   },
   "author": "",
   "license": "ISC"

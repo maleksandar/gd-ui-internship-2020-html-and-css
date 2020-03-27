@@ -49,3 +49,13 @@ p {
     width: 20px;
   }
 }
+
+@media(max-width:600px){
+  .header-title span {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 8px;
+  }
+}

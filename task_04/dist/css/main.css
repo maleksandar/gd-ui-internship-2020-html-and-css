@@ -54,6 +54,12 @@ p {
     margin-bottom: 35px;
     width: 20px; }
 
+@media (max-width: 600px) {
+  .header-title span {
+    font-size: 22px; }
+  p {
+    font-size: 8px; } }
+
 .about-us {
   display: flex;
   justify-content: center; }
@@ -78,6 +84,16 @@ p {
       margin: 40px 0; }
     .about-us fieldset .bottom-text-wrapper {
       margin-bottom: 30px; }
+
+@media (max-width: 600px) {
+  .about-us fieldset {
+    max-width: 350px; }
+    .about-us fieldset legend {
+      font-size: 22px;
+      padding-right: 20px;
+      padding-left: 20px; }
+    .about-us fieldset p {
+      font-size: 12px; } }
 
 .services {
   display: flex;
@@ -104,6 +120,16 @@ p {
       text-transform: unset; }
     .services fieldset .text-wrapper {
       margin: 30px 0; }
+
+@media (max-width: 600px) {
+  .services fieldset {
+    max-width: 350px; }
+    .services fieldset legend {
+      font-size: 22px;
+      padding-right: 20px;
+      padding-left: 20px; }
+    .services fieldset p {
+      font-size: 12px; } }
 
 .what-we-do {
   display: flex;
@@ -192,12 +218,20 @@ legend {
     width: 250px; } }
 
 @media (max-width: 600px) {
-  fieldset {
+  .about-us fieldset,
+  .services fieldset,
+  .what-we-do fieldset {
     width: 350px; }
-  legend {
+  .about-us legend,
+  .services legend,
+  .what-we-do legend {
     font-size: 22px;
     padding-left: 20px;
     padding-right: 20px; }
+  .about-us p,
+  .services p,
+  .what-we-do p {
+    font-size: 12px; }
   .feature__image1 {
     height: 64px;
     width: 61px; }
@@ -214,8 +248,6 @@ legend {
   .contact-us__button {
     width: 150px;
     font-size: 15px; }
-  .what-we-do p {
-    font-size: 12px; }
   .copyrights__text {
     font-size: 10px; } }
 
@@ -227,13 +259,21 @@ legend {
     height: 47px; } }
 
 @media (max-width: 600px) and (max-width: 360px) {
-  fieldset {
+  .what-we-do fieldset,
+  .services fieldset,
+  .about-us fieldset {
     width: 250px; }
-  legend {
+  .what-we-do legend,
+  .services legend,
+  .about-us legend {
     font-size: 17px;
     padding-left: 10px;
     padding-right: 10px;
     letter-spacing: 3px; }
+  .what-we-do p,
+  .services p,
+  .about-us p {
+    font-size: 10px; }
   .contact-us p {
     font-size: 10px; }
   .contact-us__button {
@@ -241,8 +281,6 @@ legend {
     font-size: 12px;
     letter-spacing: 1px;
     height: 30px; }
-  .what-we-do p {
-    font-size: 10px; }
   .copyrights__text {
     font-size: 7px; }
   .copyrights__image {
