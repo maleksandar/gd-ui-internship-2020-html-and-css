@@ -21,3 +21,12 @@
 		}
 	}
 }
+
+#navbar__toggler {
+	display: none;
+	font-size: 2.2rem;
+
+	@media screen and (max-width: 768px) {
+		display: block;
+	}
+}

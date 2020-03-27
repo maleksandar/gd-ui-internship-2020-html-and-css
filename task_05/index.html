@@ -16,50 +16,93 @@
 </head>
 <body>
 
-  <header class="header">
-    <section class="container carousel">
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        <div class="carousel__item">
-          <h2 class="carousel__title">
-            <span class="carousel__subtitle">Creative Template</span>
-            Welcome <br>to Mogo
-          </h2>
-
-          <button class="btn-learn-more">
-            <a href="#">Learn more</a>
-          </button>
-        </div>
+<header class="header">
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar__header">
+        <a class="navbar__brand" href="/">Mogo</a>
       </div>
 
-      <!-- Indicators -->
-      <ol class="carousel__indicators">
-        <li class="carousel__indicators__item carousel__indicators__item--active">
-          <div class="carousel__indicators__inner">
-            <span class="carousel__indicators__number">01</span> intro
-          </div>
-        </li>
+      <div class="navbar__content">
+        <ul class="navbar__nav navbar__nav--closed">
+          <li class="navbar__link navbar__link--active">
+            <a href="/">Home</a>
+          </li>
 
-        <li class="carousel__indicators__item">
-          <div class="carousel__indicators__inner">
-            <span class="carousel__indicators__number">02</span> work
-          </div>
-        </li>
+          <li class="navbar__link">
+            <a href="#">About</a>
+          </li>
 
-        <li class="carousel__indicators__item">
-          <div class="carousel__indicators__inner">
-            <span class="carousel__indicators__number">03</span> about
-          </div>
-        </li>
+          <li class="navbar__link">
+            <a href="#">Service</a>
+          </li>
 
-        <li class="carousel__indicators__item">
-          <div class="carousel__indicators__inner">
-            <span class="carousel__indicators__number">04</span> contacts
-          </div>
-        </li>
-      </ol>
-    </section>
-  </header>
+          <li class="navbar__link">
+            <a href="#">Our Team</a>
+          </li>
 
+          <li class="navbar__link">
+            <a href="#">Work</a>
+          </li>
+
+          <li class="navbar__link">
+            <a href="#">Blog</a>
+          </li>
+        </ul>
+
+        <div class="navbar__icon-box">
+          <a href="#"><i id="navbar__toggler" class="mdi mdi-menu navbar__icon"></i></a>
+          <a href="#"><i class="mdi mdi-cart-outline navbar__icon"></i></a>
+          <a href="#"><i class="mdi mdi-magnify navbar__icon"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="container carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="carousel__item">
+        <h2 class="carousel__title">
+          <span class="carousel__subtitle">Creative Template</span>
+          Welcome <br>to Mogo
+        </h2>
+
+        <button class="btn-learn-more">
+          <a href="#">Learn more</a>
+        </button>
+      </div>
+    </div>
+
+    <!-- Indicators -->
+    <ol class="carousel__indicators">
+      <li class="carousel__indicators__item carousel__indicators__item--active">
+        <div class="carousel__indicators__inner">
+          <span class="carousel__indicators__number">01</span> intro
+        </div>
+      </li>
+
+      <li class="carousel__indicators__item">
+        <div class="carousel__indicators__inner">
+          <span class="carousel__indicators__number">02</span> work
+        </div>
+      </li>
+
+      <li class="carousel__indicators__item">
+        <div class="carousel__indicators__inner">
+          <span class="carousel__indicators__number">03</span> about
+        </div>
+      </li>
+
+      <li class="carousel__indicators__item">
+        <div class="carousel__indicators__inner">
+          <span class="carousel__indicators__number">04</span> contacts
+        </div>
+      </li>
+    </ol>
+  </section>
+</header>
+
+<script src="js/script.js"></script>
 </body>
 </html>
