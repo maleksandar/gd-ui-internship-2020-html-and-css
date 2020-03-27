@@ -15,148 +15,147 @@
   <title>Mogo</title>
 </head>
 <body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar__header">
+          <a class="navbar__brand" href="/task_05">Mogo</a>
+        </div>
 
-<!-- Header -->
-<header class="header">
-  <nav class="navbar">
+        <div class="navbar__content">
+          <ul class="navbar__nav navbar__nav--closed">
+            <li class="navbar__link navbar__link--active">
+              <a href="/task_05">Home</a>
+            </li>
+
+            <li class="navbar__link">
+              <a href="#">About</a>
+            </li>
+
+            <li class="navbar__link">
+              <a href="#">Service</a>
+            </li>
+
+            <li class="navbar__link">
+              <a href="#">Our Team</a>
+            </li>
+
+            <li class="navbar__link">
+              <a href="#">Work</a>
+            </li>
+
+            <li class="navbar__link">
+              <a href="#">Blog</a>
+            </li>
+          </ul>
+
+          <div class="navbar__icon-box">
+            <a href="#"><i id="navbar__toggler" class="mdi mdi-menu navbar__icon"></i></a>
+            <a href="#"><i class="mdi mdi-cart-outline navbar__icon"></i></a>
+            <a href="#"><i class="mdi mdi-magnify navbar__icon"></i></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="container carousel">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="carousel__item">
+          <h2 class="carousel__title">
+            <span class="carousel__subtitle">Creative Template</span>
+            Welcome <br>to Mogo
+          </h2>
+
+          <button class="btn-learn-more">
+            <a href="#">Learn more</a>
+          </button>
+        </div>
+      </div>
+
+      <!-- Indicators -->
+      <ol class="carousel__indicators">
+        <li class="carousel__indicators__item carousel__indicators__item--active">
+          <div class="carousel__indicators__inner">
+            <span class="carousel__indicators__number">01</span> intro
+          </div>
+        </li>
+
+        <li class="carousel__indicators__item">
+          <div class="carousel__indicators__inner">
+            <span class="carousel__indicators__number">02</span> work
+          </div>
+        </li>
+
+        <li class="carousel__indicators__item">
+          <div class="carousel__indicators__inner">
+            <span class="carousel__indicators__number">03</span> about
+          </div>
+        </li>
+
+        <li class="carousel__indicators__item">
+          <div class="carousel__indicators__inner">
+            <span class="carousel__indicators__number">04</span> contacts
+          </div>
+        </li>
+      </ol>
+    </section>
+  </header>
+
+  <!-- Story About Us -->
+  <section class="section">
     <div class="container">
-      <div class="navbar__header">
-        <a class="navbar__brand" href="/task_05">Mogo</a>
-      </div>
+      <h2 class="section__title">
+        <span class="section__subtitle">What we do</span>
+        Story about us
+      </h2>
+      <p class="section__description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.
+      </p>
 
-      <div class="navbar__content">
-        <ul class="navbar__nav navbar__nav--closed">
-          <li class="navbar__link navbar__link--active">
-            <a href="/task_05">Home</a>
-          </li>
+      <div class="section__content">
+        <div class="section__item">
+          <div class="overlay__wrapper">
+            <a class="overlay" href="#">
+            <span class="overlay__content">
+              <i class="mdi mdi-account-multiple overlay__icon"></i>
+              super team
+            </span>
+              <img src="assets/images/story/img-1.jpg" alt="">
+            </a>
+          </div>
+        </div>
 
-          <li class="navbar__link">
-            <a href="#">About</a>
-          </li>
+        <div class="section__item">
+          <div class="overlay__wrapper">
+            <a class="overlay" href="#">
+            <span class="overlay__content">
+              <i class="mdi mdi-image-filter-center-focus-weak overlay__icon"></i>
+              Creativity
+            </span>
+              <img src="assets/images/story/img-2.jpg" alt="">
+            </a>
+          </div>
+        </div>
 
-          <li class="navbar__link">
-            <a href="#">Service</a>
-          </li>
-
-          <li class="navbar__link">
-            <a href="#">Our Team</a>
-          </li>
-
-          <li class="navbar__link">
-            <a href="#">Work</a>
-          </li>
-
-          <li class="navbar__link">
-            <a href="#">Blog</a>
-          </li>
-        </ul>
-
-        <div class="navbar__icon-box">
-          <a href="#"><i id="navbar__toggler" class="mdi mdi-menu navbar__icon"></i></a>
-          <a href="#"><i class="mdi mdi-cart-outline navbar__icon"></i></a>
-          <a href="#"><i class="mdi mdi-magnify navbar__icon"></i></a>
+        <div class="section__item">
+          <div class="overlay__wrapper">
+            <a class="overlay" href="#">
+            <span class="overlay__content">
+              <i class="mdi mdi-apple-airplay overlay__icon"></i>
+              Digital
+            </span>
+              <img src="assets/images/story/img-3.jpg" alt="">
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </nav>
-
-  <section class="container carousel">
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="carousel__item">
-        <h2 class="carousel__title">
-          <span class="carousel__subtitle">Creative Template</span>
-          Welcome <br>to Mogo
-        </h2>
-
-        <button class="btn-learn-more">
-          <a href="#">Learn more</a>
-        </button>
-      </div>
-    </div>
-
-    <!-- Indicators -->
-    <ol class="carousel__indicators">
-      <li class="carousel__indicators__item carousel__indicators__item--active">
-        <div class="carousel__indicators__inner">
-          <span class="carousel__indicators__number">01</span> intro
-        </div>
-      </li>
-
-      <li class="carousel__indicators__item">
-        <div class="carousel__indicators__inner">
-          <span class="carousel__indicators__number">02</span> work
-        </div>
-      </li>
-
-      <li class="carousel__indicators__item">
-        <div class="carousel__indicators__inner">
-          <span class="carousel__indicators__number">03</span> about
-        </div>
-      </li>
-
-      <li class="carousel__indicators__item">
-        <div class="carousel__indicators__inner">
-          <span class="carousel__indicators__number">04</span> contacts
-        </div>
-      </li>
-    </ol>
   </section>
-</header>
 
-<!-- Story About Us -->
-<section id="story-about-us">
-  <div class="container">
-    <h2 class="section__title">
-      <span class="section__subtitle">What we do</span>
-      Story about us
-    </h2>
-    <p class="section__description">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat.
-    </p>
-
-    <div class="section__content">
-      <div class="section__item">
-        <div class="overlay__wrapper">
-          <a class="overlay" href="#">
-          <span class="overlay__content">
-            <i class="mdi mdi-account-multiple overlay__icon"></i>
-            super team
-          </span>
-            <img src="assets/images/story/img-1.jpg" alt="">
-          </a>
-        </div>
-      </div>
-
-      <div class="section__item">
-        <div class="overlay__wrapper">
-          <a class="overlay" href="#">
-          <span class="overlay__content">
-            <i class="mdi mdi-image-filter-center-focus-weak overlay__icon"></i>
-            Creativity
-          </span>
-            <img src="assets/images/story/img-2.jpg" alt="">
-          </a>
-        </div>
-      </div>
-
-      <div class="section__item">
-        <div class="overlay__wrapper">
-          <a class="overlay" href="#">
-          <span class="overlay__content">
-            <i class="mdi mdi-apple-airplay overlay__icon"></i>
-            Digital
-          </span>
-            <img src="assets/images/story/img-3.jpg" alt="">
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script src="js/script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
