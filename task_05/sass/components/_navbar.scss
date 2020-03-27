@@ -9,9 +9,6 @@
 
 	@media screen and (max-width: 768px) {
 		background: rgba(234, 83, 83, 0.70);
-		//flex-wrap: wrap;
-		//justify-content: flex-end;
-		//align-content: space-around;
 	}
 
 	.container {
@@ -21,6 +18,8 @@
 	}
 
 	&__header {
+		@include center();
+
 		margin-left: 0;
 		margin-right: 0;
 	}
@@ -31,8 +30,12 @@
 		font-weight: 700;
 		font-size: 2rem;
 		height: 5rem;
-		padding: 1.5rem;
+		padding-top: 2rem;
 		line-height: 2rem;
+
+		@media screen and (max-width: 768px) {
+			padding-top: 1.5rem;
+		}
 
 		&:hover {
 			color: $color-secondary;
@@ -43,11 +46,6 @@
 		align-self: stretch;
 		display: flex;
 		align-items: center;
-
-		//@media screen and (max-width: 768px) {
-		//	flex-wrap: wrap;
-		//	justify-content: flex-end;
-		//}
 
 		& > * {
 			@include center();
@@ -102,6 +100,7 @@
 
 	&__link {
 		@include center();
+
 		height: 100%;
 
 		a {
@@ -149,6 +148,5 @@
 		text-align: center;
 		height: 2.25rem;
 		width: 2.25rem;
-		color: var(--color-grey-dark-2);
 	}
 }
