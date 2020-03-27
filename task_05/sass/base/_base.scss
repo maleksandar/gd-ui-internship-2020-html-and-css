@@ -44,3 +44,8 @@ a {
 		outline: none;
 	}
 }
+
+.vertical-stretch {
+	display: flex;
+	align-items: stretch;
+}
