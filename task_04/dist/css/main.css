@@ -111,7 +111,8 @@ p {
   .what-we-do p {
     color: black;
     font-size: 14px;
-    text-transform: unset; }
+    text-transform: unset;
+    font-weight: 300; }
 
 fieldset {
   border: 2px solid black;
@@ -138,7 +139,7 @@ legend {
   height: 77px;
   width: 80px; }
 
-.feature__image1 {
+.feature__image3 {
   height: 92px;
   width: 80px; }
 
@@ -159,7 +160,8 @@ legend {
   .contact-us p {
     color: black;
     font-size: 14px;
-    text-transform: unset; }
+    text-transform: unset;
+    font-weight: 300; }
   .contact-us fieldset {
     margin-bottom: 70px; }
   .contact-us__button {
@@ -189,14 +191,78 @@ legend {
   .contact-us__button {
     width: 250px; } }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   fieldset {
     width: 350px; }
   legend {
-    font-size: 26px; }
-  .copyrights__text,
-  .copyrights__image {
+    font-size: 22px;
+    padding-left: 20px;
+    padding-right: 20px; }
+  .feature__image1 {
+    height: 64px;
+    width: 61px; }
+  .feature__image2 {
+    height: 57px;
+    width: 65px; }
+  .feature__image3 {
+    height: 62px;
+    width: 61px; }
+  .feature__heading {
+    font-size: 20px; }
+  .contact-us p {
+    font-size: 12px; }
+  .contact-us__button {
+    width: 150px;
+    font-size: 15px; }
+  .what-we-do p {
+    font-size: 12px; }
+  .copyrights__text {
     font-size: 10px; } }
+
+@media (max-width: 600px) and (max-width: 420px) {
+  .contact-us__button {
+    width: 150px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    height: 47px; } }
+
+@media (max-width: 600px) and (max-width: 360px) {
+  fieldset {
+    width: 250px; }
+  legend {
+    font-size: 17px;
+    padding-left: 10px;
+    padding-right: 10px;
+    letter-spacing: 3px; }
+  .contact-us p {
+    font-size: 10px; }
+  .contact-us__button {
+    width: 130px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    height: 30px; }
+  .what-we-do p {
+    font-size: 10px; }
+  .copyrights__text {
+    font-size: 7px; }
+  .copyrights__image {
+    width: 20px; }
+  .copyrights__button {
+    width: 100px;
+    height: 30px;
+    font-size: 8px;
+    letter-spacing: 2px; }
+  .feature__image1 {
+    height: 54px;
+    width: 51px; }
+  .feature__image2 {
+    height: 47px;
+    width: 55px; }
+  .feature__image3 {
+    height: 52px;
+    width: 51px; }
+  .feature__heading {
+    font-size: 16px; } }
 
 .grid-images {
   display: grid;
@@ -248,17 +314,23 @@ legend {
     left: 20px;
     letter-spacing: 3px; }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .grid-images__heading-secondary {
-    font-size: 20px;
-    left: 15px; } }
+    font-size: 15px;
+    left: 17px; } }
 
-@media (max-width: 540px) {
+@media (max-width: 600px) {
   .grid-images__heading-secondary {
     font-size: 15px;
     left: 10px; } }
 
-@media (max-width: 400px) {
+@media (max-width: 560px) {
   .grid-images__heading-secondary {
     font-size: 10px;
-    left: 5px; } }
+    left: 8px; } }
+
+@media (max-width: 400px) {
+  .grid-images__heading-secondary {
+    font-size: 6px;
+    left: 6px;
+    letter-spacing: 2px; } }
