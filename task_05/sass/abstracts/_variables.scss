@@ -28,19 +28,21 @@ $font-families: (
 
 // Grid breakpoints
 $grid-breakpoints: (
-				xs: 0,
-				sm: 576px,
-				md: 768px,
-				lg: 992px,
-				xl: 1200px
+				extra-small: 0,
+				mobile: 480px,
+				small: 576px,
+				old-mobile: 640px,
+				medium: 768px,
+				large: 992px,
+				extra-large: 1200px
 ) !default;
 
 // Grid containers
 $container-max-widths: (
-				sm: 540px,
-				md: 720px,
-				lg: 960px,
-				xl: 1140px
+				small: 540px,
+				medium: 720px,
+				large: 960px,
+				extra-large: 1140px
 ) !default;
 
 $container-padding-x: 1rem !default;
