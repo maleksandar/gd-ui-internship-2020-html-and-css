@@ -46,6 +46,9 @@ a {
 }
 
 .vertical-stretch {
-	display: flex;
 	align-items: stretch;
+}
+
+.vertical-center {
+	align-items: center;
 }
