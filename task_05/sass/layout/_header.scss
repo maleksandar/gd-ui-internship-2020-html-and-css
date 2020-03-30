@@ -1,0 +1,12 @@
+.header__carousel {
+    background-image:
+    $primary-color-gradient
+    , url(../img/bg-header.jpg);
+    background-size: cover;
+    height: 32vh;
+
+    .btn--header {
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+}
