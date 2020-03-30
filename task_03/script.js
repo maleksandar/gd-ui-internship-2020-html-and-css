@@ -1,5 +1,5 @@
 const X_CLASS = "x";
-const CIRCLE_CLASS = "circle";
+const O_CLASS = "circle";
 const WINNING_COMBINATIONS = [
   [0, 1, 2],
   [3, 4, 5],
@@ -10,148 +10,138 @@ const WINNING_COMBINATIONS = [
   [0, 4, 8],
   [2, 4, 6]
 ];
-const cellElements = document.querySelectorAll("[data-cell]");
+
+// Board
 const board = document.getElementById("board");
-const getPlayerNamesElement = document.getElementById("playerNames");
+const cellElements = document.querySelectorAll(".board__cell");
+
 const winningMessageElement = document.getElementById("winning-message");
-const winningMessageTextElement = document.querySelector(
-  "[data-winning-message-text]"
-);
-const winnerNameField = document.getElementById("winnerName");
-const restartButton = document.getElementById("restartButton");
+const winningMessageTextElement = document.getElementById("winning-message-text");
+const winnerNameInput = document.getElementById("winner-name");
+const winnerList = document.getElementById("sidebar-winner-list");
 
-let circleTurn;
-let circleMoves;
-let xMoves;
-let winnerId;
+let circleTurn = false;
+let movesCount = 0;
 
-let WINNER_NAME = "";
-
-allStorage();
-startGame();
-restartButton.addEventListener("click", saveAndRestart);
-
+// Start Game
 function startGame() {
-  circleTurn = false;
-  circleMoves = 0;
-  xMoves = 0;
-  allMoves = 0;
   cellElements.forEach(cell => {
-    cell.classList.remove(X_CLASS);
-    cell.classList.remove(CIRCLE_CLASS);
-    cell.removeEventListener("click", handleClick);
-    cell.addEventListener("click", handleClick, { once: true });
+    cell.classList.remove(X_CLASS, O_CLASS);
+    cell.addEventListener("click", handleOnCellClick, { once: true });
   });
-  setBoardHoverClass();
-  winningMessageElement.classList.remove("show");
+
+  setBoardClass();
 }
 
-function saveName() {
-  WINNER_NAME = document.getElementById("winnerName").value;
-}
-
-function saveAndRestart() {
-  if (!document.getElementById("winnerName").value) {
+// Restart Game
+function onGameRestart() {
+  if (!winnerNameInput.value) {
     alert("You must enter your name!");
-  } else if (document.getElementById("winnerName").value.length > 12) {
-    alert("Your name must be between 1 and 12 charachters");
+  } else if (winnerNameInput.value.length > 12) {
+    alert("Your name must be between 1 and 12 characters");
   } else {
-    winner = {
-      winnerName: WINNER_NAME,
+    const winner = {
+      id: Math.floor(Math.random() * 100000),
+      name: winnerNameInput.value,
       symbol: circleTurn ? "O" : "X",
-      moves: allMoves
+      moves: movesCount
     };
 
-    winnerId = Math.floor(Math.random() * 100000);
-    localStorage.setItem(winnerId, JSON.stringify(winner));
+    setWinnerToLocalStorage(winner)
+    renderWinnerListItem(winner);
 
-    let newWinner = document.createElement("div");
-    newWinner.className = "winner";
-    newWinner.innerHTML = `Winner: ${winner.winnerName}, symbol: ${winner.symbol}, moves: ${winner.moves}`;
-    document.getElementById("list-of-winners").appendChild(newWinner);
+    winningMessageElement.classList.remove("show");
+    winnerNameInput.value = "";
+    movesCount = 0;
 
-    document.getElementById("winnerName").value = "";
     startGame();
   }
 }
 
-function allStorage() {
-  var values = [],
-    keys = Object.keys(localStorage),
-    i = keys.length;
-
-  while (i--) {
-    values.push(localStorage.getItem(keys[i]));
-  }
-
-  for (let i = 0; i < values.length; i++) {
-    values[i] = JSON.parse(values[i]);
-    let divs = document.createElement("div");
-    divs.className = "winner";
-    divs.innerHTML = `Winner: ${values[i].winnerName}, symbol: ${values[i].symbol}, moves: ${values[i].moves}`;
-    document.getElementById("list-of-winners").appendChild(divs);
-  }
-}
-
-function handleClick(e) {
-  const cell = e.target;
-  const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
-  placeMark(cell, currentClass);
-  if (checkWin(currentClass)) {
-    endGame(false);
-  } else if (isDraw()) {
-    endGame(true);
-  } else {
-    swapTurns();
-    setBoardHoverClass();
-  }
-}
-
+// End game
 function endGame(draw) {
   if (draw) {
     winningMessageTextElement.innerText = "Draw!";
   } else {
     winningMessageTextElement.innerText = `${
       circleTurn
-        ? `O's win within ${allMoves} moves`
-        : `X's win within ${allMoves} moves`
+        ? `O's win within ${movesCount} moves`
+        : `X's win within ${movesCount} moves`
       }`;
   }
   winningMessageElement.classList.add("show");
 }
 
-function isDraw() {
-  return [...cellElements].every(cell => {
-    return (
-      cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS)
-    );
-  });
-}
+// Set field
+function handleOnCellClick(e) {
+  const cell = e.target;
+  const currentClass = circleTurn ? O_CLASS : X_CLASS;
 
-function placeMark(cell, currentClass) {
   cell.classList.add(currentClass);
-}
+  movesCount += 1;
 
-function swapTurns() {
-  circleTurn = !circleTurn;
-}
-
-function setBoardHoverClass() {
-  board.classList.remove(X_CLASS);
-  board.classList.remove(CIRCLE_CLASS);
-  if (circleTurn) {
-    board.classList.add(CIRCLE_CLASS);
-    allMoves += 1;
+  if (isWin(currentClass)) {
+    endGame(false);
+  } else if (isDraw()) {
+    endGame(true);
   } else {
-    board.classList.add(X_CLASS);
-    allMoves += 1;
+    circleTurn = !circleTurn;
+
+    setBoardClass();
   }
 }
 
-function checkWin(currentClass) {
+// Render Winners List
+function renderListOfWinnersOnInit() {
+  const localStorageKeys = Object.keys(localStorage);
+
+  for (let i = 0; i < localStorageKeys.length; i++) {
+    renderWinnerListItem(JSON.parse(localStorage.getItem(localStorageKeys[i])))
+  }
+}
+
+function renderWinnerListItem(winner) {
+  let winnerListItem = document.createElement("div");
+
+  winnerListItem.className = "winner";
+  winnerListItem.innerHTML += `Winner: ${winner.name},`
+  winnerListItem.innerHTML += `symbol: ${winner.symbol},`
+  winnerListItem.innerHTML += `moves: ${winner.moves}`;
+
+  winnerList.appendChild(winnerListItem);
+}
+
+// Set winner to local storage
+function setWinnerToLocalStorage(winner) {
+  localStorage.setItem(winner.id, JSON.stringify(winner));
+}
+
+// Check game status
+function isDraw() {
+  return [...cellElements].every(cell =>
+    cell.classList.contains(X_CLASS) || cell.classList.contains(O_CLASS)
+  );
+}
+
+function isWin(currentClass) {
   return WINNING_COMBINATIONS.some(combination => {
     return combination.every(index => {
       return cellElements[index].classList.contains(currentClass);
     });
   });
 }
+
+// Set border cell classes
+function setBoardClass() {
+  board.classList.remove(X_CLASS, O_CLASS);
+
+  if (circleTurn) {
+    board.classList.add(O_CLASS);
+  } else {
+    board.classList.add(X_CLASS);
+  }
+}
+
+// Init game
+startGame();
+renderListOfWinnersOnInit();

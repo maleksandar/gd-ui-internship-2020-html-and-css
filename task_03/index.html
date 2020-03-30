@@ -11,27 +11,29 @@
 </head>
 
 <body>
-  <div class="board" id="board">
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
+  <div id="board" class="board">
+    <div class="board__cell"></div>
+    <div class="board__cell"></div>
+    <div class="board__cell"></div>
+    <div class="board__cell"></div>
+    <div class="board__cell"></div>
+    <div class="board__cell"></div>
+    <div class="board__cell"></div>
+    <div class="board__cell"></div>
+    <div class="board__cell"></div>
   </div>
 
   <div class="sidebar">
-    <div class="sidebar-title">List of previous winners:</div>
-    <div class="list-of-winners" id="list-of-winners"></div>
+    <div class="sidebar__title">List of previous winners:</div>
+    <div id="sidebar-winner-list" class="sidebar__winner-list"></div>
   </div>
 
-  <div class="winning-message" id="winning-message">
-    <div data-winning-message-text></div>
-    <input type="text" id="winnerName" onchange="saveName()" />
-    <button id="restartButton">Restart</button>
+  <div id="winning-message" class="winning-message">
+    <div id="winning-message-text"></div>
+    <input id="winner-name" type="text" />
+    <button id="restart-button" onclick="onGameRestart()">
+      Restart
+    </button>
   </div>
 </body>
 

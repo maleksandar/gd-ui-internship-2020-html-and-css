@@ -34,7 +34,7 @@ body {
   background-color: black;
 }
 
-.sidebar-title {
+.sidebar__title {
   display: flex;
   justify-content: center;
   color: white;
@@ -42,17 +42,17 @@ body {
   margin: 1rem auto;
 }
 
-.list-of-winners {
+.sidebar__winner-list {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.list-of-winners .winner {
+.sidebar__winner-list .winner {
   color: white;
 }
 
-.cell {
+.board__cell {
   width: var(--cell-size);
   height: var(--cell-size);
   border: 1px solid black;
@@ -63,80 +63,80 @@ body {
   cursor: pointer;
 }
 
-.cell:first-child,
-.cell:nth-child(2),
-.cell:nth-child(3) {
+.board__cell:first-child,
+.board__cell:nth-child(2),
+.board__cell:nth-child(3) {
   border-top: none;
 }
 
-.cell:nth-child(3n + 1) {
+.board__cell:nth-child(3n + 1) {
   border-left: none;
 }
 
-.cell:nth-child(3n + 3) {
+.board__cell:nth-child(3n + 3) {
   border-right: none;
 }
 
-.cell:last-child,
-.cell:nth-child(8),
-.cell:nth-child(7) {
+.board__cell:last-child,
+.board__cell:nth-child(8),
+.board__cell:nth-child(7) {
   border-bottom: none;
 }
 
-.cell.x,
-.cell.circle {
+.board__cell.x,
+.board__cell.circle {
   cursor: not-allowed;
 }
 
-.cell.x::before,
-.cell.x::after,
-.cell.circle::before {
+.board__cell.x::before,
+.board__cell.x::after,
+.board__cell.circle::before {
   background-color: black;
 }
 
-.board.x .cell:not(.x):not(.circle):hover::before,
-.board.x .cell:not(.x):not(.circle):hover::after,
-.board.circle .cell:not(.x):not(.circle):hover::before {
+.board.x .board__cell:not(.x):not(.circle):hover::before,
+.board.x .board__cell:not(.x):not(.circle):hover::after,
+.board.circle .board__cell:not(.x):not(.circle):hover::before {
   background-color: lightgrey;
 }
 
-.cell.x::before,
-.cell.x::after,
-.board.x .cell:not(.x):not(.circle):hover::before,
-.board.x .cell:not(.x):not(.circle):hover::after {
+.board__cell.x::before,
+.board__cell.x::after,
+.board.x .board__cell:not(.x):not(.circle):hover::before,
+.board.x .board__cell:not(.x):not(.circle):hover::after {
   content: "";
   position: absolute;
   width: calc(var(--mark-size) * 0.15);
   height: var(--mark-size);
 }
 
-.cell.x::before,
-.board.x .cell:not(.x):not(.circle):hover::before {
+.board__cell.x::before,
+.board.x .board__cell:not(.x):not(.circle):hover::before {
   transform: rotate(45deg);
 }
 
-.cell.x::after,
-.board.x .cell:not(.x):not(.circle):hover::after {
+.board__cell.x::after,
+.board.x .board__cell:not(.x):not(.circle):hover::after {
   transform: rotate(-45deg);
 }
 
-.cell.circle::before,
-.cell.circle::after,
-.board.circle .cell:not(.x):not(.circle):hover::before,
-.board.circle .cell:not(.x):not(.circle):hover::after {
+.board__cell.circle::before,
+.board__cell.circle::after,
+.board.circle .board__cell:not(.x):not(.circle):hover::before,
+.board.circle .board__cell:not(.x):not(.circle):hover::after {
   content: "";
   position: absolute;
   border-radius: 50%;
 }
 
-.cell.circle::before,
-.board.circle .cell:not(.x):not(.circle):hover::before {
+.board__cell.circle::before,
+.board.circle .board__cell:not(.x):not(.circle):hover::before {
   width: var(--mark-size);
   height: var(--mark-size);
 }
 
-.cell.circle::after,
-.board.circle .cell:not(.x):not(.circle):hover::after {
+.board__cell.circle::after,
+.board.circle .board__cell:not(.x):not(.circle):hover::after {
   width: calc(var(--mark-size) * 0.7);
   height: calc(var(--mark-size) * 0.7);
   background-color: white;
@@ -217,7 +217,7 @@ body {
   display: flex;
 }
 
-#winnerName {
+#winner-name {
   font-size: 2rem;
   margin: 2rem;
 }
