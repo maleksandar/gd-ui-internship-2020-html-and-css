@@ -1,0 +1,13 @@
+.achievement {
+  background-color: $secondary-color;
+  color: #fff;
+  font-size: 16px;
+  &__count {
+    font-size: 2em;
+    margin-bottom: 0.2rem;
+  }
+  &__title {
+    font-size: 0.8em;
+    font-weight: 300;
+  }
+}
