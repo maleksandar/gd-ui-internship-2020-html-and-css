@@ -606,6 +606,8 @@ a {
       padding: 6rem 0; } }
   .section-testimonials .container {
     position: relative; }
+  .section-testimonials--grey {
+    background-color: #f8f8f8; }
   .section-testimonials__slider {
     margin: 0 4rem;
     position: relative;
@@ -618,6 +620,13 @@ a {
       margin: 0;
       padding: 0;
       border: none; }
+  .section-testimonials__icon {
+    padding: 1.6rem;
+    border: 2px solid #95e1d3;
+    font-size: 6.5rem;
+    color: #95e1d3;
+    margin-right: 3rem;
+    flex-shrink: 0; }
   .section-testimonials__avatar {
     display: none;
     width: 10rem;

@@ -357,6 +357,10 @@
 		position: relative;
 	}
 
+	&--grey {
+		background-color: #f8f8f8;
+	}
+
 	&__slider {
 		margin: 0 4rem;
 		position: relative;
@@ -372,6 +376,15 @@
 			padding: 0;
 			border: none;
 		}
+	}
+
+	&__icon {
+		padding: 1.6rem;
+    	border: 2px solid #95e1d3;
+    	font-size: 6.5rem;
+		color: #95e1d3;
+		margin-right: 3rem;
+		flex-shrink: 0;
 	}
 
 	&__avatar {
