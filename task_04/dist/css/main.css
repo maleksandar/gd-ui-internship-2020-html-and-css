@@ -79,7 +79,8 @@ p {
     .about-us fieldset p {
       color: black;
       font-size: 12px;
-      text-transform: unset; }
+      text-transform: unset;
+      font-weight: 300; }
     .about-us fieldset .upper-text-wrapper {
       margin: 40px 0; }
     .about-us fieldset .bottom-text-wrapper {
@@ -101,7 +102,7 @@ p {
   background: url("../../assets/services.png");
   background-size: cover; }
   .services fieldset {
-    border: 2px solid white;
+    border: 2px solid #fff;
     border-radius: 2px;
     width: 750px;
     margin-top: 110px;
@@ -115,9 +116,10 @@ p {
       padding-left: 100px;
       letter-spacing: 5px; }
     .services fieldset p {
-      color: white;
+      color: #fff;
       font-size: 12px;
-      text-transform: unset; }
+      text-transform: unset;
+      font-weight: 300; }
     .services fieldset .text-wrapper {
       margin: 30px 0; }
 
@@ -212,25 +214,31 @@ legend {
     font-size: 14px; }
 
 @media (max-width: 800px) {
-  fieldset {
-    width: 500px; }
+  .what-we-do fieldset,
+  .services fieldset,
+  .about-us fieldset,
+  .contact-us fieldset {
+    width: 550px; }
   .contact-us__button {
     width: 250px; } }
 
 @media (max-width: 600px) {
   .about-us fieldset,
   .services fieldset,
-  .what-we-do fieldset {
+  .what-we-do fieldset,
+  .contact-us fieldset {
     width: 350px; }
   .about-us legend,
   .services legend,
-  .what-we-do legend {
+  .what-we-do legend,
+  .contact-us legend {
     font-size: 22px;
     padding-left: 20px;
     padding-right: 20px; }
   .about-us p,
   .services p,
-  .what-we-do p {
+  .what-we-do p,
+  .contact-us p {
     font-size: 12px; }
   .feature__image1 {
     height: 64px;
@@ -258,21 +266,24 @@ legend {
     letter-spacing: 2px;
     height: 47px; } }
 
-@media (max-width: 600px) and (max-width: 360px) {
+@media (max-width: 600px) and (max-width: 375px) {
   .what-we-do fieldset,
   .services fieldset,
-  .about-us fieldset {
+  .about-us fieldset,
+  .contact-us fieldset {
     width: 250px; }
   .what-we-do legend,
   .services legend,
-  .about-us legend {
+  .about-us legend,
+  .contact-us legend {
     font-size: 17px;
     padding-left: 10px;
     padding-right: 10px;
     letter-spacing: 3px; }
   .what-we-do p,
   .services p,
-  .about-us p {
+  .about-us p,
+  .contact-us p {
     font-size: 10px; }
   .contact-us p {
     font-size: 10px; }
@@ -309,42 +320,48 @@ legend {
   gap: 10px 10px; }
   .grid-images__image-1 {
     background-image: url(../../assets/image1.png);
-    height: 237px;
     grid-column: 1/2;
     grid-row: 1/2;
-    position: relative; }
+    position: relative;
+    background-size: cover;
+    height: 237px; }
   .grid-images__image-2 {
     background-image: url(../../assets/image2.png);
-    height: 237px;
     grid-column: 2/3;
     grid-row: 1/2;
-    position: relative; }
+    position: relative;
+    background-size: cover;
+    height: 237px; }
   .grid-images__image-3 {
     background-image: url(../../assets/image3.png);
-    height: 237px;
     grid-column: 3/4;
     grid-row: 1/2;
-    position: relative; }
+    position: relative;
+    background-size: cover;
+    height: 237px; }
   .grid-images__image-4 {
     background-image: url(../../assets/image4.png);
-    height: 237px;
     grid-column: 1/2;
     grid-row: 2/3;
-    position: relative; }
+    position: relative;
+    background-size: cover;
+    height: 237px; }
   .grid-images__image-5 {
     background-image: url(../../assets/image5.png);
-    height: 237px;
     grid-column: 2/3;
     grid-row: 2/3;
-    position: relative; }
+    position: relative;
+    background-size: cover;
+    height: 237px; }
   .grid-images__image-6 {
     background-image: url(../../assets/image6.png);
-    height: 237px;
     grid-column: 3/4;
     grid-row: 2/3;
-    position: relative; }
+    position: relative;
+    background-size: cover;
+    height: 237px; }
   .grid-images__heading-secondary {
-    color: white;
+    color: #fff;
     font-weight: 500;
     text-transform: uppercase;
     position: absolute;

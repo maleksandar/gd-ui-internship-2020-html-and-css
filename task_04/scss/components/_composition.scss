@@ -101,8 +101,13 @@ legend {
 }
 
 @media (max-width: 800px) {
-  fieldset {
-    width: 500px;
+  .what-we-do,
+  .services,
+  .about-us,
+  .contact-us {
+    fieldset {
+      width: 550px;
+    }
   }
 
   .contact-us {
@@ -115,11 +120,12 @@ legend {
 @media (max-width: 600px) {
   .about-us,
   .services,
-  .what-we-do {
+  .what-we-do,
+  .contact-us {
     fieldset {
       width: 350px;
     }
-  
+
     legend {
       font-size: 22px;
       padding-left: 20px;
@@ -180,14 +186,15 @@ legend {
     }
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 375px) {
     .what-we-do,
     .services,
-    .about-us {
+    .about-us,
+    .contact-us {
       fieldset {
         width: 250px;
       }
-  
+
       legend {
         font-size: 17px;
         padding-left: 10px;

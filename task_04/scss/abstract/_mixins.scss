@@ -1,0 +1,15 @@
+@mixin imgSetupFirstRow {
+  grid-row: 1/2;
+  @include imgSetup;
+}
+
+@mixin imgSetupSecondRow {
+  grid-row: 2/3;
+  @include imgSetup;
+}
+
+@mixin imgSetup {
+  position: relative;
+  background-size: cover;
+  height: 237px;
+}
