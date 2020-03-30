@@ -3,7 +3,8 @@
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif; }
 
 html {
   font-size: 62.5%; }
@@ -55,3 +56,48 @@ a:active {
     transform: translate(-1rem, -1rem); }
   .card:hover::before {
     transform: translate(1rem, 1rem); }
+
+.primary-heading {
+  text-align: center;
+  position: relative; }
+  .primary-heading h2 {
+    padding-top: 2rem;
+    font-family: 'Dancing Script', cursive; }
+  .primary-heading h1 {
+    margin-top: 0.7rem;
+    text-transform: uppercase;
+    padding-bottom: 3rem; }
+  .primary-heading h1:after {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 85%;
+    transform: translateX(-50%);
+    content: "";
+    background-color: black;
+    height: 0.1rem;
+    width: 15%;
+    margin-top: 0.7rem; }
+  .primary-heading--size-lg h2 {
+    font-size: 2rem; }
+  .primary-heading--size-lg h1 {
+    font-size: 4rem; }
+  .primary-heading--size-sm h2 {
+    font-size: 1.3rem; }
+  .primary-heading--size-sm h1 {
+    font-size: 1.5rem; }
+  .primary-heading--size-sm h1:after {
+    top: 72%;
+    width: 10%; }
+  .primary-heading--light h2 {
+    color: white; }
+  .primary-heading--light h1 {
+    color: white; }
+  .primary-heading--light h1:after {
+    background-color: white; }
+  .primary-heading--dark h2 {
+    color: #333333; }
+  .primary-heading--dark h1 {
+    color: #333333; }
+  .primary-heading--dark h1:after {
+    background-color: #F38181; }
