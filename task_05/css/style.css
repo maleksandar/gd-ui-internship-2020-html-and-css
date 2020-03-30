@@ -655,7 +655,11 @@ a {
     font-size: 6.5rem;
     color: #95e1d3;
     margin-right: 3rem;
-    flex-shrink: 0; }
+    flex-shrink: 0;
+    display: none; }
+    @media screen and (min-width: 480px) {
+      .section-testimonials__icon {
+        display: block; } }
   .section-testimonials__avatar {
     display: none;
     width: 10rem;

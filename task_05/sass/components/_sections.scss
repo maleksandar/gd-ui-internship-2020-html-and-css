@@ -426,6 +426,11 @@
 		color: #95e1d3;
 		margin-right: 3rem;
 		flex-shrink: 0;
+		display: none;
+
+		@include media-breakpoint-up(mobile) {
+			display: block;
+		}
 	}
 
 	&__avatar {
