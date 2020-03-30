@@ -49,6 +49,13 @@
 				opacity: 1;
 			}
 		}
+
+		&-wrapper {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+		}
 	}
 
 	&__devices {
@@ -208,6 +215,40 @@
 	&__icon {
 		display: block;
 		font-size: 3rem;
+	}
+
+	&__icon--social-net {
+		font-size: 3rem;
+		padding: 1.5rem;
+    	color: #f38181;
+    	background: #fce38a;
+    	margin: 0 -1px;
+		line-height: 100%;
+		text-transform: uppercase;
+		margin: 0.1px;
+		
+		&:hover {
+			background-color: #f38181;
+			color: white;
+		}
+	}
+
+	&__info {
+		margin-top: 2.5rem;
+		text-align: center;
+
+		&--name {
+			font-size: 1.5rem;
+			margin: 0 0 .8rem;
+			text-transform: uppercase;
+			color: #333;
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		&--regency {
+			font-style: italic;
+			font-size: 1.2rem;
+		}
 	}
 
 	img {
