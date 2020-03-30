@@ -1,11 +1,9 @@
 .l-grid {
   text-align: center;
-  padding: 0 1.5rem;
+  &__item {
+    padding: $primary-item-padding;
+  }
   @include m-query(md) {
     display: flex;
-    &__item {
-      flex: 1;
-      padding: $primary-item-padding;
-    }
   }
 }
