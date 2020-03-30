@@ -16,7 +16,7 @@ a:active {
 
 .card {
   display: inline-block;
-  margin: 2rem auto;
+  margin: 1rem auto;
   position: relative; }
   .card__picture {
     display: block;
@@ -73,6 +73,8 @@ a:active {
     .l-grid {
       display: flex; }
       .l-grid__item {
-        flex: 1; }
-      .l-grid__item:not(:last-child) {
-        margin-right: 2.5rem; } }
+        flex: 1;
+        padding: 0 1.5rem; } }
+
+.achievements {
+  display: flex; }
