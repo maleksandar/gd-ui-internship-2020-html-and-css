@@ -3,11 +3,24 @@
   color: #fff;
   font-size: 16px;
   &__count {
-    font-size: 2em;
-    margin-bottom: 0.2rem;
+    font-size: 1.8em;
+    margin-bottom: 0.6rem;
   }
   &__title {
-    font-size: 0.8em;
-    font-weight: 300;
+    font-size: 0.5em;
+    font-weight: 200;
+    text-transform: uppercase;
+  }
+
+  @include m-query(sm) {
+    font-size: 24px;
+  }
+
+  @include m-query(md) {
+    font-size: 30px;
+  }
+
+  @include m-query(lg) {
+    font-size: 34px;
   }
 }
