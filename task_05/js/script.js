@@ -25,3 +25,34 @@ window.addEventListener('scroll', () => {
 		navbar.classList.remove(NAVBAR_FIXED_CLASSNAME);
 	}
 });
+
+
+const accordion = document.getElementsByClassName("accordion__header");
+for (let i = 0; i < accordion.length; i++){
+    accordion[i].addEventListener('click', function(){
+        accordionClick(event);        
+    });
+}
+
+const accordionClick = () => {
+	let targetClicked = event.target;
+	let classClicked = targetClicked.classList;
+	
+    while ((classClicked[0] !== "accordion__header")){
+        targetClicked = targetClicked.parentElement;
+        classClicked = targetClicked.classList;
+	}
+	
+	let content = targetClicked.nextElementSibling;
+    if (content.style.maxHeight) {
+		content.style.maxHeight = null;
+    } else {
+		let allContents = document.getElementsByClassName("accordion__content");
+        for (let i = 0; i < allContents.length; i++){
+            if (allContents[i].style.maxHeight) {
+                allContents[i].style.maxHeight = null;
+            }
+		}
+        content.style.maxHeight = content.scrollHeight + "px";
+    }
+}

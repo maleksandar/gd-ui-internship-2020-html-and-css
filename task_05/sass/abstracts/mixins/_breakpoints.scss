@@ -4,7 +4,7 @@
 	$min: breakpoint-min($name, $breakpoints);
 
 	@if $min {
-		@media (min-width: $min) {
+		@media screen and (min-width: $min) {
 			@content;
 		}
 	} @else {
