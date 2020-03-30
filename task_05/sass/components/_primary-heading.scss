@@ -1,0 +1,75 @@
+.primary-heading {
+    text-align: center;
+    position: relative;
+
+    h2 {
+        padding-top: 2rem;
+        font-family: 'Dancing Script', cursive;
+    }
+
+    h1 {
+        margin-top: 0.7rem;
+        text-transform: uppercase;
+        padding-bottom: 3rem;
+    }
+
+    h1:after {
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 85%;
+        transform: translateX(-50%);
+        content: "";
+        background-color: black;
+        height: 0.13rem;
+        width: 12%;
+        margin-top: 0.7rem;
+    }
+ 
+    &--size-lg {
+        h2 {
+            font-size: 2rem;
+        }
+        h1 {
+            font-size: 4rem;
+        }
+    }
+
+    &--size-sm {
+        h2 {
+            font-size: 1.3rem;
+        }
+        h1 {
+            font-size: 1.5rem;
+        }
+        h1:after {
+            top: 72%;
+            width: 10%;
+        }
+    }
+
+    &--light {
+        h2 {
+            color: $heading-font-color-light;
+        }
+        h1 {
+            color: $heading-font-color-light;
+        }
+        h1:after {
+            background-color: $heading-underline-color-light;
+        }
+    }
+    &--dark {
+        h2 {
+            color: $heading-font-color-dark;
+        }
+        h1 {
+            color: $heading-font-color-dark;
+        }
+        h1:after {
+            background-color: $heading-underline-color-dark;
+        }
+    }
+
+
+}

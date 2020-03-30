@@ -1,9 +1,15 @@
 @import './abstracts/functions';
 @import './abstracts/mixins';
 @import './abstracts/variables';
+
 @import './base/base';
+
+@import './components/button';
 @import './components/card';
 @import './components/horizontal-list';
 @import './layout/container';
 @import './layout/l-grid';
 @import './layout/achievement';
+@import './components/primary-heading';
+
+@import 'layout/header';
