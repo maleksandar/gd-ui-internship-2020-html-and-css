@@ -1,0 +1,7 @@
+.container {
+  margin: 0 auto;
+
+  @include m-query(lg) {
+    max-width: 1170px;
+  }
+}

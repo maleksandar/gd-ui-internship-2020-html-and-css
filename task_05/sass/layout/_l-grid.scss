@@ -1,0 +1,13 @@
+.l-grid {
+  text-align: center;
+  padding: 0 1.5rem;
+  @include m-query(md) {
+    display: flex;
+    &__item {
+      flex: 1;
+    }
+    &__item:not(:last-child) {
+      margin-right: 2.5rem;
+    }
+  }
+}
