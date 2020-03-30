@@ -1,7 +1,9 @@
 .l-row {
   text-align: center;
   &__item {
-    padding: $primary-item-padding;
+    @include m-query(md) {
+      padding: $primary-item-padding;
+    }
   }
   @include m-query(md) {
     display: flex;
