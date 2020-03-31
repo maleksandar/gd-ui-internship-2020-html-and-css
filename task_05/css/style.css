@@ -33,12 +33,10 @@ a:active {
     color: white; }
 
 .card {
-  display: inline-block;
-  margin: 1rem auto;
   position: relative; }
   .card__picture {
     display: block;
-    max-width: 100%; }
+    width: 100%; }
   .card__overlay {
     position: absolute;
     top: 0;
@@ -191,6 +189,8 @@ a:active {
 
 .about {
   padding-bottom: 20px; }
+  .about .card {
+    margin: 1rem 0; }
 
 .header__carousel {
   background-image: linear-gradient(rgba(243, 129, 129, 0.9), rgba(252, 227, 138, 0.9)), url(../img/bg-header.jpg);
@@ -274,6 +274,17 @@ a:active {
   @media only screen and (min-width: 992px) {
     .services__item:nth-last-child(3) {
       border-bottom: none; } }
+
+@media only screen and (min-width: 480px) {
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); }
+    .gallery__item:nth-child(3) {
+      grid-row: span 2; } }
+
+@media only screen and (min-width: 992px) {
+  .gallery {
+    grid-template-columns: repeat(4, 1fr); } }
 
 .u-collapsed {
   display: block; }
