@@ -834,6 +834,53 @@ a {
       .section__brand .brand-container {
         grid-template-columns: repeat(6, 1fr); } }
 
+.section-blog .article {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  line-height: 2rem; }
+  .section-blog .article__image {
+    position: relative;
+    margin-bottom: 1rem;
+    padding: 0 .5rem; }
+    .section-blog .article__image img {
+      width: 100%; }
+  .section-blog .article__date {
+    position: absolute;
+    background: #95e1d3;
+    left: -1rem;
+    bottom: 2rem;
+    padding: 1rem 1.5rem;
+    color: #fff;
+    text-align: center; }
+    .section-blog .article__date--day {
+      font-size: .8rem;
+      display: block;
+      font-size: 2.8rem;
+      line-height: 100%;
+      font-weight: 700; }
+    .section-blog .article__date--month {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 300;
+      font-style: italic; }
+  .section-blog .article__title {
+    font-size: 1.4rem;
+    margin: .5rem 0;
+    color: #2ec06c;
+    text-transform: uppercase; }
+  .section-blog .article__description {
+    font-size: 1.3rem; }
+  .section-blog .article__meta {
+    border-top: 1px solid #e5e5e5;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem; }
+  .section-blog .article__icon {
+    color: #95e1d3;
+    font-size: 1.7rem;
+    position: relative;
+    top: 3px; }
+
 .container {
   width: 100%;
   padding-right: 1rem;
