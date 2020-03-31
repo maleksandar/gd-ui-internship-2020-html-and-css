@@ -47,4 +47,63 @@ header {
       }
     }
   }
+
+  .text-container {
+    &:after{
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: 50px;
+      height: 2px;
+      background: white;
+      transform: translateX(-50%);
+    }
+
+    .upper-text {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      font-weight: 400;
+      font-family: 'Kaushan Script', cursive;
+      font-size: 55px;
+      color: white;
+      text-transform: none;
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
+
+    .bottom-text {
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 110px;
+      font-weight: 700;
+      text-transform: uppercase;
+
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  }
+
+  .button-wrapper {
+    span {
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+
+      a.btn {
+        display: inline-block;
+        color: #fff;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 10px 20px;
+        text-align: center;
+        border: 2px solid #fff;
+        font-size: 12px;
+        line-height: 100%;
+      }
+    }
+  }
 }
