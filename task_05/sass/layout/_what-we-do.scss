@@ -1,0 +1,27 @@
+.what-we-do {
+  &__picture {
+    img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      margin-bottom: 10px;
+    }
+    @include m-query(lg) {
+      flex: 1;
+      margin-right: 40px;
+    }
+  }
+  &__skills {
+    max-width: 700px;
+    margin: 0 auto;
+
+    @include m-query(lg) {
+      flex: 1;
+    }
+  }
+  &__content {
+    @include m-query(lg) {
+      display: flex;
+    }
+  }
+}

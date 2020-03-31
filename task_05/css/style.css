@@ -187,6 +187,61 @@ a:active {
   width: 7rem;
   border: 0.1rem solid rgba(255, 255, 255, 0.644); }
 
+.collapsible {
+  border: 1px solid #e5e5e5; }
+  .collapsible:not(:first-child) {
+    margin-top: 1em; }
+  .collapsible__toggle {
+    display: none; }
+  .collapsible__toggle:checked + .collapsible__label + .collapsible__content {
+    max-height: 140px;
+    margin: 15px 20px 15px 0; }
+  .collapsible__toggle:checked + .collapsible__label .collapsible__arrow {
+    transform: rotate(180deg); }
+  .collapsible__icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    fill: #95e1d3; }
+  .collapsible__label {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5; }
+  .collapsible__title {
+    flex: 1;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: 'Monserrat';
+    font-weight: 300; }
+  .collapsible__arrow {
+    font-size: 20px;
+    color: #e5e5e5; }
+  .collapsible__content {
+    overflow-y: scroll;
+    max-height: 0;
+    transition: all 0.4s ease-in-out;
+    margin-right: 20px; }
+    .collapsible__content::-webkit-scrollbar {
+      width: 5px; }
+    .collapsible__content::-webkit-scrollbar-track {
+      border-left: 2px solid white;
+      border-right: 2px solid white;
+      background-color: #e5e5e5; }
+    .collapsible__content::-webkit-scrollbar-thumb {
+      background-color: #95e1d3;
+      border-radius: 30px; }
+    .collapsible__content::-webkit-resizer {
+      width: 10px; }
+  .collapsible__text {
+    padding: 10px;
+    line-height: 1.7;
+    font-size: 13px;
+    font-family: 'Roboto';
+    color: #999999;
+    margin-right: 30px; }
+
 .about {
   padding-bottom: 20px; }
   .about .card {
@@ -303,6 +358,28 @@ a:active {
     height: 20rem;
     bottom: -8%;
     left: 65%; }
+
+.what-we-do__picture img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  margin-bottom: 10px; }
+
+@media only screen and (min-width: 992px) {
+  .what-we-do__picture {
+    flex: 1;
+    margin-right: 40px; } }
+
+.what-we-do__skills {
+  max-width: 700px;
+  margin: 0 auto; }
+  @media only screen and (min-width: 992px) {
+    .what-we-do__skills {
+      flex: 1; } }
+
+@media only screen and (min-width: 992px) {
+  .what-we-do__content {
+    display: flex; } }
 
 .u-collapsed {
   display: block; }
