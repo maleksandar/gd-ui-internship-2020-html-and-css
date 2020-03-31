@@ -1,5 +1,6 @@
 .navbar {
     background-color: $navbar-background-color;  
+    
 
     &__box-essentials{
         display: flex;
@@ -24,6 +25,7 @@
     &__essential-controls {
         float: right;
         font-size: 2rem;
+        padding: $primary-item-padding;
         .btn {
             color: $navbar-font-color;
             padding: 1.5rem 1rem;
@@ -34,6 +36,7 @@
         background-color: $navbar-dropdown-background-color;
         box-shadow: inset 0px 1rem 1rem -5px rgba(0, 0, 0, 0.5);
         display: none;
+        
 
       
 
@@ -42,6 +45,29 @@
             color: $navbar-font-color;
             padding: 1.8rem $primary-item-padding-side;
             font-size: 1.3rem;
+        }
+
+    }
+
+    @include m-query(lg) {
+        position: absolute;
+        width: 100%;
+        background-color: transparent;
+        transform: translateX(-50%);
+        left:50%;
+        max-width: $maximum-content-width;
+
+        .fa-bars {
+            display:none;
+        }
+
+        &__other-controls {
+            background-color: transparent;
+            box-shadow:none;
+            display: flex;
+            position: absolute;
+            top:0;
+            right: calc(20% - 7rem);
         }
 
     }

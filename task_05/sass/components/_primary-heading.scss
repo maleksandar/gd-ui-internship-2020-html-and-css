@@ -33,6 +33,21 @@
         h1 {
             font-size: 4.3rem;
         }
+
+        @include m-query (lg) {
+            h2 {
+                font-size: 5rem;
+            }
+            h1 {
+                font-size: 10rem;
+            }
+            h1:after {
+                top: 95%;
+                height: 0.2rem;
+            }
+        }
+        
+        
     }
 
     &--size-sm {
@@ -71,5 +86,6 @@
         }
     }
 
+   
 
 }

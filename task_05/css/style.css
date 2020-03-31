@@ -27,7 +27,8 @@ a:active {
 .btn {
   display: inline-block;
   text-transform: uppercase;
-  padding: 1rem 2rem; }
+  padding: 1rem 2rem;
+  text-align: center; }
   .btn--white-transparent {
     border: 1px solid  white;
     color: white; }
@@ -114,7 +115,8 @@ a:active {
       transform: translateY(-50%); }
   .navbar__essential-controls {
     float: right;
-    font-size: 2rem; }
+    font-size: 2rem;
+    padding: 0 1.5rem; }
     .navbar__essential-controls .btn {
       color: white;
       padding: 1.5rem 1rem; }
@@ -127,6 +129,23 @@ a:active {
       color: white;
       padding: 1.8rem 1.5rem;
       font-size: 1.3rem; }
+  @media only screen and (min-width: 992px) {
+    .navbar {
+      position: absolute;
+      width: 100%;
+      background-color: transparent;
+      transform: translateX(-50%);
+      left: 50%;
+      max-width: 1170px; }
+      .navbar .fa-bars {
+        display: none; }
+      .navbar__other-controls {
+        background-color: transparent;
+        box-shadow: none;
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: calc(20% - 7rem); } }
 
 .primary-heading {
   text-align: center;
@@ -153,6 +172,14 @@ a:active {
     font-size: 2.1rem; }
   .primary-heading--size-lg h1 {
     font-size: 4.3rem; }
+  @media only screen and (min-width: 992px) {
+    .primary-heading--size-lg h2 {
+      font-size: 5rem; }
+    .primary-heading--size-lg h1 {
+      font-size: 10rem; }
+    .primary-heading--size-lg h1:after {
+      top: 95%;
+      height: 0.2rem; } }
   .primary-heading--size-sm h2 {
     font-size: 1.8rem; }
   .primary-heading--size-sm h1 {
@@ -250,10 +277,19 @@ a:active {
 .header__carousel {
   background-image: linear-gradient(rgba(243, 129, 129, 0.9), rgba(252, 227, 138, 0.9)), url(../img/bg-header.jpg);
   background-size: cover;
-  height: 35vh; }
+  background-position: center; }
+  .header__carousel .btn {
+    margin-bottom: 6rem; }
   .header__carousel .btn--header {
     margin-left: 50%;
     transform: translateX(-50%); }
+  @media only screen and (min-width: 992px) {
+    .header__carousel .primary-heading {
+      padding-top: 10rem; }
+    .header__carousel .btn {
+      width: 12rem;
+      margin-top: 2rem;
+      margin-bottom: 10rem; } }
 
 .container {
   margin: 0 auto;
@@ -358,6 +394,16 @@ a:active {
     height: 20rem;
     bottom: -8%;
     left: 65%; }
+  @media only screen and (min-width: 992px) {
+    .showcase {
+      height: 60rem; }
+      .showcase__tablet {
+        height: 40rem; }
+      .showcase__phone {
+        height: 35rem;
+        left: 55%; }
+      .showcase .primary-heading {
+        padding-top: 5rem; } }
 
 .what-we-do__picture img {
   display: block;

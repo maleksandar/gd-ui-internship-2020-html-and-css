@@ -3,6 +3,6 @@
   width: 100%;
   padding: $primary-item-padding;
   @include m-query(lg) {
-    max-width: 1170px;
+    max-width: $maximum-content-width;
   }
 }

@@ -20,4 +20,22 @@
         left: 65%;
         
     }
+
+    @include m-query(lg) {
+
+        height: 60rem;
+
+        &__tablet {
+            height: 40rem;
+        }
+
+        &__phone {
+            height: 35rem;
+            left: 55%;
+        }
+
+        .primary-heading {
+            padding-top: 5rem;
+        }
+    }
 }
