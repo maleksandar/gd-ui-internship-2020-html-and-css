@@ -381,5 +381,17 @@ a:active {
   .what-we-do__content {
     display: flex; } }
 
+.employee__name {
+  margin-top: 20px;
+  font-size: 18px;
+  text-transform: uppercase; }
+
+.employee__role {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color: #999999;
+  font-style: italic; }
+
 .u-collapsed {
   display: block; }

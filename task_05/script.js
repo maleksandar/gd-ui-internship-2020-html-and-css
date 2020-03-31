@@ -7,7 +7,6 @@ const controlList = document.querySelector(
 hamburgerButton.addEventListener('click', () => {
   controlList.classList.toggle('u-collapsed');
 });
-
 // makes sure only one collapsible with same class can be open
 const collapsibles = Array.from(
   document.getElementsByClassName('collapsible__toggle'),
@@ -21,3 +20,4 @@ collapsibles.forEach((collapsible) => {
     });
   });
 });
+
