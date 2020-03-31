@@ -286,5 +286,23 @@ a:active {
   .gallery {
     grid-template-columns: repeat(4, 1fr); } }
 
+.showcase {
+  background-image: url(../img/unique-design/bg-unique-design.jpg);
+  background-size: cover;
+  height: 50rem;
+  position: relative;
+  margin-bottom: 5rem; }
+  .showcase__tablet {
+    position: absolute;
+    height: 35rem;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); }
+  .showcase__phone {
+    position: absolute;
+    height: 20rem;
+    bottom: -8%;
+    left: 65%; }
+
 .u-collapsed {
   display: block; }
