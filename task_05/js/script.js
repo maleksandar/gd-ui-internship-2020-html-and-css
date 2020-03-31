@@ -29,12 +29,12 @@ window.addEventListener('scroll', () => {
 
 const accordion = document.getElementsByClassName("accordion__header");
 for (let i = 0; i < accordion.length; i++){
-    accordion[i].addEventListener('click', function(){
+    accordion[i].addEventListener('click', (event) => {
         accordionClick(event);        
     });
 }
 
-const accordionClick = () => {
+const accordionClick = (event) => {
 	let targetClicked = event.target;
 	let classClicked = targetClicked.classList;
 	
