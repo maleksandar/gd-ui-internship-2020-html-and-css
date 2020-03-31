@@ -5,16 +5,21 @@
 @import './base/base';
 @import './base/typography';
 
+
 @import './components/button';
 @import './components/card';
-@import './components/horizontal-list';
-@import './components/primary-heading';
 @import './components/feature-box';
+@import './components/horizontal-list';
+@import './components/navbar';
+@import './components/primary-heading';
+@import './components/indicators';
 
-@import 'layout/header';
 @import 'layout/about';
+@import 'layout/header';
 @import './layout/container';
 @import './layout/l-row';
 @import './layout/l-grid.scss';
 @import './layout/achievement';
 @import './layout/services';
+
+@import './base/utilities';

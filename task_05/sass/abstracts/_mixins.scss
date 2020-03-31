@@ -31,3 +31,13 @@
   width: $width;
   height: $height;
 }
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+

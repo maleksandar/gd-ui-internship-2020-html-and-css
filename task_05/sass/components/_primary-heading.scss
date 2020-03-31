@@ -17,34 +17,34 @@
         display: block;
         position: absolute;
         left: 50%;
-        top: 85%;
+        top: 86%;
         transform: translateX(-50%);
         content: "";
         background-color: black;
         height: 0.13rem;
-        width: 12%;
+        width: 5rem;
         margin-top: 0.7rem;
     }
  
     &--size-lg {
         h2 {
-            font-size: 2rem;
+            font-size: 2.1rem;
         }
         h1 {
-            font-size: 4rem;
+            font-size: 4.3rem;
         }
     }
 
     &--size-sm {
         h2 {
-            font-size: 1.3rem;
+            font-size: 1.8rem;
         }
         h1 {
-            font-size: 1.5rem;
+            font-size: 2.1rem;
         }
         h1:after {
-            top: 72%;
-            width: 10%;
+            top: 76%;
+            width: 5rem;
         }
     }
 

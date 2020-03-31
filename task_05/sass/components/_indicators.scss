@@ -1,0 +1,16 @@
+.indicators {
+    position: relative;
+    top: -3rem;
+    display: flex;
+    justify-content: space-between;
+    padding: $primary-item-padding;
+}
+
+.indicator:after {
+    content: "";
+    display: block;
+    top: 30%;
+    width: 7rem;
+    border: 0.1rem solid rgba(255, 255, 255, 0.644);
+}
+

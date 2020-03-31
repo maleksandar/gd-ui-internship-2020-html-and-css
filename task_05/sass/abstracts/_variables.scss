@@ -6,12 +6,20 @@ $primary-color-gradient: linear-gradient(
 $secondary-color: #95e1d3;
 $paragraph-color: #999999;
 
+$heading-font-color-dark: #333333;
+$heading-underline-color-dark: #f38181;
+$heading-font-color-light: white;
+$heading-underline-color-light: white;
+
+$navbar-background-color: #EB6461;
+$navbar-font-color: white;
+
+$navbar-dropdown-background-color: #d28280;
+
 // animations
 $card-animation-time: 0.4s ease-out;
 
 //layout
 $primary-item-padding: 0 1.5rem;
-$heading-font-color-dark: #333333;
-$heading-underline-color-dark: #f38181;
-$heading-font-color-light: white;
-$heading-underline-color-light: white;
+$primary-item-padding-side: 1.5rem;
+
