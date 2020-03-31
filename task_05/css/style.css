@@ -275,7 +275,7 @@ a:active {
     .services__item:nth-last-child(3) {
       border-bottom: none; } }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 576px) {
   .gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr); }
