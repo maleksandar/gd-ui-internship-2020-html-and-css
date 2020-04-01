@@ -84,18 +84,29 @@ const accordionClick = (event) => {
 		classClicked = targetClicked.classList;
 	}
 
-	let content = targetClicked.nextElementSibling;
+    let content = targetClicked.nextElementSibling;
+    
 	if (content.style.maxHeight) {
-		content.style.maxHeight = null;
+        content.style.maxHeight = null;
+        changeArrow(targetClicked, "up", "down");
 	} else {
 		let allContents = document.getElementsByClassName("accordion__content");
-		for (let i = 0; i < allContents.length; i++) {
+
+        for (let i = 0; i < allContents.length; i++) {
 			if (allContents[i].style.maxHeight) {
-				allContents[i].style.maxHeight = null;
+                allContents[i].style.maxHeight = null;
+                changeArrow(allContents[i].previousElementSibling, "up", "down");
 			}
-		}
-		content.style.maxHeight = content.scrollHeight + "px";
+        }
+        
+        changeArrow(targetClicked, "down", "up");
+        content.style.maxHeight = "19rem";
 	}
+}
+
+const changeArrow = (element, from, to) => {
+    element.lastElementChild.classList.remove(`mdi-chevron-${from}`);
+    element.lastElementChild.classList.add(`mdi-chevron-${to}`);
 }
 
 // Open and close Map
