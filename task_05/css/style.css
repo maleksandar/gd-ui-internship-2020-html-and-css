@@ -23,6 +23,8 @@ a:active {
   color: #999999; }
   .paragraph--left {
     text-align: left; }
+  .paragraph--italic {
+    font-style: italic; }
 
 .btn {
   display: inline-block;
@@ -269,6 +271,22 @@ a:active {
     color: #999999;
     margin-right: 30px; }
 
+.blog {
+  display: flex; }
+  .blog__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; }
+  .blog__title {
+    font-size: 13px;
+    color: #95e1d3; }
+  .blog__photo {
+    margin-right: 1.5em; }
+  .blog__date {
+    font-size: 13px;
+    font-style: italic;
+    color: #999999; }
+
 .about {
   padding-bottom: 20px; }
   .about .card {
@@ -307,6 +325,9 @@ a:active {
   @media only screen and (min-width: 768px) {
     .l-row {
       display: flex; } }
+
+.l-grid--gap {
+  gap: 40px; }
 
 @media only screen and (min-width: 768px) {
   .l-grid {
@@ -438,6 +459,100 @@ a:active {
   font-size: 12px;
   color: #999999;
   font-style: italic; }
+
+.footer {
+  padding-top: 40px; }
+  .footer__copyright {
+    padding-top: 20px;
+    margin-top: 30px;
+    border-top: 1px solid #e5e5e5; }
+
+.social__title {
+  font-size: 32px;
+  color: #cccccc;
+  margin-bottom: 20px; }
+
+.social__followers {
+  padding-bottom: 10px;
+  font-size: 14px;
+  font-weight: 100;
+  border-bottom: 1px solid #e5e5e5; }
+  .social__followers span {
+    font-size: 18px;
+    font-weight: 800; }
+
+.social__links {
+  font-size: 14px;
+  font-style: italic;
+  color: #999999;
+  margin: 15px 0;
+  margin-bottom: 20px; }
+
+.social__link {
+  color: #95e1d3;
+  font-size: 15px;
+  margin: 0 5px; }
+
+@media only screen and (min-width: 768px) {
+  .social {
+    grid-column: span 2;
+    align-self: center; } }
+
+@media only screen and (min-width: 992px) {
+  .social {
+    grid-column: span 1; } }
+
+.subscription-form {
+  display: flex; }
+  .subscription-form__input {
+    display: block;
+    flex: 1;
+    font-size: 16px;
+    outline: 0;
+    padding-left: 20px;
+    border: 1px solid #e5e5e5; }
+    .subscription-form__input::placeholder {
+      color: #cccccc;
+      font-style: italic; }
+  .subscription-form__button {
+    background-color: #95e1d3;
+    border: none;
+    text-transform: uppercase;
+    padding: 12px 15px;
+    font-weight: 800;
+    font-size: 14px;
+    color: white; }
+
+.blogs__heading {
+  font-size: 14px;
+  margin-bottom: 25px;
+  text-transform: uppercase; }
+
+.blogs .blog {
+  margin-bottom: 15px; }
+
+.instagram__heading {
+  font-size: 14px;
+  margin-bottom: 25px;
+  text-transform: uppercase; }
+
+.instagram__feed {
+  display: grid;
+  gap: 2px;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 10px; }
+
+.instagram__photo {
+  display: block;
+  width: 100%; }
+
+.instagram__link {
+  display: block; }
+
+.instagram__link {
+  font-size: 13px;
+  font-style: italic;
+  color: #999999; }
 
 .u-collapsed {
   display: block; }

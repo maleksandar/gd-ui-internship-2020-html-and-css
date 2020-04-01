@@ -1,4 +1,8 @@
 .l-grid {
+  &--gap {
+    gap: 40px;
+  }
+
   @include m-query(md) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

@@ -1,0 +1,20 @@
+.blog {
+    display: flex;
+    &__info{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    &__title {
+        font-size: 13px;
+        color: $secondary-color;
+    }
+    &__photo {
+        margin-right: 1.5em;
+    }
+    &__date {
+        font-size: 13px;
+        font-style: italic;
+        color: #999999;
+    }
+}
