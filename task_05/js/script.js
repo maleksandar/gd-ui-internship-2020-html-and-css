@@ -96,9 +96,6 @@ const accordionClick = (event) => {
 		}
 		content.style.maxHeight = content.scrollHeight + "px";
 	}
-<<<<<<< Updated upstream
-};
-=======
 }
 
 // Open and close Map
@@ -139,4 +136,3 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 
 
->>>>>>> Stashed changes
