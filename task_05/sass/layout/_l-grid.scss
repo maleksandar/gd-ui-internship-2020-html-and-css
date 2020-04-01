@@ -5,6 +5,7 @@
 
   @include m-query(md) {
     display: grid;
+    align-items: center;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 1fr;
   }

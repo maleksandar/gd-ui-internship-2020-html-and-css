@@ -14,7 +14,8 @@
     color: #333333;
   }
   &__item {
-    padding-top: 1em;
+    padding-top: 30px;
+    height: 100%;
     border-bottom: 1px #e5e5e5 solid;
     &:last-child {
       border-bottom: none;

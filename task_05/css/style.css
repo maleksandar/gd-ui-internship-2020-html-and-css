@@ -335,6 +335,7 @@ a:active {
 @media only screen and (min-width: 768px) {
   .l-grid {
     display: grid;
+    align-items: center;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 1fr; } }
 
@@ -378,7 +379,8 @@ a:active {
   color: #333333; }
 
 .services__item {
-  padding-top: 1em;
+  padding-top: 30px;
+  height: 100%;
   border-bottom: 1px #e5e5e5 solid; }
   .services__item:last-child {
     border-bottom: none; }
