@@ -467,40 +467,37 @@ a:active {
     margin-top: 30px;
     border-top: 1px solid #e5e5e5; }
 
-.social__title {
-  font-size: 32px;
-  color: #cccccc;
+.social {
   margin-bottom: 20px; }
-
-.social__followers {
-  padding-bottom: 10px;
-  font-size: 14px;
-  font-weight: 100;
-  border-bottom: 1px solid #e5e5e5; }
-  .social__followers span {
-    font-size: 18px;
-    font-weight: 800; }
-
-.social__links {
-  font-size: 14px;
-  font-style: italic;
-  color: #999999;
-  margin: 15px 0;
-  margin-bottom: 20px; }
-
-.social__link {
-  color: #95e1d3;
-  font-size: 15px;
-  margin: 0 5px; }
-
-@media only screen and (min-width: 768px) {
-  .social {
-    grid-column: span 2;
-    align-self: center; } }
-
-@media only screen and (min-width: 992px) {
-  .social {
-    grid-column: span 1; } }
+  .social__title {
+    font-size: 32px;
+    color: #cccccc;
+    margin-bottom: 20px; }
+  .social__followers {
+    padding-bottom: 10px;
+    font-size: 14px;
+    font-weight: 100;
+    border-bottom: 1px solid #e5e5e5; }
+    .social__followers span {
+      font-size: 18px;
+      font-weight: 800; }
+  .social__links {
+    font-size: 14px;
+    font-style: italic;
+    color: #999999;
+    margin: 15px 0;
+    margin-bottom: 20px; }
+  .social__link {
+    color: #95e1d3;
+    font-size: 15px;
+    margin: 0 5px; }
+  @media only screen and (min-width: 768px) {
+    .social {
+      grid-column: span 2;
+      align-self: center; } }
+  @media only screen and (min-width: 992px) {
+    .social {
+      grid-column: span 1; } }
 
 .subscription-form {
   display: flex; }
