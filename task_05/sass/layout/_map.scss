@@ -31,7 +31,8 @@
     }   
 
     @include m-query(lg) {
-
+        height: 20rem;
+        
         .primary-heading--map-active {
             top: 15%;
         }

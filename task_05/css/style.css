@@ -636,13 +636,15 @@ p {
     height: 30rem;
     max-width: 1170px; }
   @media only screen and (min-width: 992px) {
-    .map .primary-heading--map-active {
-      top: 15%; }
-    .map--active {
-      height: 80rem; }
-    .map .map--active {
-      top: 25%;
-      height: 50rem; } }
+    .map {
+      height: 20rem; }
+      .map .primary-heading--map-active {
+        top: 15%; }
+      .map--active {
+        height: 80rem; }
+      .map .map--active {
+        top: 25%;
+        height: 50rem; } }
 
 .u-collapsed {
   display: block; }
