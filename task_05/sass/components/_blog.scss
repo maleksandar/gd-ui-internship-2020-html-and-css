@@ -7,7 +7,9 @@
     }
     &__title {
         font-size: 13px;
-        color: $secondary-color;
+        font-family: 'Montserrat';
+        text-transform: uppercase;
+        color: #2ec06c;
     }
     &__photo {
         margin-right: 1.5em;
