@@ -36,6 +36,7 @@ a:active {
     color: white; }
 
 .card {
+  display: inline-block;
   position: relative; }
   .card__picture {
     display: block;
@@ -79,6 +80,8 @@ a:active {
       transform: translate(-1rem, -1rem); }
     .card--animation:hover::after {
       transform: translate(1rem, 1rem); }
+  .card--box {
+    display: block; }
 
 .feature-box {
   display: flex;
