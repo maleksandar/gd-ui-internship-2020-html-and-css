@@ -227,6 +227,7 @@
 		text-transform: uppercase;
 		margin: 0.1px;
 		cursor: pointer;
+		transition: all .3s;
 
 		&:hover {
 			background-color: $color-primary;
@@ -532,10 +533,26 @@
 	background: url("../assets/images/happy-client/bg-happy-client.jpg") no-repeat center center;
 	background-size: cover;
 
+	.flex-row {
+		flex-wrap: wrap;
+
+		@include media-breakpoint-up(medium) {
+			flex-wrap: nowrap;
+		}
+	}
+
 	.section__item--half {
 		display: flex;
 		margin-bottom: 3rem;
 		padding-right: 1.5rem;
+
+		@include media-breakpoint-up(mobile) {
+			flex: 0 0 100%;
+		}
+
+		@include media-breakpoint-up(medium) {
+			flex: 0 0 50%;
+		}
 	}
 
 	&__avatar {
@@ -597,7 +614,11 @@
 }
 
 .accordion {
-	padding: 0 1.5rem;
+	padding: 1.5rem 0;
+
+	@include media-breakpoint-up(medium) {
+		padding: 0 1.5rem;
+	}
 
 	&__header {
 		display: flex;
@@ -653,8 +674,8 @@
 			width: .5rem;
 
 			&-thumb {
-			 background-color: #95e1d3;
-			 border-radius: 3rem;
+				background-color: #95e1d3;
+				border-radius: 3rem;
 			}
 		}
 	}
@@ -948,7 +969,7 @@
 	cursor: pointer;
 
 	#map {
-		height: 18rem; 
+		height: 18rem;
 		display: none;
 	}
 }

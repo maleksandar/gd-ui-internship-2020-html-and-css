@@ -67,7 +67,7 @@ window.addEventListener('scroll', debounce(() => {
 }, 200));
 
 
-// Accordion 
+// Accordion
 const accordion = document.getElementsByClassName("accordion__header");
 for (let i = 0; i < accordion.length; i++) {
 	accordion[i].addEventListener('click', (event) => {
@@ -84,30 +84,30 @@ const accordionClick = (event) => {
 		classClicked = targetClicked.classList;
 	}
 
-    let content = targetClicked.nextElementSibling;
-    
+	let content = targetClicked.nextElementSibling;
+
 	if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-        changeArrow(targetClicked, "up", "down");
+		content.style.maxHeight = null;
+		changeArrow(targetClicked, "up", "down");
 	} else {
 		let allContents = document.getElementsByClassName("accordion__content");
 
-        for (let i = 0; i < allContents.length; i++) {
+		for (let i = 0; i < allContents.length; i++) {
 			if (allContents[i].style.maxHeight) {
-                allContents[i].style.maxHeight = null;
-                changeArrow(allContents[i].previousElementSibling, "up", "down");
+				allContents[i].style.maxHeight = null;
+				changeArrow(allContents[i].previousElementSibling, "up", "down");
 			}
-        }
-        
-        changeArrow(targetClicked, "down", "up");
-        content.style.maxHeight = "19rem";
+		}
+
+		changeArrow(targetClicked, "down", "up");
+		content.style.maxHeight = "19rem";
 	}
-}
+};
 
 const changeArrow = (element, from, to) => {
-    element.lastElementChild.classList.remove(`mdi-chevron-${from}`);
-    element.lastElementChild.classList.add(`mdi-chevron-${to}`);
-}
+	element.lastElementChild.classList.remove(`mdi-chevron-${from}`);
+	element.lastElementChild.classList.add(`mdi-chevron-${to}`);
+};
 
 // Open and close Map
 const map = document.getElementById("map");
@@ -117,33 +117,31 @@ let isMapOpen = true;
 mapTitle.addEventListener('click', () => closeAndOpenMap());
 
 const closeAndOpenMap = () => {
-    if(isMapOpen) {
-        map.style.display = "block";
-    } else {
-        map.style.display = "none";
-    }
-     
-    mapTitle.innerHTML = `<span class="section__subtitle section__subtitle--map"> 
+	if (isMapOpen) {
+		map.style.display = "block";
+	} else {
+		map.style.display = "none";
+	}
+
+	mapTitle.innerHTML = `<span class="section__subtitle section__subtitle--map"> 
             <i class="mdi mdi-map-marker"></i>
         </span>
         ${isMapOpen ? "Close" : "Open"} map`;
-    
-    isMapOpen = !isMapOpen;
-}
+
+	isMapOpen = !isMapOpen;
+};
 
 
 // Leaflet
-var mymap = L.map('map').setView([51.505, -0.09], 13);
+let mymap = L.map('map').setView([51.505, -0.09], 13);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-    maxZoom: 18,
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1
+	maxZoom: 18,
+	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+		'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+		'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+	id: 'mapbox/streets-v11',
+	tileSize: 512,
+	zoomOffset: -1
 }).addTo(mymap);
-
-
 
