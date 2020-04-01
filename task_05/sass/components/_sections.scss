@@ -220,16 +220,17 @@
 	&__icon--social-net {
 		font-size: 3rem;
 		padding: 1.5rem;
-		color: #f38181;
-		background: #fce38a;
+		color: $color-primary;
+		background: $color-secondary;
 		margin: 0 -1px;
 		line-height: 100%;
 		text-transform: uppercase;
 		margin: 0.1px;
+		cursor: pointer;
 
 		&:hover {
-			background-color: #f38181;
-			color: white;
+			background-color: $color-primary;
+			color: $color-white;
 		}
 	}
 
@@ -658,19 +659,19 @@
 		grid-template-columns: repeat(2, 1fr);
 		justify-items: center;
 		align-items: center;
-		
+
 		&__image {
 			transition: all .4s;
-	
+
 			&:hover {
 				transform: scale(1.1);
 			}
 		}
-	
+
 		@media screen and (min-width: 640px) {
 			grid-template-columns: repeat(3, 1fr);
 		}
-	
+
 		@media screen and (min-width: 992px) {
 			grid-template-columns: repeat(6, 1fr);
 		}
@@ -696,33 +697,33 @@
 
 		&__date {
 			position: absolute;
-    		background: #95e1d3;
-    		left: -1rem;
-    		bottom: 2rem;
-    		padding: 1rem 1.5rem;
-    		color: #fff;
+			background: #95e1d3;
+			left: -1rem;
+			bottom: 2rem;
+			padding: 1rem 1.5rem;
+			color: #fff;
 			text-align: center;
-			
+
 			&--day {
 				font-size: .8rem;
 				display: block;
-    			font-size: 2.8rem;
-    			line-height: 100%;
-    			font-weight: 700;
+				font-size: 2.8rem;
+				line-height: 100%;
+				font-weight: 700;
 			}
 
 			&--month {
 				display: block;
 				font-size: 1.1rem;
-    			font-weight: 300;
-    			font-style: italic;
+				font-weight: 300;
+				font-style: italic;
 			}
 		}
 
 		&__title {
 			font-size: 1.4rem;
 			margin: .5rem 0;
-    		color: $color-grey-dark-1;
+			color: $color-grey-dark-1;
 			text-transform: uppercase;
 		}
 
@@ -732,15 +733,15 @@
 
 		&__meta {
 			border-top: 1px solid #e5e5e5;
-    		margin-top: 1.5rem;
-    		padding-top: 1.5rem;
+			margin-top: 1.5rem;
+			padding-top: 1.5rem;
 		}
 
 		&__icon {
 			color: #95e1d3;
-    		font-size: 1.7rem;
-    		position: relative;
-    		top: 3px;
+			font-size: 1.7rem;
+			position: relative;
+			top: 3px;
 		}
 	}
 }
@@ -779,7 +780,7 @@
 			@media screen and (min-width: 640px) {
 				flex: 0 0 50%;
 			}
-		
+
 			@media screen and (min-width: 992px) {
 				flex: 0 0 33%;
 			}
@@ -788,10 +789,10 @@
 
 	&__logo {
 		color: #ccc;
-    	font-size: 4rem;
-    	font-weight: 700;
-    	display: inline-block;
-    	margin-bottom: 1.5rem;
+		font-size: 4rem;
+		font-weight: 700;
+		display: inline-block;
+		margin-bottom: 1.5rem;
 	}
 
 	&__description {
@@ -804,13 +805,13 @@
 
 	&__followers {
 		color: #333;
-    	font-weight: 500;
-    	border-bottom: 1px solid #e5e5e5;
-    	padding-bottom: 1rem;
+		font-weight: 500;
+		border-bottom: 1px solid #e5e5e5;
+		padding-bottom: 1rem;
 		margin-bottom: 1rem;
 		font-size: 1.3rem;
 		font-weight: 500;
-		
+
 		span {
 			font-size: 1.8rem;
 			font-weight: 700;
@@ -838,8 +839,8 @@
 	&__form {
 		&--input {
 			border: 1px solid #e7e7e7;
-    		box-shadow: none;
-    		font-style: italic;
+			box-shadow: none;
+			font-style: italic;
 			font-size: 1.4rem;
 			height: 4rem;
 			padding: 1rem;
@@ -854,7 +855,7 @@
 			padding: 0 3rem;
 			color: #fff;
 			text-transform: uppercase;
-    		font-weight: 700;
+			font-weight: 700;
 			font-size: 1.4rem;
 			background: #95e1d3;
 			border: none;
@@ -890,10 +891,10 @@
 		margin-bottom: 2.5rem;
 		font-size: 1.4rem;
 		color: #333;
-    	text-transform: uppercase;
+		text-transform: uppercase;
 		font-weight: 500;
 	}
-	
+
 	&__gallery {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
@@ -906,15 +907,15 @@
 
 	&__more-photos {
 		color: #999;
-    	font-style: italic;
-    	margin-top: 1rem;
+		font-style: italic;
+		margin-top: 1rem;
 		display: inline-block;
 		font-size: 1.3rem;
 	}
 
-    &__copyright {
+	&__copyright {
 		text-align: center;
-    	border-top: 1px solid #e5e5e5;
+		border-top: 1px solid #e5e5e5;
 		padding: 2rem 0;
 		font-weight: bold;
 
