@@ -55,13 +55,14 @@ const headerHeight = document.querySelector('.header').offsetHeight;
 
 window.addEventListener('scroll', debounce(() => {
 	const pageYOffset = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
-
-	console.log(pageYOffset);
+	const navbarHeight = document.querySelector('.navbar').offsetHeight;
 
 	if (pageYOffset >= headerHeight) {
 		navbar.classList.add(NAVBAR_FIXED_CLASSNAME);
+		document.body.style.paddingTop = navbarHeight + 'px';
 	} else {
 		navbar.classList.remove(NAVBAR_FIXED_CLASSNAME);
+		document.body.style.paddingTop = '0';
 	}
 }, 200));
 
@@ -93,4 +94,4 @@ const accordionClick = (event) => {
 		}
 		content.style.maxHeight = content.scrollHeight + "px";
 	}
-}
+};

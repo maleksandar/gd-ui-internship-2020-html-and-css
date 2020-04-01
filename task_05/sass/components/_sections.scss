@@ -115,7 +115,7 @@
 
 			&:hover {
 				.section__gallery-overlay {
-					display: block;
+					opacity: 1;
 				}
 			}
 
@@ -132,7 +132,7 @@
 		}
 
 		&-overlay {
-			display: none;
+			opacity: 0;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -141,7 +141,7 @@
 			text-align: center;
 			background: rgba($color-primary, 0.9);
 			background: linear-gradient(to bottom, rgba($color-primary, 0.9), rgba($color-secondary, 0.9));
-			transition: all .3s ease;
+			transition: opacity .3s ease;
 
 			&__content {
 				position: absolute;
