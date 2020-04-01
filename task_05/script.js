@@ -20,4 +20,42 @@ collapsibles.forEach((collapsible) => {
     });
   });
 });
+function countOnScroll() {
+  let flag = true;
+  const achievement = document.querySelector('.achievement');
+  const offset =
+    achievement.getBoundingClientRect().top +
+    window.scrollY -
+    window.innerHeight;
+  console.log(offset);
+  window.onscroll = function() {
+    if (document.scrollingElement.scrollTop > offset && flag) {
+      flag = false;
+      countUp();
+    }
+  };
+}
 
+// count up animation
+function countUp() {
+  const counters = Array.from(document.getElementsByClassName('.js-count-up'));
+  counters.forEach((counter) => {
+    let i = 0;
+    let duration = 60;
+    let accelerator = 1;
+    let delay;
+
+    let number = parseInt(counter.textContent);
+    (function count() {
+      delay = duration - accelerator++;
+      counter.textContent = i.toString();
+      i++;
+      if (i < number) {
+        setTimeout(() => {
+          count();
+        }, delay);
+      }
+    })();
+  });
+}
+countOnScroll();
