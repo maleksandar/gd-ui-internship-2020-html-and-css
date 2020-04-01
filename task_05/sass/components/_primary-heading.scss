@@ -86,6 +86,16 @@
         }
     }
 
+    &--map {
+        i {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        color: $navbar-background-color;
+        h1:after {
+            background-color: $navbar-background-color;
+        }
+    }
    
 
 }

@@ -4,6 +4,7 @@ const hamburgerButton = document.querySelector(
 const controlList = document.querySelector(
   'body > header > nav > div.navbar__other-controls',
 );
+//add functionality to hamburger button
 hamburgerButton.addEventListener('click', () => {
   controlList.classList.toggle('u-collapsed');
 });
@@ -21,3 +22,34 @@ collapsibles.forEach((collapsible) => {
   });
 });
 
+//initialization of map
+function initMap() {
+
+  let skoja = {lat: 44.747110, lng: 20.431930};
+
+  let map = new google.maps.Map(
+      document.getElementById('map'), {
+        zoom: 4,
+        center: skoja
+      });
+  
+  let marker = new google.maps.Marker({
+    position: skoja,
+    map: map
+    });
+
+  }
+
+
+const mapSection = document.querySelector('body > section.map');
+const mapHeading = document.querySelector('body > section.map > div.primary-heading.primary-heading--size-sm.primary-heading--map');
+const openCloseMap = document.querySelector('body > section.map > div.primary-heading.primary-heading--size-sm.primary-heading--map > h1');
+const mapViewfinder = document.querySelector('#map');
+
+//add open/close map behaviour
+mapHeading.addEventListener('click', () => {
+  mapSection.classList.toggle('map--active');
+  mapHeading.classList.toggle('primary-heading--map-active');
+  openCloseMap.innerHTML  = (openCloseMap.innerHTML === "OPEN MAP") ? "CLOSE MAP" : "OPEN MAP";
+  mapViewfinder.classList.toggle('map--active');
+});

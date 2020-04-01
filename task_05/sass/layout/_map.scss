@@ -1,0 +1,48 @@
+.map {
+    height: 30rem;
+    margin-top: 10rem;
+    background-image: url(../img/map/bg-map.jpg);
+    position: relative;
+    background-size: cover;
+    background-position: center;
+
+    &--active {
+        height: 50rem;
+    }
+    .primary-heading--map{
+        position: absolute;
+        top:50%; 
+        left:50%;
+        transform:translate(-50%, -50%);
+    }
+
+    .primary-heading--map-active {
+        top: 20%;
+    }
+
+    .map--active {
+        position: absolute;
+        top: 34%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        height: 30rem;
+        max-width: $maximum-content-width;
+    }   
+
+    @include m-query(lg) {
+
+        .primary-heading--map-active {
+            top: 15%;
+        }
+    
+        &--active {
+            height: 80rem;
+        }
+
+        .map--active {
+        top: 25%;
+        height: 50rem;
+        }
+    }
+}

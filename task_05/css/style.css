@@ -206,6 +206,13 @@ p {
     color: #333333; }
   .primary-heading--dark h1:after {
     background-color: #f38181; }
+  .primary-heading--map {
+    color: #EB6461; }
+    .primary-heading--map i {
+      font-size: 3rem;
+      margin-bottom: 0.5rem; }
+    .primary-heading--map h1:after {
+      background-color: #EB6461; }
 
 .indicators {
   position: relative;
@@ -603,6 +610,39 @@ p {
   justify-content: center;
   flex-wrap: wrap;
   padding: 3rem 0rem; }
+
+.map {
+  height: 30rem;
+  margin-top: 10rem;
+  background-image: url(../img/map/bg-map.jpg);
+  position: relative;
+  background-size: cover;
+  background-position: center; }
+  .map--active {
+    height: 50rem; }
+  .map .primary-heading--map {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .map .primary-heading--map-active {
+    top: 20%; }
+  .map .map--active {
+    position: absolute;
+    top: 34%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 30rem;
+    max-width: 1170px; }
+  @media only screen and (min-width: 992px) {
+    .map .primary-heading--map-active {
+      top: 15%; }
+    .map--active {
+      height: 80rem; }
+    .map .map--active {
+      top: 25%;
+      height: 50rem; } }
 
 .u-collapsed {
   display: block; }
