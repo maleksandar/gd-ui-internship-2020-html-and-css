@@ -289,6 +289,48 @@ p {
     font-style: italic;
     color: #999999; }
 
+.clickable-logo {
+  display: inline-block;
+  background-size: cover;
+  width: 14rem;
+  height: 14rem;
+  margin: 2rem;
+  transition: transform 0.3s; }
+  .clickable-logo:hover {
+    transform: scale(1.1); }
+  .clickable-logo--1 {
+    background-image: url(../img/brand/img-1.png); }
+  .clickable-logo--2 {
+    background-image: url(../img/brand/img-2.png); }
+  .clickable-logo--3 {
+    background-image: url(../img/brand/img-3.png); }
+  .clickable-logo--4 {
+    background-image: url(../img/brand/img-4.png); }
+  .clickable-logo--5 {
+    background-image: url(../img/brand/img-5.png); }
+  .clickable-logo--6 {
+    background-image: url(../img/brand/img-6.png); }
+  @media only screen and (max-width: 320px) {
+    .clickable-logo {
+      margin: 1.8rem 1rem;
+      width: 11rem;
+      height: 11rem; } }
+  @media only screen and (min-width: 768px) {
+    .clickable-logo {
+      margin: 1.8rem 5rem;
+      width: 14rem;
+      height: 14rem; } }
+  @media only screen and (min-width: 992px) {
+    .clickable-logo {
+      margin: 1.8rem 3rem;
+      width: 11rem;
+      height: 11rem; } }
+  @media only screen and (min-width: 1200px) {
+    .clickable-logo {
+      margin: 1.8rem 3rem;
+      width: 14rem;
+      height: 14rem; } }
+
 .about {
   padding-bottom: 20px; }
   .about .card {
@@ -554,6 +596,13 @@ p {
   font-size: 13px;
   font-style: italic;
   color: #999999; }
+
+.clickable-logos {
+  background-color: #F8F8F8;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 3rem 0rem; }
 
 .u-collapsed {
   display: block; }

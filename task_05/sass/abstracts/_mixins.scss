@@ -1,4 +1,11 @@
 @mixin m-query($breakpoint) {
+
+  @if $breakpoint == xs {
+    @media only screen and (max-width: 320px) { //iphone 5/se
+      @content;
+    }
+  }
+
   @if $breakpoint == sm {
     @media only screen and (min-width: 576px) {
       @content;

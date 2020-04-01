@@ -1,0 +1,59 @@
+.clickable-logo {
+    display:inline-block;
+    background-size: cover;
+    width: 14rem;
+    height: 14rem;
+    margin: 2rem;
+    transition: transform 0.3s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    &--1 {
+        background-image: url(../img/brand/img-1.png);
+        
+    }
+    &--2 {
+        background-image: url(../img/brand/img-2.png);
+    }
+    &--3 {
+        background-image: url(../img/brand/img-3.png);
+    }
+    &--4 {
+        background-image: url(../img/brand/img-4.png);
+    }
+    &--5 {
+        background-image: url(../img/brand/img-5.png);
+    }
+    &--6 {
+        background-image: url(../img/brand/img-6.png);
+    }
+
+    @include m-query(xs) {
+        margin: 1.8rem 1rem;
+        width: 11rem;
+        height: 11rem;
+    }
+
+    @include m-query(md) {
+        margin: 1.8rem 5rem;
+        width: 14rem;
+        height: 14rem;
+    }
+
+    @include m-query(lg) {
+        margin: 1.8rem 3rem;
+        width: 11rem;
+        height: 11rem;
+    }
+
+    @include m-query(xl) {
+        margin: 1.8rem 3rem;
+        width: 14rem;
+        height: 14rem;
+    }
+
+   
+
+}
