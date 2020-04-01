@@ -23,6 +23,10 @@
 			background-color: $color-primary;
 			transform: translateX(-50%);
 		}
+
+		&--map {
+			color: $color-primary;
+		}
 	}
 
 	&__subtitle {
@@ -33,6 +37,11 @@
 		font-weight: 400;
 		font-size: 2rem;
 		margin-bottom: 2rem;
+
+		&--map {
+			font-size: 4rem;
+			color: $color-primary;
+		}
 	}
 
 	&__description {

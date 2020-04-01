@@ -66,6 +66,8 @@ window.addEventListener('scroll', debounce(() => {
 	}
 }, 200));
 
+
+// Accordion 
 const accordion = document.getElementsByClassName("accordion__header");
 for (let i = 0; i < accordion.length; i++) {
 	accordion[i].addEventListener('click', (event) => {
@@ -94,4 +96,47 @@ const accordionClick = (event) => {
 		}
 		content.style.maxHeight = content.scrollHeight + "px";
 	}
+<<<<<<< Updated upstream
 };
+=======
+}
+
+// Open and close Map
+const map = document.getElementById("map");
+let mapTitle = document.querySelector(".section__title--map");
+let isMapOpen = true;
+
+mapTitle.addEventListener('click', () => closeAndOpenMap());
+
+const closeAndOpenMap = () => {
+    if(isMapOpen) {
+        map.style.display = "block";
+    } else {
+        map.style.display = "none";
+    }
+     
+    mapTitle.innerHTML = `<span class="section__subtitle section__subtitle--map"> 
+            <i class="mdi mdi-map-marker"></i>
+        </span>
+        ${isMapOpen ? "Close" : "Open"} map`;
+    
+    isMapOpen = !isMapOpen;
+}
+
+
+// Leaflet
+var mymap = L.map('map').setView([51.505, -0.09], 13);
+
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+    maxZoom: 18,
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1
+}).addTo(mymap);
+
+
+
+>>>>>>> Stashed changes

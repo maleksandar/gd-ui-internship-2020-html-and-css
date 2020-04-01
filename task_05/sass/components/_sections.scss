@@ -925,3 +925,15 @@
 	}
 }
 
+.section-map {
+	background: url("../assets/images/map/bg-map.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	cursor: pointer;
+
+	#map {
+		height: 18rem; 
+		display: none;
+	}
+}
+
