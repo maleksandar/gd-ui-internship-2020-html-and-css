@@ -1,26 +1,43 @@
 .achievement {
   background-color: $secondary-color;
   color: #fff;
-  font-size: 16px;
-  &__count {
-    font-size: 1.8em;
-    margin-bottom: 0.6rem;
-  }
-  &__title {
-    font-size: 0.5em;
-    font-weight: 200;
-    text-transform: uppercase;
-  }
 
   @include m-query(sm) {
-    font-size: 24px;
+    font-size: 14px;
   }
 
   @include m-query(md) {
-    font-size: 30px;
+    font-size: 18px;
   }
 
   @include m-query(lg) {
-    font-size: 34px;
+    font-size: 20px;
+  }
+}
+
+.counter{
+  display: flex;
+  align-items: baseline;
+  font-family: 'Montserrat';
+  &__item {
+    padding: 1.8em 5px;
+    text-align: center;
+    flex: 1;
+    margin: 0 1px;
+    border-left: 1px solid rgba(255, 255, 255, 0.35);
+    &:last-child{
+      border-right: 1px solid rgba(255, 255, 255, 0.35);
+    }
+  }
+  &__number{
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  &__title{
+    text-transform: uppercase;
+    font-size: .9em;
+    line-height: 1.7;
+    font-weight: 400;
   }
 }

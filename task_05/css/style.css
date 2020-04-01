@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700");
 *,
 *::after,
 *::before {
@@ -88,21 +88,6 @@ p {
   display: flex;
   padding: 0 1.5rem;
   text-align: left; }
-
-.horizontal-list {
-  display: flex;
-  list-style: none;
-  text-align: center; }
-  .horizontal-list__item {
-    flex: 1;
-    border-left: 1px solid;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 1px; }
-    .horizontal-list__item:last-child {
-      border-right: 1px solid; }
 
 .navbar {
   background-color: #EB6461; }
@@ -393,24 +378,38 @@ p {
 
 .achievement {
   background-color: #95e1d3;
-  color: #fff;
-  font-size: 16px; }
-  .achievement__count {
-    font-size: 1.8em;
-    margin-bottom: 0.6rem; }
-  .achievement__title {
-    font-size: 0.5em;
-    font-weight: 200;
-    text-transform: uppercase; }
+  color: #fff; }
   @media only screen and (min-width: 576px) {
     .achievement {
-      font-size: 24px; } }
+      font-size: 14px; } }
   @media only screen and (min-width: 768px) {
     .achievement {
-      font-size: 30px; } }
+      font-size: 18px; } }
   @media only screen and (min-width: 992px) {
     .achievement {
-      font-size: 34px; } }
+      font-size: 20px; } }
+
+.counter {
+  display: flex;
+  align-items: baseline;
+  font-family: 'Montserrat'; }
+  .counter__item {
+    padding: 1.8em 5px;
+    text-align: center;
+    flex: 1;
+    margin: 0 1px;
+    border-left: 1px solid rgba(255, 255, 255, 0.35); }
+    .counter__item:last-child {
+      border-right: 1px solid rgba(255, 255, 255, 0.35); }
+  .counter__number {
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 10px; }
+  .counter__title {
+    text-transform: uppercase;
+    font-size: .9em;
+    line-height: 1.7;
+    font-weight: 400; }
 
 .services__icon {
   font-size: 30px;
