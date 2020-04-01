@@ -1,9 +1,8 @@
 .services {
   &__icon {
-    width: 30px;
-    height: 30px;
-    margin-right: 2em;
-    fill: $secondary-color;
+    font-size: 30px;
+    color: $secondary-color;
+    margin-right: 20px;
   }
   &__title {
     margin-top: 5px;

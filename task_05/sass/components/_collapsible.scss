@@ -15,9 +15,9 @@
     transform: rotate(180deg);
   }
   &__icon {
-    @include size(30px, 30px);
+    font-size: 30px;
     margin-right: 10px;
-    fill: $secondary-color;
+    color: $secondary-color;
   }
   &__label {
     padding: 10px;

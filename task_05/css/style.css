@@ -58,7 +58,8 @@ a:active {
     .card__overlay:hover {
       opacity: 1; }
   .card__icon {
-    width: 5rem; }
+    font-size: 30px;
+    margin-bottom: 5px; }
   .card__title {
     font-size: 1.6rem;
     text-transform: uppercase; }
@@ -228,10 +229,9 @@ a:active {
   .collapsible__toggle:checked + .collapsible__label .collapsible__arrow {
     transform: rotate(180deg); }
   .collapsible__icon {
-    width: 30px;
-    height: 30px;
+    font-size: 30px;
     margin-right: 10px;
-    fill: #95e1d3; }
+    color: #95e1d3; }
   .collapsible__label {
     padding: 10px;
     display: flex;
@@ -361,10 +361,9 @@ a:active {
       font-size: 34px; } }
 
 .services__icon {
-  width: 30px;
-  height: 30px;
-  margin-right: 2em;
-  fill: #95e1d3; }
+  font-size: 30px;
+  color: #95e1d3;
+  margin-right: 20px; }
 
 .services__title {
   margin-top: 5px;
