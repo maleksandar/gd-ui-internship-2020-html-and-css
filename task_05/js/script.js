@@ -57,6 +57,8 @@ window.addEventListener('scroll', debounce(() => {
 	const pageYOffset = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
 	const navbarHeight = document.querySelector('.navbar').offsetHeight;
 
+	console.log(pageYOffset);
+
 	if (pageYOffset >= headerHeight) {
 		document.body.classList.add(NAVBAR_FIXED_CLASSNAME);
 		document.body.style.paddingTop = navbarHeight + 'px';
@@ -112,6 +114,7 @@ const accordionClick = (event) => {
 
 	if (content.style.maxHeight) {
 		content.style.maxHeight = null;
+		content.style.margin = '0 1rem';
 		changeArrow(targetClicked, "up", "down");
 	} else {
 		let allContents = document.getElementsByClassName("accordion__content");
@@ -119,12 +122,14 @@ const accordionClick = (event) => {
 		for (let i = 0; i < allContents.length; i++) {
 			if (allContents[i].style.maxHeight) {
 				allContents[i].style.maxHeight = null;
+				allContents[i].style.margin = '0 1rem';
 				changeArrow(allContents[i].previousElementSibling, "up", "down");
 			}
 		}
 
 		changeArrow(targetClicked, "down", "up");
-		content.style.maxHeight = "19rem";
+		content.style.maxHeight = "17rem";
+		content.style.margin = '1rem';
 	}
 };
 
