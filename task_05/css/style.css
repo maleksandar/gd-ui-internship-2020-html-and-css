@@ -390,6 +390,71 @@ section {
       background-image: url(../img/happy-client/img-4.jpg);
       background-size: cover; }
 
+.blog-entry {
+  position: relative; }
+  .blog-entry__photo {
+    margin-bottom: 1.3rem;
+    width: 100%; }
+  .blog-entry__title {
+    display: block;
+    color: #3EC374;
+    text-transform: uppercase;
+    text-align: left;
+    margin-bottom: 1.3rem; }
+  .blog-entry__date {
+    background-color: #96E1D3;
+    position: absolute;
+    top: 40%;
+    left: -3%;
+    color: white;
+    padding: 0.8rem 1.5rem; }
+    .blog-entry__date__number {
+      font-weight: bold;
+      font-size: 2.5rem; }
+    .blog-entry__date__month {
+      font-size: 1.2rem;
+      font-weight: 200;
+      font-style: italic; }
+  .blog-entry__text {
+    text-align: left;
+    color: #999999; }
+  .blog-entry__text:after {
+    display: block;
+    content: '';
+    height: 1px;
+    margin-top: 1.3rem;
+    margin-bottom: 1.3rem;
+    background-color: #E5E5E5; }
+  .blog-entry__counts {
+    display: flex;
+    align-items: center; }
+  .blog-entry__count {
+    margin-right: 1rem;
+    display: flex;
+    align-items: center; }
+  .blog-entry__count-icon {
+    color: #96E1D3;
+    font-size: 1.5rem;
+    margin-right: 0.5rem; }
+  .blog-entry__count-number {
+    display: inline-block;
+    color: #999999;
+    font-style: italic; }
+  @media only screen and (min-width: 768px) {
+    .blog-entry__date {
+      top: 23%; } }
+  @media only screen and (min-width: 992px) {
+    .blog-entry__date {
+      top: 35%;
+      padding: 1rem 1.8rem; }
+      .blog-entry__date__number {
+        font-size: 3rem; }
+      .blog-entry__date__month {
+        font-size: 1.5rem; } }
+  @media only screen and (max-width: 320px) {
+    .blog-entry__date {
+      top: 33%; } }
+
 .header__carousel {
   background-image: linear-gradient(rgba(243, 129, 129, 0.9), rgba(252, 227, 138, 0.9)), url(../img/bg-header.jpg);
   background-size: cover;
@@ -716,6 +781,9 @@ section {
     margin-bottom: 2rem; }
   .people-feedback .feedback-box {
     margin-bottom: 5em; }
+
+.blog .blog-entry {
+  margin-bottom: 2.5rem; }
 
 .u-collapsed {
   display: block; }

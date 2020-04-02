@@ -15,7 +15,8 @@
 @import './components/blog';
 @import './components/clickable-logo';
 @import './components/social-link';
-@import './components/feedback-box';
+@import './components/feedback-box'; 
+@import './components/blog-entry';
 
 @import 'layout/header';
 @import './layout/container';
@@ -31,5 +32,6 @@
 @import './layout/clickable-logos';
 @import './layout/map';
 @import './layout/people-feedback';
+@import './layout/blog';
 
 @import './base/utilities';
