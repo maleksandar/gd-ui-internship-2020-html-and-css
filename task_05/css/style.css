@@ -346,6 +346,50 @@ section {
     color: white;
     background-color: rgba(243, 129, 129, 0.9); }
 
+.feedback-box {
+  display: flex;
+  width: 100%; }
+  .feedback-box__text-container {
+    width: 80%;
+    text-align: left; }
+  .feedback-box__name {
+    text-transform: uppercase;
+    color: #333333;
+    font-size: 1.6rem;
+    margin-bottom: 1rem; }
+  .feedback-box__title {
+    text-transform: capitalize;
+    color: #999999;
+    font-size: 1.3rem;
+    font-style: italic; }
+  .feedback-box__title:after {
+    content: '';
+    display: block;
+    background-color: #f38181;
+    width: 5rem;
+    height: 0.1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem; }
+  .feedback-box__photo-container {
+    width: 20%;
+    margin-right: 5%; }
+  .feedback-box__photo {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 1000rem; }
+    .feedback-box__photo--1 {
+      background-image: url(../img/happy-client/img-1.jpg);
+      background-size: cover; }
+    .feedback-box__photo--2 {
+      background-image: url(../img/happy-client/img-2.jpg);
+      background-size: cover; }
+    .feedback-box__photo--3 {
+      background-image: url(../img/happy-client/img-3.jpg);
+      background-size: cover; }
+    .feedback-box__photo--4 {
+      background-image: url(../img/happy-client/img-4.jpg);
+      background-size: cover; }
+
 .header__carousel {
   background-image: linear-gradient(rgba(243, 129, 129, 0.9), rgba(252, 227, 138, 0.9)), url(../img/bg-header.jpg);
   background-size: cover;
@@ -663,6 +707,15 @@ section {
       .map .map--active {
         top: 25%;
         height: 50rem; } }
+
+.people-feedback {
+  background-image: url(../img/happy-client/bg-happy-client.jpg);
+  background-size: cover;
+  background-position: center; }
+  .people-feedback .primary-heading {
+    margin-bottom: 2rem; }
+  .people-feedback .feedback-box {
+    margin-bottom: 5em; }
 
 .u-collapsed {
   display: block; }
