@@ -717,7 +717,8 @@
 
 .section-blog {
 	.article {
-		font-family: 'Montserrat', sans-serif;
+		@include font-montserrat();
+
 		margin-bottom: 2rem;
 		font-size: 1.2rem;
 		line-height: 2rem;
@@ -742,7 +743,6 @@
 			text-align: center;
 
 			&--day {
-				font-size: .8rem;
 				display: block;
 				font-size: 2.8rem;
 				line-height: 100%;
@@ -784,8 +784,9 @@
 }
 
 .footer {
+	@include font-montserrat();
+
 	padding-top: 8rem;
-	font-family: 'Montserrat', sans-serif;
 
 	&__content {
 		display: flex;
@@ -799,7 +800,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		flex: 1 0 100%;
+		flex: 0 0 100%;
 
 		&--one {
 			padding: 0 15px;
@@ -813,6 +814,7 @@
 		&--two {
 			padding: 0 15px;
 			margin-bottom: 15px;
+			width: 100%;
 
 			@media screen and (min-width: 640px) {
 				flex: 0 0 50%;
@@ -847,7 +849,6 @@
 		padding-bottom: 1rem;
 		margin-bottom: 1rem;
 		font-size: 1.3rem;
-		font-weight: 500;
 
 		span {
 			font-size: 1.8rem;
@@ -963,14 +964,14 @@
 }
 
 .section-map {
-	background: url("../assets/images/map/bg-map.jpg");
-	background-repeat: no-repeat;
+	background: url("../assets/images/map/bg-map.jpg") no-repeat center;
 	background-size: cover;
 	cursor: pointer;
 
 	#map {
-		height: 18rem;
-		display: none;
+		height: 30rem;
+		max-height: 0;
+		transition: max-height .5s;
 	}
 }
 

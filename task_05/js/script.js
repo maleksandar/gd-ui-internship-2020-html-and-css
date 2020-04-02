@@ -1,6 +1,5 @@
 const navbarToggler = document.getElementById('navbar__toggler');
 const navbarNav = document.querySelector('.navbar__nav');
-const navbar = document.querySelector('.navbar');
 
 const NAVBAR_CLOSED_CLASSNAME = 'navbar__nav--closed';
 const NAVBAR_FIXED_CLASSNAME = 'navbar--fixed';
@@ -52,23 +51,48 @@ const debounce = (func, wait, immediate) => {
 const supportPageOffset = window.pageXOffset !== undefined;
 const isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
 const headerHeight = document.querySelector('.header').offsetHeight;
+let isCounterShown = true;
 
 window.addEventListener('scroll', debounce(() => {
 	const pageYOffset = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
 	const navbarHeight = document.querySelector('.navbar').offsetHeight;
 
 	if (pageYOffset >= headerHeight) {
-		navbar.classList.add(NAVBAR_FIXED_CLASSNAME);
+		document.body.classList.add(NAVBAR_FIXED_CLASSNAME);
 		document.body.style.paddingTop = navbarHeight + 'px';
 	} else {
-		navbar.classList.remove(NAVBAR_FIXED_CLASSNAME);
+		document.body.classList.remove(NAVBAR_FIXED_CLASSNAME);
 		document.body.style.paddingTop = '0';
+	}
+
+	const sectionCountingHeight = document.querySelector('.section-counting').offsetHeight;
+	const counters = document.querySelectorAll('.section-counting__number');
+
+	if (pageYOffset >= sectionCountingHeight && isCounterShown) {
+		isCounterShown = false;
+		counters.forEach((counter) => animateCounter(counter, 0, Number(counter.innerHTML), 2000));
 	}
 }, 200));
 
+const animateCounter = (element, start, end, duration) => {
+	const range = end - start;
+	const increment = end > start ? 1 : -1;
+	const stepTime = Math.abs(Math.floor(duration / range));
+	let current = start;
+
+	const timer = setInterval(() => {
+		current += increment;
+		element.innerHTML = current;
+
+		if (current === end) {
+			clearInterval(timer);
+		}
+	}, stepTime);
+};
 
 // Accordion
 const accordion = document.getElementsByClassName("accordion__header");
+
 for (let i = 0; i < accordion.length; i++) {
 	accordion[i].addEventListener('click', (event) => {
 		accordionClick(event);
@@ -118,30 +142,27 @@ mapTitle.addEventListener('click', () => closeAndOpenMap());
 
 const closeAndOpenMap = () => {
 	if (isMapOpen) {
-		map.style.display = "block";
+		map.style.maxHeight = "50rem";
 	} else {
-		map.style.display = "none";
+		map.style.maxHeight = "0";
 	}
 
-	mapTitle.innerHTML = `<span class="section__subtitle section__subtitle--map"> 
-            <i class="mdi mdi-map-marker"></i>
-        </span>
-        ${isMapOpen ? "Close" : "Open"} map`;
+	mapTitle.innerHTML = `
+		<span class="section__subtitle section__subtitle--map"> 
+    	<i class="mdi mdi-map-marker"></i>
+    </span>
+    ${isMapOpen ? "Close" : "Open"} map
+	`;
 
 	isMapOpen = !isMapOpen;
 };
 
-
-// Leaflet
-let mymap = L.map('map').setView([51.505, -0.09], 13);
+// Leaflet Map
+let mymap = L.map('map').setView([44.9256, 20.4489], 10);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 	maxZoom: 18,
-	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-		'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-		'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 	id: 'mapbox/streets-v11',
 	tileSize: 512,
 	zoomOffset: -1
 }).addTo(mymap);
-
