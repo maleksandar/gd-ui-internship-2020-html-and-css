@@ -274,24 +274,6 @@ section {
     padding: 0 10px 10px 10px;
     margin-right: 30px; }
 
-.blog {
-  display: flex; }
-  .blog__info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly; }
-  .blog__title {
-    font-size: 12px;
-    font-family: 'Montserrat';
-    text-transform: uppercase;
-    color: #2ec06c; }
-  .blog__photo {
-    margin-right: 1.5em; }
-  .blog__date {
-    font-size: 13px;
-    font-style: italic;
-    color: #999999; }
-
 .clickable-logo {
   display: inline-block;
   background-size: cover;
@@ -706,7 +688,23 @@ section {
   text-transform: uppercase; }
 
 .blogs .blog {
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  display: flex; }
+  .blogs .blog__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; }
+  .blogs .blog__title {
+    font-size: 12px;
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    color: #2ec06c; }
+  .blogs .blog__photo {
+    margin-right: 1.5em; }
+  .blogs .blog__date {
+    font-size: 13px;
+    font-style: italic;
+    color: #999999; }
 
 .instagram__heading {
   font-size: 14px;
