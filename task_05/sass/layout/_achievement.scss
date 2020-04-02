@@ -1,7 +1,7 @@
 .achievement {
   background-color: $secondary-color;
   color: #fff;
-
+  padding: 0;
   @include m-query(sm) {
     font-size: 14px;
   }
@@ -15,7 +15,7 @@
   }
 }
 
-.counter{
+.counter {
   display: flex;
   align-items: baseline;
   font-family: 'Montserrat';
@@ -25,18 +25,18 @@
     flex: 1;
     margin: 0 1px;
     border-left: 1px solid rgba(255, 255, 255, 0.35);
-    &:last-child{
+    &:last-child {
       border-right: 1px solid rgba(255, 255, 255, 0.35);
     }
   }
-  &__number{
+  &__number {
     font-size: 3em;
     font-weight: 700;
     margin-bottom: 10px;
   }
-  &__title{
+  &__title {
     text-transform: uppercase;
-    font-size: .9em;
+    font-size: 0.9em;
     line-height: 1.7;
     font-weight: 400;
   }
