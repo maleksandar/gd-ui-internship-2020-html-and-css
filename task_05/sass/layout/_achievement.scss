@@ -17,8 +17,8 @@
 
 .counter {
   display: flex;
-  align-items: baseline;
   font-family: 'Montserrat';
+  text-align: center;
   &__item {
     padding: 1.8em 5px;
     text-align: center;
@@ -39,5 +39,8 @@
     font-size: 0.9em;
     line-height: 1.7;
     font-weight: 400;
+  }
+  @include m-query(md) {
+    margin: 0 15px;
   }
 }
