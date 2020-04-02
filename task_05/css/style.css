@@ -437,6 +437,50 @@ section {
     .blog-entry__date {
       top: 33%; } }
 
+.carousel {
+  display: flex;
+  align-items: center; }
+  .carousel__prev, .carousel__next {
+    font-size: 2rem;
+    margin: 2rem;
+    color: #f38181; }
+
+.carousel__element {
+  display: flex; }
+  .carousel__element--hidden {
+    display: none; }
+  .carousel__element__photo {
+    display: none;
+    margin-right: 3rem;
+    width: 20rem;
+    border-radius: 1000rem;
+    padding: 0.5rem;
+    border: 1px solid #999999; }
+  .carousel__element__text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #999999; }
+  .carousel__element__quote {
+    margin-bottom: 2rem; }
+  .carousel__element__line-author-box {
+    display: flex;
+    align-items: center; }
+  .carousel__element__line {
+    width: 3.5rem;
+    height: 0.2rem;
+    margin-right: 1rem;
+    background-color: #f38181; }
+  .carousel__element__author {
+    font-family: 'Kaushan Script', cursive; }
+  @media only screen and (min-width: 768px) {
+    .carousel__element__photo {
+      display: block; }
+    .carousel__element__text-box {
+      font-size: 2rem; } }
+
 .header__carousel {
   background-image: linear-gradient(rgba(243, 129, 129, 0.9), rgba(252, 227, 138, 0.9)), url(../img/bg-header.jpg);
   background-size: cover;
@@ -782,6 +826,9 @@ section {
 
 .blog .blog-entry {
   margin-bottom: 2.5rem; }
+
+.testimonials {
+  overflow: hidden; }
 
 .u-collapsed {
   display: block; }
