@@ -1,6 +1,7 @@
 .l-row {
   text-align: center;
   &__item {
+    margin-bottom: 20px;
     @include m-query(md) {
       padding: $primary-item-padding;
     }
