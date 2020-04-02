@@ -1,0 +1,52 @@
+@mixin header-container-style {
+    position: relative;
+    text-align: center;
+    padding: 0 20px;
+}
+
+@mixin signature-style {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &__underline {
+        width: 61px;
+        height: 5px;
+        background-color: $rose;
+        display: inline-block;
+    }
+    &__name {
+        font-family: "Kaushan Script", cursive;
+        color: $dark-grey;
+        font-weight: normal;
+        display: inline-block;
+        margin-left: 15px;
+    }
+}
+
+@mixin section-text-style {
+    color: $light-grey;
+    text-align: center;
+    line-height: 15px;
+    margin-top: 60px;
+    padding: 0 20px;
+}
+
+@mixin meesage-container-style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 80px;
+    padding: 0 20px;
+}
+
+@mixin message_contant-style {
+    font-size: 24px;
+    font-family: "Roboto", sans-serif;
+    color: $light-grey;
+    margin-left: 60px;
+    line-height: 20px;
+    font-weight: 300;
+    position: relative;
+    font-style: italic;
+}

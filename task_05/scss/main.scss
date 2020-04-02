@@ -1,5 +1,13 @@
-@import './base/base';
-@import './base/typography';
+@import "./abstract/variables";
+@import "./abstract/mixins";
 
-@import './components/header';
-@import './components/story';
+@import "./base/base";
+@import "./base/typography";
+
+@import "./components/what-we-do";
+@import "./components/meet-our-team";
+@import "./components/some-of-our-work";
+@import "./components/what-people-say";
+@import "./components/latest-blog";
+@import "./components/map";
+@import "./components/footer";
