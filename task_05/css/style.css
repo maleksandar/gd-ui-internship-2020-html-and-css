@@ -334,6 +334,18 @@ section {
       width: 14rem;
       height: 14rem; } }
 
+.social-link {
+  display: inline-block;
+  font-size: 24px;
+  color: #f38181;
+  background-color: #fce38a;
+  margin-right: 1px;
+  padding: 10px;
+  transition: all 0.4s; }
+  .social-link:hover {
+    color: white;
+    background-color: rgba(243, 129, 129, 0.9); }
+
 .header__carousel {
   background-image: linear-gradient(rgba(243, 129, 129, 0.9), rgba(252, 227, 138, 0.9)), url(../img/bg-header.jpg);
   background-size: cover;
