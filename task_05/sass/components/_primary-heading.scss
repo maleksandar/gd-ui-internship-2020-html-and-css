@@ -1,101 +1,98 @@
 .primary-heading {
-    text-align: center;
-    position: relative;
+  text-align: center;
+  position: relative;
 
+  h2 {
+    padding-top: 2rem;
+    font-family: 'Kaushan Script', cursive;
+  }
+
+  h1 {
+    margin-top: 0.7rem;
+    text-transform: uppercase;
+    padding-bottom: 3rem;
+    font-family: 'Montserrat';
+  }
+
+  h1:after {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 86%;
+    transform: translateX(-50%);
+    content: '';
+    background-color: black;
+    height: 0.13rem;
+    width: 5rem;
+    margin-top: 0.7rem;
+  }
+
+  &--size-lg {
     h2 {
-        padding-top: 2rem;
-        font-family: 'Dancing Script', cursive;
+      font-size: 2.1rem;
     }
-
     h1 {
-        margin-top: 0.7rem;
-        text-transform: uppercase;
-        padding-bottom: 3rem;
+      font-size: 4.3rem;
     }
 
+    @include m-query(lg) {
+      h2 {
+        font-size: 5rem;
+      }
+      h1 {
+        font-size: 10rem;
+      }
+      h1:after {
+        top: 95%;
+        height: 0.2rem;
+      }
+    }
+  }
+
+  &--size-sm {
+    h2 {
+      font-size: 1.8rem;
+    }
+    h1 {
+      font-size: 2.1rem;
+    }
     h1:after {
-        display: block;
-        position: absolute;
-        left: 50%;
-        top: 86%;
-        transform: translateX(-50%);
-        content: "";
-        background-color: black;
-        height: 0.13rem;
-        width: 5rem;
-        margin-top: 0.7rem;
+      top: 76%;
+      width: 5rem;
     }
- 
-    &--size-lg {
-        h2 {
-            font-size: 2.1rem;
-        }
-        h1 {
-            font-size: 4.3rem;
-        }
+  }
 
-        @include m-query (lg) {
-            h2 {
-                font-size: 5rem;
-            }
-            h1 {
-                font-size: 10rem;
-            }
-            h1:after {
-                top: 95%;
-                height: 0.2rem;
-            }
-        }
-        
-        
+  &--light {
+    h2 {
+      color: $heading-font-color-light;
     }
+    h1 {
+      color: $heading-font-color-light;
+    }
+    h1:after {
+      background-color: $heading-underline-color-light;
+    }
+  }
+  &--dark {
+    h2 {
+      color: $heading-font-color-dark;
+    }
+    h1 {
+      color: $heading-font-color-dark;
+    }
+    h1:after {
+      background-color: $heading-underline-color-dark;
+    }
+  }
 
-    &--size-sm {
-        h2 {
-            font-size: 1.8rem;
-        }
-        h1 {
-            font-size: 2.1rem;
-        }
-        h1:after {
-            top: 76%;
-            width: 5rem;
-        }
+  &--map {
+    i {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
     }
-
-    &--light {
-        h2 {
-            color: $heading-font-color-light;
-        }
-        h1 {
-            color: $heading-font-color-light;
-        }
-        h1:after {
-            background-color: $heading-underline-color-light;
-        }
+    color: $navbar-background-color;
+    h1:after {
+      background-color: $navbar-background-color;
     }
-    &--dark {
-        h2 {
-            color: $heading-font-color-dark;
-        }
-        h1 {
-            color: $heading-font-color-dark;
-        }
-        h1:after {
-            background-color: $heading-underline-color-dark;
-        }
-    }
-
-    &--map {
-        i {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-        }
-        color: $navbar-background-color;
-        h1:after {
-            background-color: $navbar-background-color;
-        }
-    }
-   
-
+  }
 }
