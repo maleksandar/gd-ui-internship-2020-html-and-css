@@ -2,7 +2,7 @@
 	@include font-montserrat();
 
 	position: relative;
-	background: url("../assets/images/bg-header.jpg") no-repeat center center;
+	background: url("../assets/images/bg-header.jpg") no-repeat center;
 	background-size: cover;
 
 	&::after {

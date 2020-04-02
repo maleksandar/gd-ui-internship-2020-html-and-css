@@ -51,13 +51,12 @@ const debounce = (func, wait, immediate) => {
 const supportPageOffset = window.pageXOffset !== undefined;
 const isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
 const headerHeight = document.querySelector('.header').offsetHeight;
+const DEBOUNCE_WAIT_FACTOR = 200;
 let isCounterShown = true;
 
 window.addEventListener('scroll', debounce(() => {
 	const pageYOffset = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
 	const navbarHeight = document.querySelector('.navbar').offsetHeight;
-
-	console.log(pageYOffset);
 
 	if (pageYOffset >= headerHeight) {
 		document.body.classList.add(NAVBAR_FIXED_CLASSNAME);
@@ -69,12 +68,13 @@ window.addEventListener('scroll', debounce(() => {
 
 	const sectionCountingHeight = document.querySelector('.section-counting').offsetHeight;
 	const counters = document.querySelectorAll('.section-counting__number');
+	const COUNTER_DURATION = 2000;
 
 	if (pageYOffset >= sectionCountingHeight && isCounterShown) {
 		isCounterShown = false;
-		counters.forEach((counter) => animateCounter(counter, 0, Number(counter.innerHTML), 2000));
+		counters.forEach((counter) => animateCounter(counter, 0, Number(counter.innerHTML), COUNTER_DURATION));
 	}
-}, 200));
+}, DEBOUNCE_WAIT_FACTOR));
 
 const animateCounter = (element, start, end, duration) => {
 	const range = end - start;
@@ -93,10 +93,11 @@ const animateCounter = (element, start, end, duration) => {
 };
 
 // Accordion
-const accordion = document.getElementsByClassName("accordion__header");
+const ACCORDION_HEADER_CLASSNAME = 'accordion__header';
+const accordionHeaders = document.getElementsByClassName(ACCORDION_HEADER_CLASSNAME);
 
-for (let i = 0; i < accordion.length; i++) {
-	accordion[i].addEventListener('click', (event) => {
+for (let i = 0; i < accordionHeaders.length; i++) {
+	accordionHeaders[i].addEventListener('click', (event) => {
 		accordionClick(event);
 	});
 }
@@ -105,30 +106,30 @@ const accordionClick = (event) => {
 	let targetClicked = event.target;
 	let classClicked = targetClicked.classList;
 
-	while ((classClicked[0] !== "accordion__header")) {
+	while ((classClicked[0] !== ACCORDION_HEADER_CLASSNAME)) {
 		targetClicked = targetClicked.parentElement;
 		classClicked = targetClicked.classList;
 	}
 
-	let content = targetClicked.nextElementSibling;
+	const content = targetClicked.nextElementSibling;
 
 	if (content.style.maxHeight) {
 		content.style.maxHeight = null;
 		content.style.margin = '0 1rem';
-		changeArrow(targetClicked, "up", "down");
+		changeArrow(targetClicked, 'up', 'down');
 	} else {
-		let allContents = document.getElementsByClassName("accordion__content");
+		const allContents = document.getElementsByClassName('accordion__content');
 
 		for (let i = 0; i < allContents.length; i++) {
 			if (allContents[i].style.maxHeight) {
 				allContents[i].style.maxHeight = null;
 				allContents[i].style.margin = '0 1rem';
-				changeArrow(allContents[i].previousElementSibling, "up", "down");
+				changeArrow(allContents[i].previousElementSibling, 'up', 'down');
 			}
 		}
 
-		changeArrow(targetClicked, "down", "up");
-		content.style.maxHeight = "17rem";
+		changeArrow(targetClicked, 'down', 'up');
+		content.style.maxHeight = '17rem';
 		content.style.margin = '1rem';
 	}
 };
@@ -139,31 +140,31 @@ const changeArrow = (element, from, to) => {
 };
 
 // Open and close Map
-const map = document.getElementById("map");
-let mapTitle = document.querySelector(".section__title--map");
+const map = document.getElementById('map');
+const mapTitle = document.querySelector('.section__title--map');
 let isMapOpen = true;
 
 mapTitle.addEventListener('click', () => closeAndOpenMap());
 
 const closeAndOpenMap = () => {
 	if (isMapOpen) {
-		map.style.maxHeight = "50rem";
+		map.style.maxHeight = '50rem';
 	} else {
-		map.style.maxHeight = "0";
+		map.style.maxHeight = '0';
 	}
 
 	mapTitle.innerHTML = `
 		<span class="section__subtitle section__subtitle--map"> 
     	<i class="mdi mdi-map-marker"></i>
     </span>
-    ${isMapOpen ? "Close" : "Open"} map
+    ${isMapOpen ? 'Close' : 'Open'} map
 	`;
 
 	isMapOpen = !isMapOpen;
 };
 
 // Leaflet Map
-let mymap = L.map('map').setView([44.9256, 20.4489], 10);
+const mymap = L.map('map').setView([44.9256, 20.4489], 10);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 	maxZoom: 18,

@@ -1,15 +1,13 @@
 // Colors
 $color-primary: #F38181 !default;
 $color-secondary: #FCE38A !default;
-$color-link: #2ec06c !default;
+$color-tertiary: #95e1d3 !default;
 $color-white: #fff !default;
-$color-black: #000 !default;
 
 // Typography
-$color-grey-light-1: #faf9f9 !default;
-$color-grey-light-2: #f4f2f2 !default;
-$color-grey-light-3: #f0eeee !default;
-$color-grey-light-4: #ccc !default;
+$color-grey-light-1: #ccc !default;
+$color-grey-light-2: #e5e5e5 !default;
+$color-grey-light-3: #e7e7e7 !default;
 
 $color-grey-dark-1: #333 !default;
 $color-grey-dark-2: #666 !default;
@@ -19,12 +17,6 @@ $color-grey-dark-3: #999 !default;
 $font-roboto: 'Roboto', sans-serif !default;
 $font-montserrat: 'Montserrat', sans-serif !default;
 $font-kaushan-script: 'Kaushan Script', cursive !default;
-
-$font-families: (
-				'roboto': $font-roboto,
-				'montserrat': $font-montserrat,
-				'kaushan-script': $font-kaushan-script
-) !default;
 
 // Grid breakpoints
 $grid-breakpoints: (

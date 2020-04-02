@@ -1,14 +1,3 @@
-// For each font-family, define the font family class
-@mixin make-font-families($families: $font-families) {
-	@each $name, $font-family in $families {
-		$infix: get-infix($name);
-
-		.font#{$infix} {
-			font-family: $font-family;
-		}
-	}
-}
-
 @mixin font-roboto {
 	font-family: $font-roboto;
 }

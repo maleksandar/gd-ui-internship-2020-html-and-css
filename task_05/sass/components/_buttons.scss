@@ -30,3 +30,14 @@
 		display: block;
 	}
 }
+
+.footer-form__button {
+	height: 4rem;
+	padding: 0 3rem;
+	color: $color-white;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 1.4rem;
+	background: $color-tertiary;
+	border: none;
+}

@@ -21,6 +21,7 @@ html {
 
 body {
 	@include font-roboto();
+
 	font-weight: 400;
 	color: $color-grey-dark-3;
 	background-color: $color-white;
@@ -29,7 +30,6 @@ body {
 a {
 	text-decoration: none;
 	outline: none;
-	color: $color-link;
 	transition: all .3s ease-in-out;
 
 	&:hover {
