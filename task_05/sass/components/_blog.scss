@@ -1,22 +1,22 @@
 .blog {
+  display: flex;
+  &__info {
     display: flex;
-    &__info{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-    }
-    &__title {
-        font-size: 13px;
-        font-family: 'Montserrat';
-        text-transform: uppercase;
-        color: #2ec06c;
-    }
-    &__photo {
-        margin-right: 1.5em;
-    }
-    &__date {
-        font-size: 13px;
-        font-style: italic;
-        color: #999999;
-    }
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  &__title {
+    font-size: 12px;
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    color: #2ec06c;
+  }
+  &__photo {
+    margin-right: 1.5em;
+  }
+  &__date {
+    font-size: 13px;
+    font-style: italic;
+    color: #999999;
+  }
 }

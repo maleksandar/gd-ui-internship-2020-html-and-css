@@ -270,7 +270,7 @@ p {
     flex-direction: column;
     justify-content: space-evenly; }
   .blog__title {
-    font-size: 13px;
+    font-size: 12px;
     font-family: 'Montserrat';
     text-transform: uppercase;
     color: #2ec06c; }
