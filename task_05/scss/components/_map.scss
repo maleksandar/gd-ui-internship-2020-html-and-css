@@ -20,8 +20,8 @@
         }
 
         &__underline {
-            width: 61px;
-            height: 4px;
+            width: 50px;
+            height: 2px;
             display: inline-block;
             background-color: $rose;
         }
@@ -34,10 +34,6 @@
             &__title {
                 margin: 10px 0;
                 font-size: 20px;
-            }
-
-            &__underline {
-                height: 3px;
             }
         }
     }

@@ -54,17 +54,17 @@
         margin-top: 10px;
       }
       &__underline {
-        width: 61px;
-        height: 5px;
+        width: 50px;
+        height: 2px;
         background-color: $rose;
         display: inline-block;
         margin-top: 15px;
       }
       &__text {
-        font-size: 15px;
+        font-size: 13px;
         font-family: "Roboto", sans-serif;
         color: $light-grey;
-        line-height: 15px;
+        line-height: 20px;
         margin-top: 25px;
       }
     }
@@ -162,8 +162,6 @@
 
         &__underline {
           margin: 10px 0;
-          width: 35px;
-          height: 2px;
         }
 
         &__text {

@@ -7,7 +7,6 @@
     width: 601px;
     margin-left: 30px;
     position: relative;
-    padding: 0 20px;
 
     &__img {
       margin-right: 20px;
@@ -22,9 +21,6 @@
     display: flex;
     justify-content: center;
     margin: 60px 0 80px 0;
-  }
-
-  &__picture {
     padding: 0 20px;
   }
 
@@ -202,8 +198,7 @@
 
     .signature {
       &__underline {
-        width: 35px;
-        height: 2px;
+        width: 40px;
       }
 
       &__name {
@@ -218,11 +213,6 @@
 
   .second-heading {
     font-size: 20px;
-  }
-
-  .header-underline {
-    width: 35px;
-    height: 2px;
   }
 }
 

@@ -27,8 +27,8 @@ body {
   margin-bottom: 20px; }
 
 .header-underline {
-  width: 61px;
-  height: 5px;
+  width: 50px;
+  height: 2px;
   background-color: #f38181;
   position: absolute;
   left: 50%;
@@ -37,10 +37,7 @@ body {
 @media (max-width: 420px) {
   .first-heading,
   .second-heading {
-    font-size: 20px; }
-  .header-underline {
-    width: 35px;
-    height: 2px; } }
+    font-size: 20px; } }
 
 .what-we-do__header-container {
   position: relative;
@@ -50,15 +47,14 @@ body {
 .what-we-do__collapse-menu {
   width: 601px;
   margin-left: 30px;
-  position: relative;
-  padding: 0 20px; }
+  position: relative; }
   .what-we-do__collapse-menu__img {
     margin-right: 20px; }
 
 .what-we-do__text {
   color: #999999;
   text-align: center;
-  line-height: 15px;
+  line-height: 20px;
   padding: 0 20px;
   max-width: 750px;
   margin: 60px auto 0; }
@@ -66,9 +62,7 @@ body {
 .what-we-do .flex-container-pic-menu {
   display: flex;
   justify-content: center;
-  margin: 60px 0 80px 0; }
-
-.what-we-do__picture {
+  margin: 60px 0 80px 0;
   padding: 0 20px; }
 
 .what-we-do__collapsible {
@@ -123,12 +117,12 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 80px;
-  padding: 0 20px; }
+  padding: 0 5%; }
   .what-we-do__message__img {
     border: solid #95E1D3;
     padding: 45px; }
   .what-we-do__message__content {
-    font-size: 24px;
+    font-size: 20px;
     font-family: "Roboto", sans-serif;
     color: #999999;
     margin-left: 60px;
@@ -154,12 +148,13 @@ body {
   align-items: center;
   margin-top: 20px; }
   .what-we-do .signature__underline {
-    width: 61px;
-    height: 5px;
+    width: 50px;
+    height: 2px;
     background-color: #f38181;
     display: inline-block; }
   .what-we-do .signature__name {
     font-family: "Kaushan Script", cursive;
+    font-size: 24px;
     color: #333333;
     font-weight: normal;
     display: inline-block;
@@ -213,17 +208,13 @@ body {
   .what-we-do .arrow-right {
     font-size: 20px; }
   .what-we-do .signature__underline {
-    width: 35px;
-    height: 2px; }
+    width: 40px; }
   .what-we-do .signature__name {
     font-size: 13px; }
   .first-heading {
     font-size: 20px; }
   .second-heading {
-    font-size: 20px; }
-  .header-underline {
-    width: 35px;
-    height: 2px; } }
+    font-size: 20px; } }
 
 @media (max-width: 768px) {
   .what-we-do__header-container {
@@ -254,7 +245,7 @@ body {
 .meet-our-team__text {
   color: #999999;
   text-align: center;
-  line-height: 15px;
+  line-height: 20px;
   padding: 0 20px;
   max-width: 750px;
   margin: 60px auto 0; }
@@ -477,7 +468,7 @@ body {
 .some-of-our-work__text {
   color: #999999;
   text-align: center;
-  line-height: 15px;
+  line-height: 20px;
   padding: 0 20px;
   max-width: 750px;
   margin: 60px auto 0; }
@@ -515,13 +506,13 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 80px;
-  padding: 0 20px; }
+  padding: 0 5%; }
   .some-of-our-work__message__img {
     width: 212px;
     height: 212px;
     border-radius: 50%; }
   .some-of-our-work__message__content {
-    font-size: 24px;
+    font-size: 20px;
     font-family: "Roboto", sans-serif;
     color: #999999;
     margin-left: 60px;
@@ -547,12 +538,13 @@ body {
   align-items: center;
   margin-top: 20px; }
   .some-of-our-work .signature__underline {
-    width: 61px;
-    height: 5px;
+    width: 50px;
+    height: 2px;
     background-color: #f38181;
     display: inline-block; }
   .some-of-our-work .signature__name {
     font-family: "Kaushan Script", cursive;
+    font-size: 24px;
     color: #333333;
     font-weight: normal;
     display: inline-block;
@@ -591,8 +583,7 @@ body {
     margin-right: 5px;
     font-size: 20px; }
   .some-of-our-work .signature__underline {
-    width: 35px;
-    height: 2px; }
+    width: 40px; }
   .some-of-our-work .signature__name {
     font-size: 13px; } }
 
@@ -634,16 +625,16 @@ body {
       font-weight: 300;
       margin-top: 10px; }
     .what-people-say__contant-container__info__underline {
-      width: 61px;
-      height: 5px;
+      width: 50px;
+      height: 2px;
       background-color: #f38181;
       display: inline-block;
       margin-top: 15px; }
     .what-people-say__contant-container__info__text {
-      font-size: 15px;
+      font-size: 13px;
       font-family: "Roboto", sans-serif;
       color: #999999;
-      line-height: 15px;
+      line-height: 20px;
       margin-top: 25px; }
   .what-people-say .row {
     display: flex;
@@ -694,9 +685,7 @@ body {
       .what-people-say__contant-container__info__role {
         margin-top: 5; }
       .what-people-say__contant-container__info__underline {
-        margin: 10px 0;
-        width: 35px;
-        height: 2px; }
+        margin: 10px 0; }
       .what-people-say__contant-container__info__text {
         margin-top: 0;
         line-height: 17px; }
@@ -714,32 +703,38 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 60px; }
-  .latest-blog__blog1, .latest-blog__blog2 {
-    max-width: 450px; }
-  .latest-blog__blog3 {
+  .latest-blog__blog1, .latest-blog__blog2, .latest-blog__blog3 {
     max-width: 382px; }
+  .latest-blog__blog1, .latest-blog__blog2 {
+    margin-right: 40px; }
   .latest-blog__img-details {
     position: relative; }
   .latest-blog__img {
     width: 382px;
     height: 241px; }
-  .latest-blog__text p {
-    line-height: 15px; }
-  .latest-blog .rectangle {
-    width: 61px;
-    height: 71px;
+  .latest-blog__date {
     background-color: #95E1D3;
-    display: inline-block;
     position: absolute;
     left: -12px;
     bottom: 15px;
-    font-size: 30px;
     text-align: center;
     color: white;
     font-family: "Roboto", sans-serif;
-    font-style: italic;
     display: flex;
-    align-items: center; }
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px; }
+    .latest-blog__date__day {
+      font-family: "Montserrat", sans-serif;
+      font-size: 28px;
+      line-height: 100%;
+      font-weight: 700; }
+    .latest-blog__date__month {
+      font-family: "Roboto", sans-serif;
+      line-height: 100%;
+      font-style: italic;
+      font-size: 15px; }
   .latest-blog__title {
     font-family: "Montserrat", sans-serif;
     font-size: 14px;
@@ -749,9 +744,9 @@ body {
     text-transform: uppercase; }
   .latest-blog__text {
     font-family: "Roboto", sans-serif;
-    font-size: 15px;
+    font-size: 13px;
     color: #999999;
-    line-height: 10px;
+    line-height: 20px;
     margin-top: 20px; }
   .latest-blog__underline {
     width: 381px;
@@ -777,10 +772,7 @@ body {
     height: 180px; }
   .latest-blog__underline {
     width: 300px; }
-  .latest-blog__blog1, .latest-blog__blog2 {
-    max-width: 320px;
-    margin-right: 10px; }
-  .latest-blog__blog3 {
+  .latest-blog__blog1, .latest-blog__blog2, .latest-blog__blog3 {
     max-width: 300px; }
   .latest-blog .rectangle {
     width: 48px;
@@ -876,17 +868,15 @@ body {
       text-transform: uppercase;
       color: #f38181; }
     .map__info__underline {
-      width: 61px;
-      height: 4px;
+      width: 50px;
+      height: 2px;
       display: inline-block;
       background-color: #f38181; }
 
 @media (max-width: 768px) {
   .map__info__title {
     margin: 10px 0;
-    font-size: 20px; }
-  .map__info__underline {
-    height: 3px; } }
+    font-size: 20px; } }
 
 .footer-section {
   margin-bottom: 60px;
@@ -896,7 +886,7 @@ body {
     display: flex;
     justify-content: center; }
   .footer-section__mogo {
-    max-width: 40%; }
+    width: 33%; }
     .footer-section__mogo__title {
       font-family: "Montserrat", sans-serif;
       font-size: 18px;
@@ -905,9 +895,9 @@ body {
       font-size: 35px; }
     .footer-section__mogo__text {
       font-family: "Roboto", sans-serif;
-      font-size: 15px;
+      font-size: 13px;
       color: #999999;
-      line-height: 15px;
+      line-height: 20px;
       margin: 40px 0 50px 0; }
     .footer-section__mogo__followers {
       font-family: "Montserrat", sans-serif;
@@ -955,7 +945,8 @@ body {
       font-weight: 600;
       border: none; }
   .footer-section__blogs {
-    margin-left: 40px; }
+    margin-left: 40px;
+    width: 33%; }
     .footer-section__blogs__title {
       font-family: "Montserrat", sans-serif;
       color: #333333;
@@ -991,7 +982,7 @@ body {
       display: flex;
       flex-direction: column; }
   .footer-section__instagram {
-    margin-left: 70px; }
+    margin-left: 40px; }
     .footer-section__instagram__title {
       font-family: "Montserrat", sans-serif;
       color: #333333;
@@ -1035,26 +1026,12 @@ body {
   .footer-section__flex {
     display: flex; }
 
-@media (max-width: 1250px) {
-  .footer-section__flex-row {
-    flex-wrap: wrap; }
-  .footer-section__mogo {
-    max-width: 40%; }
-    .footer-section__mogo__underline {
-      width: 100%; }
-  .footer-section__blogs {
-    max-width: 25%; }
-  .footer-section__blogs {
-    margin-left: 30px; }
-  .footer-section__instagram {
-    margin-left: 30px; } }
-
-@media (max-width: 900px) {
+@media (max-width: 1020px) {
   .footer-section__flex-row {
     flex-direction: column;
     padding: 0; }
   .footer-section__mogo {
-    max-width: 100%;
+    width: 100%;
     margin-bottom: 20px; }
     .footer-section__mogo__title {
       margin: 0 0 20px; }

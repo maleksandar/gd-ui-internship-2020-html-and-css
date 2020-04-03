@@ -11,14 +11,16 @@
         justify-content: center;
         margin-top: 60px;
     }
-
+     
     &__blog1,
-    &__blog2 {
-        max-width: 450px;
-    }
-
+    &__blog2,
     &__blog3 {
         max-width: 382px;
+    }
+
+    &__blog1,
+    &__blog2{
+        margin-right: 40px;
     }
 
     &__img-details {
@@ -30,27 +32,33 @@
         height: 241px;
     }
 
-    &__text {
-        p {
-            line-height: 15px;
-        }
-    }
-
-    .rectangle {
-        width: 61px;
-        height: 71px;
+    &__date {
         background-color: $light-green;
-        display: inline-block;
         position: absolute;
         left: -12px;
         bottom: 15px;
-        font-size: 30px;
         text-align: center;
         color: white;
         font-family: "Roboto", sans-serif;
-        font-style: italic;
         display: flex;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
+        padding: 5px 10px;
+
+        &__day {
+            font-family: "Montserrat", sans-serif;
+            font-size: 28px;
+            line-height: 100%;
+            font-weight: 700;
+        }
+
+        &__month {
+            font-family: "Roboto", sans-serif;
+            line-height: 100%;
+            font-style: italic;
+            font-size: 15px;
+        }
     }
 
     &__title {
@@ -64,9 +72,9 @@
 
     &__text {
         font-family: "Roboto", sans-serif;
-        font-size: 15px;
+        font-size: 13px;
         color: $light-grey;
-        line-height: 10px;
+        line-height: 20px;
         margin-top: 20px;
     }
 
@@ -108,11 +116,7 @@
         }
 
         &__blog1,
-        &__blog2 {
-            max-width: 320px;
-            margin-right: 10px;
-        }
-
+        &__blog2,
         &__blog3 {
             max-width: 300px;
         }
@@ -229,10 +233,6 @@
                 margin-right: 0;
             }
         }
-
-        // &__blog3 {
-        //     max-width: 250px;
-        // }
     }
 }
 

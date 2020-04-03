@@ -18,8 +18,8 @@
 }
 
 .header-underline {
-  width: 61px;
-  height: 5px;
+  width: 50px;
+  height: 2px;
   background-color: $rose;
   position: absolute;
   left: 50%;
@@ -30,10 +30,5 @@
   .first-heading,
   .second-heading {
     font-size: 20px;
-  }
-
-  .header-underline {
-    width: 35px;
-    height: 2px;
   }
 }

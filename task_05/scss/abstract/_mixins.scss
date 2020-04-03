@@ -11,13 +11,14 @@
     margin-top: 20px;
 
     &__underline {
-        width: 61px;
-        height: 5px;
+        width: 50px;
+        height: 2px;
         background-color: $rose;
         display: inline-block;
     }
     &__name {
         font-family: "Kaushan Script", cursive;
+        font-size: 24px;
         color: $dark-grey;
         font-weight: normal;
         display: inline-block;
@@ -28,7 +29,7 @@
 @mixin section-text-style {
     color: $light-grey;
     text-align: center;
-    line-height: 15px;
+    line-height: 20px;
     padding: 0 20px;
     max-width: 750px;
     margin: 60px auto 0;
@@ -39,11 +40,11 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 80px;
-    padding: 0 20px;
+    padding: 0 5%;
 }
 
 @mixin message_contant-style {
-    font-size: 24px;
+    font-size: 20px;
     font-family: "Roboto", sans-serif;
     color: $light-grey;
     margin-left: 60px;
