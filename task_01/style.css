@@ -37,22 +37,19 @@
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 100px;
 }
 
 .footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 30px;
 }
 
 .header,
 .footer {
   background-color: var(--darker-pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .middle-column-text {

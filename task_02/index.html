@@ -18,27 +18,27 @@
         <div class="list-item"><a href="#" class="links">Work</a></div>
         <div class="list-item"><a href="#" class="links">People</a></div>
         <div class="list-item">
-          <a href="#" class="links" id="disabled">Jobs</a>
+          <a href="#" class="links disabled">Jobs</a>
         </div>
         <div class="list-item">
-          <a href="#" class="links" id="disabled">Blog</a>
+          <a href="#" class="links disabled">Blog</a>
         </div>
         <div class="list-item">
-          <a href="#" class="links" id="disabled">Contact</a>
+          <a href="#" class="links disabled">Contact</a>
         </div>
       </div>
     </nav>
 
     <!-- Mobile nav -->
     <nav role="navigation" class="mobile-navigation">
-      <div id="menuToggle">
-        <input type="checkbox" id="toggleCheckbox" onclick="moveText()">
+      <div class="menu-toggle">
+        <input type="checkbox" class="toggle-checkbox" onclick="moveText()">
 
         <span></span>
         <span></span>
         <span></span>
 
-        <ul id="menu">
+        <ul class="menu">
           <li><a href="#" class="link">Home</a></li>
           <li><a href="#" class="link">Approach</a></li>
           <li><a href="#" class="link">Work</a></li>
@@ -51,9 +51,9 @@
     </nav>
 
     <!-- Other content -->
-    <section id="section">
-      <div class="item" id="item1">
-        <div class="section-wrapper">
+    <section class="content">
+      <div class="item item1">
+        <div class="content-wrapper">
           <div class="text-wrapper">
             <div class="post-title">This is a title</div>
             <div class="post-text">
@@ -77,8 +77,8 @@
         </div>
       </div>
 
-      <div class="item" id="item2">
-        <div class="section-wrapper">
+      <div class="item item2">
+        <div class="content-wrapper">
           <div class="text-wrapper">
             <div class="post-title">This is a title</div>
             <div class="post-text">
@@ -102,8 +102,8 @@
         </div>
       </div>
 
-      <div class="item" id="item3">
-        <div class="section-wrapper">
+      <div class="item item3">
+        <div class="content-wrapper">
           <div class="text-wrapper">
             <div class="post-title">This is a title</div>
             <div class="post-text">
@@ -127,8 +127,8 @@
         </div>
       </div>
 
-      <div class="item" id="item4">
-        <div class="section-wrapper">
+      <div class="item item4">
+        <div class="content-wrapper">
           <div class="text-wrapper">
             <div class="post-title">This is a title</div>
             <div class="post-text">
@@ -156,22 +156,22 @@
 </body>
 <script>
   function moveText() {
-    const section = document.querySelectorAll(".section-wrapper");
-    const sectionTag = document.getElementById("section");
+    const contentWrapper = document.querySelectorAll(".content-wrapper");
+    const content = document.getElementsByClassName("content")[0];
 
-    if (document.getElementById("toggleCheckbox").checked) {
-      section.forEach(el => {
+    if (document.getElementsByClassName("toggle-checkbox")[0].checked) {
+      contentWrapper.forEach(el => {
         el.style.position = "absolute";
-        el.style.right = "-250px";
+        el.style.right = "-350px";
       });
-      sectionTag.style.position = "fixed";
+      content.style.position = "fixed";
     } else {
       setTimeout(() => {
-        section.forEach(el => {
+        contentWrapper.forEach(el => {
           el.style.removeProperty("position");
           el.style.removeProperty("right");
         });
-        sectionTag.style.removeProperty("position");
+        content.style.removeProperty("position");
       }, 100);
     }
   }

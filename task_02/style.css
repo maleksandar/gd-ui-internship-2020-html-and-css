@@ -26,10 +26,7 @@ nav {
   left: 0;
 }
 
-a#disabled {
-  color: #83878a;
-}
-a#disabled li {
+a.disabled {
   color: #83878a;
 }
 
@@ -45,23 +42,23 @@ section {
   align-items: center;
 }
 
-#item1 {
+.item1 {
   background-color: #68d2e7;
 }
 
-#item2 {
+.item2 {
   background-color: #f9d423;
 }
 
-#item3 {
+.item3 {
   background-color: #f3862f;
 }
 
-#item4 {
+.item4 {
   background-color: #ff4e4f;
 }
 
-.section-wrapper {
+.content-wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -128,7 +125,7 @@ section {
     font-family: "Avenir Next", "Avenir", sans-serif;
   }
 
-  #menuToggle {
+  .menu-toggle {
     display: block;
     position: relative;
     top: 30px;
@@ -140,18 +137,18 @@ section {
     user-select: none;
   }
 
-  #menuToggle a {
+  .menu-toggle a {
     text-decoration: none;
     color: #232323;
 
     transition: color 0.3s ease;
   }
 
-  #menuToggle a:hover {
+  .menu-toggle a:hover {
     color: tomato;
   }
 
-  #menuToggle input {
+  .menu-toggle input {
     display: block;
     width: 40px;
     height: 32px;
@@ -167,7 +164,7 @@ section {
     -webkit-touch-callout: none;
   }
 
-  #menuToggle span {
+  .menu-toggle span {
     display: block;
     width: 33px;
     height: 4px;
@@ -185,11 +182,11 @@ section {
       background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.5s ease;
   }
 
-  #menuToggle span:first-child {
+  .menu-toggle span:first-child {
     transform-origin: 0% 0%;
   }
 
-  #menuToggle span:nth-last-child(2) {
+  .menu-toggle span:nth-last-child(2) {
     transform-origin: 0% 100%;
   }
 
@@ -197,7 +194,7 @@ section {
   * Transform all the slices of hamburger
   * into a crossmark.
   */
-  #menuToggle input:checked ~ span {
+  .menu-toggle input:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
     background: white;
@@ -207,7 +204,7 @@ section {
   /*
   * But let's hide the middle one.
   */
-  #menuToggle input:checked ~ span:nth-last-child(3) {
+  .menu-toggle input:checked ~ span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
   }
@@ -215,7 +212,7 @@ section {
   /*
   * Ohyeah and the last one should go the other direction
   */
-  #menuToggle input:checked ~ span:nth-last-child(2) {
+  .menu-toggle input:checked ~ span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
   }
 
@@ -223,7 +220,7 @@ section {
   * Make this absolute positioned
   * at the top left of the screen
   */
-  #menu {
+  .menu {
     position: absolute;
     width: 60vw;
     height: 100vh;
@@ -241,32 +238,32 @@ section {
     transition: transform 0.25s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
 
-  #menu li {
+  .menu li {
     padding: 10px 0;
     font-size: 24px;
     color: white;
     font-weight: 900;
   }
 
-  #menu li a.link {
+  .menu li a.link {
     color: white;
   }
 
-  #menu li a.disabled {
+  .menu li a.disabled {
     color: #232323
   }
 
-  #menuToggle input:checked ~ ul {
+  .menu-toggle input:checked ~ ul {
     transform: none;
   }
 
-  #menuToggle input:checked {
+  .menu-toggle input:checked {
     left: 67vw;
   }
 }
 
 @media (max-width: 320px) {
-  #menuToggle {
+  .menu-toggle {
     top: 20px;
     left: 30px;
   }
