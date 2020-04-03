@@ -10,8 +10,11 @@ const NAVBAR_LINK_ACTIVE_CLASSNAME = 'navbar__link--active';
 navbarLinks.forEach((link) => {
 	link.addEventListener('click', () => {
 		const currentActiveLink = document.querySelector(`.${NAVBAR_LINK_ACTIVE_CLASSNAME}`);
-		currentActiveLink.classList.remove(NAVBAR_LINK_ACTIVE_CLASSNAME);
-		link.classList.add(NAVBAR_LINK_ACTIVE_CLASSNAME);
+
+		if (currentActiveLink && currentActiveLink.classList.contains(NAVBAR_LINK_ACTIVE_CLASSNAME)) {
+			currentActiveLink.classList.remove(NAVBAR_LINK_ACTIVE_CLASSNAME);
+			link.classList.add(NAVBAR_LINK_ACTIVE_CLASSNAME);
+		}
 	});
 });
 
@@ -93,6 +96,26 @@ window.addEventListener('scroll', throttle(() => {
 		isCounterShown = false;
 		counters.forEach((counter) => animateCounter(counter, 0, Number(counter.innerHTML), COUNTER_DURATION));
 	}
+
+	// Change navbar link active class
+	document.querySelectorAll('.navbar__link a').forEach((link) => {
+		const section = document.querySelector(link.hash);
+		const padding = parseInt(window.getComputedStyle(section, null).getPropertyValue('padding-top'));
+
+		if (section) {
+			if (
+				section.offsetTop - padding <= pageYOffset &&
+				section.offsetTop + section.offsetHeight > pageYOffset
+			) {
+				const currentActiveLink = document.querySelector(`.${NAVBAR_LINK_ACTIVE_CLASSNAME}`);
+
+				if (currentActiveLink && currentActiveLink.classList.contains(NAVBAR_LINK_ACTIVE_CLASSNAME)) {
+					currentActiveLink.classList.remove(NAVBAR_LINK_ACTIVE_CLASSNAME);
+					link.parentNode.classList.add(NAVBAR_LINK_ACTIVE_CLASSNAME);
+				}
+			}
+		}
+	});
 }, THROTTLE_THRESHOLD));
 
 /**
