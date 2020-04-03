@@ -179,6 +179,12 @@
             margin-right: 0;
         }
 
+        &__blog1,
+        &__blog2,
+        &__blog3 {
+            max-width: 360px;
+        }
+
         &__title {
             margin-top: 10px;
             text-align: left;
@@ -204,6 +210,9 @@
         }
 
         .rectangle {
+            width: 48px;
+            height: 52px;
+            font-size: 20px;
             left: -11px;
             bottom: 12px;
             width: 41px;
@@ -215,29 +224,15 @@
 
         &__img {
             width: 100%;
-            height: 190px;
+            height: 100%;
             &:not(:last-child) {
                 margin-right: 0;
             }
         }
 
-        &__underline {
-            width: 100%;
-        }
-
-        .rectangle {
-            width: 48px;
-            height: 52px;
-            font-size: 20px;
-        }
-
-        &__title {
-            font-size: 12px;
-        }
-
-        &__blog3 {
-            max-width: 250px;
-        }
+        // &__blog3 {
+        //     max-width: 250px;
+        // }
     }
 }
 

@@ -73,3 +73,43 @@
     }
   }
 }
+
+@media (max-width:900px){
+  .unique-design{
+    .container{
+      .section-content{
+        .devices{
+          .tablet {
+            width: 250px;
+          }
+  
+          .mobile {
+            margin-left: 65px;
+            bottom: -32px;
+            width: 110px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:420px){
+  .unique-design{
+    .container{
+      .section-content{
+        .devices{
+          .tablet {
+            width: 200px;
+          }
+  
+          .mobile {
+            margin-left: 48px;
+            bottom: -32px;
+            width: 90px;
+          }
+        }
+      }
+    }
+  }
+}

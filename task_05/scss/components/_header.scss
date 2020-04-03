@@ -1,7 +1,8 @@
 header {
   position: relative;
-  font-family: 'Montserrat', sans-serif;
-  background-image: linear-gradient(to bottom, rgba(243,129,129,0.9), rgba(252, 227, 138, 0.9)) , url('../../assets/bg-header.jpg') ;
+  font-family: "Montserrat", sans-serif;
+  background-image: linear-gradient(to bottom, rgba(243, 129, 129, 0.9), rgba(252, 227, 138, 0.9)),
+    url("../../assets/bg-header.jpg");
   background-size: cover;
   height: 100%;
 
@@ -10,17 +11,17 @@ header {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-  
+
     .nav-items {
       padding-top: 10px;
 
       .navbar-brand {
         font-size: 20px;
         font-weight: 700;
-        color:#fff;
+        color: #fff;
         text-decoration: none;
       }
-    
+
       .nav-link-wrapper {
         float: right;
 
@@ -43,7 +44,7 @@ header {
   }
 
   .text-container {
-    &:after{
+    &:after {
       content: "";
       position: absolute;
       left: 50%;
@@ -58,7 +59,7 @@ header {
       flex-direction: row;
       justify-content: center;
       font-weight: 400;
-      font-family: 'Kaushan Script', cursive;
+      font-family: "Kaushan Script", cursive;
       font-size: 55px;
       color: white;
       text-transform: none;
@@ -68,7 +69,7 @@ header {
 
     .bottom-text {
       color: white;
-      font-family: 'Montserrat', sans-serif;
+      font-family: "Montserrat", sans-serif;
       font-size: 110px;
       font-weight: 700;
       text-transform: uppercase;
@@ -122,12 +123,12 @@ header {
       list-style: none;
 
       &.active {
-        .inner{
+        .inner {
           border-top: 2px solid #f38181;
         }
       }
 
-      .inner{
+      .inner {
         border-top: 2px solid #f7eac4;
         position: relative;
         color: #faf3e0;
@@ -140,6 +141,50 @@ header {
           font-size: 18px;
           margin-right: 3px;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  header {
+    .slider-list {
+      li {
+        .inner {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    .text-container {
+      .upper-text {
+        width: 100%;
+        font-size: 35px;
+      }
+
+      .bottom-text {
+        font-size: 60px;
+      }
+    }
+    .slider-list {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  header {
+    .text-container {
+      .upper-text {
+        font-size: 20px;
+      }
+
+      .bottom-text {
+        font-size: 35px;
       }
     }
   }

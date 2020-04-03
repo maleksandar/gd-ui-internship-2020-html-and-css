@@ -38,3 +38,21 @@
       }
     }
 }
+
+@media (max-width:768px){
+  .counting{
+    .container{
+      .vertical-stretch{
+        .item {
+          padding: 25px 5px;
+          .number{
+            font-size: 30px;
+          }
+          .text{
+            font-size: 9px;
+          }
+        }
+      }
+    }
+  }
+}

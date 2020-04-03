@@ -8,6 +8,7 @@
     position: relative;
     display: flex;
     align-items: center;
+    margin-top: 20px;
 
     &__underline {
         width: 61px;
@@ -28,8 +29,9 @@
     color: $light-grey;
     text-align: center;
     line-height: 15px;
-    margin-top: 60px;
     padding: 0 20px;
+    max-width: 750px;
+    margin: 60px auto 0;
 }
 
 @mixin meesage-container-style {
@@ -45,7 +47,7 @@
     font-family: "Roboto", sans-serif;
     color: $light-grey;
     margin-left: 60px;
-    line-height: 20px;
+    line-height: 26px;
     font-weight: 300;
     position: relative;
     font-style: italic;
