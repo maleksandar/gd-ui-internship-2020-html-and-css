@@ -1,0 +1,51 @@
+.section-counting {
+	@include font-montserrat();
+
+	padding: 0;
+	background: $color-tertiary;
+	text-align: center;
+	color: $color-white;
+	text-transform: uppercase;
+	font-size: 1.4rem;
+
+	.flex-row {
+		flex-direction: row;
+	}
+
+	@media screen and (max-width: 992px) {
+		font-size: 1rem;
+	}
+
+	&__item {
+		width: 20%;
+		padding: 6rem .5rem;
+		border-right: 1px solid rgba($color-white, 0.35);
+
+		@media screen and (max-width: 992px) {
+			padding: 3.5rem .5rem;
+		}
+
+		@media screen and (max-width: 640px) {
+			padding: 2rem .5rem;
+		}
+
+		&:first-child {
+			border-left: 1px solid rgba($color-white, 0.35);
+		}
+	}
+
+	&__number {
+		font-size: 6.5rem;
+		font-weight: 700;
+		line-height: 100%;
+		margin-bottom: 1rem;
+
+		@media screen and (max-width: 992px) {
+			font-size: 5rem;
+		}
+
+		@media screen and (max-width: 640px) {
+			font-size: 2.8rem;
+		}
+	}
+}
