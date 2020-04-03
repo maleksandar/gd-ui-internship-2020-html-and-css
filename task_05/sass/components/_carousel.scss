@@ -1,26 +1,26 @@
 .carousel {
 	display: flex;
 	flex-direction: column;
-	padding: 4rem 0 0;
+	padding-top: 1rem;
 
-	@media screen and (max-width: 768px) {
-		padding-top: 10px;
+	@include media-breakpoint-up(medium) {
+		padding: 4rem 0 0;
 	}
 
 	&-inner {
 		@include center();
 
-		height: 40rem;
+		height: 23rem;
 		position: relative;
 		width: 100%;
 		overflow: hidden;
 
-		@media screen and (max-width: 768px) {
+		@include media-breakpoint-up(old-mobile) {
 			height: 27rem;
 		}
 
-		@media screen and (max-width: 640px) {
-			height: 23rem;
+		@include media-breakpoint-up(medium) {
+			height: 40rem;
 		}
 	}
 

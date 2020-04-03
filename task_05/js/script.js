@@ -1,8 +1,19 @@
 const navbarToggler = document.getElementById('navbar__toggler');
 const navbarNav = document.querySelector('.navbar__nav');
+const navbarLinks = document.querySelectorAll('.navbar__link');
 
 const NAVBAR_CLOSED_CLASSNAME = 'navbar__nav--closed';
 const NAVBAR_FIXED_CLASSNAME = 'navbar--fixed';
+const NAVBAR_LINK_ACTIVE_CLASSNAME = 'navbar__link--active';
+
+// Change navbar link active class
+navbarLinks.forEach((link) => {
+	link.addEventListener('click', () => {
+		const currentActiveLink = document.querySelector(`.${NAVBAR_LINK_ACTIVE_CLASSNAME}`);
+		currentActiveLink.classList.remove(NAVBAR_LINK_ACTIVE_CLASSNAME);
+		link.classList.add(NAVBAR_LINK_ACTIVE_CLASSNAME);
+	});
+});
 
 // Toggle navbar
 navbarToggler.addEventListener('click', (event) => {
@@ -52,7 +63,7 @@ let isCounterShown = true;
 const backToTopButton = document.getElementById('back-to-top');
 
 backToTopButton.addEventListener('click', (event) => {
-  event.preventDefault();
+	event.preventDefault();
 	document.body.scrollTop = 0;
 	document.documentElement.scrollTop = 0;
 });
