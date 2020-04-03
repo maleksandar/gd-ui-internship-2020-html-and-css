@@ -11,36 +11,30 @@ navbarToggler.addEventListener('click', (event) => {
 });
 
 /**
- * Returns a function, that, as long as it continues to be invoked, will not
- * be triggered. The function will be called after it stops being called for
- * N milliseconds. If `immediate` is passed, trigger the function on the
- * leading edge, instead of the trailing.
+ * In case of a "storm of events", this executes once every threshold.
  *
  * @param func
- * @param wait
- * @param immediate
- * @returns {function(...[*]=)}
+ * @param threshold
+ * @param scope
+ * @returns {Function}
  */
-const debounce = (func, wait, immediate) => {
-	let timeout;
+const throttle = (func, threshold = 250, scope) => {
+	let last;
+	let deferTimer;
 
 	return function () {
-		const context = this;
-		const args = arguments;
+		let context = scope || this;
+		let now = +new Date;
+		let args = arguments;
 
-		const later = () => {
-			timeout = null;
-
-			if (!immediate) {
+		if (last && now < last + threshold) {
+			clearTimeout(deferTimer);
+			deferTimer = setTimeout(() => {
+				last = now;
 				func.apply(context, args);
-			}
-		};
-
-		const callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-
-		if (callNow) {
+			}, threshold);
+		} else {
+			last = now;
 			func.apply(context, args);
 		}
 	};
@@ -51,10 +45,11 @@ const debounce = (func, wait, immediate) => {
 const supportPageOffset = window.pageXOffset !== undefined;
 const isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
 const headerHeight = document.querySelector('.header').offsetHeight;
-const DEBOUNCE_WAIT_FACTOR = 200;
+const THROTTLE_THRESHOLD = 200;
+const COUNTER_DURATION = 2000;
 let isCounterShown = true;
 
-window.addEventListener('scroll', debounce(() => {
+window.addEventListener('scroll', throttle(() => {
 	const pageYOffset = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
 	const navbarHeight = document.querySelector('.navbar').offsetHeight;
 
@@ -68,13 +63,12 @@ window.addEventListener('scroll', debounce(() => {
 
 	const sectionCountingHeight = document.querySelector('.section-counting').offsetHeight;
 	const counters = document.querySelectorAll('.section-counting__number');
-	const COUNTER_DURATION = 2000;
 
 	if (pageYOffset >= sectionCountingHeight && isCounterShown) {
 		isCounterShown = false;
 		counters.forEach((counter) => animateCounter(counter, 0, Number(counter.innerHTML), COUNTER_DURATION));
 	}
-}, DEBOUNCE_WAIT_FACTOR));
+}, THROTTLE_THRESHOLD));
 
 const animateCounter = (element, start, end, duration) => {
 	const range = end - start;
