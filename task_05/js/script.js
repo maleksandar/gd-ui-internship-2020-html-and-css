@@ -11,6 +11,10 @@ navbarLinks.forEach((link) => {
 	link.addEventListener('click', () => {
 		const currentActiveLink = document.querySelector(`.${NAVBAR_LINK_ACTIVE_CLASSNAME}`);
 
+		if (!navbarNav.classList.contains(NAVBAR_CLOSED_CLASSNAME)) {
+			navbarNav.classList.add(NAVBAR_CLOSED_CLASSNAME);
+		}
+
 		if (currentActiveLink && currentActiveLink.classList.contains(NAVBAR_LINK_ACTIVE_CLASSNAME)) {
 			currentActiveLink.classList.remove(NAVBAR_LINK_ACTIVE_CLASSNAME);
 			link.classList.add(NAVBAR_LINK_ACTIVE_CLASSNAME);
@@ -22,6 +26,15 @@ navbarLinks.forEach((link) => {
 navbarToggler.addEventListener('click', (event) => {
 	event.preventDefault();
 	navbarNav.classList.toggle(NAVBAR_CLOSED_CLASSNAME);
+});
+
+// Close navbar if user clicks outside the navbar
+document.addEventListener('click', (event) => {
+	const isNavbarOpen = !navbarNav.classList.contains(NAVBAR_CLOSED_CLASSNAME);
+
+	if (isNavbarOpen && !(event.target.id === 'navbar__toggler')) {
+		navbarNav.classList.add(NAVBAR_CLOSED_CLASSNAME);
+	}
 });
 
 /**
@@ -65,6 +78,7 @@ let isCounterShown = true;
 
 const backToTopButton = document.getElementById('back-to-top');
 
+// Back to top scroll animation
 backToTopButton.addEventListener('click', (event) => {
 	event.preventDefault();
 	document.body.scrollTop = 0;
