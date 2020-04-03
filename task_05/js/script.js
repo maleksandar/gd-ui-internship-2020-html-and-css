@@ -1,3 +1,4 @@
+const navbar = document.querySelector('.navbar');
 const navbarToggler = document.getElementById('navbar__toggler');
 const navbarNav = document.querySelector('.navbar__nav');
 const navbarLinks = document.querySelectorAll('.navbar__link');
@@ -6,6 +7,16 @@ const NAVBAR_CLOSED_CLASSNAME = 'navbar__nav--closed';
 const NAVBAR_FIXED_CLASSNAME = 'navbar--fixed';
 const NAVBAR_LINK_ACTIVE_CLASSNAME = 'navbar__link--active';
 
+const changeNavbarTogglerClass = () => {
+	if (navbarToggler.classList.contains('mdi-menu')) {
+		navbarToggler.classList.remove('mdi-menu');
+		navbarToggler.classList.add('mdi-close');
+	} else {
+		navbarToggler.classList.remove('mdi-close');
+		navbarToggler.classList.add('mdi-menu');
+	}
+};
+
 // Change navbar link active class
 navbarLinks.forEach((link) => {
 	link.addEventListener('click', () => {
@@ -13,6 +24,7 @@ navbarLinks.forEach((link) => {
 
 		if (!navbarNav.classList.contains(NAVBAR_CLOSED_CLASSNAME)) {
 			navbarNav.classList.add(NAVBAR_CLOSED_CLASSNAME);
+			changeNavbarTogglerClass();
 		}
 
 		if (currentActiveLink && currentActiveLink.classList.contains(NAVBAR_LINK_ACTIVE_CLASSNAME)) {
@@ -25,16 +37,28 @@ navbarLinks.forEach((link) => {
 // Toggle navbar
 navbarToggler.addEventListener('click', (event) => {
 	event.preventDefault();
+	changeNavbarTogglerClass();
 	navbarNav.classList.toggle(NAVBAR_CLOSED_CLASSNAME);
 });
 
+const closeNavbar = (target) => {
+	const isNavbarOpen = navbarNav.classList.contains(NAVBAR_CLOSED_CLASSNAME);
+	const isClickedOnNavbarNav = target.classList.contains('navbar__nav');
+	const isClickedOutsideNavbar = navbar.contains(target);
+
+	if (
+		!isNavbarOpen &&
+		!isClickedOnNavbarNav &&
+		!isClickedOutsideNavbar
+	) {
+		navbarNav.classList.add(NAVBAR_CLOSED_CLASSNAME);
+		changeNavbarTogglerClass();
+	}
+};
+
 // Close navbar if user clicks outside the navbar
 document.addEventListener('click', (event) => {
-	const isNavbarOpen = !navbarNav.classList.contains(NAVBAR_CLOSED_CLASSNAME);
-
-	if (isNavbarOpen && !(event.target.id === 'navbar__toggler')) {
-		navbarNav.classList.add(NAVBAR_CLOSED_CLASSNAME);
-	}
+	closeNavbar(event.target);
 });
 
 /**
@@ -87,7 +111,7 @@ backToTopButton.addEventListener('click', (event) => {
 
 window.addEventListener('scroll', throttle(() => {
 	const pageYOffset = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
-	const navbarHeight = document.querySelector('.navbar').offsetHeight;
+	const navbarHeight = navbar.offsetHeight;
 
 	if (pageYOffset > navbarHeight) {
 		backToTopButton.style.opacity = '1';
@@ -180,7 +204,7 @@ const accordionClick = (event) => {
 	if (content.style.maxHeight) {
 		content.style.maxHeight = null;
 		content.style.margin = '0 1rem';
-		changeArrow(targetClicked, 'up', 'down');
+		changeAccordionArrow(targetClicked, 'up', 'down');
 	} else {
 		const allContents = document.getElementsByClassName('accordion__content');
 
@@ -188,17 +212,17 @@ const accordionClick = (event) => {
 			if (allContents[i].style.maxHeight) {
 				allContents[i].style.maxHeight = null;
 				allContents[i].style.margin = '0 1rem';
-				changeArrow(allContents[i].previousElementSibling, 'up', 'down');
+				changeAccordionArrow(allContents[i].previousElementSibling, 'up', 'down');
 			}
 		}
 
-		changeArrow(targetClicked, 'down', 'up');
+		changeAccordionArrow(targetClicked, 'down', 'up');
 		content.style.maxHeight = '17rem';
 		content.style.margin = '1rem';
 	}
 };
 
-const changeArrow = (element, from, to) => {
+const changeAccordionArrow = (element, from, to) => {
 	element.lastElementChild.classList.remove(`mdi-chevron-${from}`);
 	element.lastElementChild.classList.add(`mdi-chevron-${to}`);
 };
