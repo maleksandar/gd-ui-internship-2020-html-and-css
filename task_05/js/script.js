@@ -49,9 +49,23 @@ const THROTTLE_THRESHOLD = 200;
 const COUNTER_DURATION = 2000;
 let isCounterShown = true;
 
+const backToTopButton = document.getElementById('back-to-top');
+
+backToTopButton.addEventListener('click', (event) => {
+  event.preventDefault();
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
+});
+
 window.addEventListener('scroll', throttle(() => {
 	const pageYOffset = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
 	const navbarHeight = document.querySelector('.navbar').offsetHeight;
+
+	if (pageYOffset > navbarHeight) {
+		backToTopButton.style.opacity = '1';
+	} else {
+		backToTopButton.style.opacity = '0';
+	}
 
 	if (pageYOffset >= headerHeight) {
 		document.body.classList.add(NAVBAR_FIXED_CLASSNAME);
@@ -70,6 +84,14 @@ window.addEventListener('scroll', throttle(() => {
 	}
 }, THROTTLE_THRESHOLD));
 
+/**
+ * Animates counters in counting section.
+ *
+ * @param element
+ * @param start
+ * @param end
+ * @param duration
+ */
 const animateCounter = (element, start, end, duration) => {
 	const range = end - start;
 	const increment = end > start ? 1 : -1;

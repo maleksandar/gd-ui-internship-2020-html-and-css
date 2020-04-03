@@ -41,3 +41,17 @@
 	background: $color-tertiary;
 	border: none;
 }
+
+#back-to-top {
+	bottom: 2rem;
+	right: 2rem;
+	color: $color-primary;
+	font-size: 3rem;
+	position: fixed;
+	border: none;
+	outline: none;
+	z-index: 999999;
+	opacity: 0;
+	cursor: pointer;
+	transition: opacity .5s;
+}
