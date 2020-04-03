@@ -21,7 +21,7 @@
 			padding: 0 1.5rem;
 			margin-bottom: 1.5rem;
 
-			@include media-breakpoint-up(medium) {
+			@include media-breakpoint-up(large) {
 				flex: 0 0 33%;
 			}
 		}
@@ -35,7 +35,7 @@
 				flex: 0 0 50%;
 			}
 
-			@include media-breakpoint-up(medium) {
+			@include media-breakpoint-up(large) {
 				flex: 0 0 33%;
 			}
 		}
@@ -90,6 +90,8 @@
 	}
 
 	&-form {
+		@include center();
+
 		&__input {
 			border: 1px solid $color-grey-light-3;
 			box-shadow: none;
@@ -97,6 +99,7 @@
 			font-size: 1.4rem;
 			height: 4rem;
 			padding: 1rem;
+			flex: 1;
 
 			&::placeholder {
 				color: $color-grey-light-3;
@@ -106,7 +109,6 @@
 
 	&__article {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
 		margin-bottom: 2rem;
 

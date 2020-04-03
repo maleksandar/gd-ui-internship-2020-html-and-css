@@ -219,13 +219,12 @@
 
 	&__icon--social-net {
 		font-size: 3rem;
-		padding: 1.5rem;
+		padding: 1rem;
 		color: $color-primary;
 		background: $color-secondary;
 		margin: 0 -1px;
 		line-height: 100%;
 		text-transform: uppercase;
-		margin: 0.1px;
 		cursor: pointer;
 		transition: all .3s;
 
@@ -319,24 +318,12 @@
 		padding-bottom: 4rem;
 	}
 
-	//.section__item:not(:nth-last-child(-n+1)) {
-	//	border-bottom: 1px solid $color-grey-light-2;
-	//	margin-bottom: 2rem;
-	//	padding-bottom: 1rem;
-	//}
-
 	@media screen and (max-width: 768px) {
 		.section__item:not(:nth-last-child(-n+1)) {
 			border-bottom: 1px solid $color-grey-light-2;
 			margin-bottom: 2rem;
 			padding-bottom: 1rem;
 		}
-
-		//.section__item:not(:nth-last-child(-n+2)) {
-		//	border-bottom: 1px solid $color-grey-light-2;
-		//	margin-bottom: 3rem;
-		//	padding-bottom: 2rem;
-		//}
 	}
 
 	@media screen and (max-width: 992px) {
@@ -345,12 +332,6 @@
 			margin-bottom: 3rem;
 			padding-bottom: 2rem;
 		}
-
-		//.section__item:not(:nth-last-child(-n+3)) {
-		//	border-bottom: 1px solid $color-grey-light-2;
-		//	margin-bottom: 5rem;
-		//	padding-bottom: 4rem;
-		//}
 	}
 
 	&__icon {
@@ -718,7 +699,7 @@
 			grid-template-columns: repeat(3, 1fr);
 		}
 
-		@include media-breakpoint-up(medium) {
+		@include media-breakpoint-up(large) {
 			grid-template-columns: repeat(6, 1fr);
 		}
 	}
