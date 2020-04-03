@@ -118,10 +118,10 @@
 		&.navbar__link--active {
 			a {
 				color: $color-secondary;
-				border-color: $color-secondary;
+				border-color: transparent;
 
-				@media screen and (max-width: 768px) {
-					border-color: transparent;
+				@include media-breakpoint-up(medium) {
+					border-color: $color-secondary;
 				}
 			}
 		}
@@ -131,11 +131,11 @@
 		position: relative;
 
 		a:first-child {
-			display: none;
+			display: flex;
 			padding: 1rem .5rem .5rem;
 
-			@media screen and (max-width: 768px) {
-				display: flex;
+			@include media-breakpoint-up(medium) {
+				display: none;
 			}
 		}
 	}

@@ -31,7 +31,7 @@
 	}
 
 	&__title {
-		font-size: 11rem;
+		font-size: 4.5rem;
 		color: $color-white;
 		font-weight: 700;
 		line-height: 1;
@@ -41,11 +41,12 @@
 		text-align: center;
 		text-transform: uppercase;
 
-		@media screen and (max-width: 768px) {
+		@include media-breakpoint-up(old-mobile) {
 			font-size: 6rem;
 		}
-		@media screen and (max-width: 640px) {
-			font-size: 4.5rem;
+
+		@include media-breakpoint-up(medium) {
+			font-size: 11rem;
 		}
 
 		&:after {
@@ -63,17 +64,18 @@
 	&__subtitle {
 		@include font-kaushan-script();
 
-		font-size: 5.5rem;
+		font-size: 2.2rem;
 		display: block;
 		text-transform: none;
 		font-weight: 400;
 		margin-bottom: 2rem;
 
-		@media screen and (max-width: 768px) {
+		@include media-breakpoint-up(old-mobile) {
 			font-size: 3.5rem;
 		}
-		@media screen and (max-width: 640px) {
-			font-size: 2.2rem;
+
+		@include media-breakpoint-up(medium) {
+			font-size: 5.5rem;
 		}
 	}
 
@@ -82,17 +84,14 @@
 		width: 100%;
 		left: 0;
 		position: static;
-		margin: 8rem 0 0;
+		margin-top: 3rem;
 		padding-left: 0;
 		text-align: center;
 		list-style: none;
 
 		@include media-breakpoint-up(medium) {
 			bottom: 2rem;
-		}
-
-		@media screen and (max-width: 768px) {
-			margin-top: 3rem;
+			margin: 8rem 0 1rem;
 		}
 
 		&__item {
