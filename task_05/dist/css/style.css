@@ -23,7 +23,6 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 30px;
   margin-bottom: 20px; }
 
 .header-underline {
@@ -53,6 +52,9 @@ body {
 
 .what-we-do__text {
   color: #999999;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: 'Roboto',sans-serif;
   text-align: center;
   line-height: 20px;
   padding: 0 20px;
@@ -122,11 +124,10 @@ body {
     border: solid #95E1D3;
     padding: 45px; }
   .what-we-do__message__content {
-    font-size: 20px;
+    font-size: 18px;
     font-family: "Roboto", sans-serif;
     color: #999999;
     margin-left: 60px;
-    line-height: 26px;
     font-weight: 300;
     position: relative;
     font-style: italic; }
@@ -154,8 +155,7 @@ body {
     display: inline-block; }
   .what-we-do .signature__name {
     font-family: "Kaushan Script", cursive;
-    font-size: 24px;
-    color: #333333;
+    font-size: 18px;
     font-weight: normal;
     display: inline-block;
     margin-left: 15px; }
@@ -244,6 +244,9 @@ body {
 
 .meet-our-team__text {
   color: #999999;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: 'Roboto',sans-serif;
   text-align: center;
   line-height: 20px;
   padding: 0 20px;
@@ -467,6 +470,9 @@ body {
 
 .some-of-our-work__text {
   color: #999999;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: 'Roboto',sans-serif;
   text-align: center;
   line-height: 20px;
   padding: 0 20px;
@@ -512,11 +518,10 @@ body {
     height: 212px;
     border-radius: 50%; }
   .some-of-our-work__message__content {
-    font-size: 20px;
+    font-size: 18px;
     font-family: "Roboto", sans-serif;
     color: #999999;
     margin-left: 60px;
-    line-height: 26px;
     font-weight: 300;
     position: relative;
     font-style: italic; }
@@ -544,8 +549,7 @@ body {
     display: inline-block; }
   .some-of-our-work .signature__name {
     font-family: "Kaushan Script", cursive;
-    font-size: 24px;
-    color: #333333;
+    font-size: 18px;
     font-weight: normal;
     display: inline-block;
     margin-left: 15px; }
@@ -608,8 +612,8 @@ body {
     .what-people-say__contant-container--person2, .what-people-say__contant-container--person4 {
       margin-left: 30px; }
     .what-people-say__contant-container__img {
-      width: 120px;
-      height: 120px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       margin-right: 50px; }
     .what-people-say__contant-container__info__name {

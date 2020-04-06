@@ -18,8 +18,7 @@
     }
     &__name {
         font-family: "Kaushan Script", cursive;
-        font-size: 24px;
-        color: $dark-grey;
+        font-size: 18px;
         font-weight: normal;
         display: inline-block;
         margin-left: 15px;
@@ -28,6 +27,9 @@
 
 @mixin section-text-style {
     color: $light-grey;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: 'Roboto',sans-serif;
     text-align: center;
     line-height: 20px;
     padding: 0 20px;
@@ -44,11 +46,10 @@
 }
 
 @mixin message_contant-style {
-    font-size: 20px;
+    font-size: 18px;
     font-family: "Roboto", sans-serif;
     color: $light-grey;
     margin-left: 60px;
-    line-height: 26px;
     font-weight: 300;
     position: relative;
     font-style: italic;
