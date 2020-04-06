@@ -158,9 +158,10 @@
 			font-weight: 700;
 			font-size: 1.8rem;
 			margin-right: .3rem;
+			display: none;
 
-			@media screen and (max-width: 640px) {
-				display: none;
+			@include media-breakpoint-up(old-mobile) {
+				display: inline;
 			}
 		}
 	}

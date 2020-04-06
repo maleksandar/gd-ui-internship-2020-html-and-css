@@ -77,30 +77,30 @@
 	}
 
 	&__quote {
-		font-size: 1.8rem;
+		font-size: 1.1rem;
 		font-weight: 300;
 		font-style: italic;
 		margin-bottom: 1rem;
 		line-height: 1.7;
 
-		@media screen and (max-width: 992px) {
+		@include media-breakpoint-up(old-mobile) {
 			font-size: 1.3rem;
 		}
 
-		@media screen and (max-width: 640px) {
-			font-size: 1.1rem;
+		@include media-breakpoint-up(large) {
+			font-size: 1.8rem;
 		}
 	}
 
 	&__name {
 		@include font-kaushan-script();
 
-		font-size: 1.8rem;
+		font-size: 1.3rem;
 		position: relative;
 		padding-left: 5rem;
 
-		@media screen and (max-width: 640px) {
-			font-size: 1.3rem;
+		@include media-breakpoint-up(old-mobile) {
+			font-size: 1.8rem;
 		}
 
 		&::after {
