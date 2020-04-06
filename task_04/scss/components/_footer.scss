@@ -1,0 +1,42 @@
+.copyrights {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 70px;
+
+    &__image {
+        display: inline-block;
+    }
+    &__text {
+        display: inline-block;
+        font-weight: 300;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .copyrights {
+        &__text {
+            font-size: 10px;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .copyrights {
+        &__text {
+            font-size: 7px;
+        }
+
+        &__image {
+            width: 20px;
+        }
+
+        &__button {
+            width: 100px;
+            height: 30px;
+            font-size: 8px;
+            letter-spacing: 2px;
+        }
+    }
+}

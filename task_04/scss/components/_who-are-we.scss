@@ -1,0 +1,36 @@
+.who-are-we {
+  display: flex;
+  justify-content: center;
+
+  @include fieldset-setup;
+
+  fieldset {
+    &__upper-text-wrapper {
+      margin: 40px 0;
+    }
+
+    &__bottom-text-wrapper {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .who-are-we {
+    fieldset {
+      width: 550px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .who-are-we {
+    @include fieldset-setup-600px;
+  }
+}
+
+@media (max-width: 375px) {
+  .who-are-we {
+    @include fieldset-setup-375px;
+  }
+}

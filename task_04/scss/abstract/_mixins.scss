@@ -1,15 +1,75 @@
-@mixin imgSetupFirstRow {
-  grid-row: 1/2;
-  @include imgSetup;
-}
-
-@mixin imgSetupSecondRow {
-  grid-row: 2/3;
-  @include imgSetup;
-}
-
-@mixin imgSetup {
+@mixin img-setup {
   position: relative;
   background-size: cover;
   height: 237px;
+}
+
+@mixin fieldset-setup {
+  fieldset {
+    border: 2px solid black;
+    border-radius: 2px;
+    width: 750px;
+    margin-top: 110px;
+    margin-bottom: 110px;
+    text-align: center;
+
+    legend {
+      font-size: 28px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding-right: 100px;
+      padding-left: 100px;
+      letter-spacing: 5px;
+    }
+
+    p {
+      color: black;
+      font-size: 12px;
+      text-transform: unset;
+      font-weight: 300;
+    }
+  }
+}
+
+@mixin fieldset-setup-600px{
+  fieldset {
+    max-width: 350px;
+
+    legend {
+      font-size: 22px;
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+
+    p {
+      font-size: 12px;
+    }
+  }
+}
+
+@mixin fieldset-setup-375px{
+  fieldset {
+    width: 250px;
+
+    legend {
+      font-size: 17px;
+      padding-left: 10px;
+      padding-right: 10px;
+      letter-spacing: 3px;
+    }
+
+    p {
+      font-size: 10px;
+    }
+  }
+}
+
+@mixin img-setup-first-row {
+  grid-row: 1/2;
+  @include img-setup;
+}
+
+@mixin img-setup-second-row {
+  grid-row: 2/3;
+  @include img-setup;
 }
