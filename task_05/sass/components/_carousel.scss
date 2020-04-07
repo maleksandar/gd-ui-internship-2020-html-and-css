@@ -1,0 +1,76 @@
+.carousel {
+display: flex;
+align-items: center;
+
+&__prev,
+&__next {
+font-size: 2rem;
+margin: 2rem;
+color: $heading-underline-color-dark;
+}
+}
+
+
+
+
+.carousel__element {
+
+    &--hidden {
+        display: none;
+    }
+
+   
+
+    display: flex;
+
+    &__photo  {
+        display: none;
+        margin-right: 3rem;
+        width: 20rem;
+        border-radius: 1000rem;
+        padding: 0.5rem;
+        border: 1px solid $feedback-box-title-font-color;
+    }
+
+    &__text-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-style: italic;
+        color: $feedback-box-title-font-color;
+        
+    }
+
+    &__quote {
+        margin-bottom: 2rem;
+    }
+    
+    &__line-author-box {
+        display: flex;
+        align-items: center;
+    }
+    &__line {
+        width: 3.5rem;
+        height: 0.2rem;
+        margin-right: 1rem;
+        background-color: $heading-underline-color-dark;
+    }
+
+    &__author { 
+       
+       
+        font-family: 'Kaushan Script', cursive;
+    }
+
+    @include m-query(md) {
+        &__photo  {
+            display: block;
+        }
+
+        &__text-box {
+            font-size: 2rem;
+        }
+    }
+
+}

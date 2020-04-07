@@ -1,0 +1,41 @@
+.header {
+    background-color: rgb(243, 93, 93);
+    height: 100px;
+}
+
+.sidebar {
+    background-color: lightcoral;
+    width: 20%;
+    max-width: 150px;
+    height: calc(100vh - 130px);
+}
+
+.sidebar--left {
+    float:left;
+}
+
+.sidebar--right {
+    float: right;
+}
+
+.middle {
+    background-color: rgb(141, 178, 201);
+    height: calc(100vh - 130px);
+    overflow:auto;
+    position: relative;
+}
+
+.footer {
+    background-color: rgb(243, 93, 93);
+    height: 30px;
+}
+
+.middle__title {
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}

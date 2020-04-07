@@ -1,0 +1,27 @@
+.header{
+    height: 100px;
+    background-color: lightcoral;
+}
+.footer{
+    background-color: lightcoral;
+    height: 30px;
+}
+.main{
+    height: calc(100vh - 130px);
+    display: flex;
+}
+
+.sidebar{
+    flex-basis: 20%;
+    max-width: 150px;
+    background-color: rgb(245, 177, 177);
+}
+.middle{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    font-size: 32px;
+    color: white;
+    background-color: lightblue;
+}

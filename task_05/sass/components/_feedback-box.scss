@@ -1,0 +1,82 @@
+.feedback-box {
+    display: flex;
+    width: 100%;
+
+    &__text-container {
+        width: 80%;
+        text-align: left;
+        
+    }
+     
+    &__name {
+        text-transform: uppercase;
+        color: $feedback-box-name-font-color;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+
+    &__title {
+        text-transform: capitalize;
+        color: $feedback-box-title-font-color;
+        font-size: 1.3rem;
+        font-style: italic;
+
+    }
+
+    &__title:after {
+        content: '';
+        display: block;
+        background-color: $heading-underline-color-dark;
+        width: 5rem;
+        height: 0.1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    &__text {
+
+    }
+
+    &__photo-container {
+        width: 20%;
+        margin-right: 5%;
+        @include m-query(lg) {
+            margin-right: 0;
+        }
+    
+    }
+
+    &__photo  {
+
+        height: 6rem;
+        width: 6rem;
+        border-radius: 1000rem;
+
+
+        @include m-query(lg) {
+            height: 7rem;
+            width: 7rem;
+        }
+    
+       
+
+        &--1 {
+           background-image: url(../img/happy-client/img-1.jpg);
+           background-size: cover;
+        }
+
+        &--2 {
+            background-image: url(../img/happy-client/img-2.jpg);
+            background-size: cover;
+         }
+         &--3 {
+            background-image: url(../img/happy-client/img-3.jpg);
+            background-size: cover;
+         }
+         &--4 {
+            background-image: url(../img/happy-client/img-4.jpg);
+            background-size: cover;
+         }
+    }
+    
+}

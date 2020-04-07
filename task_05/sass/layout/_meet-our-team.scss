@@ -1,0 +1,14 @@
+.employee {
+    &__name {
+        margin-top: 20px;
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+    &__role {
+        margin-top: 5px;
+        margin-bottom: 20px;
+        font-size: 12px;
+        color: #999999;
+        font-style: italic;
+    }
+}

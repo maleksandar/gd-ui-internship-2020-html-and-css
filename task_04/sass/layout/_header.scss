@@ -1,0 +1,32 @@
+.header {
+  background: url(../img/header.png);
+  background-size: cover;
+  height: 90vh;
+  position: relative;
+
+  &__logo {
+    position: absolute;
+    width: 4.5rem;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    animation: pop-out 1s linear;
+
+    @media only screen and (max-width: $bp-md) {
+      top: 13%;
+    }
+  }
+
+  &__mouse {
+    position: absolute;
+    width: 1.5rem;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pop-out 1s linear;
+  }
+
+  @media only screen and (max-width: $bp-md) {
+    height: 70vh;
+  }
+}

@@ -3,10 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../reset.css">
 </head>
 <body>
-    Task 3
-    <a href="/"> Home </a>
+    <div class="container">
+        <div class="main">
+            <div class="game">
+                <h1 class="game__heading">Tic tac toe</h1>
+                <h3 class="game__winner">Winner: X moves: 5</h3>
+                <form class="game__form" action="#">
+                    <input name="winnerName" placeholder="winner name" type="text">
+                    <button class="btn btn--submit" type="submit">Submit</button>
+                </form>
+                <div class="xo-table">
+                    <div class="xo-table__cell"><div class="xo-item"></div></div>
+                    <div class="xo-table__cell"><div class="xo-item"></div></div>
+                    <div class="xo-table__cell"><div class="xo-item"></div></div>
+                    <div class="xo-table__cell"><div class="xo-item"></div></div>
+                    <div class="xo-table__cell"><div class="xo-item"></div></div>
+                    <div class="xo-table__cell"><div class="xo-item"></div></div>
+                    <div class="xo-table__cell"><div class="xo-item"></div></div>
+                    <div class="xo-table__cell"><div class="xo-item"></div></div>
+                    <div class="xo-table__cell"><div class="xo-item"></div></div>
+                </div>
+                <div class="game__controls">
+                    <button class="btn btn--reset">RESTART GAME</button>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <h2 class="sidebar__header">
+                WINNERS
+            </h2>
+            <ul class="winner-list">
+                
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
