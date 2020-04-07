@@ -9,7 +9,9 @@
 
 html {
   font-size: 62.5%;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif; }
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  position: relative; }
 
 a,
 a:visited,
@@ -100,7 +102,10 @@ section {
   text-align: left; }
 
 .navbar {
-  background-color: #EB6461; }
+  background-color: #EB6461;
+  z-index: 10;
+  position: sticky;
+  top: 0; }
   .navbar__box-essentials {
     display: flex;
     width: 100%;
@@ -124,13 +129,20 @@ section {
       padding: 1.5rem 1rem; }
   .navbar__other-controls {
     background-color: #d28280;
-    box-shadow: inset 0px 1rem 1rem -5px rgba(0, 0, 0, 0.5);
-    display: none; }
-    .navbar__other-controls .btn {
+    box-shadow: inset 0px 1rem 1rem -5px rgba(0, 0, 0, 0.5), inset 0px -1rem 1rem -5px rgba(0, 0, 0, 0.5);
+    display: none;
+    cursor: pointer;
+    transition: all 0.5s; }
+    .navbar__other-controls .btn, .navbar__other-controls .btn:active {
       display: block;
       color: white;
       padding: 1.8rem 1.5rem;
-      font-size: 1.3rem; }
+      font-size: 1.3rem;
+      border-bottom: 2px solid transparent;
+      transition: all 0.5s; }
+    .navbar__other-controls .btn:hover {
+      border-bottom: 2px solid #fce38a;
+      color: #fce38a; }
   @media only screen and (min-width: 992px) {
     .navbar {
       position: absolute;
@@ -214,15 +226,32 @@ section {
   position: relative;
   top: -3rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 1.5rem; }
+  .indicators :not(:last-child) {
+    margin-right: 1rem; }
+  @media only screen and (min-width: 992px) {
+    .indicators {
+      top: -4.5rem; }
+      .indicators :not(:last-child) {
+        margin-right: 5rem; } }
 
-.indicator:after {
+.indicator {
   content: "";
   display: block;
   top: 30%;
   width: 7rem;
-  border: 0.1rem solid rgba(255, 255, 255, 0.644); }
+  height: 2px;
+  background-image: linear-gradient(90deg, #f38181 0%, #f38181 20%, rgba(255, 255, 255, 0.644) 20%, rgba(255, 255, 255, 0.644) 100%);
+  background-size: 200%;
+  background-position: 260%;
+  transition: all 0.3s; }
+  @media only screen and (min-width: 992px) {
+    .indicator {
+      width: 10rem;
+      height: 3px; } }
+  .indicator:hover {
+    background-position: 214%; }
 
 .collapsible {
   border: 1px solid #e5e5e5; }
@@ -355,10 +384,17 @@ section {
   .feedback-box__photo-container {
     width: 20%;
     margin-right: 5%; }
+    @media only screen and (min-width: 992px) {
+      .feedback-box__photo-container {
+        margin-right: 0; } }
   .feedback-box__photo {
     height: 6rem;
     width: 6rem;
     border-radius: 1000rem; }
+    @media only screen and (min-width: 992px) {
+      .feedback-box__photo {
+        height: 7rem;
+        width: 7rem; } }
     .feedback-box__photo--1 {
       background-image: url(../img/happy-client/img-1.jpg);
       background-size: cover; }
@@ -835,5 +871,10 @@ section {
 .testimonials {
   overflow: hidden; }
 
-.u-collapsed {
-  display: block; }
+@media only screen and (max-width: 992px) {
+  .u-collapsed {
+    display: block; } }
+
+@media only screen and (max-width: 992px) {
+  .u-no-scroll-mobile {
+    overflow: hidden; } }

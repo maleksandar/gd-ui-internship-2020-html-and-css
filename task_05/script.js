@@ -1,13 +1,23 @@
 const hamburgerButton = document.querySelector(
-  'body > header > nav > div.navbar__box-essentials > div.navbar__essential-controls > a.fas.fa-bars.btn',
+  'body > nav > div.navbar__box-essentials > div.navbar__essential-controls > a.fas.fa-bars.btn',
 );
 const controlList = document.querySelector(
-  'body > header > nav > div.navbar__other-controls',
+  'body > nav > div.navbar__other-controls',
 );
 //add functionality to hamburger button
 hamburgerButton.addEventListener('click', () => {
   controlList.classList.toggle('u-collapsed');
+  document.body.classList.toggle('u-no-scroll-mobile');
 });
+const navControls = controlList.children;
+
+for (let i=0; i<navControls.length; i++) {
+  navControls[i].addEventListener('click', () => {
+    controlList.classList.toggle('u-collapsed');
+    document.body.classList.toggle('u-no-scroll-mobile');
+  });
+}
+
 // makes sure only one collapsible with same class can be open
 const collapsibles = Array.from(
   document.getElementsByClassName('collapsible__toggle'),

@@ -1,6 +1,8 @@
 .navbar {
-    background-color: $navbar-background-color;  
-    
+    background-color: $navbar-background-color; 
+    z-index: 10;
+    position: sticky;
+    top:0;
 
     &__box-essentials{
         display: flex;
@@ -34,18 +36,29 @@
 
     &__other-controls {
         background-color: $navbar-dropdown-background-color;
-        box-shadow: inset 0px 1rem 1rem -5px rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0px 1rem 1rem -5px rgba(0, 0, 0, 0.5),inset  0px -1rem 1rem -5px rgba(0, 0, 0, 0.5);
         display: none;
+        cursor: pointer;
+        transition: all 0.5s;
+    
+        
+     
         
 
-      
-
-        .btn {
+        .btn, .btn:active {
             display: block;
             color: $navbar-font-color;
             padding: 1.8rem $primary-item-padding-side;
-            font-size: 1.3rem;
+            font-size: 1.3rem; 
+            border-bottom: 2px solid transparent;
+            transition: all 0.5s;
         }
+        
+        .btn:hover {
+            border-bottom: 2px solid $secondary-controls-hover-color;
+            color: $secondary-controls-hover-color;
+        }
+        
 
     }
 
