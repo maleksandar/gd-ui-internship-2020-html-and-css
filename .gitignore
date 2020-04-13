@@ -1,0 +1,16 @@
+task_07/
+task_06/
+node_modules/
+dist/
+# IDE ignores
+.idea/
+.vscode/
+*.iml
+*.sublime*
+
+# common ignores
+*.log
+*.log.*
+.DS_STORE
+.DS_Store
+._*
