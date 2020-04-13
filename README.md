@@ -29,4 +29,8 @@ https://deploy-preview-{#number_of_pr}--gd-ui-internship-2020-html-and-css.netli
 Running `npm run build` creates a production build version of the site (compiles both Angular and React applications respectively). After compilation of framework applications, the script copies and pastes all `task_##` folders along with `index.html`, `reset.css` and `style.css` into `dist` folder, which is a target folder for deployment configured in Netlify console.
 
 ## Deployment
+
 Master branch is automatically deployed [here](https://gd-ui-internship-2020-html-and-css.netlify.com/) whenever it gets updated.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5fdb2397-44ce-4d4f-8a4d-875e63118664/deploy-status)](https://app.netlify.com/sites/gd-ui-internship-2020-html-and-css/deploys)
+
