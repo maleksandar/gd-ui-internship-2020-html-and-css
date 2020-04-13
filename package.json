@@ -1,0 +1,21 @@
+{
+  "name": "gd-ui-internship-2020-html-and-css",
+  "version": "1.0.0",
+  "description": "UI Internship repository for GD Belgrade 2020",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd angular-trello && ng build --prod && cd ../react-trello && npm run build",
+    "ng-dev": "cd angular-trello && ng serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maleksandar/gd-ui-internship-2020-html-and-css.git"
+  },
+  "author": "maleksandar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maleksandar/gd-ui-internship-2020-html-and-css/issues"
+  },
+  "homepage": "https://github.com/maleksandar/gd-ui-internship-2020-html-and-css#readme"
+}
