@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf task_06 && rm -rf task_07 && cd angular-trello && npm i && ng build --prod && cd ../react-trello && npm i && npm run build && cd ../ && node deploy.js",
-    "ng-dev": "cd angular-trello && ng serve"
+    "ng-dev": "cd angular-trello && ng serve",
+    "react-dev": "cd react-trello && npm run start"
   },
   "repository": {
     "type": "git",
