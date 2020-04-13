@@ -10,3 +10,9 @@
 .DS_STORE
 .DS_Store
 ._*
+
+# build folders
+task_07/
+task_06/
+node_modules/
+dist/
