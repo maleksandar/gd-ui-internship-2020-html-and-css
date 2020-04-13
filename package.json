@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd angular-trello && ng build --prod && cd ../react-trello && npm run build",
+    "build": "cd angular-trello && npm i && ng build --prod && cd ../react-trello && npm i && npm run build",
     "ng-dev": "cd angular-trello && ng serve"
   },
   "repository": {
