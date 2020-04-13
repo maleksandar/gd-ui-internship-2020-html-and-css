@@ -1,0 +1,24 @@
+.btn-contact {
+	text-transform: uppercase;
+	padding: 1rem 10rem;
+	background-color: $color-primary;
+	height: 6rem;
+	color: $color-white;
+	font-size: $font-size-primary;
+	text-align: center;
+	letter-spacing: $letter-spacing-primary;
+	margin-top: 3rem;
+
+	&:hover {
+		background-color: #666;
+	}
+
+	&:active {
+		outline: none;
+	}
+
+	@media screen and (max-width: 768px) {
+		padding: 1rem 7rem;
+	}
+}
+
