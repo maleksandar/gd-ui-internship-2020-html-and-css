@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/maleksandar/gd-ui-internship-2020-html-and-css#readme",
   "devDependencies": {
+    "@angular-devkit/build-angular": "^0.901.1",
     "@angular/cli": "^9.1.1",
     "create-react-app": "^3.4.1"
   }
