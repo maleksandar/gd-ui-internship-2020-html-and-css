@@ -1,8 +1,8 @@
 import React from 'react';
-import { Grid, Paper, Typography } from '@material-ui/core';
+import { Grid, Paper, Typography, Button } from '@material-ui/core';
+import AddBoxIcon from '@material-ui/icons/AddBox';
 import { makeStyles } from '@material-ui/core/styles';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
-
 import TaskCard from './TaskCard';
 
 const useStyles = makeStyles({
@@ -15,9 +15,10 @@ const useStyles = makeStyles({
   },
   taskContainer: {
     flexWrap: 'nowrap',
-    minHeight: '100px',
+    minHeight: '50px',
     maxHeight: '600px',
     width: '400px',
+    marginBottom: '5px',
     overflow: 'scroll',
   }
   
@@ -33,7 +34,8 @@ function TaskList({ id, title, tasks }) {
           provided={provided}
           innerRef={provided.innerRef}
           isDragging={snapshot.isDragging}
-        {...task} />
+          {...task} 
+        />
       )}
     </Draggable>
   ));
@@ -63,9 +65,17 @@ function TaskList({ id, title, tasks }) {
             </Grid>
           )}
         </Droppable>
+        <Button
+          fullWidth
+          color="primary"
+          variant="text"
+          startIcon={<AddBoxIcon/>}
+        >
+          Add a new Task
+        </Button>
       </Paper>
     </Grid>
   );
 }
-
 export default TaskList;
+
