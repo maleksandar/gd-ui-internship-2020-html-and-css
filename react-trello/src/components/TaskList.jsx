@@ -19,23 +19,21 @@ const useStyles = makeStyles({
     maxHeight: '600px',
     width: '400px',
     overflow: 'scroll',
-  },
+  }
+  
 });
 
 function TaskList({ id, title, tasks }) {
   const classes = useStyles();
   const taskCards = tasks.map((task, i) => (
     <Draggable key={task.id} draggableId={task.id} index={i}>
-      {(provided) => (
-        <Grid
-          item
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          innerRef={provided.innerRef}
+      {(provided, snapshot) => (
+        <TaskCard 
           key={task.id}
-        >
-          <TaskCard {...task} />
-        </Grid>
+          provided={provided}
+          innerRef={provided.innerRef}
+          isDragging={snapshot.isDragging}
+        {...task} />
       )}
     </Draggable>
   ));
