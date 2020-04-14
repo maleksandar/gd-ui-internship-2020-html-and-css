@@ -19,18 +19,17 @@ for (let i=0; i<navControls.length; i++) {
 }
 
 // makes sure only one collapsible with same class can be open
-const collapsibles = Array.from(
-  document.getElementsByClassName('collapsible__toggle'),
-);
-collapsibles.forEach((collapsible) => {
-  collapsible.addEventListener('change', (e) => {
-    collapsibles.forEach((collapsible) => {
-      if (collapsible != e.target) {
-        collapsible.checked = false;
-      }
-    });
-  });
-});
+const collapsibleParent = document.querySelector('.what-we-do__skills');
+let prevOpenCollapsible;
+collapsibleParent.addEventListener('click', (e) => {
+  if(e.target.classList.contains('collapsible__toggle')){
+    if(prevOpenCollapsible && prevOpenCollapsible != e.target){
+      prevOpenCollapsible.checked = false;
+    }
+    prevOpenCollapsible = e.target;
+  }
+})
+
 function countOnScroll() {
   let flag = true;
   const achievement = document.querySelector('.achievement');
