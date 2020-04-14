@@ -30,20 +30,18 @@ collapsibleParent.addEventListener('click', (e) => {
   }
 })
 
+
+
 function countOnScroll() {
-  let flag = true;
   const achievement = document.querySelector('.achievement');
-  const offset =
-    achievement.getBoundingClientRect().top +
-    window.scrollY -
-    window.innerHeight;
-  console.log(offset);
-  window.onscroll = function() {
-    if (document.scrollingElement.scrollTop > offset && flag) {
-      flag = false;
-      countUp();
-    }
-  };
+  const observerOptions = {
+    threshold: 0.2
+  }
+  let observer = new IntersectionObserver(() => {
+    countUp();
+    observer.unobserve(achievement);
+  }, observerOptions);
+  observer.observe(achievement);
 }
 
 
@@ -81,24 +79,19 @@ mapHeading.addEventListener('click', () => {
 
 // count up animation
 function countUp() {
-  const counters = Array.from(document.getElementsByClassName('.js-count-up'));
+  const counters = Array.from(document.getElementsByClassName('js-count-up'));
   counters.forEach((counter) => {
-    let i = 0;
-    let duration = 60;
-    let accelerator = 1;
-    let delay;
-
+    let duration = 2000;
     let number = parseInt(counter.textContent);
-    (function count() {
-      delay = duration - accelerator++;
-      counter.textContent = i.toString();
+    const incrementTime = Math.trunc(duration / number);
+    let i = 0;
+    const timer = setInterval(() => {
       i++;
-      if (i < number) {
-        setTimeout(() => {
-          count();
-        }, delay);
-      }
-    })();
+      counter.textContent = i.toString();
+      if(i === number){
+        clearInterval(timer);
+      } 
+    }, incrementTime)
   });
 }
 countOnScroll();
