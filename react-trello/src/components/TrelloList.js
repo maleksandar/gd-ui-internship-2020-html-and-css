@@ -1,7 +1,9 @@
 import React from 'react';
 import { Button, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+
 import TrelloCard from './TrelloCard';
+import TrelloActionButton from './TrelloActionButton';
 
 import AddIcon from '@material-ui/icons/Add';
 
@@ -13,7 +15,6 @@ const useStyles = makeStyles({
     padding: 8,
     margin: 16,
     overflowX: 'scroll',
-    minHeight: 200,
     maxHeight: 600,
   },
   title: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles({
   }
 });
 
-const TrelloList = ({ id, title, cards }) => {
+const TrelloList = ({ title, cards }) => {
   const classes = useStyles();
 
   return (
@@ -39,12 +40,7 @@ const TrelloList = ({ id, title, cards }) => {
           id={card.id}
           text={card.text}/>
       ))}
-      <Button
-        color="primary"
-        variant="text"
-        startIcon={<AddIcon/>}>
-        Add another card
-      </Button>
+      <TrelloActionButton cardsLength={cards.length}/>
     </div>
   );
 };
