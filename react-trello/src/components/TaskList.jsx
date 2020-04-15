@@ -33,6 +33,7 @@ function TaskList({ id, title, tasks, toggleModal }) {
       {(provided, snapshot) => (
         <TaskCard 
           key={task.id}
+          listId={id}
           provided={provided}
           innerRef={provided.innerRef}
           isDragging={snapshot.isDragging}
@@ -72,7 +73,7 @@ function TaskList({ id, title, tasks, toggleModal }) {
           color="primary"
           variant="text"
           startIcon={<AddBoxIcon/>}
-          onClick={toggleModal}
+          onClick={() => toggleModal(id)}
         >
           Add a new Task
         </Button>
@@ -82,7 +83,7 @@ function TaskList({ id, title, tasks, toggleModal }) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleModal: () => dispatch(toggleModal()),
+  toggleModal: (id) => dispatch(toggleModal(null, null, null, id)),
 });
 
 export default connect(null, mapDispatchToProps)(TaskList);

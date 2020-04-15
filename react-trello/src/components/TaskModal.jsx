@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Modal, Paper, TextField, Box, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { toggleModal } from '../redux/TaskModal/taskModal.actions';
+import { addTask, removeTask } from '../redux/Task/task.actions';
+import { changeText } from '../redux/TaskModal/taskModal.actions';
 
 const useStyles = makeStyles({
   modalContent: {
@@ -16,6 +18,14 @@ const useStyles = makeStyles({
 })
 
 export const TaskModal = (props) => {
+  const handleAdd = () => {
+    props.addTask(props.modal);
+    props.toggleModal();
+  }
+  const handleDelete = () => {
+    props.removeTask(props.modal.taskId, props.modal.listId);
+    props.toggleModal();
+  }
   const classes = useStyles();
   return (
     <Modal
@@ -25,43 +35,57 @@ export const TaskModal = (props) => {
     aria-describedby="simple-modal-description"
     >
       <Paper component="form" className={classes.modalContent}>
-        <TextField defaultValue="Task Title" />
+        <TextField
+          onChange={(e) => props.changeText('title', e.target.value)}
+          defaultValue={props.title}
+        />
         <Box my={3}>
           <TextField
             label="Task Description"
-            defaultValue="ovde ide neki malooo veci teks"
+            defaultValue={props.description}
             multiline
             rows={5}
             fullWidth
             variant="outlined"
+            onChange={(e) => props.changeText('description', e.target.value)}
           />
         </Box>
         <Box display="flex" justifyContent="space-between">
-          <Button variant="contained" color="secondary">delete</Button>
+          <Button 
+          onClick={handleDelete}
+          variant="contained" color="secondary">delete</Button>
           <Box>
             <Button
               onClick={props.toggleModal}
               variant="text" 
               color="primary"
-              disableFocusRipple>
-              cancel
+              disableFocusRipple
+            >
+              Cancel
             </Button>
-            <Button variant="contained" color="primary">save</Button>
+            <Button variant="contained" color="primary" onClick={handleAdd}>save</Button>
           </Box>
         </Box>
+        {props.taskID}
       </Paper>
     </Modal>
   )
 }
 
 const mapStateToProps = (state) => ({
+  modal: state.modal,
+  tasks: state.task.tasks,
   open: state.modal.open,
   title: state.modal.title,
-  description: state.modal.description
+  description: state.modal.description,
+  taskId: state.modal.taskId
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleModal: () => dispatch(toggleModal())
+  toggleModal: () => dispatch(toggleModal()),
+  addTask: (modal) => dispatch(addTask(modal)),
+  changeText: (field,text) => dispatch(changeText(field, text)),
+  removeTask: (taskId, listId) => dispatch(removeTask(taskId, listId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskModal);

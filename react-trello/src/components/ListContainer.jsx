@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Grid, Container } from '@material-ui/core';
 import { DragDropContext } from 'react-beautiful-dnd';
 import TaskList from '../components/TaskList';
-import { moveTask } from '../redux/TaskList/taskList.actions';
+import { moveTask } from '../redux/Task/task.actions';
 import TaskModal from './TaskModal';
 
 const ListContainer = ({ lists, tasks, moveTask, modal }) => {
@@ -28,7 +28,7 @@ const ListContainer = ({ lists, tasks, moveTask, modal }) => {
 };
 
 const mapStateToProps = (state) => ({
-  lists: state.taskList.lists,
+  lists: state.task.lists,
   tasks: state.task.tasks,
   modal: state.modal
 });
