@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import { Typography } from '@material-ui/core';
 import TrelloList from '../components/TrelloList';
 
 const useStyles = makeStyles({
@@ -32,7 +32,8 @@ const TrelloBoard = (props) => {
       <Typography
         className={classes.title}
         variant="h3"
-        component="h1">
+        component="h1"
+      >
         React Trello Clone
       </Typography>
 
@@ -43,7 +44,8 @@ const TrelloBoard = (props) => {
             id={list.id}
             listID={list.id}
             title={list.title}
-            cards={list.cards}/>
+            cards={list.cards}
+          />
         ))}
       </div>
     </div>
