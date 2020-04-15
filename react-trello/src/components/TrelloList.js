@@ -1,32 +1,50 @@
 import React from 'react';
-import {Typography} from '@material-ui/core';
-import {makeStyles} from '@material-ui/core/styles';
+import { Button, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import TrelloCard from './TrelloCard';
 
-const styles = makeStyles({
+import AddIcon from '@material-ui/icons/Add';
+
+const useStyles = makeStyles({
   container: {
     backgroundColor: '#ebecf0',
     borderRadius: 3,
-    width: 300,
+    flex: '0 0 300px',
     padding: 8,
     margin: 16,
-    overflow: 'hidden',
+    overflowX: 'scroll',
     minHeight: 200,
     maxHeight: 600,
   },
-  listTitle: {
+  title: {
     padding: '4px 8px'
   }
 });
 
-const TrelloList = (props) => {
-  const classes = styles();
+const TrelloList = ({ id, title, cards }) => {
+  const classes = useStyles();
 
   return (
     <div className={classes.container}>
-      <Typography className={classes.listTitle} variant="h6" component="h3" gutterBottom>
-        {props.title}
+      <Typography
+        className={classes.title}
+        variant="h6"
+        component="h3"
+        gutterBottom>
+        {title}
       </Typography>
-      {props.children}
+      {cards.map(card => (
+        <TrelloCard
+          key={card.id}
+          id={card.id}
+          text={card.text}/>
+      ))}
+      <Button
+        color="primary"
+        variant="text"
+        startIcon={<AddIcon/>}>
+        Add another card
+      </Button>
     </div>
   );
 };

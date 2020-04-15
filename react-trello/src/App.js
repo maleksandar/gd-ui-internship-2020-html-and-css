@@ -1,44 +1,28 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 
-import TrelloList from './components/TrelloList';
-import TrelloCard from './components/TrelloCard';
 import TrelloBoard from './containers/TrelloBoard';
+import TrelloList from './components/TrelloList';
 
-const App = () => {
+const App = (props) => {
+  const { lists } = props;
+
   return (
     <TrelloBoard>
-      <TrelloList title="Todo">
-        <TrelloCard
-          title="Trello Card 1"
-          text="Text description 1"/>
-
-        <TrelloCard
-          title="Trello Card 2"
-          text="Text description 2"/>
-      </TrelloList>
-
-      <TrelloList title="In Progress">
-        <TrelloCard
-          title="Trello Card 1"
-          text="Text description 1"/>
-      </TrelloList>
-
-      <TrelloList title="Done">
-        <TrelloCard
-          title="Trello Card 1"
-          text="Text description 1"/>
-
-        <TrelloCard
-          title="Trello Card 2"
-          text="Text description 2"/>
-
-        <TrelloCard
-          title="Trello Card 3"
-          text="Text description 3"/>
-      </TrelloList>
+      {lists.map(list => (
+        <TrelloList
+          key={list.id}
+          id={list.id}
+          title={list.title}
+          cards={list.cards}/>
+      ))}
     </TrelloBoard>
   );
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  lists: state.lists
+});
+
+export default connect(mapStateToProps)(App);

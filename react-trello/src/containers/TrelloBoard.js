@@ -1,19 +1,40 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
-const styles = makeStyles({
+const useStyles = makeStyles({
   container: {
     display: 'flex',
+    flexDirection: 'column',
+    padding: '0 16px',
+  },
+  row: {
+    display: 'flex',
     alignItems: 'flex-start',
+    overflow: 'scroll',
+  },
+  title: {
+    textAlign: 'center',
+    color: '#fefefe',
+    padding: 16
   }
 });
 
 const TrelloBoard = (props) => {
-  const classes = styles();
+  const classes = useStyles();
 
   return (
     <div className={classes.container}>
-      {props.children}
+      <Typography
+        className={classes.title}
+        variant="h3"
+        component="h1">
+        React Trello Clone
+      </Typography>
+
+      <div className={classes.row}>
+        {props.children}
+      </div>
     </div>
   );
 };

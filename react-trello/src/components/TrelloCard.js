@@ -1,13 +1,16 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 
 import {
   Button,
   Card,
   CardActions,
   CardContent,
-  Typography,
-  makeStyles
+  Typography
 } from '@material-ui/core';
+
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles({
   root: {
@@ -23,22 +26,42 @@ const useStyles = makeStyles({
   }
 });
 
-const TrelloCard = ({title, text}) => {
+const TrelloCard = ({ title, text }) => {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography className={classes.title} variant="h3" component="h2" gutterBottom>
+        <Typography
+          className={classes.title}
+          variant="h3"
+          component="h2"
+          gutterBottom>
           {title}
         </Typography>
-        <Typography variant="body2" component="p" gutterBottom>
+
+        <Typography
+          variant="body2"
+          component="p"
+          gutterBottom>
           {text}
         </Typography>
       </CardContent>
+
       <CardActions className={classes.buttons}>
-        <Button variant="contained" color="primary" size="small">Edit</Button>
-        <Button variant="contained" color="secondary" size="small">Delete</Button>
+        <Button
+          color="primary"
+          size="small"
+          startIcon={<EditIcon/>}>
+          Edit
+        </Button>
+
+        <Button
+          color="secondary"
+          size="small"
+          startIcon={<DeleteIcon/>}>
+          Delete
+        </Button>
       </CardActions>
     </Card>
   );
