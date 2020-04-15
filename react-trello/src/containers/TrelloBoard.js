@@ -41,6 +41,7 @@ const TrelloBoard = (props) => {
           <TrelloList
             key={list.id}
             id={list.id}
+            listID={list.id}
             title={list.title}
             cards={list.cards}/>
         ))}

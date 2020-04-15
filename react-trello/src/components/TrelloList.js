@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   }
 });
 
-const TrelloList = ({ title, cards }) => {
+const TrelloList = ({ listID, title, cards }) => {
   const classes = useStyles();
 
   return (
@@ -40,7 +40,7 @@ const TrelloList = ({ title, cards }) => {
           id={card.id}
           text={card.text}/>
       ))}
-      <TrelloActionButton cardsLength={cards.length}/>
+      <TrelloActionButton listID={listID} cardsLength={cards.length}/>
     </div>
   );
 };

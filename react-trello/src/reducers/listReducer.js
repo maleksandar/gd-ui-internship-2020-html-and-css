@@ -38,7 +38,27 @@ const listReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_CARD':
       console.log('[List Reducer]: Add Card action');
-      return state;
+
+      const newCard = {
+        id: `card-${uuidv4()}`,
+        text: action.payload.text
+      };
+
+      const newState = state.map(list => {
+        if (list.id === action.payload.listID) {
+          return {
+            ...list,
+            cards: [
+              ...list.cards,
+              newCard
+            ]
+          };
+        } else {
+          return list;
+        }
+      });
+
+      return newState;
     case 'REMOVE_CARD':
       console.log('[List Reducer]: Remove Card action');
       return state;
