@@ -1,0 +1,30 @@
+<div class="popup" id="popup">
+  <div class="content">
+    <a href="#container" class="close">&times;</a>
+    <div class="form-container">
+      <div class="form-title">
+        <p class="title">Title:</p>
+        <input
+          id="input-title"
+          type="text"
+          class="input-title"
+          [(ngModel)]="title"
+        />
+      </div>
+
+      <div class="form-desc">
+        <p class="description">Description:</p>
+        <input
+          id="input-desc"
+          type="text"
+          class="input-desc"
+          [(ngModel)]="description"
+        />
+      </div>
+    </div>
+
+    <a class="btn-save" (click)="onAddTask()">
+      Save
+    </a>
+  </div>
+</div>

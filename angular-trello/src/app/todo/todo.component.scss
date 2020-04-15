@@ -1,0 +1,42 @@
+.card-container {
+  width: 90%;
+  margin: 2rem auto;
+  background-color: #edd;
+  padding: 1.2rem 2rem;
+
+  .card-title,
+  .card-description {
+    margin-bottom: 1rem;
+    font-size: 1.7rem;
+  }
+
+  .card-description {
+    background-color: #ba265d;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+
+    .btn-edit {
+      background-color: slategray;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn-delete {
+      background-color: salmon;
+      cursor: pointer;
+    }
+
+    .btn-edit,
+    .btn-delete {
+      font-size: 1.6rem;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      width: 25%;
+      padding: 0.4rem;
+    }
+  }
+}

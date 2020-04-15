@@ -1,0 +1,12 @@
+<app-todo
+  cdkDrag
+  mat-list-item
+  *ngFor="let task of tasks"
+  [id]="task.getIndex()"
+  [title]="task.getTitle()"
+  [description]="task.getDesc()"
+  (deleteTaskWithSelectedTitle)="onDeleteTask($event)"
+
+  (selectId)="sendIdOfSelectedTask($event)"
+>
+</app-todo>
