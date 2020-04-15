@@ -39,9 +39,5 @@ export class AddTaskComponent implements OnInit {
     this.emitnewTask.emit(newTask);
     this.title = '';
     this.description = '';
-
-    let addPopup = document.getElementById('popup');
-    addPopup.style.opacity='0';
-    addPopup.style.visibility='hidden';
   }
 }

@@ -34,9 +34,5 @@ export class EditTaskComponent implements OnInit {
 
     this.editedTitle.emit(title);
     this.editedDesc.emit(desc);
-
-    let EditPopup = document.getElementById('popup-edit');
-    EditPopup.style.opacity = '0';
-    EditPopup.style.visibility = 'hidden';
   }
 }
