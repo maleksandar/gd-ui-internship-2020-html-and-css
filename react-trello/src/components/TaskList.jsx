@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import { Grid, Paper, Typography, Button } from '@material-ui/core';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import { makeStyles } from '@material-ui/core/styles';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import TaskCard from './TaskCard';
+import { toggleModal } from '../redux/TaskModal/taskModal.actions'
 
 const useStyles = makeStyles({
   paper: {
@@ -24,7 +26,7 @@ const useStyles = makeStyles({
   
 });
 
-function TaskList({ id, title, tasks }) {
+function TaskList({ id, title, tasks, toggleModal }) {
   const classes = useStyles();
   const taskCards = tasks.map((task, i) => (
     <Draggable key={task.id} draggableId={task.id} index={i}>
@@ -70,6 +72,7 @@ function TaskList({ id, title, tasks }) {
           color="primary"
           variant="text"
           startIcon={<AddBoxIcon/>}
+          onClick={toggleModal}
         >
           Add a new Task
         </Button>
@@ -77,5 +80,9 @@ function TaskList({ id, title, tasks }) {
     </Grid>
   );
 }
-export default TaskList;
 
+const mapDispatchToProps = (dispatch) => ({
+  toggleModal: () => dispatch(toggleModal()),
+});
+
+export default connect(null, mapDispatchToProps)(TaskList);

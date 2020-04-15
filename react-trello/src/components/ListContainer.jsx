@@ -4,9 +4,9 @@ import { Grid, Container } from '@material-ui/core';
 import { DragDropContext } from 'react-beautiful-dnd';
 import TaskList from '../components/TaskList';
 import { moveTask } from '../redux/TaskList/taskList.actions';
+import TaskModal from './TaskModal';
 
-
-const ListContainer = ({ lists, tasks, moveTask }) => {
+const ListContainer = ({ lists, tasks, moveTask, modal }) => {
   const keys = Object.keys(lists);
   const taskLists = keys.map((key) => {
     const list = lists[key];
@@ -22,6 +22,7 @@ const ListContainer = ({ lists, tasks, moveTask }) => {
           {taskLists}
         </DragDropContext>
       </Grid>
+      <TaskModal />
     </Container>
   );
 };
@@ -29,6 +30,7 @@ const ListContainer = ({ lists, tasks, moveTask }) => {
 const mapStateToProps = (state) => ({
   lists: state.taskList.lists,
   tasks: state.task.tasks,
+  modal: state.modal
 });
 
 const mapDispatchToProps = (dispatch) => ({
