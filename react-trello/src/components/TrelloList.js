@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TrelloCard from './TrelloCard';
 import TrelloActionButton from './TrelloActionButton';
 
-import AddIcon from '@material-ui/icons/Add';
+import { Droppable } from 'react-beautiful-dnd';
 
 const useStyles = makeStyles({
   container: {
@@ -26,22 +26,30 @@ const TrelloList = ({ listID, title, cards }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.container}>
-      <Typography
-        className={classes.title}
-        variant="h6"
-        component="h3"
-        gutterBottom>
-        {title}
-      </Typography>
-      {cards.map(card => (
-        <TrelloCard
-          key={card.id}
-          id={card.id}
-          text={card.text}/>
-      ))}
-      <TrelloActionButton listID={listID} cardsLength={cards.length}/>
-    </div>
+    <Droppable droppableId={String(listID)}>
+      {(provided) => (
+        <div
+          className={classes.container}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}>
+          <Typography
+            className={classes.title}
+            variant="h6"
+            component="h3"
+            gutterBottom>
+            {title}
+          </Typography>
+          {cards.map((card, index) => (
+            <TrelloCard
+              key={card.id}
+              id={card.id}
+              index={index}
+              text={card.text}/>
+          ))}
+          <TrelloActionButton listID={listID} cardsLength={cards.length}/>
+        </div>
+      )}
+    </Droppable>
   );
 };
 
