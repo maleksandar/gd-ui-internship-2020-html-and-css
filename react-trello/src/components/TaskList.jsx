@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     flexWrap: 'nowrap',
     minHeight: '50px',
     maxHeight: '550px',
-    width: '400px',
+    width: '330px',
     marginBottom: '5px',
     overflow: 'scroll',
   }

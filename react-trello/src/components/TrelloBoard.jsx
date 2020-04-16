@@ -22,19 +22,19 @@ const ListContainer = (props) => {
   });
 
   return (
-    <Container 
+    <Container
       maxWidth="xl">
 
       <Grid 
         container
-        alignItems="flex-start"
-        justify="space-between">
+        style={{flexWrap:'nowrap'}}
+        spacing={7} 
+        alignItems="flex-start">
 
         <DragDropContext
           onDragEnd={moveTask}>
           {taskLists}
-        </DragDropContext>
-        
+        </DragDropContext>    
       </Grid>
 
       <TaskModal />
