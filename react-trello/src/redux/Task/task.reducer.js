@@ -1,5 +1,14 @@
 import actionTypes from './task.types';
-import { removeTask, moveTask, removeTaskFromList, generateId ,addTask, addTaskToList } from './task.utils';
+import { 
+  removeTask,
+  moveTask,
+  removeTaskFromList,
+  generateId,
+  addTask,
+  addTaskToList,
+  updateTask
+} from './task.utils';
+
 const INITIAL_STATE = {
   tasks: {
     'task-1': {
@@ -42,42 +51,52 @@ const INITIAL_STATE = {
     'list-1':{
       id:'list-1',
       title: 'Todo',
-      taskIDs: ['task-1', 'task-2', 'task-7']
+      taskIds: ['task-1', 'task-2', 'task-7']
     },
     'list-2':{
       id:'list-2',
       title: 'In Progress',
-      taskIDs: ['task-3', 'task-4']
+      taskIds: ['task-3', 'task-4']
     },
     'list-3':{
       id: 'list-3',
       title: 'Done',
-      taskIDs: ['task-5', 'task-6']
+      taskIds: ['task-5', 'task-6']
     }
   }
 }
+
 const taskReducer = (state = INITIAL_STATE, {type, payload}) => {
   switch (type) {
-      case actionTypes.REMOVE_TASK:
-        return {
-          ...state,
-          tasks: removeTask(state, payload.taskId),
-          lists: removeTaskFromList(state, payload)
-        }
-      case actionTypes.MOVE_TASK:
-        return {
-          ...state,
-          lists: moveTask(state, payload)
-        }
-      case actionTypes.ADD_TASK:
-        const taskId = payload.modal.taskId? payload.modal.taskId : generateId(state.tasks);
-        return {
-          ...state,
-          tasks: addTask(state, payload, taskId),
-          lists: addTaskToList(state, payload.modal.listId, taskId)
-        }
-  default:
-    return state;
-  }
+    case actionTypes.REMOVE_TASK:
+      return {
+        ...state,
+        tasks: removeTask(state, payload.taskId),
+        lists: removeTaskFromList(state, payload)
+      }
+
+    case actionTypes.MOVE_TASK:
+      return {
+        ...state,
+        lists: moveTask(state, payload)
+      }
+      
+    case actionTypes.ADD_TASK:
+      const taskId = generateId(state.tasks);
+      return {
+        ...state,
+        tasks: addTask(state, payload.modal, taskId),
+        lists: addTaskToList(state, payload.modal.listId, taskId)
+      }
+    
+    case actionTypes.UPDATE_TASK:
+      return {
+        ...state,
+        tasks: updateTask(state, payload.modal)
+      }
+
+    default:
+      return state;
+    }
 }
 export default taskReducer;

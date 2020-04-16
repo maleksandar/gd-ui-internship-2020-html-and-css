@@ -1,33 +1,35 @@
 function moveTaskInSameList(state, moveResult) {
   const { source, destination, draggableId } = moveResult;
-  const taskIDs = [...state.lists[source.droppableId].taskIDs];
-  taskIDs.splice(source.index, 1);
-  taskIDs.splice(destination.index, 0, draggableId);
+  const taskIds = [...state.lists[source.droppableId].taskIds];
+  taskIds.splice(source.index, 1);
+  taskIds.splice(destination.index, 0, draggableId);
   const newList = {
     ...state.lists[source.droppableId],
-    taskIDs: taskIDs
+    taskIds: taskIds
   }
   return {
     ...state.lists,
     [source.droppableId]: newList
   }
 }
+
 function moveTaskInDifferentList(state, moveResult) {
   const { destination, source, draggableId } = moveResult;
   const sourceList = state.lists[source.droppableId];
   const destinationList = state.lists[destination.droppableId];
 
-  const sourceTaskIDs = [...sourceList.taskIDs];
-  const destinationTaskIDs  = [...destinationList.taskIDs];
-  sourceTaskIDs.splice(source.index, 1);
-  destinationTaskIDs.splice(destination.index, 0, draggableId);
+  const sourceTaskIds = [...sourceList.taskIds];
+  const destinationTaskIds  = [...destinationList.taskIds];
+  sourceTaskIds.splice(source.index, 1);
+  destinationTaskIds.splice(destination.index, 0, draggableId);
+
   const newSourceList = {
     ...sourceList,
-    taskIDs: sourceTaskIDs
+    taskIds: sourceTaskIds
   }
   const newDestinationList = {
     ...destinationList,
-    taskIDs: destinationTaskIDs
+    taskIds: destinationTaskIds
   }
 
   return {
@@ -70,26 +72,29 @@ export const removeTask = (state, taskId) =>{
 }
 
 export const removeTaskFromList = (state, { listId, taskId }) =>{
-  const newTaskIds = [...state.lists[listId].taskIDs];
+  const newTaskIds = [...state.lists[listId].taskIds];
   const removeIndex = newTaskIds.indexOf(taskId);
   newTaskIds.splice(removeIndex, 1);
+  
   const newList = {
     ...state.lists[listId],
-    taskIDs: newTaskIds
+    taskIds: newTaskIds
   }
+
   return {
     ...state.lists,
     [listId]: newList
   }
 }
 
-export const addTask = (state, payload, taskId) => {
-  const {title, description} = payload.modal;
+export const addTask = (state, modal, taskId) => {
+  const {title, description} = modal;
   const newTask = {
     id: taskId,
     title: title,
     desc: description
   }
+
   return {
     ...state.tasks,
     [taskId] : newTask
@@ -97,16 +102,30 @@ export const addTask = (state, payload, taskId) => {
 }
 
 export const addTaskToList = (state, listId, taskId) => {
-  const newTaskIds = [...state.lists[listId].taskIDs];
+  const newTaskIds = [...state.lists[listId].taskIds];
   if(newTaskIds.indexOf(taskId)){
     newTaskIds.push(taskId);
   }
   const newList = {
     ...state.lists[listId],
-    taskIDs: newTaskIds
+    taskIds: newTaskIds
   }
   return {
     ...state.lists,
     [listId]: newList
+  }
+}
+
+export const updateTask = (state, modal) => {
+  const {taskId, title, description} = modal;
+  const newTask = {
+    id: taskId,
+    title: title,
+    desc: description
+  }
+
+  return {
+    ...state.tasks,
+    [taskId] : newTask
   }
 }

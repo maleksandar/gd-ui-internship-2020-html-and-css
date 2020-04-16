@@ -26,34 +26,41 @@ const useStyles = makeStyles({
   
 });
 
-function TaskList({ id, title, tasks, toggleModal }) {
+function TaskList(props) {
   const classes = useStyles();
-  const taskCards = tasks.map((task, i) => (
+  const {listId, tasks, lists, toggleModal} = props;
+  const list = lists[listId];
+  const taskIds = list.taskIds;
+  const tasksInList = taskIds.map(taskId => tasks[taskId]);
+
+  const taskCards = tasksInList.map((task, i) => (
     <Draggable key={task.id} draggableId={task.id} index={i}>
       {(provided, snapshot) => (
         <TaskCard 
           key={task.id}
-          listId={id}
+          listId={listId}
           provided={provided}
           innerRef={provided.innerRef}
           isDragging={snapshot.isDragging}
-          {...task} 
+          task={task}
         />
       )}
     </Draggable>
   ));
+
   return (
     <Grid item>
       <Paper className={classes.paper}>
+
         <Typography
           className={classes.listTitle}
           variant="h6"
           component="h3"
-          m={2}
-        >
-          {title}
+          m={2}>
+          {list.title}
         </Typography>
-        <Droppable droppableId={id.toString()}>
+
+        <Droppable droppableId={listId.toString()}>
           {(provided) => (
             <Grid
               className={classes.taskContainer}
@@ -61,29 +68,34 @@ function TaskList({ id, title, tasks, toggleModal }) {
               {...provided.droppableProps}
               container
               direction="column"
-              spacing={1}
-            >
+              spacing={1}>
               {taskCards}
               {provided.placeholder}
             </Grid>
           )}
         </Droppable>
+
         <Button
           fullWidth
           color="primary"
           variant="text"
           startIcon={<AddBoxIcon/>}
-          onClick={() => toggleModal(id)}
-        >
+          onClick={() => toggleModal(listId)}>
           Add a new Task
         </Button>
+
       </Paper>
     </Grid>
   );
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleModal: (id) => dispatch(toggleModal(null, null, null, id)),
+  toggleModal: (listId) => dispatch(toggleModal(null, listId)),
 });
 
-export default connect(null, mapDispatchToProps)(TaskList);
+const mapStateToProps = (state) => ({
+  tasks: state.task.tasks,
+  lists: state.task.lists
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskList);

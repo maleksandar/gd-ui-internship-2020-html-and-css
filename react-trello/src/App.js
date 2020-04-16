@@ -1,12 +1,12 @@
 import React from 'react';
 
-import ListContainer from './components/ListContainer';
+import TrelloBoard from './components/TrelloBoard';
 
 function App() {
   return (
     <div>
       <div>Initial app</div>
-      <ListContainer/>
+      <TrelloBoard/>
     </div>
   );
 }

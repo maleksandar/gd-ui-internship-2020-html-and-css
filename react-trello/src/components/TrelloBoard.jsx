@@ -6,30 +6,45 @@ import TaskList from '../components/TaskList';
 import { moveTask } from '../redux/Task/task.actions';
 import TaskModal from './TaskModal';
 
-const ListContainer = ({ lists, tasks, moveTask, modal }) => {
+const ListContainer = (props) => {
+  const { lists, moveTask } = props;
   const keys = Object.keys(lists);
+  
   const taskLists = keys.map((key) => {
     const list = lists[key];
-    const listTasks = list.taskIDs.map((taskID) => tasks[taskID]);
+
     return (
-      <TaskList key={list.id} id={list.id} title={list.title} tasks={listTasks} />
+      <TaskList
+        key={list.id}
+        listId={list.id}
+        title={list.title}/>
     );
   });
+
   return (
-    <Container maxWidth="xl">
-      <Grid container alignItems="flex-start" justify="space-between">
-        <DragDropContext onDragEnd={moveTask}>
+    <Container 
+      maxWidth="xl">
+
+      <Grid 
+        container
+        alignItems="flex-start"
+        justify="space-between">
+
+        <DragDropContext
+          onDragEnd={moveTask}>
           {taskLists}
         </DragDropContext>
+        
       </Grid>
+
       <TaskModal />
+
     </Container>
   );
 };
 
 const mapStateToProps = (state) => ({
   lists: state.task.lists,
-  tasks: state.task.tasks,
   modal: state.modal
 });
 

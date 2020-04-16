@@ -19,3 +19,11 @@ export const moveTask = (moveResult) => ({
   type: ActionType.MOVE_TASK,
   payload: moveResult,
 });
+
+export const updateTask = (modal) => ({
+  type: ActionType.UPDATE_TASK,
+  payload: {
+    modal
+  }
+  
+})

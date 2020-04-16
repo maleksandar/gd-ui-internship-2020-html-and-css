@@ -16,36 +16,56 @@ const useStyles = makeStyles({
     transform: (isDragging) => isDragging? 'rotate(3deg)': 'rotate(0)'
   }
 })
+
 const TaskCard = (props) => {
-  const {id, listId, title, desc ,innerRef, provided, isDragging } = props;
+  const {task, listId, innerRef, provided, isDragging } = props;
   const classes = useStyles(isDragging);
+
   return (
   <Grid
     ref={innerRef}
     {...provided.draggableProps}
     {...provided.dragHandleProps}
-    item
-   >
+    item>
     <Card className={classes.card}>
-    <CardContent>
-      <Typography variant="h6" component="h3">
-        {title}
-      </Typography>
-      <Typography variant="body2" component="p">
-        {desc}
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button variant="contained" onClick={() => props.toggleModal(id, title, desc, listId)} color="primary">Edit</Button>
-      <Button variant="contained" onClick={() => props.removeTask(id,listId)} color="secondary">Delete</Button>
-    </CardActions>
+
+      <CardContent>
+        <Typography
+          variant="h6"
+          component="h3">
+          {task.title}
+        </Typography>
+
+        <Typography
+          variant="body2"
+          component="p">
+          {task.desc}
+        </Typography>
+      </CardContent>
+
+      <CardActions>
+        <Button
+          variant="contained"
+          onClick={() => props.toggleModal(task, listId)}
+          color="primary">
+          Edit
+        </Button>
+
+        <Button
+          variant="contained"
+          onClick={() => props.removeTask(task.id, listId)}
+          color="secondary">
+          Delete
+        </Button>
+      </CardActions>
+
     </Card>
   </Grid>
   )
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleModal: (taskID, title, desc, listId) => dispatch(toggleModal(taskID, title, desc, listId)),
+  toggleModal: (task, listId) => dispatch(toggleModal(task, listId)),
   removeTask: (taskId, listId) => dispatch(removeTask(taskId, listId))
 })
 
