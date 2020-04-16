@@ -1,20 +1,19 @@
 <div class="container">
   <app-card-list class="column"
     [status] = "'TODO'"
-    [tasks] = "[{id: 0, title: 'Drag and Drop', description: 'Add drag and drop functionality.'},
-                {id: 0, title: 'Edit', description: 'Edit card'}]"
+    [tasks] = "toDo"
   >
   </app-card-list>
 
   <app-card-list class="column"
     [status] = "'IN-PROGRESS'"
-    [tasks] = "[{id: 0, title: 'Layout', description: 'Do some basic layout.'}]"
+    [tasks] = "inProgress"
   >
   </app-card-list>
 
   <app-card-list class="column"
     [status] = "'DONE'"
-    [tasks] = "[{id: 0, title: 'Project plan', description: 'Do project plan.'}]"
+    [tasks] = "done"
   >
   </app-card-list>
     

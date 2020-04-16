@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>
+    <textarea class="dialog__title"
+        matInput 
+        [(ngModel)] = "data.title"
+    > {{ data.title }} </textarea> 
+</h1>
+<div mat-dialog-content>
+    <textarea class="dialog__description"
+        matInput 
+        [(ngModel)]="data.description"
+    > {{ data.description }} </textarea> 
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data">Save</button>
+</div>
