@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Task } from '../models/task.model';
+import { Task, TaskStatus } from '../models/task.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +36,13 @@ export class TasksService {
     })
 
     this.id++;
+
+    this.storeTasks();
+  }
+
+  public deleteTask(id: number, status: TaskStatus): void {
+    let indexOfTask = this.tasks[status].findIndex(task => task.id === id);
+    this.tasks[status].splice(indexOfTask, 1);
 
     this.storeTasks();
   }

@@ -19,7 +19,6 @@ export class CardListComponent implements OnInit {
   }
 
   openDialog(): void {
-    console.log("here I am");
     let dialogRef = this.dialog.open(DialogComponent, {
       data : {
         title: "",
