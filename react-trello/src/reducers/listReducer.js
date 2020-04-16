@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { ACTION_TYPES } from '../actions';
 
 const initialState = {
   lists: [
@@ -38,7 +39,7 @@ const initialState = {
 
 const listReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_CARD': {
+    case ACTION_TYPES.ADD_CARD: {
       const newCard = {
         id: `card-${uuidv4()}`,
         text: action.payload.text
@@ -60,7 +61,7 @@ const listReducer = (state = initialState, action) => {
         })
       };
     }
-    case 'DRAG_CARD': {
+    case ACTION_TYPES.DRAG_CARD: {
       const {
         droppableIdStart,
         droppableIdEnd,
@@ -87,7 +88,7 @@ const listReducer = (state = initialState, action) => {
 
       return newState;
     }
-    case 'DELETE_CARD': {
+    case ACTION_TYPES.DELETE_CARD: {
       const newState = { ...state };
       const { lists } = newState;
       const listIndex = lists.findIndex(list => action.payload.listID === list.id);

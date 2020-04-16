@@ -1,3 +1,5 @@
+import { ACTION_TYPES } from './index';
+
 export const sort = (
   droppableIdStart,
   droppableIdEnd,
@@ -6,7 +8,7 @@ export const sort = (
   draggableId
 ) => {
   return {
-    type: 'DRAG_CARD',
+    type: ACTION_TYPES.DRAG_CARD,
     payload: {
       droppableIdStart,
       droppableIdEnd,
