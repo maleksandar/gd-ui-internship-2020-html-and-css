@@ -11,11 +11,12 @@ export class TasksService {
   constructor() {
     let data = window.localStorage.getItem('data');
     this.tasks = (data ? JSON.parse(data) : {})
+    
     if(!this.tasks["TODO"]) {
       this.tasks["TODO"] = []
     }
     if(!this.tasks["IN-PROGRESS"]) {
-      this.tasks["IN-PRGRESS"] = []
+      this.tasks["IN-PROGRESS"] = []
     }
     if(!this.tasks["DONE"]) {
       this.tasks["DONE"] = []

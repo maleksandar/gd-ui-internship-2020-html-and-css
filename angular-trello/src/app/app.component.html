@@ -1,19 +1,28 @@
-<div class="container">
+<div class="container" cdkDropListGroup>
   <app-card-list class="column"
     [status] = "'TODO'"
     [tasks] = "toDo"
+    cdkDropList
+    [cdkDropListData]="toDo"
+    (cdkDropListDropped)="drop($event)"
   >
   </app-card-list>
 
   <app-card-list class="column"
     [status] = "'IN-PROGRESS'"
     [tasks] = "inProgress"
+    cdkDropList
+    [cdkDropListData]="inProgress"
+    (cdkDropListDropped)="drop($event)"
   >
   </app-card-list>
 
   <app-card-list class="column"
     [status] = "'DONE'"
     [tasks] = "done"
+    cdkDropList
+    [cdkDropListData]="done"
+    (cdkDropListDropped)="drop($event)"
   >
   </app-card-list>
     

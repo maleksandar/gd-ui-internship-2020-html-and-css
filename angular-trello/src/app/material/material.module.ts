@@ -5,6 +5,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 const MaterialComponents = [
   MatCardModule,
@@ -12,7 +13,8 @@ const MaterialComponents = [
   MatListModule,
   MatIconModule,
   MatDialogModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  DragDropModule
 ]
 
 @NgModule({
