@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   taskContainer: {
     flexWrap: 'nowrap',
     minHeight: '50px',
-    maxHeight: '600px',
+    maxHeight: '550px',
     width: '400px',
     marginBottom: '5px',
     overflow: 'scroll',

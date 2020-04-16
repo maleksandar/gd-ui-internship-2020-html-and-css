@@ -5,6 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { toggleModal } from '../redux/TaskModal/taskModal.actions';
 import { addTask, removeTask, updateTask } from '../redux/Task/task.actions';
 import { changeText } from '../redux/TaskModal/taskModal.actions';
+import SaveIcon from '@material-ui/icons/Save';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 const useStyles = makeStyles({
   modalContent: {
@@ -60,6 +62,7 @@ export const TaskModal = (props) => {
             onClick={handleDelete}
             variant="contained"
             color="secondary"
+            startIcon={<DeleteForeverIcon/>}
             disabled={!modal.taskId}>
             delete
           </Button>
@@ -76,7 +79,8 @@ export const TaskModal = (props) => {
             <Button
               variant="contained"
               color="primary"
-              onClick={handleSave}>
+              onClick={handleSave}
+              startIcon={<SaveIcon/>}>
               save
             </Button>
           </Box>
