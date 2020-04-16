@@ -26,8 +26,8 @@ export class CardListComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(task => {
-      this.tasksService.addTask(task.title, task.description);
+    dialogRef.afterClosed().subscribe(result => {
+      this.tasksService.addTask(result.title, result.description);
     })
   }
 

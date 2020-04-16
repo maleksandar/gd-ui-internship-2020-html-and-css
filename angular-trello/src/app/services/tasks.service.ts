@@ -47,6 +47,14 @@ export class TasksService {
     this.storeTasks();
   }
 
+  public editTask(status: TaskStatus, id: number, title: string, description: string): void {
+    const indexOfTask = this.tasks[status].findIndex(task => task.id === id);
+    this.tasks[status][indexOfTask].title = title;
+    this.tasks[status][indexOfTask].description = description;
+
+    this.storeTasks();
+  }
+
   public storeTasks() {
     localStorage.setItem('data', JSON.stringify(this.tasks));
   }
