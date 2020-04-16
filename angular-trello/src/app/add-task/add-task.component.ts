@@ -1,24 +1,20 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToDo } from '../models/todo.model';
+import { TodoServiceService } from '../todo-service.service';
 
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
-  styleUrls: ['./add-task.component.scss']
+  styleUrls: ['./add-task.component.scss'],
 })
 export class AddTaskComponent implements OnInit {
-
-  @Output('newTask')
-  public emitnewTask: EventEmitter<ToDo>;
-
   public title: string;
   public description: string;
-  public brojac: number = 4;
+  public id: number = this.todoService.getNextId();
 
-  constructor() {
+  constructor(private todoService: TodoServiceService) {
     this.title = '';
     this.description = '';
-    this.emitnewTask = new EventEmitter<ToDo>();
   }
 
   ngOnInit(): void {}
@@ -34,9 +30,12 @@ export class AddTaskComponent implements OnInit {
       return;
     }
 
-    const newTask = new ToDo(this.brojac, this.title, this.description);
-    this.brojac++;  
-    this.emitnewTask.emit(newTask);
+    const newTask = new ToDo(this.id, this.title, this.description);
+    this.id++;
+    this.todoService.onNewTask(newTask);
+
+    localStorage.setItem(this.id.toString(), JSON.stringify(newTask));
+
     this.title = '';
     this.description = '';
   }

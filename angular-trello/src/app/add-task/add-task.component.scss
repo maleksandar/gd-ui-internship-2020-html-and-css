@@ -22,8 +22,8 @@
     background-color: white;
     padding: 2rem;
     position: relative;
-    width: 30%;
-    height: 40%;
+    width: 450px;
+    height: 300px;
 
     display: flex;
     flex-direction: column;
@@ -43,7 +43,7 @@
     }
 
     .form-container {
-      width: 60%;
+      width: 300px;
 
       .form-title,
       .form-desc {
@@ -59,7 +59,25 @@
         .input-title,
         .input-desc {
           width: 70%;
+          border: 1px solid grey;
         }
+
+        .input-desc {
+          height: 80px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .form-title,
+        .form-desc {
+          margin-bottom: 0.7rem;
+        }
+      }
+    }
+
+    @media (max-width: 900px) {
+      .form-container {
+        width: 230px;
       }
     }
 
@@ -72,6 +90,13 @@
       padding: 0.5rem;
       text-align: center;
       border-radius: 0.4rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .content {
+      width: 300px;
+      height: 220px;
     }
   }
 }

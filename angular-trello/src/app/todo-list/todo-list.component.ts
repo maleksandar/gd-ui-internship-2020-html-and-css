@@ -9,22 +9,14 @@ import { ToDo } from '../models/todo.model';
 export class TodoListComponent implements OnInit {
   @Input() tasks: ToDo[];
 
-  @Output('deleteTask')
-  selectedTask: EventEmitter<string>;
-
   @Output('selectId')
   selectId: EventEmitter<number>;
 
   constructor() {
-    this.selectedTask = new EventEmitter<string>();
     this.selectId = new EventEmitter<number>();
   }
 
   ngOnInit(): void {}
-
-  onDeleteTask(selectedTask: string) {
-    this.selectedTask.emit(selectedTask);
-  }
 
   sendIdOfSelectedTask(id: number) {
     this.selectId.emit(id);

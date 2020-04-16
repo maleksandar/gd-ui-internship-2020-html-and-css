@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ToDo } from '../models/todo.model';
+import { TodoServiceService } from '../todo-service.service';
 
 @Component({
   selector: 'app-todo',
@@ -11,14 +12,10 @@ export class TodoComponent implements OnInit {
   @Input() title: string;
   @Input() description: string;
 
-  @Output('deleteTaskWithSelectedTitle')
-  public selectedTitle: EventEmitter<string>;
-
   @Output('selectId')
   public selectId: EventEmitter<number>;
 
-  constructor() {
-    this.selectedTitle = new EventEmitter<string>();
+  constructor(private todoService: TodoServiceService) {
     this.selectId = new EventEmitter<number>();
   }
 
@@ -28,7 +25,7 @@ export class TodoComponent implements OnInit {
     this.selectId.emit(this.id);
   }
 
-  onDeleteTask(): void {
-    this.selectedTitle.emit(this.title);
+  onDeleteTask(title): void {
+    this.todoService.deleteTodoTask(title);
   }
 }

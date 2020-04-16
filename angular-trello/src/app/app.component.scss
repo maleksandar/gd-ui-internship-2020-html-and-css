@@ -19,6 +19,12 @@
       padding: 0.5rem;
     }
 
+    @media (max-width: 600px) {
+      .title {
+        font-size: 1.6rem;
+      }
+    }
+
     .btn-add {
       background-color: #999;
       border: none;
@@ -31,6 +37,26 @@
       width: 100px;
       text-align: center;
       text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .btn-add {
+        font-size: 1.5rem;
+        width: 40%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .btn-add {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .btn-add {
+        font-size: 0.8rem;
+        width: 50%;
+      }
     }
   }
 }

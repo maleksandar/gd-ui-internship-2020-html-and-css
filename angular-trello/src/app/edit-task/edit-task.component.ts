@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ToDo } from '../models/todo.model';
+import { TodoServiceService } from '../todo-service.service';
 
 @Component({
   selector: 'app-edit-task',
@@ -14,7 +15,7 @@ export class EditTaskComponent implements OnInit {
   @Output('editedTitle') editedTitle: EventEmitter<string>;
   @Output('editedDesc') editedDesc: EventEmitter<string>;
 
-  constructor() {
+  constructor(private todoService: TodoServiceService) {
     this.editedTitle = new EventEmitter<string>();
     this.editedDesc = new EventEmitter<string>();
   }
@@ -32,7 +33,7 @@ export class EditTaskComponent implements OnInit {
       return;
     }
 
-    this.editedTitle.emit(title);
+    this.editedTitle.emit(title)
     this.editedDesc.emit(desc);
   }
 }

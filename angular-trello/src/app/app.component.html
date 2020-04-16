@@ -10,8 +10,7 @@
       #todoList="cdkDropList"
       [cdkDropListConnectedTo]="[inProgressList]"
       class="example-list"
-      (deleteTask)="deleteToDoTask($event)"
-      (selectId)="selectIdOfToDoTask($event)"
+      (selectId)="selectIdOfTask($event)"
     ></app-todo-list>
 
     <a href="#popup" class="btn-add">&#43; Add</a>
@@ -28,8 +27,7 @@
       #inProgressList="cdkDropList"
       [cdkDropListConnectedTo]="[doneList]"
       class="example-list"
-      (deleteTask)="deleteInProgressTask($event)"
-      (selectId)="selectIdOfInProgressTask($event)"
+      (selectId)="selectIdOfTask($event)"
     ></app-todo-list>
   </div>
 
@@ -44,21 +42,16 @@
       #doneList="cdkDropList"
       [cdkDropListConnectedTo]="[inProgressList]"
       class="example-list"
-      (deleteTask)="deleteDoneTask($event)"
-      (selectId)="selectIdOfDoneTask($event)"
+      (selectId)="selectIdOfTask($event)"
     ></app-todo-list>
   </div>
 </div>
 
-<app-add-task (newTask)="onNewTask($event)"></app-add-task>
+<app-add-task></app-add-task>
 
 <app-edit-task
   [title]="title"
   [description]="description"
-  (editedTitle)="editTitleOfToDoTask($event)"
-  (editedDesc)="editDescriptionOfToDoTask($event)"
-  (editedTitle)="editTitleOfInProgressTask($event)"
-  (editedTitle)="editTitleOfDoneTask($event)"
-  (editedDesc)="editDescriptionOfInprogressTask($event)"
-  (editedDesc)="editDescriptionOfDoneTask($event)"
+  (editedTitle)="editTitleOfTask($event)"
+  (editedDesc)="editDescriptionOfTask($event)"
 ></app-edit-task>

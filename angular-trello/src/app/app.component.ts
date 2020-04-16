@@ -5,6 +5,7 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { ToDo } from './models/todo.model';
+import { TodoServiceService } from './todo-service.service';
 
 @Component({
   selector: 'app-root',
@@ -12,123 +13,90 @@ import { ToDo } from './models/todo.model';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  todos: ToDo[] = [];
-  inProgresses: ToDo[] = [];
-  dones: ToDo[] = [];
+  todos: ToDo[] = this.todoService.getTodoTasks();
+  inProgresses: ToDo[] = this.todoService.getInProgressTasks();
+  dones: ToDo[] = this.todoService.getDoneTasks();
 
-  constructor() {
-    this.todos.push(new ToDo(0, 'title1', 'desc1'));
-    this.todos.push(new ToDo(1, 'title2', 'desc2'));
-    this.inProgresses.push(new ToDo(2, 'title3', 'desc3'));
-    this.dones.push(new ToDo(3, 'title4', 'desc4'));
-  }
+  id: number;
+  title: string;
+  description: string;
 
-  id:number;
-  title:string;
-  description:string;
+  constructor(private todoService: TodoServiceService) {}
 
-  onNewTask(noviToDo: ToDo) {
-    this.todos.push(noviToDo);
-  }
-
-  selectIdOfToDoTask(id:number){
+  selectIdOfTask(id: number) {
     for (let i = 0; i < this.todos.length; i++) {
       if (id === this.todos[i].getIndex()) {
-        this.title=this.todos[i].getTitle();
-        this.description=this.todos[i].getDesc();
-        this.id=id;
+        this.title = this.todos[i].getTitle();
+        this.description = this.todos[i].getDesc();
+        this.id = id;
+
+        break;
       }
     }
-  }
 
-  selectIdOfInProgressTask(id:number){
     for (let i = 0; i < this.inProgresses.length; i++) {
       if (id === this.inProgresses[i].getIndex()) {
-        this.title=this.inProgresses[i].getTitle();
-        this.description=this.inProgresses[i].getDesc();
-        this.id=id;
+        this.title = this.inProgresses[i].getTitle();
+        this.description = this.inProgresses[i].getDesc();
+        this.id = id;
+
+        break;
       }
     }
-  }
 
-  selectIdOfDoneTask(id:number){
     for (let i = 0; i < this.dones.length; i++) {
       if (id === this.dones[i].getIndex()) {
-        this.title=this.dones[i].getTitle();
-        this.description=this.dones[i].getDesc();
-        this.id=id;
+        this.title = this.dones[i].getTitle();
+        this.description = this.dones[i].getDesc();
+        this.id = id;
+
+        break;
       }
     }
   }
 
-  editTitleOfToDoTask(title){
+  editTitleOfTask(title) {
     for (let i = 0; i < this.todos.length; i++) {
       if (this.id === this.todos[i].getIndex()) {
         this.todos[i].setTitle(title);
+        break;
       }
     }
-  }
 
-  editTitleOfInProgressTask(title){
     for (let i = 0; i < this.inProgresses.length; i++) {
       if (this.id === this.inProgresses[i].getIndex()) {
         this.inProgresses[i].setTitle(title);
+        break;
       }
     }
-  }
 
-  editTitleOfDoneTask(title){
     for (let i = 0; i < this.dones.length; i++) {
       if (this.id === this.dones[i].getIndex()) {
         this.dones[i].setTitle(title);
+        break;
       }
     }
   }
 
-  editDescriptionOfToDoTask(desc){
+  editDescriptionOfTask(desc) {
     for (let i = 0; i < this.todos.length; i++) {
       if (this.id === this.todos[i].getIndex()) {
         this.todos[i].setDesc(desc);
+        break;
       }
     }
-  }
 
-  editDescriptionOfInprogressTask(desc){
     for (let i = 0; i < this.inProgresses.length; i++) {
       if (this.id === this.inProgresses[i].getIndex()) {
         this.inProgresses[i].setDesc(desc);
+        break;
       }
     }
-  }
 
-  editDescriptionOfDoneTask(desc){
     for (let i = 0; i < this.dones.length; i++) {
       if (this.id === this.dones[i].getIndex()) {
         this.dones[i].setDesc(desc);
-      }
-    }
-  }
-
-  deleteToDoTask(brisiTodo: string) {
-    for (let i = 0; i < this.todos.length; i++) {
-      if (brisiTodo === this.todos[i].getTitle()) {
-        this.todos.splice(i, 1);
-      }
-    }
-  }
-
-  deleteInProgressTask(brisiTodo: string) {
-    for (let i = 0; i < this.inProgresses.length; i++) {
-      if (brisiTodo === this.inProgresses[i].getTitle()) {
-        this.inProgresses.splice(i, 1);
-      }
-    }
-  }
-
-  deleteDoneTask(brisiTodo: string) {
-    for (let i = 0; i < this.dones.length; i++) {
-      if (brisiTodo === this.dones[i].getTitle()) {
-        this.dones.splice(i, 1);
+        break;
       }
     }
   }

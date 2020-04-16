@@ -9,12 +9,13 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
+import { TodoServiceService } from './todo-service.service';
 
 
 @NgModule({
   declarations: [AppComponent, TodoComponent, TodoListComponent, AddTaskComponent, EditTaskComponent],
   imports: [BrowserModule, FormsModule, DragDropModule],
-  providers: [],
+  providers: [TodoServiceService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
