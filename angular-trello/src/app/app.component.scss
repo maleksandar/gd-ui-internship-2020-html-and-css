@@ -1,0 +1,15 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.column {
+    width: 25%;
+    height: 90%;
+    overflow-x: scroll;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: lightgrey;
+}

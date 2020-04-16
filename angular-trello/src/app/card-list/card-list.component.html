@@ -1,0 +1,15 @@
+<mat-list class="card-list">
+    <div mat-subheader> {{ status }} </div>
+    <app-card
+        cdkDrag
+        mat-list-item 
+        *ngFor="let task of tasks"
+        [task]="task"
+    >
+    </app-card> 
+    
+    <button mat-raised-button *ngIf="status === 'TODO'">
+        <mat-icon>add</mat-icon>
+        Add
+    </button>
+</mat-list>
