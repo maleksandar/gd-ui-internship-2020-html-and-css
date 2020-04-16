@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import TrelloCard from './TrelloCard';
@@ -28,8 +28,9 @@ const TrelloList = ({ listID, title, cards }) => {
   return (
     <Droppable droppableId={String(listID)}>
       {(provided) => (
-        <div
+        <Grid
           className={classes.container}
+          {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
@@ -41,16 +42,19 @@ const TrelloList = ({ listID, title, cards }) => {
           >
             {title}
           </Typography>
+
           {cards.map((card, index) => (
             <TrelloCard
               key={card.id}
               id={card.id}
+              listID={listID}
               index={index}
               text={card.text}
             />
           ))}
+
           <TrelloActionButton listID={listID} cardsLength={cards.length}/>
-        </div>
+        </Grid>
       )}
     </Droppable>
   );

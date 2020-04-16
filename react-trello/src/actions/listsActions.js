@@ -3,18 +3,16 @@ export const sort = (
   droppableIdEnd,
   droppableIndexStart,
   droppableIndexEnd,
-  draggableId,
-  type
+  draggableId
 ) => {
   return {
-    type: 'DRAG',
+    type: 'DRAG_CARD',
     payload: {
       droppableIdStart,
       droppableIdEnd,
       droppableIndexStart,
       droppableIndexEnd,
-      draggableId,
-      type
+      draggableId
     }
   };
 };

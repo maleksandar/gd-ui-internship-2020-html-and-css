@@ -7,7 +7,6 @@ import { addCard } from '../actions';
 
 const TrelloActionButton = (props) => {
   const [text, setText] = useState('New Card');
-
   const { cardsLength } = props;
   const buttonText = cardsLength > 0 ? 'Add another card' : 'Add a card';
 
