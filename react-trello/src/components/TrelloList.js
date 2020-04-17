@@ -52,7 +52,7 @@ const TrelloList = (props) => {
       <Droppable droppableId={String(listID)}>
         {(provided) => (
           <Grid
-            className={classes.container}
+            item
             {...provided.draggableProps}
             {...provided.dragHandleProps}
             ref={provided.innerRef}>
@@ -64,7 +64,11 @@ const TrelloList = (props) => {
               {title}
             </Typography>
 
-            {trelloCards}
+            <Grid
+              item
+              className={classes.container}>
+              {trelloCards}
+            </Grid>
           </Grid>
         )}
       </Droppable>
