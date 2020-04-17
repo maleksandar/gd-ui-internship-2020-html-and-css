@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { ACTION_TYPES } from '../actions';
-import { addCard, deleteCard, dragCard, updateCard } from '../utils/listUtils';
+import { addCard, deleteCard, dragCard, updateCard } from '../utils';
 
 const initialState = {
   lists: [

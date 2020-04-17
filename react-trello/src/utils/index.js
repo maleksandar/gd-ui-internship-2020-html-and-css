@@ -1,3 +1,5 @@
+export * from './listUtils';
+
 export const deepCopy = (object) => {
   if (typeof object !== 'object' || object === null) {
     return object;

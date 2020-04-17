@@ -8,6 +8,7 @@ import TrelloList from '../components/TrelloList';
 
 import { DragDropContext } from 'react-beautiful-dnd';
 import { sort } from '../actions';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
   container: {
@@ -28,7 +29,7 @@ const useStyles = makeStyles({
 });
 
 const TrelloBoard = (props) => {
-  const { lists } = props.lists;
+  const { board, sort } = props;
   const classes = useStyles();
 
   const onDragEnd = (result) => {
@@ -38,46 +39,48 @@ const TrelloBoard = (props) => {
       return;
     }
 
-    props.dispatch(
-      sort(
-        source.droppableId,
-        destination.droppableId,
-        source.index,
-        destination.index,
-        draggableId
-      )
-    );
+    sort(source, destination, draggableId);
   };
 
+  const trelloLists = board.lists.map(({ id, title, cards }) => (
+    <TrelloList
+      key={id}
+      listID={id}
+      title={title}
+      cards={cards}
+    />
+  ));
+
   return (
-    <div className={classes.container}>
+    <Grid container className={classes.container}>
       <DragDropContext onDragEnd={onDragEnd}>
         <Typography
           className={classes.title}
           variant="h3"
-          component="h1"
-        >
+          component="h1">
           React Trello Clone
         </Typography>
 
-        <div className={classes.row}>
-          {lists.map(list => (
-            <TrelloList
-              key={list.id}
-              id={list.id}
-              listID={list.id}
-              title={list.title}
-              cards={list.cards}
-            />
-          ))}
-        </div>
+        <Grid item className={classes.row}>
+          {trelloLists}
+        </Grid>
       </DragDropContext>
-    </div>
+    </Grid>
   );
 };
 
 const mapStateToProps = (state) => ({
-  lists: state.lists
+  board: state.board
 });
 
-export default connect(mapStateToProps)(TrelloBoard);
+const mapDispatchToProps = (dispatch) => ({
+  sort: (source, destination, draggableId) => dispatch(sort(
+    source.droppableId,
+    destination.droppableId,
+    source.index,
+    destination.index,
+    draggableId
+  ))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TrelloBoard);
