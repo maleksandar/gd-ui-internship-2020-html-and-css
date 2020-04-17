@@ -13,8 +13,6 @@ import SaveIcon from '@material-ui/icons/Save';
 import DeleteIcon from '@material-ui/icons/Delete';
 import CancelIcon from '@material-ui/icons/Cancel';
 
-import Typography from '@material-ui/core/Typography';
-
 import { addCard } from '../actions';
 
 const useStyles = makeStyles({
@@ -51,14 +49,11 @@ const TrelloModal = (props) => {
   const handleAddCard = () => {
     const { listID, dispatch } = props;
 
-    console.log('TEXT:', text);
-
     if (title && text) {
-      setText('');
+      setTitle('New Card');
+      setText('Your text');
       dispatch(addCard(listID, title, text));
       handleClose();
-    } else {
-      console.error('Enter title and text!');
     }
   };
 
@@ -77,22 +72,23 @@ const TrelloModal = (props) => {
         >
           <TextField
             className={classes.textfield}
+            placeholder="Enter a card title"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
             error={title === ''}
             label="Title"
-            helperText={title === '' ? 'Empty field!' : ' '}/>
+            helperText={title === '' ? 'Enter a card title!' : ' '}/>
 
-          <Typography
-            variant="body2"
-            component="p"
-            gutterBottom
-          >
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem et eveniet harum illo, itaque iusto magnam
-            minima molestiae, quis, quos recusandae veniam voluptate voluptatum! Accusantium ducimus eius excepturi
-            nihil nisi quae vitae. A aperiam aut, consequatur earum eum eveniet excepturi facilis harum itaque minima,
-            odio quia quod reiciendis tempore voluptates.
-          </Typography>
+          <TextField
+            placeholder="Enter a card text"
+            value={text}
+            onChange={(event) => setText(event.target.value)}
+            helperText={text === '' ? 'Enter a card text!' : ' '}
+            error={text === ''}
+            label="Text"
+            variant="outlined"
+            multiline
+            fullWidth/>
 
           <Grid
             container
@@ -123,6 +119,7 @@ const TrelloModal = (props) => {
                 variant="text"
                 color="primary"
                 startIcon={<SaveIcon/>}
+                disabled={title === '' || text === ''}
               >
                 Save
               </Button>
