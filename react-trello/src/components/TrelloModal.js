@@ -15,7 +15,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import CancelIcon from '@material-ui/icons/Cancel';
 import CloseIcon from '@material-ui/icons/Close';
 
-import { addCard } from '../actions';
+import { addCard, deleteCard } from '../actions';
 
 const useStyles = makeStyles({
   root: {
@@ -44,15 +44,15 @@ const useStyles = makeStyles({
 
 const TrelloModal = (props) => {
   const classes = useStyles();
-  const { open, setOpen } = props;
+  const { open, setOpen, cardTitle, cardText, type } = props;
 
-  const [title, setTitle] = useState('New Card');
-  const [text, setText] = useState('Your text');
+  const [title, setTitle] = useState(cardTitle ? cardTitle : 'New Card');
+  const [text, setText] = useState(cardText ? cardText : 'Your text');
 
   const handleClose = () => {
     setOpen(false);
-    setTitle('New Card');
-    setText('Your text');
+    // setTitle('New Card');
+    // setText('Your text');
   };
 
   const handleAddCard = () => {
@@ -64,6 +64,11 @@ const TrelloModal = (props) => {
       dispatch(addCard(listID, title, text));
       handleClose();
     }
+  };
+
+  const handleDeleteCard = () => {
+    const { listID, cardID, dispatch } = props;
+    dispatch(deleteCard(listID, cardID));
   };
 
   return (
@@ -84,7 +89,7 @@ const TrelloModal = (props) => {
             placeholder="Enter a card title"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
-            error={title === '' || title.length > 20}
+            error={title === ''}
             label="Title"
             helperText={title === '' ? 'Enter a card title!' : ' '}
           />
@@ -113,10 +118,11 @@ const TrelloModal = (props) => {
             className={classes.grid}
           >
             <Button
-              onClick={handleClose}
+              onClick={handleDeleteCard}
               variant="text"
               color="secondary"
               startIcon={<DeleteIcon/>}
+              disabled={type === 'button'}
             >
               Delete
             </Button>

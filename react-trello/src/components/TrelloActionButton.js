@@ -29,7 +29,9 @@ const TrelloActionButton = (props) => {
       <TrelloModal
         listID={listID}
         open={open}
-        setOpen={setOpen}/>
+        setOpen={setOpen}
+        type="button"
+      />
     </div>
   );
 };
