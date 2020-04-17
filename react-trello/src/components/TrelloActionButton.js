@@ -1,32 +1,36 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+
 import AddIcon from '@material-ui/icons/Add';
 import { Button } from '@material-ui/core';
 
-import { connect } from 'react-redux';
-import { addCard } from '../actions';
+import TrelloModal from './TrelloModal';
 
 const TrelloActionButton = (props) => {
-  const [text, setText] = useState('New Card');
-  const { cardsLength } = props;
+  const [open, setOpen] = useState(false);
+
+  const { listID, cardsLength } = props;
   const buttonText = cardsLength > 0 ? 'Add another card' : 'Add a card';
 
-  const handleAddCard = () => {
-    const { listID, dispatch } = props;
-
-    if (text) {
-      setText('');
-      dispatch(addCard(listID, text));
-    }
+  const handleOpenModal = () => {
+    setOpen(true);
   };
 
   return (
-    <Button
-      color="primary"
-      variant="text"
-      startIcon={<AddIcon/>}
-      onMouseDown={handleAddCard}>
-      {buttonText}
-    </Button>
+    <div>
+      <Button
+        color="primary"
+        variant="text"
+        startIcon={<AddIcon/>}
+        onMouseDown={handleOpenModal}>
+        {buttonText}
+      </Button>
+
+      <TrelloModal
+        listID={listID}
+        open={open}
+        setOpen={setOpen}/>
+    </div>
   );
 };
 

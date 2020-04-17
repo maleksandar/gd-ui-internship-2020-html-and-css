@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
+
 import TrelloList from '../components/TrelloList';
 
 import { DragDropContext } from 'react-beautiful-dnd';
