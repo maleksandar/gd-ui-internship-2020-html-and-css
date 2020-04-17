@@ -23,7 +23,6 @@ const useStyles = makeStyles({
     transition: 'all .4s',
   },
   title: {
-    fontSize: 14,
     fontWeight: 'bold',
   },
   buttons: {
@@ -34,6 +33,16 @@ const useStyles = makeStyles({
 
 const TrelloCard = ({ listID, id, index, title, text, deleteCard }) => {
   const classes = useStyles();
+
+  const handleTextLength = (text) => {
+    const CHAR_LIMIT = 200;
+
+    if (text.length > CHAR_LIMIT) {
+      return `${text.substring(0, CHAR_LIMIT - 3)}...`;
+    }
+
+    return text;
+  };
 
   return (
     <Draggable
@@ -50,8 +59,8 @@ const TrelloCard = ({ listID, id, index, title, text, deleteCard }) => {
             <CardContent>
               <Typography
                 className={classes.title}
-                variant="h3"
-                component="h2"
+                variant="h6"
+                component="h4"
                 gutterBottom
               >
                 {title}
@@ -60,9 +69,8 @@ const TrelloCard = ({ listID, id, index, title, text, deleteCard }) => {
               <Typography
                 variant="body2"
                 component="p"
-                gutterBottom
               >
-                {text}
+                {handleTextLength(text)}
               </Typography>
             </CardContent>
 

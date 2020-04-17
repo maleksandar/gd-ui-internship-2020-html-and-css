@@ -5,12 +5,16 @@ import { connect } from 'react-redux';
 import {
   Button,
   Modal,
-  Grid
+  Grid,
+  TextField
 } from '@material-ui/core';
 
 import SaveIcon from '@material-ui/icons/Save';
 import DeleteIcon from '@material-ui/icons/Delete';
+import CancelIcon from '@material-ui/icons/Cancel';
+
 import Typography from '@material-ui/core/Typography';
+
 import { addCard } from '../actions';
 
 const useStyles = makeStyles({
@@ -19,12 +23,17 @@ const useStyles = makeStyles({
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 500,
     backgroundColor: '#fff',
     padding: 16,
   },
+  textfield: {
+    marginBottom: 16,
+    width: 220
+  },
   grid: {
-    display: 'flex'
+    display: 'flex',
+    paddingTop: 16
   }
 });
 
@@ -32,7 +41,8 @@ const TrelloModal = (props) => {
   const classes = useStyles();
   const { open, setOpen } = props;
 
-  const [text, setText] = useState('New Card');
+  const [title, setTitle] = useState('New Card');
+  const [text, setText] = useState('Your text');
 
   const handleClose = () => {
     setOpen(false);
@@ -41,10 +51,14 @@ const TrelloModal = (props) => {
   const handleAddCard = () => {
     const { listID, dispatch } = props;
 
-    if (text) {
+    console.log('TEXT:', text);
+
+    if (title && text) {
       setText('');
-      dispatch(addCard(listID, text));
+      dispatch(addCard(listID, title, text));
       handleClose();
+    } else {
+      console.error('Enter title and text!');
     }
   };
 
@@ -61,13 +75,13 @@ const TrelloModal = (props) => {
           direction="column"
           className={classes.root}
         >
-          <Typography
-            variant="h5"
-            component="h2"
-            gutterBottom
-          >
-            Card Title
-          </Typography>
+          <TextField
+            className={classes.textfield}
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
+            error={title === ''}
+            label="Title"
+            helperText={title === '' ? 'Empty field!' : ' '}/>
 
           <Typography
             variant="body2"
@@ -81,7 +95,7 @@ const TrelloModal = (props) => {
           </Typography>
 
           <Grid
-            item
+            container
             justify="space-between"
             alignItems="center"
             className={classes.grid}
@@ -95,14 +109,11 @@ const TrelloModal = (props) => {
               Delete
             </Button>
 
-            <Grid
-              item
-              justify="center"
-              alignItems="center"
-            >
+            <Grid item>
               <Button
                 onClick={handleClose}
                 variant="text"
+                startIcon={<CancelIcon/>}
               >
                 Cancel
               </Button>

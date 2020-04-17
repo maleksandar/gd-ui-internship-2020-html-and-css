@@ -9,6 +9,7 @@ import { Droppable } from 'react-beautiful-dnd';
 
 const useStyles = makeStyles({
   container: {
+    position: 'relative',
     backgroundColor: '#ebecf0',
     borderRadius: 3,
     flex: '0 0 300px',
@@ -49,11 +50,15 @@ const TrelloList = ({ listID, title, cards }) => {
               id={card.id}
               listID={listID}
               index={index}
+              title={card.title}
               text={card.text}
             />
           ))}
 
-          <TrelloActionButton listID={listID} cardsLength={cards.length}/>
+          <TrelloActionButton
+            listID={listID}
+            cardsLength={cards.length}
+          />
         </Grid>
       )}
     </Droppable>

@@ -8,30 +8,36 @@ const initialState = {
       title: 'Todo',
       cards: [{
         id: `card-${uuidv4()}`,
-        text: 'Create Material UI Card'
+        title: 'Create Material UI Card',
+        text: 'The card description preview should not contain more than 200 characters. In case the card has more than 200, shorten it with an ellipsis, but enable full-text visibility on editing the card in the modal dialog.'
       }, {
         id: `card-${uuidv4()}`,
-        text: 'Create Redux store'
+        title: 'Create Redux store',
+        text: 'Lorem ipsum dolor sit amet, da adipisicine veniam voluptate voluptatum!'
       }]
     }, {
       id: `list-${uuidv4()}`,
       title: 'In Progress',
       cards: [{
         id: `card-${uuidv4()}`,
-        text: 'Set background color'
+        title: 'Set background color',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias labore magni modi nam numquam officia placeat quidem quos recusandae reiciendis ullam, voluptatem voluptatibus. Adipisci aliquam aliquid cumque, debitis delectus deleniti dolor dolores fugiat harum illo iste laudantium modi, repudiandae! Laudantium neque nihil tenetur! Aperiam itaque minima perspiciatis provident voluptatem!'
       }]
     }, {
       id: `list-${uuidv4()}`,
       title: 'Done',
       cards: [{
         id: `card-${uuidv4()}`,
-        text: 'Create Edit button'
+        title: 'Create Edit button',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autemiam voluptate voluptatum!'
       }, {
         id: `card-${uuidv4()}`,
-        text: 'Create Delete button'
+        title: 'Create Delete button',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur ducimus explicabo harum ipsa, iusto odit quia quis reiciendis repudiandae? Adipisci aperiam aspernatur atque, beatae culpa cupiditate eos et fugiat fugit, laudantium libero necessitatibus odit perspiciatis quam quis repellendus sunt! Aut eos laudantium, maxime nulla quos tenetur? Adipisci asperiores at aut beatae consectetur doloribus earum eum exercitationem facere id incidunt ipsum, iusto laboriosam maxime necessitatibus neque nisi perspiciatis placeat quas sint sunt tempore ullam voluptatem. Accusantium autem itaque modi nemo perspiciatis rerum? At, aut consequuntur dolorem ea esse est exercitationem expedita harum, ipsa laboriosam laborum nihil nulla odit ut vitae.'
       }, {
         id: `card-${uuidv4()}`,
-        text: 'Create Add button'
+        title: 'Create Add button',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. '
       }]
     }
   ]
@@ -42,6 +48,7 @@ const listReducer = (state = initialState, action) => {
     case ACTION_TYPES.ADD_CARD: {
       const newCard = {
         id: `card-${uuidv4()}`,
+        title: action.payload.title,
         text: action.payload.text
       };
 
@@ -55,9 +62,9 @@ const listReducer = (state = initialState, action) => {
                 newCard
               ]
             };
-          } else {
-            return list;
           }
+
+          return list;
         })
       };
     }

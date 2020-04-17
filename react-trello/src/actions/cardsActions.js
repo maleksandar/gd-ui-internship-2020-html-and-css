@@ -1,9 +1,9 @@
 import { ACTION_TYPES } from './index';
 
-export const addCard = (listID, text) => {
+export const addCard = (listID, title, text) => {
   return {
     type: ACTION_TYPES.ADD_CARD,
-    payload: { listID, text }
+    payload: { listID, title, text }
   };
 };
 
