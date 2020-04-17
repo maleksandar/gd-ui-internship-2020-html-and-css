@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { ACTION_TYPES } from '../actions';
+import { deepCopy } from '../utils';
 
 const initialState = {
   lists: [
@@ -46,27 +47,53 @@ const initialState = {
 const listReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTION_TYPES.ADD_CARD: {
+      const { listID, title, text } = action.payload;
+
       const newCard = {
         id: `card-${uuidv4()}`,
-        title: action.payload.title,
-        text: action.payload.text
+        title,
+        text
       };
 
       return {
         lists: state.lists.map(list => {
-          if (list.id === action.payload.listID) {
+          if (list.id === listID) {
             return {
               ...list,
-              cards: [
-                ...list.cards,
-                newCard
-              ]
+              cards: [...list.cards, newCard]
             };
           }
 
           return list;
         })
       };
+    }
+    case ACTION_TYPES.DELETE_CARD: {
+      const { listID, cardID } = action.payload;
+      const newState = deepCopy(state);
+      const { lists } = newState;
+
+      const listIndex = lists.findIndex(list => list.id === listID);
+      const cardIndex = lists[listIndex].cards.findIndex(card => card.id === cardID);
+      lists[listIndex].cards.splice(cardIndex, 1);
+
+      return newState;
+    }
+    case ACTION_TYPES.UPDATE_CARD: {
+      const { listID, cardID, title, text } = action.payload;
+      const newState = deepCopy(state);
+      const { lists } = newState;
+
+      const listIndex = lists.findIndex(list => list.id === listID);
+      const cardIndex = lists[listIndex].cards.findIndex(card => card.id === cardID);
+
+      lists[listIndex].cards[cardIndex] = {
+        id: cardID,
+        title,
+        text
+      };
+
+      return newState;
     }
     case ACTION_TYPES.DRAG_CARD: {
       const {
@@ -76,44 +103,23 @@ const listReducer = (state = initialState, action) => {
         droppableIndexEnd
       } = action.payload;
 
-      const newState = { ...state };
+      const newState = deepCopy(state);
+      const { lists } = newState;
 
       // Drag inside same list
       if (droppableIdStart === droppableIdEnd) {
-        const list = state.lists.find(list => droppableIdStart === list.id);
+        const list = lists.find(list => droppableIdStart === list.id);
         const card = list.cards.splice(droppableIndexStart, 1);
         list.cards.splice(droppableIndexEnd, 0, ...card);
       }
 
       // Drag between lists
       if (droppableIdStart !== droppableIdEnd) {
-        const listStart = state.lists.find(list => droppableIdStart === list.id);
+        const listStart = lists.find(list => droppableIdStart === list.id);
         const card = listStart.cards.splice(droppableIndexStart, 1);
-        const listEnd = state.lists.find(list => droppableIdEnd === list.id);
+        const listEnd = lists.find(list => droppableIdEnd === list.id);
         listEnd.cards.splice(droppableIndexEnd, 0, ...card);
       }
-
-      return newState;
-    }
-    case ACTION_TYPES.DELETE_CARD: {
-      const newState = { ...state };
-      const { lists } = newState;
-      const listIndex = lists.findIndex(list => list.id === action.payload.listID);
-      const cardIndex = lists[listIndex].cards.findIndex(card => card.id === action.payload.cardID);
-      lists[listIndex].cards.splice(cardIndex, 1);
-      return newState;
-    }
-    case ACTION_TYPES.UPDATE_CARD: {
-      const newState = { ...state };
-      const { lists } = newState;
-      const listIndex = lists.findIndex(list => list.id === action.payload.listID);
-      const cardIndex = lists[listIndex].cards.findIndex(card => card.id === action.payload.cardID);
-
-      lists[listIndex].cards[cardIndex] = {
-        id: action.payload.cardID,
-        title: action.payload.title,
-        text: action.payload.text,
-      };
 
       return newState;
     }
