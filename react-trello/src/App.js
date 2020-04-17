@@ -4,9 +4,7 @@ import TrelloBoard from './containers/TrelloBoard';
 
 const App = () => {
   return (
-    <div>
-      <TrelloBoard/>
-    </div>
+    <TrelloBoard/>
   );
 };
 

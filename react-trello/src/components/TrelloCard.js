@@ -32,51 +32,47 @@ const useStyles = makeStyles({
   }
 });
 
-const TrelloCard = ({ listID, cardID, index, title, text, deleteCard }) => {
+const TrelloCard = (props) => {
+  const { listID, cardID, index, title, text, deleteCard } = props;
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
-  const handleOpenModal = () => {
+  const handleOpenModalModal = () => {
     setOpen(true);
   };
 
   const handleTextLength = (text) => {
     const CHAR_LIMIT = 200;
+    return text.length > CHAR_LIMIT ? `${text.substring(0, CHAR_LIMIT - 3)}...` : text;
+  };
 
-    if (text.length > CHAR_LIMIT) {
-      return `${text.substring(0, CHAR_LIMIT - 3)}...`;
-    }
-
-    return text;
+  const handleDeleteCard = () => {
+    deleteCard(listID, cardID);
   };
 
   return (
-    <div>
+    <Grid item>
       <Draggable
         draggableId={String(cardID)}
-        index={index}
-      >
+        index={index}>
         {(provided) => (
           <Grid
             ref={provided.innerRef}
             {...provided.draggableProps}
-            {...provided.dragHandleProps}
-          >
+            {...provided.dragHandleProps}>
             <Card className={classes.root}>
               <CardContent>
                 <Typography
                   className={classes.title}
                   variant="h6"
                   component="h4"
-                  gutterBottom
-                >
+                  gutterBottom>
                   {title}
                 </Typography>
 
                 <Typography
                   variant="body2"
-                  component="p"
-                >
+                  component="p">
                   {handleTextLength(text)}
                 </Typography>
               </CardContent>
@@ -86,8 +82,7 @@ const TrelloCard = ({ listID, cardID, index, title, text, deleteCard }) => {
                   color="primary"
                   size="small"
                   startIcon={<EditIcon/>}
-                  onMouseDown={handleOpenModal}
-                >
+                  onMouseDown={handleOpenModalModal}>
                   Edit
                 </Button>
 
@@ -95,8 +90,7 @@ const TrelloCard = ({ listID, cardID, index, title, text, deleteCard }) => {
                   color="secondary"
                   size="small"
                   startIcon={<DeleteIcon/>}
-                  onClick={() => deleteCard(listID, cardID)}
-                >
+                  onClick={handleDeleteCard}>
                   Delete
                 </Button>
               </CardActions>
@@ -112,9 +106,8 @@ const TrelloCard = ({ listID, cardID, index, title, text, deleteCard }) => {
         setOpen={setOpen}
         cardTitle={title}
         cardText={text}
-        type="edit"
-      />
-    </div>
+        type="edit"/>
+    </Grid>
   );
 };
 

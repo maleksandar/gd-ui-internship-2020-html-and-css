@@ -46,117 +46,113 @@ const TrelloModal = (props) => {
   const classes = useStyles();
   const { open, setOpen, cardTitle, cardText, type } = props;
 
-  const [title, setTitle] = useState(cardTitle ? cardTitle : 'New Card');
-  const [text, setText] = useState(cardText ? cardText : 'Your text');
+  const [title, setTitle] = useState(cardTitle ? cardTitle : '');
+  const [text, setText] = useState(cardText ? cardText : '');
 
-  const handleClose = () => {
+  const handleCloseModal = () => {
     setOpen(false);
-    // setTitle('New Card');
-    // setText('Your text');
   };
 
   const handleAddCard = () => {
-    const { listID, dispatch } = props;
+    const { listID, addCard } = props;
 
     if (title && text) {
-      setTitle('New Card');
-      setText('Your text');
-      dispatch(addCard(listID, title, text));
-      handleClose();
+      setTitle('');
+      setText('');
+      addCard(listID, title, text);
+      handleCloseModal();
     }
   };
 
   const handleDeleteCard = () => {
-    const { listID, cardID, dispatch } = props;
-    dispatch(deleteCard(listID, cardID));
+    const { listID, cardID, deleteCard } = props;
+    deleteCard(listID, cardID);
   };
 
   const handleUpdateCard = () => {
-    const { listID, cardID, dispatch } = props;
-    dispatch(updateCard(listID, cardID, title, text));
-    handleClose();
+    const { listID, cardID, updateCard } = props;
+    updateCard(listID, cardID, title, text);
+    handleCloseModal();
   };
 
   return (
-    <div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-      >
+    <Modal
+      open={open}
+      onClose={handleCloseModal}
+      aria-labelledby="simple-modal-title"
+      aria-describedby="simple-modal-description">
+      <Grid
+        container
+        direction="column"
+        className={classes.root}>
+        <TextField
+          className={classes.textfield}
+          placeholder="Enter a card title"
+          value={title}
+          onChange={(event) => setTitle(event.target.value)}
+          error={title === ''}
+          label="Title"
+          helperText={title === '' ? 'Enter a card title!' : ' '}/>
+
+        <IconButton
+          className={classes.closeButton}
+          onClick={handleCloseModal}>
+          <CloseIcon/>
+        </IconButton>
+
+        <TextField
+          placeholder="Enter a card text"
+          value={text}
+          onChange={(event) => setText(event.target.value)}
+          helperText={text === '' ? 'Enter a card text!' : ' '}
+          error={text === ''}
+          label="Text"
+          variant="outlined"
+          rowsMax={10}
+          multiline
+          fullWidth/>
+
         <Grid
           container
-          direction="column"
-          className={classes.root}
-        >
-          <TextField
-            className={classes.textfield}
-            placeholder="Enter a card title"
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
-            error={title === ''}
-            label="Title"
-            helperText={title === '' ? 'Enter a card title!' : ' '}
-          />
+          justify="space-between"
+          alignItems="center"
+          className={classes.grid}>
+          <Button
+            onClick={handleDeleteCard}
+            variant="text"
+            color="secondary"
+            startIcon={<DeleteIcon/>}
+            disabled={type === 'button'}>
+            Delete
+          </Button>
 
-          <IconButton
-            className={classes.closeButton}
-            onClick={handleClose}>
-            <CloseIcon/>
-          </IconButton>
-
-          <TextField
-            placeholder="Enter a card text"
-            value={text}
-            onChange={(event) => setText(event.target.value)}
-            helperText={text === '' ? 'Enter a card text!' : ' '}
-            error={text === ''}
-            label="Text"
-            variant="outlined"
-            multiline
-            fullWidth/>
-
-          <Grid
-            container
-            justify="space-between"
-            alignItems="center"
-            className={classes.grid}
-          >
+          <Grid item>
             <Button
-              onClick={handleDeleteCard}
+              onClick={handleCloseModal}
               variant="text"
-              color="secondary"
-              startIcon={<DeleteIcon/>}
-              disabled={type === 'button'}
-            >
-              Delete
+              startIcon={<CancelIcon/>}>
+              Cancel
             </Button>
 
-            <Grid item>
-              <Button
-                onClick={handleClose}
-                variant="text"
-                startIcon={<CancelIcon/>}
-              >
-                Cancel
-              </Button>
-
-              <Button
-                onClick={type === 'edit' ? handleUpdateCard : handleAddCard}
-                variant="text"
-                color="primary"
-                startIcon={<SaveIcon/>}
-                disabled={title === '' || text === ''}
-              >
-                Save
-              </Button>
-            </Grid>
+            <Button
+              onClick={type === 'edit' ? handleUpdateCard : handleAddCard}
+              variant="text"
+              color="primary"
+              startIcon={<SaveIcon/>}
+              disabled={title === '' || text === ''}>
+              Save
+            </Button>
           </Grid>
         </Grid>
-      </Modal>
-    </div>
+      </Grid>
+    </Modal>
   );
 };
 
-export default connect()(TrelloModal);
+const mapDispatchToProps = (dispatch) => ({
+  addCard: (listID, title, text) => dispatch(addCard(listID, title, text)),
+  deleteCard: (listID, cardID) => dispatch(deleteCard(listID, cardID)),
+  updateCard: (listID, cardID, title, text) => dispatch(updateCard(listID, cardID, title, text))
+});
+
+export default connect(null, mapDispatchToProps)(TrelloModal);
