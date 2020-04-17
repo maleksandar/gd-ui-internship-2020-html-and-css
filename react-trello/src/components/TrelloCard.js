@@ -15,7 +15,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
 import { Draggable } from 'react-beautiful-dnd';
-import { deleteCard } from '../actions';
+import { ACTION_TYPES, deleteCard } from '../actions';
 import TrelloModal from './TrelloModal';
 
 const useStyles = makeStyles({
@@ -106,7 +106,7 @@ const TrelloCard = (props) => {
         setOpen={setOpen}
         cardTitle={title}
         cardText={text}
-        type="edit"/>
+        type={ACTION_TYPES.UPDATE_CARD}/>
     </Grid>
   );
 };

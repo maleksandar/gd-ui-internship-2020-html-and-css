@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
 
 import AddIcon from '@material-ui/icons/Add';
-import { Button } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 
 import TrelloModal from './TrelloModal';
 
-const TrelloActionButton = (props) => {
-  const [open, setOpen] = useState(false);
+import { ACTION_TYPES } from '../actions';
 
+const TrelloActionButton = (props) => {
   const { listID, cardsLength } = props;
+  const [open, setOpen] = useState(false);
   const buttonText = cardsLength > 0 ? 'Add another card' : 'Add a card';
 
   const handleOpenModal = () => {
@@ -17,7 +17,7 @@ const TrelloActionButton = (props) => {
   };
 
   return (
-    <div>
+    <Grid item>
       <Button
         color="primary"
         variant="text"
@@ -30,10 +30,10 @@ const TrelloActionButton = (props) => {
         listID={listID}
         open={open}
         setOpen={setOpen}
-        type="button"
+        type={ACTION_TYPES.ADD_CARD}
       />
-    </div>
+    </Grid>
   );
 };
 
-export default connect()(TrelloActionButton);
+export default TrelloActionButton;

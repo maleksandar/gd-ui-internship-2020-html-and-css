@@ -15,7 +15,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import CancelIcon from '@material-ui/icons/Cancel';
 import CloseIcon from '@material-ui/icons/Close';
 
-import { addCard, deleteCard, updateCard } from '../actions';
+import { ACTION_TYPES, addCard, deleteCard, updateCard } from '../actions';
 
 const useStyles = makeStyles({
   root: {
@@ -122,7 +122,7 @@ const TrelloModal = (props) => {
             variant="text"
             color="secondary"
             startIcon={<DeleteIcon/>}
-            disabled={type === 'button'}>
+            disabled={type === ACTION_TYPES.ADD_CARD}>
             Delete
           </Button>
 
@@ -135,7 +135,7 @@ const TrelloModal = (props) => {
             </Button>
 
             <Button
-              onClick={type === 'edit' ? handleUpdateCard : handleAddCard}
+              onClick={type === ACTION_TYPES.UPDATE_CARD ? handleUpdateCard : handleAddCard}
               variant="text"
               color="primary"
               startIcon={<SaveIcon/>}
