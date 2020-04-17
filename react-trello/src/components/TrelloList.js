@@ -40,6 +40,11 @@ const TrelloList = (props) => {
     />
   ));
 
+  const handleShowActionButton = () => {
+    const LIST_NAME = 'Todo';
+    return title === LIST_NAME ? <TrelloActionButton listID={listID} cardsLength={cards.length}/> : null;
+  };
+
   return (
     <Grid
       item
@@ -64,9 +69,7 @@ const TrelloList = (props) => {
         )}
       </Droppable>
 
-      <TrelloActionButton
-        listID={listID}
-        cardsLength={cards.length}/>
+      {handleShowActionButton()}
     </Grid>
   );
 };
