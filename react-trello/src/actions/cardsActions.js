@@ -13,3 +13,10 @@ export const deleteCard = (listID, cardID) => {
     payload: { listID, cardID }
   };
 };
+
+export const updateCard = (listID, cardID, title, text) => {
+  return {
+    type: ACTION_TYPES.UPDATE_CARD,
+    payload: { listID, cardID, title, text }
+  };
+};

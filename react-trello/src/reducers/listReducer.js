@@ -98,9 +98,23 @@ const listReducer = (state = initialState, action) => {
     case ACTION_TYPES.DELETE_CARD: {
       const newState = { ...state };
       const { lists } = newState;
-      const listIndex = lists.findIndex(list => action.payload.listID === list.id);
+      const listIndex = lists.findIndex(list => list.id === action.payload.listID);
       const cardIndex = lists[listIndex].cards.findIndex(card => card.id === action.payload.cardID);
       lists[listIndex].cards.splice(cardIndex, 1);
+      return newState;
+    }
+    case ACTION_TYPES.UPDATE_CARD: {
+      const newState = { ...state };
+      const { lists } = newState;
+      const listIndex = lists.findIndex(list => list.id === action.payload.listID);
+      const cardIndex = lists[listIndex].cards.findIndex(card => card.id === action.payload.cardID);
+
+      lists[listIndex].cards[cardIndex] = {
+        id: action.payload.cardID,
+        title: action.payload.title,
+        text: action.payload.text,
+      };
+
       return newState;
     }
     default:
