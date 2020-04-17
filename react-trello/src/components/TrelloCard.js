@@ -32,7 +32,7 @@ const useStyles = makeStyles({
   }
 });
 
-const TrelloCard = ({ listID, id, index, title, text, deleteCard }) => {
+const TrelloCard = ({ listID, cardID, index, title, text, deleteCard }) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -53,7 +53,7 @@ const TrelloCard = ({ listID, id, index, title, text, deleteCard }) => {
   return (
     <div>
       <Draggable
-        draggableId={String(id)}
+        draggableId={String(cardID)}
         index={index}
       >
         {(provided) => (
@@ -95,7 +95,7 @@ const TrelloCard = ({ listID, id, index, title, text, deleteCard }) => {
                   color="secondary"
                   size="small"
                   startIcon={<DeleteIcon/>}
-                  onClick={() => deleteCard(listID, id)}
+                  onClick={() => deleteCard(listID, cardID)}
                 >
                   Delete
                 </Button>
@@ -107,7 +107,7 @@ const TrelloCard = ({ listID, id, index, title, text, deleteCard }) => {
 
       <TrelloModal
         listID={listID}
-        cardID={id}
+        cardID={cardID}
         open={open}
         setOpen={setOpen}
         cardTitle={title}

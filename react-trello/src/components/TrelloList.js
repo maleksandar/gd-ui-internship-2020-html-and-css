@@ -8,13 +8,15 @@ import TrelloActionButton from './TrelloActionButton';
 import { Droppable } from 'react-beautiful-dnd';
 
 const useStyles = makeStyles({
-  container: {
+  root: {
     position: 'relative',
     backgroundColor: '#ebecf0',
     borderRadius: 3,
-    flex: '0 0 300px',
     padding: 8,
     margin: 16,
+    flex: '0 0 300px',
+  },
+  container: {
     overflowX: 'scroll',
     maxHeight: 600,
   },
@@ -23,45 +25,51 @@ const useStyles = makeStyles({
   }
 });
 
-const TrelloList = ({ listID, title, cards }) => {
+const TrelloList = (props) => {
+  const { listID, title, cards } = props;
   const classes = useStyles();
 
+  const trelloCards = cards.map((card, index) => (
+    <TrelloCard
+      key={card.id}
+      cardID={card.id}
+      listID={listID}
+      index={index}
+      title={card.title}
+      text={card.text}
+    />
+  ));
+
   return (
-    <Droppable droppableId={String(listID)}>
-      {(provided) => (
-        <Grid
-          className={classes.container}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          ref={provided.innerRef}
-        >
-          <Typography
-            className={classes.title}
-            variant="h6"
-            component="h3"
-            gutterBottom
+    <Grid
+      item
+      className={classes.root}>
+      <Droppable droppableId={String(listID)}>
+        {(provided) => (
+          <Grid
+            className={classes.container}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
+            ref={provided.innerRef}
           >
-            {title}
-          </Typography>
+            <Typography
+              className={classes.title}
+              variant="h6"
+              component="h3"
+              gutterBottom
+            >
+              {title}
+            </Typography>
 
-          {cards.map((card, index) => (
-            <TrelloCard
-              key={card.id}
-              id={card.id}
-              listID={listID}
-              index={index}
-              title={card.title}
-              text={card.text}
-            />
-          ))}
+            {trelloCards}
+          </Grid>
+        )}
+      </Droppable>
 
-          <TrelloActionButton
-            listID={listID}
-            cardsLength={cards.length}
-          />
-        </Grid>
-      )}
-    </Droppable>
+      <TrelloActionButton
+        listID={listID}
+        cardsLength={cards.length}/>
+    </Grid>
   );
 };
 
