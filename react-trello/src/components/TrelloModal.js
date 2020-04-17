@@ -6,12 +6,14 @@ import {
   Button,
   Modal,
   Grid,
-  TextField
+  TextField,
+  IconButton
 } from '@material-ui/core';
 
 import SaveIcon from '@material-ui/icons/Save';
 import DeleteIcon from '@material-ui/icons/Delete';
 import CancelIcon from '@material-ui/icons/Cancel';
+import CloseIcon from '@material-ui/icons/Close';
 
 import { addCard } from '../actions';
 
@@ -32,7 +34,12 @@ const useStyles = makeStyles({
   grid: {
     display: 'flex',
     paddingTop: 16
-  }
+  },
+  closeButton: {
+    position: 'absolute',
+    right: 8,
+    top: 8,
+  },
 });
 
 const TrelloModal = (props) => {
@@ -44,6 +51,8 @@ const TrelloModal = (props) => {
 
   const handleClose = () => {
     setOpen(false);
+    setTitle('New Card');
+    setText('Your text');
   };
 
   const handleAddCard = () => {
@@ -75,9 +84,16 @@ const TrelloModal = (props) => {
             placeholder="Enter a card title"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
-            error={title === ''}
+            error={title === '' || title.length > 20}
             label="Title"
-            helperText={title === '' ? 'Enter a card title!' : ' '}/>
+            helperText={title === '' ? 'Enter a card title!' : ' '}
+          />
+
+          <IconButton
+            className={classes.closeButton}
+            onClick={handleClose}>
+            <CloseIcon/>
+          </IconButton>
 
           <TextField
             placeholder="Enter a card text"
