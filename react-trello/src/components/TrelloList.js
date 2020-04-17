@@ -50,14 +50,12 @@ const TrelloList = (props) => {
             className={classes.container}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
-            ref={provided.innerRef}
-          >
+            ref={provided.innerRef}>
             <Typography
               className={classes.title}
               variant="h6"
               component="h3"
-              gutterBottom
-            >
+              gutterBottom>
               {title}
             </Typography>
 

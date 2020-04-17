@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 
 import AddIcon from '@material-ui/icons/Add';
 import { Button, Grid } from '@material-ui/core';
+import { ACTION_TYPES } from '../actions';
 
 import TrelloModal from './TrelloModal';
-
-import { ACTION_TYPES } from '../actions';
 
 const TrelloActionButton = (props) => {
   const { listID, cardsLength } = props;
