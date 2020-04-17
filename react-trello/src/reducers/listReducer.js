@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { ACTION_TYPES } from '../actions';
-import { deepCopy } from '../utils';
+import { addCard, deleteCard, dragCard, updateCard } from '../utils/listUtils';
 
 const initialState = {
   lists: [
@@ -47,81 +47,16 @@ const initialState = {
 const listReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTION_TYPES.ADD_CARD: {
-      const { listID, title, text } = action.payload;
-
-      const newCard = {
-        id: `card-${uuidv4()}`,
-        title,
-        text
-      };
-
-      return {
-        lists: state.lists.map(list => {
-          if (list.id === listID) {
-            return {
-              ...list,
-              cards: [...list.cards, newCard]
-            };
-          }
-
-          return list;
-        })
-      };
+      return addCard(state, action.payload);
     }
     case ACTION_TYPES.DELETE_CARD: {
-      const { listID, cardID } = action.payload;
-      const newState = deepCopy(state);
-      const { lists } = newState;
-
-      const listIndex = lists.findIndex(list => list.id === listID);
-      const cardIndex = lists[listIndex].cards.findIndex(card => card.id === cardID);
-      lists[listIndex].cards.splice(cardIndex, 1);
-
-      return newState;
+      return deleteCard(state, action.payload);
     }
     case ACTION_TYPES.UPDATE_CARD: {
-      const { listID, cardID, title, text } = action.payload;
-      const newState = deepCopy(state);
-      const { lists } = newState;
-
-      const listIndex = lists.findIndex(list => list.id === listID);
-      const cardIndex = lists[listIndex].cards.findIndex(card => card.id === cardID);
-
-      lists[listIndex].cards[cardIndex] = {
-        id: cardID,
-        title,
-        text
-      };
-
-      return newState;
+      return updateCard(state, action.payload);
     }
     case ACTION_TYPES.DRAG_CARD: {
-      const {
-        droppableIdStart,
-        droppableIdEnd,
-        droppableIndexStart,
-        droppableIndexEnd
-      } = action.payload;
-
-      const newState = deepCopy(state);
-      const { lists } = newState;
-
-      // Drag inside same list
-      if (droppableIdStart === droppableIdEnd) {
-        const list = lists.find(list => droppableIdStart === list.id);
-        const card = list.cards.splice(droppableIndexStart, 1);
-        list.cards.splice(droppableIndexEnd, 0, ...card);
-      }
-
-      // Drag between lists
-      if (droppableIdStart !== droppableIdEnd) {
-        const listStart = lists.find(list => droppableIdStart === list.id);
-        const card = listStart.cards.splice(droppableIndexStart, 1);
-        const listEnd = lists.find(list => droppableIdEnd === list.id);
-        listEnd.cards.splice(droppableIndexEnd, 0, ...card);
-      }
-
-      return newState;
+      return dragCard(state, action.payload);
     }
     default:
       return state;
