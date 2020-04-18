@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  overflow: scroll;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 300px;
+  margin: 16px;
+  padding: 8px;
+  position: relative;
+  border-radius: 3px;
+  background-color: #ebecf0;
+}
