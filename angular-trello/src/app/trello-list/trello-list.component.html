@@ -1,5 +1,11 @@
-<h2 class="title">Todo</h2>
+<h2 class="title">{{ title }}</h2>
 <div class="container">
-  <app-trello-card></app-trello-card>
-  <app-trello-card></app-trello-card>
+  <app-trello-card
+    *ngFor="let card of cards; let index = index"
+    index="{{ index }}"
+    listID="{{ listID }}"
+    cardID="{{ card.id }}"
+    title="{{ card.title }}"
+    text="{{ card.text }}">
+  </app-trello-card>
 </div>

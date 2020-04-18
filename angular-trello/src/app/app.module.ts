@@ -11,6 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { TrelloListComponent } from './trello-list/trello-list.component';
 import { TrelloBoardComponent } from './trello-board/trello-board.component';
 
+import { StoreModule } from '@ngrx/store';
+import listReducer from './app.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,8 @@ import { TrelloBoardComponent } from './trello-board/trello-board.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    StoreModule.forRoot({ board: listReducer }, {})
   ],
   providers: [],
   bootstrap: [AppComponent]

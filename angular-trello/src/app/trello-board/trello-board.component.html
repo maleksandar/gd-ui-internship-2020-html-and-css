@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row">
-    <app-trello-list class="list"></app-trello-list>
-    <app-trello-list class="list"></app-trello-list>
-    <app-trello-list class="list"></app-trello-list>
+    <app-trello-list
+      class="list"
+      *ngFor="let list of (board | async).lists"
+      listID="{{ list.id }}"
+      title="{{ list.title }}"
+      [cards]="list.cards">
+    </app-trello-list>
   </div>
 </div>
