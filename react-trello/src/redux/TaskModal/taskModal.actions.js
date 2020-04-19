@@ -1,17 +1,9 @@
 import ActionType from './taskModal.types';
 
-export const toggleModal = (task, listId) => ({
+export const toggleModal = (taskId, listId) => ({
   type: ActionType.TOGGLE_MODAL,
   payload: {
-    ...task,
+    taskId,
     listId
   }
 });
-
-export const changeText = (field, text) => ({
-  type: ActionType.CHANGE_TEXT,
-  payload: {
-    field,
-    text
-  }
-})

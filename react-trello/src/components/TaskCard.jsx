@@ -51,7 +51,7 @@ const TaskCard = (props) => {
       <CardActions>
         <Button
           variant="contained"
-          onClick={() => props.toggleModal(task, listId)}
+          onClick={() => props.toggleModal(task.id, listId)}
           startIcon={<EditIcon/>}
           size="small"
           color="primary">
@@ -74,7 +74,7 @@ const TaskCard = (props) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleModal: (task, listId) => dispatch(toggleModal(task, listId)),
+  toggleModal: (taskId, listId) => dispatch(toggleModal(taskId, listId)),
   removeTask: (taskId, listId) => dispatch(removeTask(taskId, listId))
 })
 

@@ -8,10 +8,11 @@ export const removeTask = (taskId, listId) => ({
   }
 });
 
-export const addTask = (modal) => ({
+export const addTask = (task, listId) => ({
   type: ActionType.ADD_TASK,
   payload: {
-    modal
+    task,
+    listId
   }
 });
 
@@ -20,10 +21,10 @@ export const moveTask = (moveResult) => ({
   payload: moveResult,
 });
 
-export const updateTask = (modal) => ({
+export const updateTask = (task) => ({
   type: ActionType.UPDATE_TASK,
   payload: {
-    modal
+    task
   }
   
 })

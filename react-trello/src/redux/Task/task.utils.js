@@ -72,10 +72,11 @@ export const removeTask = (state, taskId) =>{
 }
 
 export const removeTaskFromList = (state, { listId, taskId }) =>{
-  const newTaskIds = [...state.lists[listId].taskIds];
-  const removeIndex = newTaskIds.indexOf(taskId);
-  newTaskIds.splice(removeIndex, 1);
-  
+  const taskIds = state.lists[listId].taskIds;
+  const newTaskIds = taskIds.filter((id) => {
+    return id !== taskId
+  })
+
   const newList = {
     ...state.lists[listId],
     taskIds: newTaskIds
@@ -87,8 +88,8 @@ export const removeTaskFromList = (state, { listId, taskId }) =>{
   }
 }
 
-export const addTask = (state, modal, taskId) => {
-  const {title, description} = modal;
+export const addTask = (state, task, taskId) => {
+  const {title, description} = task;
   const newTask = {
     id: taskId,
     title: title,
@@ -102,10 +103,7 @@ export const addTask = (state, modal, taskId) => {
 }
 
 export const addTaskToList = (state, listId, taskId) => {
-  const newTaskIds = [...state.lists[listId].taskIds];
-  if(newTaskIds.indexOf(taskId)){
-    newTaskIds.push(taskId);
-  }
+  const newTaskIds = [...state.lists[listId].taskIds, taskId];
   const newList = {
     ...state.lists[listId],
     taskIds: newTaskIds
@@ -116,16 +114,16 @@ export const addTaskToList = (state, listId, taskId) => {
   }
 }
 
-export const updateTask = (state, modal) => {
-  const {taskId, title, description} = modal;
+export const updateTask = (state, task) => {
+  const {id, title, description} = task;
   const newTask = {
-    id: taskId,
+    id: id,
     title: title,
     desc: description
   }
 
   return {
     ...state.tasks,
-    [taskId] : newTask
+    [id] : newTask
   }
 }

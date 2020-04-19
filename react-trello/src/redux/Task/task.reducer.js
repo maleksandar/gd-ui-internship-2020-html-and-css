@@ -85,14 +85,14 @@ const taskReducer = (state = INITIAL_STATE, {type, payload}) => {
       const taskId = generateId(state.tasks);
       return {
         ...state,
-        tasks: addTask(state, payload.modal, taskId),
-        lists: addTaskToList(state, payload.modal.listId, taskId)
+        tasks: addTask(state, payload.task, taskId),
+        lists: addTaskToList(state, payload.listId, taskId)
       }
     
     case actionTypes.UPDATE_TASK:
       return {
         ...state,
-        tasks: updateTask(state, payload.modal)
+        tasks: updateTask(state, payload.task)
       }
 
     default:

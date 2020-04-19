@@ -16,8 +16,7 @@ const ListContainer = (props) => {
     return (
       <TaskList
         key={list.id}
-        listId={list.id}
-        title={list.title}/>
+        list={list}/>
     );
   });
 
@@ -34,11 +33,12 @@ const ListContainer = (props) => {
         <DragDropContext
           onDragEnd={moveTask}>
           {taskLists}
-        </DragDropContext>    
+        </DragDropContext>
+
       </Grid>
 
       <TaskModal />
-
+      
     </Container>
   );
 };

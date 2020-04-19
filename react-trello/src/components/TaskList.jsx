@@ -28,8 +28,7 @@ const useStyles = makeStyles({
 
 function TaskList(props) {
   const classes = useStyles();
-  const {listId, tasks, lists, toggleModal} = props;
-  const list = lists[listId];
+  const { list, tasks, toggleModal } = props;
   const taskIds = list.taskIds;
   const tasksInList = taskIds.map(taskId => tasks[taskId]);
 
@@ -38,7 +37,7 @@ function TaskList(props) {
       {(provided, snapshot) => (
         <TaskCard 
           key={task.id}
-          listId={listId}
+          listId={list.id}
           provided={provided}
           innerRef={provided.innerRef}
           isDragging={snapshot.isDragging}
@@ -60,7 +59,7 @@ function TaskList(props) {
           {list.title}
         </Typography>
 
-        <Droppable droppableId={listId.toString()}>
+        <Droppable droppableId={list.id.toString()}>
           {(provided) => (
             <Grid
               className={classes.taskContainer}
@@ -80,7 +79,7 @@ function TaskList(props) {
           color="primary"
           variant="text"
           startIcon={<AddBoxIcon/>}
-          onClick={() => toggleModal(listId)}>
+          onClick={() => toggleModal(list.id)}>
           Add a new Task
         </Button>
 
@@ -88,14 +87,12 @@ function TaskList(props) {
     </Grid>
   );
 }
+const mapStateToProps = (state) => ({
+  tasks: state.task.tasks
+})
 
 const mapDispatchToProps = (dispatch) => ({
   toggleModal: (listId) => dispatch(toggleModal(null, listId)),
-});
-
-const mapStateToProps = (state) => ({
-  tasks: state.task.tasks,
-  lists: state.task.lists
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskList);
