@@ -3,7 +3,11 @@
   <mat-card-content>{{ getText() }}</mat-card-content>
 
   <mat-card-actions class="buttons">
-    <button class="btn" mat-button color="primary">
+    <button
+      class="btn"
+      mat-button
+      color="primary"
+      (click)="updateCard()">
       <mat-icon>edit</mat-icon>
       Edit
     </button>

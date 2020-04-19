@@ -26,7 +26,10 @@ export class TrelloListComponent implements OnInit {
 
   addCard(): void {
     const card = new Card('card-1', 'New Title', 'New Text');
-    this.store.dispatch(new TrelloListActions.AddCard({ listID: this.listID, newCard: card }));
+    this.store.dispatch(new TrelloListActions.AddCard({
+      listID: this.listID,
+      newCard: card
+    }));
   }
 
   handleShowActionButton(title: string): boolean {

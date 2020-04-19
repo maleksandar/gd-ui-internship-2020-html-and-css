@@ -26,7 +26,21 @@ export class TrelloCardComponent implements OnInit {
   }
 
   deleteCard(): void {
-    this.store.dispatch(new TrelloListActions.DeleteCard({ cardID: this.cardID, listID: this.listID }));
+    this.store.dispatch(new TrelloListActions.DeleteCard({
+      cardID: this.cardID,
+      listID: this.listID
+    }));
+  }
+
+  updateCard(): void {
+    const title = 'Updated Title';
+    const text = 'Updated Text';
+    this.store.dispatch(new TrelloListActions.UpdateCard({
+      listID: this.listID,
+      cardID: this.cardID,
+      title,
+      text
+    }));
   }
 
   getText(): string {

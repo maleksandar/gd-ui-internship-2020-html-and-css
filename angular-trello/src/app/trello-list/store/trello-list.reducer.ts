@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import * as TrelloListActions from './trello-list.actions';
-import { addCard, deleteCard } from '../trello-list.utils';
+import { addCard, deleteCard, updateCard } from '../trello-list.utils';
 
 const initialState = {
   lists: [
@@ -53,7 +53,7 @@ const listReducer = (state = initialState, action: TrelloListActions.ListActions
       return deleteCard(state, action.payload);
     }
     case TrelloListActions.ACTION_TYPES.UPDATE_CARD: {
-      return state;
+      return updateCard(state, action.payload);
     }
     case TrelloListActions.ACTION_TYPES.DRAG_CARD: {
       return state;

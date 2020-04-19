@@ -19,9 +19,17 @@ export class AddCard implements Action {
 export class DeleteCard implements Action {
   readonly type = ACTION_TYPES.DELETE_CARD;
 
-  constructor(public payload: { cardID: string, listID: string }) {
+  constructor(public payload: { listID: string, cardID: string }) {
 
   }
 }
 
-export type ListActions = AddCard | DeleteCard;
+export class UpdateCard implements Action {
+  readonly type = ACTION_TYPES.UPDATE_CARD;
+
+  constructor(public payload: { listID: string, cardID: string, title: string, text: string }) {
+
+  }
+}
+
+export type ListActions = AddCard | DeleteCard | UpdateCard;

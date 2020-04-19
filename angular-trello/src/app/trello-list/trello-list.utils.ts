@@ -43,3 +43,14 @@ export const deleteCard = (state, payload) => {
 
   return newState;
 };
+
+export const updateCard = (state, payload) => {
+  const { listID, cardID, title, text } = payload;
+  const newState = deepCopy(state);
+  const { lists } = newState;
+
+  const listIndex = lists.findIndex(list => list.id === listID);
+  const cardIndex = lists[listIndex].cards.findIndex(card => card.id === cardID);
+  lists[listIndex].cards[cardIndex] = { id: cardID, title, text };
+  return newState;
+};
