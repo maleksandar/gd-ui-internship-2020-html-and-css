@@ -1,4 +1,5 @@
 <h2 class="title">{{ title }}</h2>
+
 <div class="container">
   <app-trello-card
     *ngFor="let card of cards; let index = index"
@@ -9,3 +10,10 @@
     text="{{ card.text }}">
   </app-trello-card>
 </div>
+
+<app-trello-action-button
+  *ngIf="handleShowActionButton(title)"
+  listID="{{ listID }}"
+  cardsLength="{{ cards.length }}"
+  (click)="addCard()">
+</app-trello-action-button>

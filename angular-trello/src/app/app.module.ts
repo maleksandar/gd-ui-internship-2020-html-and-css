@@ -13,13 +13,15 @@ import { TrelloBoardComponent } from './trello-board/trello-board.component';
 
 import { StoreModule } from '@ngrx/store';
 import listReducer from './app.reducer';
+import { TrelloActionButtonComponent } from './trello-action-button/trello-action-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrelloCardComponent,
     TrelloListComponent,
-    TrelloBoardComponent
+    TrelloBoardComponent,
+    TrelloActionButtonComponent
   ],
   imports: [
     BrowserModule,

@@ -45,10 +45,27 @@ const initialState = {
   ]
 };
 
-const listReducer = (state = initialState, action: Action) => {
+const addCard = (state, payload) => {
+  const { listID, newCard } = payload;
+
+  return {
+    lists: state.lists.map(list => {
+      if (list.id === listID) {
+        return {
+          ...list,
+          cards: [...list.cards, newCard]
+        };
+      }
+
+      return list;
+    })
+  };
+};
+
+const listReducer = (state = initialState, action: ListActions.AddCard) => {
   switch (action.type) {
     case ListActions.ACTION_TYPES.ADD_CARD: {
-      return state;
+      return addCard(state, action.payload);
     }
     case ListActions.ACTION_TYPES.DELETE_CARD: {
       return state;

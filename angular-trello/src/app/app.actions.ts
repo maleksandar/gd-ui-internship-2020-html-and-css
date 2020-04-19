@@ -1,5 +1,4 @@
 import { Action } from '@ngrx/store';
-import { List } from './trello-list/list.model';
 
 export const ACTION_TYPES = {
   ADD_CARD: 'ADD_CARD',
@@ -10,5 +9,8 @@ export const ACTION_TYPES = {
 
 export class AddCard implements Action {
   readonly type = ACTION_TYPES.ADD_CARD;
-  payload: List;
+
+  constructor(public payload: object) {
+
+  }
 }
