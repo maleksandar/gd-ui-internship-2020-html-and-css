@@ -1,4 +1,4 @@
-import { Card } from '../trello-card/card.model';
+import { Card } from '../trello-card/trello-card.model';
 
 export class List {
   id: number;

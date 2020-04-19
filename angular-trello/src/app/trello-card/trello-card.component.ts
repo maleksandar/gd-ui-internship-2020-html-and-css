@@ -1,4 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { List } from '../trello-list/trello-list.model';
+
+import { Store } from '@ngrx/store';
+import * as TrelloListActions from '../trello-list/store/trello-list.actions';
 
 @Component({
   selector: 'app-trello-card',
@@ -13,12 +17,16 @@ export class TrelloCardComponent implements OnInit {
   @Input() title: string;
   @Input() text: string;
 
-  constructor() {
+  constructor(private store: Store<{ board: { lists: List[] } }>) {
 
   }
 
   ngOnInit(): void {
 
+  }
+
+  deleteCard(): void {
+    this.store.dispatch(new TrelloListActions.DeleteCard({ cardID: this.cardID, listID: this.listID }));
   }
 
   getText(): string {

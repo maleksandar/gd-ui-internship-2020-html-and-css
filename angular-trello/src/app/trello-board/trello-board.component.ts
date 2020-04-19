@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { List } from '../trello-list/list.model';
+import { List } from '../trello-list/trello-list.model';
 import { Observable } from 'rxjs';
 
 @Component({

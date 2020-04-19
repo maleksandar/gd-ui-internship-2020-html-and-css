@@ -1,7 +1,6 @@
-import { Action } from '@ngrx/store';
-
 import { v4 as uuidv4 } from 'uuid';
-import * as ListActions from './app.actions';
+import * as TrelloListActions from './trello-list.actions';
+import { addCard, deleteCard } from '../trello-list.utils';
 
 const initialState = {
   lists: [
@@ -45,35 +44,18 @@ const initialState = {
   ]
 };
 
-const addCard = (state, payload) => {
-  const { listID, newCard } = payload;
-
-  return {
-    lists: state.lists.map(list => {
-      if (list.id === listID) {
-        return {
-          ...list,
-          cards: [...list.cards, newCard]
-        };
-      }
-
-      return list;
-    })
-  };
-};
-
-const listReducer = (state = initialState, action: ListActions.AddCard) => {
+const listReducer = (state = initialState, action: TrelloListActions.ListActions) => {
   switch (action.type) {
-    case ListActions.ACTION_TYPES.ADD_CARD: {
+    case TrelloListActions.ACTION_TYPES.ADD_CARD: {
       return addCard(state, action.payload);
     }
-    case ListActions.ACTION_TYPES.DELETE_CARD: {
+    case TrelloListActions.ACTION_TYPES.DELETE_CARD: {
+      return deleteCard(state, action.payload);
+    }
+    case TrelloListActions.ACTION_TYPES.UPDATE_CARD: {
       return state;
     }
-    case ListActions.ACTION_TYPES.UPDATE_CARD: {
-      return state;
-    }
-    case ListActions.ACTION_TYPES.DRAG_CARD: {
+    case TrelloListActions.ACTION_TYPES.DRAG_CARD: {
       return state;
     }
     default:

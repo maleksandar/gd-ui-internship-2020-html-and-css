@@ -12,7 +12,7 @@ import { TrelloListComponent } from './trello-list/trello-list.component';
 import { TrelloBoardComponent } from './trello-board/trello-board.component';
 
 import { StoreModule } from '@ngrx/store';
-import listReducer from './app.reducer';
+import listReducer from './trello-list/store/trello-list.reducer';
 import { TrelloActionButtonComponent } from './trello-action-button/trello-action-button.component';
 
 @NgModule({
