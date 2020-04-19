@@ -30,7 +30,7 @@ export class CardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.tasksServis.editTask(this.status, this.task.id, result.title, result.description);
+      this.tasksServis.editTask(this.task.id, this.status, result.title, result.description);
     })
   }
 
