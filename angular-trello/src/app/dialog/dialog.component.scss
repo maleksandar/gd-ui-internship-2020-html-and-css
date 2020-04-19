@@ -1,10 +1,22 @@
 .dialog {
-    &__title {
+    &__content {
         width: 25rem;
     }
 
+    &__title {
+        display: block;
+        margin-bottom: 1rem;
+    }
+
     &__description {
-        width: 25rem;
-        height: 10rem;
+        display: block;
+    }
+
+    &__actions {
+        display: flex;
+        
+        &--delete {
+            margin-right: auto;
+        }
     }
 }

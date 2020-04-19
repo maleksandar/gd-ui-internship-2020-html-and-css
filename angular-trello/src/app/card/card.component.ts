@@ -13,24 +13,31 @@ export class CardComponent implements OnInit {
   @Input() task: Task;
   @Input() status: TaskStatus; 
 
-  constructor(public dialog: MatDialog, private tasksServis: TasksService) { }
+  constructor(public dialog: MatDialog, private tasksService: TasksService) { }
 
   ngOnInit(): void {}
 
   onDeleteButtonClick() {
-    this.tasksServis.deleteTask(this.task.id, this.status);
+    this.tasksService.deleteTask(this.task.id, this.status);
   }
 
   openDialog(): void {
     let dialogRef = this.dialog.open(DialogComponent, {
       data : {
         title: this.task.title,
-        description: this.task.description
+        description: this.task.description,
+        buttonType: "EDIT",
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.tasksServis.editTask(this.task.id, this.status, result.title, result.description);
+      if (result) {
+        if (result.buttonType === "SAVE") {
+          this.tasksService.editTask(this.task.id, this.status, result.title, result.description);
+        } else if (result.buttonType === "DELETE") {
+          this.tasksService.deleteTask(this.task.id, this.status);
+        }
+      }
     })
   }
 

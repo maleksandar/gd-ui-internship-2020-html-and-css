@@ -1,16 +1,59 @@
-<h1 mat-dialog-title>
-    <textarea class="dialog__title"
-        matInput 
-        [(ngModel)] = "data.title"
-    > {{ data.title }} </textarea> 
-</h1>
-<div mat-dialog-content>
-    <textarea class="dialog__description"
-        matInput 
-        [(ngModel)]="data.description"
-    > {{ data.description }} </textarea> 
+<div mat-dialog-content class="dialog__content">
+    <mat-form-field hideRequiredMarker appearance="outline" class="dialog__title">
+        <mat-label> Card Title </mat-label>
+        <input 
+            matInput 
+            type="text"
+            [(ngModel)]="data.title"
+            value="data.title"
+            required
+        /> 
+        <mat-error *ngIf="data.title === ''">
+            Title is <strong> required! </strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field hideRequiredMarker appearance="outline" class="dialog__description"> 
+        <mat-label> Card Description </mat-label>
+        <textarea 
+            class="dialog_description"
+            matInput 
+            type="text"
+            [(ngModel)]="data.description"
+            value="data.description"
+            required
+            aria-multiline="true"
+        ></textarea> 
+        <mat-error *ngIf="data.description === ''">
+            Description is <strong> required! </strong>
+        </mat-error>
+    </mat-form-field> 
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-raised-button color="primary" [mat-dialog-close]="data">Save</button>
+<div mat-dialog-actions class="dialog__actions">
+    <button 
+        class="dialog__actions--delete"
+        mat-raised-button 
+        color="warn"
+        (click)="data.buttonType = 'DELETE'"
+        [mat-dialog-close]="data" 
+        [disabled]="data.buttonType === 'ADD'"
+    > <mat-icon>delete</mat-icon>
+        Delete
+    </button>
+    <button 
+        mat-button 
+        (click)="data.buttonType = 'CANCEL'"
+        [mat-dialog-close]="data" 
+    > <mat-icon>cancel</mat-icon>
+        Cancel 
+    </button>
+    <button 
+        mat-raised-button 
+        color="primary"
+        (click)="data.buttonType = 'SAVE'"
+        [mat-dialog-close]="data" 
+        [disabled]="data.title === '' || data.description === ''"
+    > <mat-icon>save</mat-icon>
+        Save  
+    </button>
 </div>

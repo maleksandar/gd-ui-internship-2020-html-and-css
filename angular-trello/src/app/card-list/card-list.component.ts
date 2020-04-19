@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ɵCodegenComponentFactoryResolver } from '@angular/core';
 import { Task, TaskStatus } from '../models/task.model';
 import { TasksService } from '../services/tasks.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -16,20 +16,23 @@ export class CardListComponent implements OnInit {
 
   constructor(public dialog: MatDialog, public tasksService: TasksService) {}
 
-  ngOnInit(): void {
-    console.log(this.tasks);
-  }
+  ngOnInit(): void {}
 
   openDialog(): void {
     let dialogRef = this.dialog.open(DialogComponent, {
       data : {
         title: "",
-        description: ""
+        description: "",
+        buttonType: "ADD",
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.tasksService.addTask(result.title, result.description);
+      if (result) {
+        if (result.buttonType === "SAVE") {
+          this.tasksService.addTask(result.title, result.description);
+        }
+      } 
     })
   }
 
