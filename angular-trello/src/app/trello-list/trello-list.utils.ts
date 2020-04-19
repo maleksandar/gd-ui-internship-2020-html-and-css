@@ -54,3 +54,59 @@ export const updateCard = (state, payload) => {
   lists[listIndex].cards[cardIndex] = { id: cardID, title, text };
   return newState;
 };
+
+export const dragCard = (state, payload) => {
+  const newState = deepCopy(state);
+  const { lists } = newState;
+  const { droppableIdStart, droppableIdEnd } = payload;
+
+  console.log(JSON.stringify(payload));
+  console.log(lists.map(list => list.id + ' ' + list.title));
+
+  if (droppableIdStart === droppableIdEnd) {
+    dragInsideSameList(lists, payload);
+  } else {
+    dragBetweenLists(lists, payload);
+  }
+
+  return newState;
+};
+
+const dragInsideSameList = (lists, payload) => {
+  const {
+    droppableIdStart,
+    droppableIndexStart,
+    droppableIndexEnd
+  } = payload;
+
+  // const list = lists.find(list => droppableIdStart === list.id);
+  const list = getListByCardID(lists, droppableIdStart);
+  const card = list.cards.splice(droppableIndexStart, 1);
+  list.cards.splice(droppableIndexEnd, 0, ...card);
+};
+
+const dragBetweenLists = (lists, payload) => {
+  const {
+    droppableIdStart,
+    droppableIdEnd,
+    droppableIndexStart,
+    droppableIndexEnd
+  } = payload;
+
+  // const listStart = lists.find(list => droppableIdStart === list.id);
+  const listStart = getListByCardID(lists, droppableIdStart);
+  const card = listStart.cards.splice(droppableIndexStart, 1);
+  // const listEnd = lists.find(list => droppableIdEnd === list.id);
+  const listEnd = getListByCardID(lists, droppableIdEnd);
+  listEnd.cards.splice(droppableIndexEnd, 0, ...card);
+};
+
+const getListByCardID = (lists, cardID) => {
+  return lists.find(list => {
+    for (const card of list.cards) {
+      if (card.id === cardID) {
+        return list;
+      }
+    }
+  });
+};

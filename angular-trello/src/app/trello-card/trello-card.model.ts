@@ -1,9 +1,5 @@
 export class Card {
-  id: string;
-  title: string;
-  text: string;
-
-  constructor(id: string, title: string, text: string) {
+  constructor(public id: string, public title: string, public text: string) {
     this.id = id;
     this.title = title;
     this.text = text;

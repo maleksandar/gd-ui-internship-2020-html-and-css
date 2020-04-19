@@ -1,11 +1,7 @@
 import { Card } from '../trello-card/trello-card.model';
 
 export class List {
-  id: number;
-  title: string;
-  cards: Card[];
-
-  constructor(id: number, title: string, cards: Card[]) {
+  constructor(public id: number, public title: string, public cards: Card[]) {
     this.id = id;
     this.title = title;
     this.cards = cards;

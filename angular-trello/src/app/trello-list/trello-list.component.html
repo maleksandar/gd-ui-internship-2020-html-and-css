@@ -2,6 +2,7 @@
 
 <div class="container">
   <app-trello-card
+    cdkDrag
     *ngFor="let card of cards; let index = index"
     index="{{ index }}"
     listID="{{ listID }}"

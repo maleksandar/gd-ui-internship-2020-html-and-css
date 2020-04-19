@@ -1,0 +1,25 @@
+.root {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  background-color: #fff;
+  padding: 16px;
+}
+
+.input-field {
+  margin-bottom: 16px;
+  width: 220px;
+}
+
+.grid {
+  display: flex;
+  padding-top: 16px;
+}
+
+.close-button {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}

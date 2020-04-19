@@ -32,4 +32,17 @@ export class UpdateCard implements Action {
   }
 }
 
-export type ListActions = AddCard | DeleteCard | UpdateCard;
+export class DragCard implements Action {
+  readonly type = ACTION_TYPES.DRAG_CARD;
+
+  constructor(public payload: {
+    droppableIdStart: string,
+    droppableIdEnd: string,
+    droppableIndexStart: number,
+    droppableIndexEnd: number
+  }) {
+
+  }
+}
+
+export type ListActions = AddCard | DeleteCard | UpdateCard | DragCard;
