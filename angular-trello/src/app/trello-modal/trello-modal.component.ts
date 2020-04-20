@@ -1,5 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
+import { List } from '../trello-list/trello-list.model';
+import * as TrelloListActions from '../trello-list/store/trello-list.actions';
+import { Card } from '../trello-card/trello-card.model';
+import { v4 as uuidv4 } from 'uuid';
+import { ACTION_TYPES } from '../trello-list/store/trello-list.actions';
 
 @Component({
   selector: 'app-trello-modal',
@@ -9,12 +15,66 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class TrelloModalComponent implements OnInit {
 
   constructor(
+    private store: Store<{ board: { lists: List[] } }>,
     public dialogRef: MatDialogRef<TrelloModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { title: string; text: string; }) {
+    @Inject(MAT_DIALOG_DATA) public data: {
+      listID: string,
+      cardID: string,
+      title: string,
+      text: string,
+      type: string
+    }) {
   }
 
   ngOnInit(): void {
 
+  }
+
+  handleModalAction(): void {
+    if (this.data.type === ACTION_TYPES.ADD_CARD) {
+      this.handleAddCard();
+    } else {
+      this.handleUpdateCard();
+    }
+  }
+
+  handleAddCard(): void {
+    const newCard = new Card(`card-${uuidv4()}`, this.data.title, this.data.text);
+
+    this.store.dispatch(new TrelloListActions.AddCard({
+      listID: this.data.listID,
+      newCard
+    }));
+
+    this.onClose();
+  }
+
+  handleUpdateCard(): void {
+    this.store.dispatch(new TrelloListActions.UpdateCard({
+      listID: this.data.listID,
+      cardID: this.data.cardID,
+      title: this.data.title,
+      text: this.data.text
+    }));
+
+    this.onClose();
+  }
+
+  handleDeleteCard(): void {
+    this.store.dispatch(new TrelloListActions.DeleteCard({
+      listID: this.data.listID,
+      cardID: this.data.cardID
+    }));
+
+    this.onClose();
+  }
+
+  handleDisableSaveButton(): boolean {
+    return this.data.title === '' || this.data.text === '';
+  }
+
+  handleDisableDeleteButton(): boolean {
+    return this.data.type === ACTION_TYPES.ADD_CARD;
   }
 
   onClose(): void {

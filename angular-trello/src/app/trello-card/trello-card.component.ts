@@ -6,6 +6,7 @@ import * as TrelloListActions from '../trello-list/store/trello-list.actions';
 
 import { MatDialog } from '@angular/material/dialog';
 import { TrelloModalComponent } from '../trello-modal/trello-modal.component';
+import { ACTION_TYPES } from '../trello-list/store/trello-list.actions';
 
 @Component({
   selector: 'app-trello-card',
@@ -51,23 +52,27 @@ export class TrelloCardComponent implements OnInit {
     const dialogRef = this.dialog.open(TrelloModalComponent, {
       width: '500px',
       data: {
+        listID: this.listID,
+        cardID: this.cardID,
         title: this.title,
-        text: this.text
+        text: this.text,
+        type: ACTION_TYPES.UPDATE_CARD
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.title = result.title;
-        this.text = result.text;
-
-        this.store.dispatch(new TrelloListActions.UpdateCard({
-          listID: this.listID,
-          cardID: this.cardID,
-          title: this.title,
-          text: this.text
-        }));
-      }
+      console.log('[Trello Card]: result - ' + result);
+      // if (result) {
+      //   this.title = result.title;
+      //   this.text = result.text;
+      //
+      //   this.store.dispatch(new TrelloListActions.UpdateCard({
+      //     listID: this.listID,
+      //     cardID: this.cardID,
+      //     title: this.title,
+      //     text: this.text
+      //   }));
+      // }
     });
   }
 }
