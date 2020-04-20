@@ -3,8 +3,9 @@ import { List } from '../trello-list/trello-list.model';
 
 import { Store } from '@ngrx/store';
 import * as TrelloListActions from '../trello-list/store/trello-list.actions';
+
 import { MatDialog } from '@angular/material/dialog';
-import { DialogOverviewComponent } from '../trello-modal/dialog-overview-example-dialog.component';
+import { TrelloModalComponent } from '../trello-modal/trello-modal.component';
 
 @Component({
   selector: 'app-trello-card',
@@ -47,7 +48,7 @@ export class TrelloCardComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogOverviewComponent, {
+    const dialogRef = this.dialog.open(TrelloModalComponent, {
       width: '500px',
       data: {
         title: this.title,

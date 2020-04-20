@@ -21,7 +21,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { DialogOverviewComponent } from './trello-modal/dialog-overview-example-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
@@ -32,7 +31,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     TrelloBoardComponent,
     TrelloActionButtonComponent,
     TrelloModalComponent,
-    DialogOverviewComponent,
   ],
   imports: [
     StoreModule.forRoot({ board: listReducer }, {}),

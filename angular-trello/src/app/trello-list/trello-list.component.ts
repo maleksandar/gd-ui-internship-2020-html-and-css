@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 import { Card } from '../trello-card/trello-card.model';
 import { List } from './trello-list.model';
@@ -38,26 +37,4 @@ export class TrelloListComponent implements OnInit {
     const LIST_NAME = 'Todo';
     return title === LIST_NAME;
   }
-
-  // drop(event: CdkDragDrop<Card[]>) {
-  //   if (event.previousContainer === event.container) {
-  //     console.log('previousContainer: ' + event.previousContainer.data[0].title);
-  //     console.log('container: ' + event.container.data[0].title);
-  //     console.log('previousIndex: ' + event.previousIndex);
-  //     console.log('currentIndex: ' + event.currentIndex);
-  //
-  //     moveItemInArray(
-  //       event.container.data,
-  //       event.previousIndex,
-  //       event.currentIndex
-  //     );
-  //   } else {
-  //     transferArrayItem(
-  //       event.previousContainer.data,
-  //       event.container.data,
-  //       event.previousIndex,
-  //       event.currentIndex
-  //     );
-  //   }
-  // }
 }
