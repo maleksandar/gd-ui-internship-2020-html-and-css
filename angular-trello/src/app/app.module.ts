@@ -10,8 +10,9 @@ import { TrelloBoardComponent } from './trello-board/trello-board.component';
 import { TrelloActionButtonComponent } from './trello-action-button/trello-action-button.component';
 import { TrelloModalComponent } from './trello-modal/trello-modal.component';
 
-import { StoreModule } from '@ngrx/store';
+import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
 import listReducer from './trello-list/store/trello-list.reducer';
+import { localStorageSync } from 'ngrx-store-localstorage';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,6 +24,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDialogModule } from '@angular/material/dialog';
 
+export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
+  return localStorageSync({ keys: ['board'], rehydrate: true })(reducer);
+}
+
+const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +40,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     TrelloModalComponent,
   ],
   imports: [
-    StoreModule.forRoot({ board: listReducer }, {}),
+    StoreModule.forRoot({ board: listReducer }, { metaReducers }),
     BrowserModule,
     BrowserAnimationsModule,
     MatCardModule,
