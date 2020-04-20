@@ -1,27 +1,4 @@
 <div class="root">
   <div class="grid">
-    <form [formGroup]="userForm">
-      <mat-form-field>
-        <mat-label>Title</mat-label>
-        <input
-          type="text"
-          class="input-field"
-          matInput
-          placeholder="Enter a card title"
-          value="{{ title }}"
-          (input)="onInputChange($event.target.value)">
-        <mat-hint>{{ title === '' ? 'Enter a card title!' : ' ' }}</mat-hint>
-        <mat-error *ngIf="userForm.hasError('isEmpty')"></mat-error>
-
-        <!--      <mat-label>Text</mat-label>-->
-        <!--      <textarea-->
-        <!--        matInput-->
-        <!--        placeholder="Enter a card text"-->
-        <!--        value="{{ text }}"-->
-        <!--        cdkTextareaAutosize-->
-        <!--        cdkAutosizeMinRows="1"-->
-        <!--        cdkAutosizeMaxRows="5"></textarea>-->
-      </mat-form-field>
-    </form>
   </div>
 </div>

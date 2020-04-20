@@ -19,8 +19,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DialogOverviewComponent } from './trello-modal/dialog-overview-example-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     TrelloListComponent,
     TrelloBoardComponent,
     TrelloActionButtonComponent,
-    TrelloModalComponent
+    TrelloModalComponent,
+    DialogOverviewComponent,
   ],
   imports: [
     StoreModule.forRoot({ board: listReducer }, {}),
@@ -42,7 +45,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatSelectModule,
     MatInputModule,
     ReactiveFormsModule,
-    DragDropModule
+    DragDropModule,
+    FormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,15 +1,21 @@
 .root {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  background-color: #fff;
-  padding: 16px;
+  position: relative;
+  //position: absolute;
+  //top: 50%;
+  //left: 50%;
+  //transform: translate(-50%, -50%);
+  //width: 800px;
+  //background-color: #fff;
+  //padding: 16px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
 .input-field {
-  margin-bottom: 16px;
+  //margin-bottom: 16px;
   width: 220px;
 }
 
@@ -20,6 +26,18 @@
 
 .close-button {
   position: absolute;
-  right: 8px;
-  top: 8px;
+  right: 0;
+  top: 0;
+  padding: 0;
+  min-width: 0;
+  line-height: 0;
+}
+
+.modal-buttons {
+  justify-content: space-between;
+
+  .btn {
+    padding: 0;
+    text-transform: uppercase;
+  }
 }

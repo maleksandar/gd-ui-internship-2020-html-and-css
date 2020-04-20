@@ -3,6 +3,8 @@ import { List } from '../trello-list/trello-list.model';
 
 import { Store } from '@ngrx/store';
 import * as TrelloListActions from '../trello-list/store/trello-list.actions';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogOverviewComponent } from '../trello-modal/dialog-overview-example-dialog.component';
 
 @Component({
   selector: 'app-trello-card',
@@ -17,7 +19,10 @@ export class TrelloCardComponent implements OnInit {
   @Input() title: string;
   @Input() text: string;
 
-  constructor(private store: Store<{ board: { lists: List[] } }>) {
+  constructor(
+    private store: Store<{ board: { lists: List[] } }>,
+    public dialog: MatDialog
+  ) {
 
   }
 
@@ -33,18 +38,35 @@ export class TrelloCardComponent implements OnInit {
   }
 
   updateCard(): void {
-    const title = 'Updated Title';
-    const text = 'Updated Text';
-    this.store.dispatch(new TrelloListActions.UpdateCard({
-      listID: this.listID,
-      cardID: this.cardID,
-      title,
-      text
-    }));
+    this.openDialog();
   }
 
   getText(): string {
     const CHAR_LIMIT = 200;
     return this.text.length > CHAR_LIMIT ? `${this.text.substring(0, CHAR_LIMIT - 3)}...` : this.text;
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewComponent, {
+      width: '500px',
+      data: {
+        title: this.title,
+        text: this.text
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.title = result.title;
+        this.text = result.text;
+
+        this.store.dispatch(new TrelloListActions.UpdateCard({
+          listID: this.listID,
+          cardID: this.cardID,
+          title: this.title,
+          text: this.text
+        }));
+      }
+    });
   }
 }
