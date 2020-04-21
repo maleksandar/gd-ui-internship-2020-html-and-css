@@ -1,20 +1,25 @@
-<div class="container" cdkDropListGroup>
-  <app-card-list class="column"
-    [status] = "'TODO'"
-    [tasks] = "toDo"
-  >
-  </app-card-list>
+<div class="main-container">
+  <h1 class="title mat-display-1"> Trello clone </h1>
 
-  <app-card-list class="column"
-    [status] = "'IN-PROGRESS'"
-    [tasks] = "inProgress"
-  >
-  </app-card-list>
+  <div class="container" cdkDropListGroup>
+    <app-card-list class="column"
+      [status] = "'TODO'"
+      [tasks] = "toDo"
+    >
+    </app-card-list>
 
-  <app-card-list class="column"
-    [status] = "'DONE'"
-    [tasks] = "done"
-  >
-  </app-card-list>
-    
+    <app-card-list class="column"
+      [status] = "'IN-PROGRESS'"
+      [tasks] = "inProgress"
+    >
+    </app-card-list>
+
+    <app-card-list class="column"
+      [status] = "'DONE'"
+      [tasks] = "done"
+    >
+    </app-card-list>
+      
+  </div>
 </div>
+

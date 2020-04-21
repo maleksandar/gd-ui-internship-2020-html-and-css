@@ -1,15 +1,26 @@
 .container {
-    height: 100vh;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #3F51B5;
+    align-items: flex-start;
+    overflow: scroll;
 }
 
 .column {
-    width: 25%;
-    height: 85%;
+    background-color: #ebecf0;
+    border-radius: .3rem;
     padding: 1rem;
-    border-radius: .5rem;
-    background-color: #eeeeee;
+    margin: 1rem;
+    flex: 0 0 20rem;
+}
+
+.title {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.main-container {
+    height: 100vh;
+    padding-top: 2rem;
+    background-image: url("../assets/red-fruit-handing-on-tree-branch-selective-color-photography-64705.jpg");
+    background-size: cover;
 }

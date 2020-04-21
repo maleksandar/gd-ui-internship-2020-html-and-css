@@ -1,10 +1,11 @@
 .card-list {
     display: flex;
     flex-direction: column;
+    padding: 0;
 }
 
 .cards {
-    max-height: 69vh;
+    max-height: 60vh;
     overflow-y: scroll;
     margin-bottom: 1.5rem;
 }
