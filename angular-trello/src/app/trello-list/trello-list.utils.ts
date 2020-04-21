@@ -60,9 +60,6 @@ export const dragCard = (state, payload) => {
   const { lists } = newState;
   const { droppableIdStart, droppableIdEnd } = payload;
 
-  console.log(JSON.stringify(payload));
-  console.log(lists.map(list => list.id + ' ' + list.title));
-
   if (droppableIdStart === droppableIdEnd) {
     dragInsideSameList(lists, payload);
   } else {
@@ -101,12 +98,17 @@ const dragBetweenLists = (lists, payload) => {
   listEnd.cards.splice(droppableIndexEnd, 0, ...card);
 };
 
-const getListByCardID = (lists, cardID) => {
-  return lists.find(list => {
-    for (const card of list.cards) {
-      if (card.id === cardID) {
-        return list;
-      }
-    }
-  });
+// TODO: Find how to pass 'listID' from drag and drop
+const getListByCardID = (lists, listID) => {
+  return lists.find(list => listID === list.id);
 };
+
+// const getListByCardID = (lists, cardID) => {
+//   return lists.find(list => {
+//     for (const card of list.cards) {
+//       if (card.id === cardID) {
+//         return list;
+//       }
+//     }
+//   });
+// };

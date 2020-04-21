@@ -37,9 +37,12 @@ export class TrelloBoardComponent implements OnInit {
     }));
   }
 
-  drop(event: CdkDragDrop<Card[]>) {
-    console.log(event.previousContainer.data[event.previousIndex]);
-    console.log(event.container.data[event.currentIndex]);
+  // TODO: Find better solution
+  // [HACK]: don't use '__ngContext__[20]'
+  drop(event: CdkDragDrop<any[]>) {
+    // @ts-ignore
+    console.log(event.previousContainer);
+    console.log(event.container);
 
     if (event.previousContainer === event.container) {
       moveItemInArray(
@@ -49,8 +52,10 @@ export class TrelloBoardComponent implements OnInit {
       );
 
       this.dragCard(
-        event.container.data[event.previousIndex].id,
-        event.container.data[event.previousIndex].id,
+        // @ts-ignore
+        event.container.__ngContext__[20],
+        // @ts-ignore
+        event.container.__ngContext__[20],
         event.previousIndex,
         event.currentIndex
       );
@@ -63,8 +68,10 @@ export class TrelloBoardComponent implements OnInit {
       );
 
       this.dragCard(
-        event.previousContainer.data[event.previousIndex].id,
-        event.container.data[event.currentIndex].id,
+        // @ts-ignore
+        event.previousContainer.__ngContext__[20],
+        // @ts-ignore
+        event.container.__ngContext__[20],
         event.previousIndex,
         event.currentIndex
       );
