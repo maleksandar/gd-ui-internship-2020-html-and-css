@@ -18,6 +18,7 @@ export class MainComponent implements OnInit {
 
   newTaskModal = false;
   editTaskModal = false;
+  modalOverlay = false;
   
   newTaskTitle= "";
   newTaskContent= "";
@@ -82,7 +83,12 @@ export class MainComponent implements OnInit {
 
   toggleNewTaskModal() {
     this.newTaskModal = this.newTaskModal ? false: true;
+    this.toggleModalOverlay();
     this.clearNewTaskText();
+  }
+
+  toggleModalOverlay() {
+    this.modalOverlay = this.modalOverlay ? false: true;
   }
 
   createNewTask() {
@@ -110,6 +116,7 @@ export class MainComponent implements OnInit {
     this.editTaskContent = list[index].description;
     this.editTasklist = list;
     this.editTaskIndex = index;
+    this.toggleModalOverlay();
   }
 
   deleteTask(list, index) {

@@ -3,18 +3,19 @@
 @import "../../mixins.scss";
 
 :host {
-    
     height: $header-height;
     background-color: $component-background-color-light;
     margin: $component-margin;
     border-radius: $component-border-radius;
     box-shadow: $component-box-shadow;
     position: relative;
-
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 h1 {
-    @include center-absolute;
-    font-size: 5rem;
+    margin-left: 3rem;
+    font-size: 2.6rem;
     color: $h1-font-color-light;
 }
