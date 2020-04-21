@@ -34,7 +34,7 @@ export class AddTaskComponent implements OnInit {
     this.id++;
     this.todoService.onNewTask(newTask);
 
-    localStorage.setItem(this.id.toString(), JSON.stringify(newTask));
+    this.todoService.saveTasksToLocalStorage(newTask, 'todo');
 
     this.title = '';
     this.description = '';

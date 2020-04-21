@@ -10,11 +10,17 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { TodoServiceService } from './todo-service.service';
-
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [AppComponent, TodoComponent, TodoListComponent, AddTaskComponent, EditTaskComponent],
-  imports: [BrowserModule, FormsModule, DragDropModule],
+  declarations: [
+    AppComponent,
+    TodoComponent,
+    TodoListComponent,
+    AddTaskComponent,
+    EditTaskComponent,
+  ],
+  imports: [BrowserModule, FormsModule, DragDropModule, AppRoutingModule],
   providers: [TodoServiceService],
   bootstrap: [AppComponent],
 })

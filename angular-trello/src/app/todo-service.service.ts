@@ -6,69 +6,94 @@ import { ToDo } from './models/todo.model';
 })
 export class TodoServiceService {
   todos: ToDo[] = [];
-  inProgresses: ToDo[] = [];
+  inProgress: ToDo[] = [];
   dones: ToDo[] = [];
   allTasks: ToDo[] = [];
+
+  tasks: ToDo[];
 
   id: number;
   title: string;
   description: string;
 
   constructor() {
-    this.todos.push(new ToDo(0, 'title1', 'desc1'));
-    this.todos.push(new ToDo(1, 'title2', 'desc2'));
-    this.inProgresses.push(new ToDo(2, 'title3', 'desc3'));
-    this.dones.push(new ToDo(3, 'title4', 'desc4'));
+    this.getLocalStorageItems();
 
     this.allTasks = this.allTasks.concat(
       this.todos,
-      this.inProgresses,
+      this.inProgress,
       this.dones
     );
+  }
 
-    console.log(this.todos);
+  getNextId() {
+    return this.allTasks.length;
+  }
+
+  saveTasksToLocalStorage(todoItem, status) {
+    var key = status + todoItem.id;
+    var item = JSON.stringify(todoItem);
+    localStorage.setItem(key, item);
+  }
+
+  getLocalStorageItems() {
+    for (var i = 0; i < localStorage.length; i++) {
+      var key = localStorage.key(i);
+      if (key.substring(0, 4) == 'todo') {
+        this.pushItemToLocalStorage(this.todos, key);
+      } else if (key.substring(0, 10) == 'inprogress') {
+        this.pushItemToLocalStorage(this.inProgress, key);
+      } else {
+        this.pushItemToLocalStorage(this.dones, key);
+      }
+    }
+  }
+
+  pushItemToLocalStorage(array, key) {
+    var item = localStorage.getItem(key);
+    var todoItem = JSON.parse(item);
+    array.push(new ToDo(todoItem.id, todoItem.title, todoItem.description));
+  }
+
+  removeFromLocaleStorage(key) {
+    localStorage.removeItem(key);
   }
 
   onNewTask(noviToDo: ToDo) {
     this.todos.push(noviToDo);
   }
 
-  getNextId(){
-    return this.allTasks.length;
-  }
-
-  getTodoTasks() {
-    return this.todos;
-  }
-
-  getInProgressTasks() {
-    return this.inProgresses;
-  }
-
-  getDoneTasks() {
-    return this.dones;
-  }
-
-  deleteTodoTask(title: string) {
-    for (let i = 0; i < this.todos.length; i++) {
-      if (title === this.todos[i].getTitle()) {
-        this.todos.splice(i, 1);
+  getTasks(status) {
+    switch (status) {
+      case 'todo':
+        return this.todos;
         break;
-      }
+      case 'inprogress':
+        return this.inProgress;
+        break;
+      case 'done':
+        return this.dones;
+        break;
+      default:
+        return [];
+        break;
     }
+  }
 
-    for (let i = 0; i < this.inProgresses.length; i++) {
-      if (title === this.inProgresses[i].getTitle()) {
-        this.inProgresses.splice(i, 1);
-        break;
-      }
-    }
+  deleteTask(id: number, status: string) {
+    let todoKeys = Object.keys(this.todos);
+    let inProgressKeys = Object.keys(this.inProgress);
+    let doneKeys = Object.keys(this.dones);
 
-    for (let i = 0; i < this.dones.length; i++) {
-      if (title === this.dones[i].getTitle()) {
-        this.dones.splice(i, 1);
-        break;
-      }
+    if (status === 'todo') {
+      let indexOf = todoKeys.indexOf(id.toString());
+      this.todos.splice(indexOf, 1);
+    } else if (status === 'inprogress') {
+      let indexOf = inProgressKeys.indexOf(id.toString());
+      this.inProgress.splice(indexOf, 1);
+    } else {
+      let indexOf = doneKeys.indexOf(id.toString());
+      this.dones.splice(indexOf, 1);
     }
   }
 }

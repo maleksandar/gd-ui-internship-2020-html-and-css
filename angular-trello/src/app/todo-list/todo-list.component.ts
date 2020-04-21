@@ -8,6 +8,7 @@ import { ToDo } from '../models/todo.model';
 })
 export class TodoListComponent implements OnInit {
   @Input() tasks: ToDo[];
+  @Input() status: string;
 
   @Output('selectId')
   selectId: EventEmitter<number>;

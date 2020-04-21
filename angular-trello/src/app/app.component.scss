@@ -28,7 +28,7 @@
     .btn-add {
       background-color: #999;
       border: none;
-      border-radius: 0.3rem;
+      border-radius: 0.2rem;
       color: white;
       font-size: 2rem;
       display: block;
@@ -64,4 +64,5 @@
 .example-list {
   display: flex;
   flex-direction: column;
+  padding: 0.1rem 0;
 }

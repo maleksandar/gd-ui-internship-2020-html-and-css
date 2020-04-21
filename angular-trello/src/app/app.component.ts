@@ -13,9 +13,9 @@ import { TodoServiceService } from './todo-service.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  todos: ToDo[] = this.todoService.getTodoTasks();
-  inProgresses: ToDo[] = this.todoService.getInProgressTasks();
-  dones: ToDo[] = this.todoService.getDoneTasks();
+  todos: ToDo[] = this.todoService.getTasks('todo');
+  inProgress: ToDo[] = this.todoService.getTasks('inprogress');
+  dones: ToDo[] = this.todoService.getTasks('done');
 
   id: number;
   title: string;
@@ -23,79 +23,51 @@ export class AppComponent {
 
   constructor(private todoService: TodoServiceService) {}
 
+  whatArrayToUse(id) {
+    let array;
+    let todoKeys = Object.keys(this.todos);
+    let inProgressKeys = Object.keys(this.inProgress);
+
+    if (todoKeys.indexOf(id.toString()) !== -1) {
+      array = this.todos;
+    } else if (inProgressKeys.indexOf(id.toString()) !== -1) {
+      array = this.inProgress;
+    } else {
+      array = this.dones;
+    }
+
+    return array;
+  }
+
   selectIdOfTask(id: number) {
-    for (let i = 0; i < this.todos.length; i++) {
-      if (id === this.todos[i].getIndex()) {
-        this.title = this.todos[i].getTitle();
-        this.description = this.todos[i].getDesc();
+    let array = this.whatArrayToUse(id);
+    for (let i = 0; i < array.length; i++) {
+      if (id === array[i].getIndex()) {
+        this.title = array[i].getTitle();
+        this.description = array[i].getDesc();
         this.id = id;
-
-        break;
-      }
-    }
-
-    for (let i = 0; i < this.inProgresses.length; i++) {
-      if (id === this.inProgresses[i].getIndex()) {
-        this.title = this.inProgresses[i].getTitle();
-        this.description = this.inProgresses[i].getDesc();
-        this.id = id;
-
-        break;
-      }
-    }
-
-    for (let i = 0; i < this.dones.length; i++) {
-      if (id === this.dones[i].getIndex()) {
-        this.title = this.dones[i].getTitle();
-        this.description = this.dones[i].getDesc();
-        this.id = id;
-
         break;
       }
     }
   }
 
   editTitleOfTask(title) {
-    for (let i = 0; i < this.todos.length; i++) {
-      if (this.id === this.todos[i].getIndex()) {
-        this.todos[i].setTitle(title);
-        break;
-      }
-    }
+    let array = this.whatArrayToUse(this.id);
 
-    for (let i = 0; i < this.inProgresses.length; i++) {
-      if (this.id === this.inProgresses[i].getIndex()) {
-        this.inProgresses[i].setTitle(title);
-        break;
-      }
-    }
-
-    for (let i = 0; i < this.dones.length; i++) {
-      if (this.id === this.dones[i].getIndex()) {
-        this.dones[i].setTitle(title);
+    for (let i = 0; i < array.length; i++) {
+      if (this.id === array[i].getIndex()) {
+        array[i].setTitle(title);
         break;
       }
     }
   }
 
   editDescriptionOfTask(desc) {
-    for (let i = 0; i < this.todos.length; i++) {
-      if (this.id === this.todos[i].getIndex()) {
-        this.todos[i].setDesc(desc);
-        break;
-      }
-    }
+    let array = this.whatArrayToUse(this.id);
 
-    for (let i = 0; i < this.inProgresses.length; i++) {
-      if (this.id === this.inProgresses[i].getIndex()) {
-        this.inProgresses[i].setDesc(desc);
-        break;
-      }
-    }
-
-    for (let i = 0; i < this.dones.length; i++) {
-      if (this.id === this.dones[i].getIndex()) {
-        this.dones[i].setDesc(desc);
+    for (let i = 0; i < array.length; i++) {
+      if (this.id === array[i].getIndex()) {
+        array[i].setDesc(desc);
         break;
       }
     }
@@ -115,6 +87,31 @@ export class AppComponent {
         event.previousIndex,
         event.currentIndex
       );
+    }
+    if (event.container.data === this.inProgress) {
+      for (let i = 0; i < event.container.data.length; i++) {
+        if (event.currentIndex === i) {
+          this.todoService.removeFromLocaleStorage(
+            'todo' + event.container.data[i].getIndex()
+          );
+        }
+        this.todoService.saveTasksToLocalStorage(
+          event.container.data[i],
+          'inprogress'
+        );
+      }
+    } else if (event.container.data === this.dones) {
+      for (let i = 0; i < event.container.data.length; i++) {
+        if (event.currentIndex === i) {
+          this.todoService.removeFromLocaleStorage(
+            'inprogress' + event.container.data[i].getIndex()
+          );
+        }
+        this.todoService.saveTasksToLocalStorage(
+          event.container.data[i],
+          'done'
+        );
+      }
     }
   }
 }

@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { ToDo } from '../models/todo.model';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TodoServiceService } from '../todo-service.service';
 
 @Component({
@@ -33,7 +32,7 @@ export class EditTaskComponent implements OnInit {
       return;
     }
 
-    this.editedTitle.emit(title)
+    this.editedTitle.emit(title);
     this.editedDesc.emit(desc);
   }
 }

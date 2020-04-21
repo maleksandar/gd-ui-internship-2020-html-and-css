@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ToDo } from '../models/todo.model';
 import { TodoServiceService } from '../todo-service.service';
 
 @Component({
@@ -11,6 +10,7 @@ export class TodoComponent implements OnInit {
   @Input() id: number;
   @Input() title: string;
   @Input() description: string;
+  @Input() status: string;
 
   @Output('selectId')
   public selectId: EventEmitter<number>;
@@ -25,7 +25,9 @@ export class TodoComponent implements OnInit {
     this.selectId.emit(this.id);
   }
 
-  onDeleteTask(title): void {
-    this.todoService.deleteTodoTask(title);
+  onDeleteTask(): void {
+    let localStorageKey = this.status + this.id;
+    this.todoService.deleteTask(this.id, this.status);
+    this.todoService.removeFromLocaleStorage(localStorageKey);
   }
 }

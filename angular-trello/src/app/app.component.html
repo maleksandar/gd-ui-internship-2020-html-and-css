@@ -4,6 +4,7 @@
 
     <app-todo-list
       [tasks]="todos"
+      [status]="'todo'"
       cdkDropList
       [cdkDropListData]="todos"
       (cdkDropListDropped)="drop($event)"
@@ -20,9 +21,10 @@
     <h1 class="title">In Progress</h1>
 
     <app-todo-list
-      [tasks]="inProgresses"
+      [tasks]="inProgress"
+      [status]="'inprogress'"
       cdkDropList
-      [cdkDropListData]="inProgresses"
+      [cdkDropListData]="inProgress"
       (cdkDropListDropped)="drop($event)"
       #inProgressList="cdkDropList"
       [cdkDropListConnectedTo]="[doneList]"
@@ -36,11 +38,11 @@
 
     <app-todo-list
       [tasks]="dones"
+      [status]="'done'"
       cdkDropList
       [cdkDropListData]="dones"
       (cdkDropListDropped)="drop($event)"
       #doneList="cdkDropList"
-      [cdkDropListConnectedTo]="[inProgressList]"
       class="example-list"
       (selectId)="selectIdOfTask($event)"
     ></app-todo-list>
