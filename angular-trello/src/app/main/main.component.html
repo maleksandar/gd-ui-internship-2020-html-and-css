@@ -1,1 +1,127 @@
-<p>main works!</p>
+<div class="task-list task-list--todo"
+    cdkDropList 
+    #toDoList="cdkDropList" 
+    [cdkDropListData] = "toDo"
+    [cdkDropListConnectedTo] = "[inProgressList, doneList]"
+    (cdkDropListDropped) = "onDrop($event)"
+>
+    <h2 class="task-list__title">
+        toDo
+    </h2>
+    <div class="card cdk-drag-animating" *ngFor="let item of toDo; let i = index" cdkDrag>
+        <div class="card__title">{{item.title}}</div>
+        <div class="description-buttons-container">
+        <div class="card__description">{{item.descriptionShort}}</div>
+        <div class="button-container">
+        <button (click)="openEditTask(toDo, i)" class="button button--action button--edit">
+            E
+        </button>
+        <button (click)="deleteTask(toDo, i)" class="button button--action button--delete">
+            D
+        </button>
+        </div>
+        </div>  
+    </div>
+</div>
+
+
+<div class="task-list task-list--todo"
+    cdkDropList 
+    #inProgressList="cdkDropList" 
+    [cdkDropListData] = "inProgress"
+    [cdkDropListConnectedTo] = "[toDoList, doneList]"
+    (cdkDropListDropped) = "onDrop($event)"
+>
+    <h2 class="task-list__title">
+        InProgress
+    </h2>
+    <div class="card cdk-drag-animating" *ngFor="let item of inProgress; let i = index" cdkDrag>
+        <div class="card__title">{{item.title}}</div>
+        <div class="card__description">{{item.descriptionShort}}</div>
+        <button (click)="openEditTask(inProgress, i)" class="button button--edit">
+            Edit
+        </button>
+        <button (click)="deleteTask(inProgress, i)" class="button button--delete">
+            Delete
+        </button>
+    </div>
+</div>
+
+<div class="task-list task-list--todo"
+    cdkDropList 
+    #doneList="cdkDropList" 
+    [cdkDropListData] = "done"
+    [cdkDropListConnectedTo] = "[toDoList, inProgressList]"
+    (cdkDropListDropped) = "onDrop($event)"
+>
+    <h2 class="task-list__title">
+        Done
+    </h2>
+    <div class="card cdk-drag-animating" *ngFor="let item of done; let i = index" cdkDrag>
+        <div class="card__title">{{item.title}}</div>
+        <div class="card__description">{{item.descriptionShort}}</div>
+        <button (click)="openEditTask(done, i)" class="button button--edit">
+            Edit
+        </button>
+        <button (click)="deleteTask(done, i)" class="button button--delete">
+            Delete
+        </button>
+    </div>
+</div>
+
+<button class="button button--add" (click) = " toggleNewTaskModal()"><span>+</span></button>
+
+
+<div class="modal" [class.modal--active] = "newTaskModal">  
+   
+ 
+        <div class="form-group">
+            <input type="text" class="form-control new-task__title"
+             required
+             placeholder="Title"
+             [(ngModel)]="newTaskTitle"
+             >
+          </div>
+          
+
+          <div class="form-group">
+            <input type="text" class="form-control new-task__content" 
+            placeholder="Task description"
+            required
+            [(ngModel)]="newTaskContent"
+            >
+          </div>
+    
+          <button class="btn btn-success" (click)="createNewTask()">Save</button>
+          <button (click)="toggleNewTaskModal()">Cancel</button>
+  
+    
+
+</div>
+
+<div class="modal" [class.modal--active] = "editTaskModal">  
+   
+ 
+    <div class="form-group">
+        <input type="text" class="form-control new-task__title"
+         required
+         placeholder="Title"
+         [(ngModel)]="editTaskTitle"
+         >
+      </div>
+      
+
+      <div class="form-group">
+        <input type="text" class="form-control new-task__content" 
+        placeholder="Task description"
+        required
+        [(ngModel)]="editTaskContent"
+        >
+      </div>
+
+      <button class="btn btn-success" (click)="saveEditedTask()">Save</button>
+      <button (click)="editTaskModal = false">Cancel</button>
+
+
+
+</div>
