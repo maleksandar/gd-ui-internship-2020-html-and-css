@@ -1,1 +1,25 @@
-<p>trello-list works!</p>
+<mat-card>
+  <mat-card-title>
+    {{list.title}}
+  </mat-card-title>
+  <mat-card-content
+    cdkDropList
+    class="task-container"
+    [cdkDropListData]="list"
+    (cdkDropListDropped)="drop($event)">
+    <app-trello-task
+      class="trello-task"
+      *ngFor="let task of list.tasks | keyvalue"
+      [task]="task.value"
+      cdkDrag>
+    </app-trello-task>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      class="btn"
+      mat-button
+      color="primary">
+      ADD NEW TASK
+    </button>
+  </mat-card-actions>
+</mat-card>

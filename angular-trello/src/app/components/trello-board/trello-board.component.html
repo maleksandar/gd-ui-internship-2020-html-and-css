@@ -1,1 +1,7 @@
-<p>trello-board works!</p>
+<div class="container"
+  cdkDropListGroup>
+  <app-trello-list
+    *ngFor="let list of lists | keyvalue"
+    [list]="list.value"
+  ></app-trello-list>
+</div>

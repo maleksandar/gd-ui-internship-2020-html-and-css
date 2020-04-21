@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Task } from 'src/app/models/task.model';
 
 @Component({
   selector: 'app-trello-task',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trello-task.component.scss']
 })
 export class TrelloTaskComponent implements OnInit {
-
+  @Input() task: Task;
   constructor() { }
 
   ngOnInit(): void {

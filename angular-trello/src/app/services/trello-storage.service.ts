@@ -12,6 +12,48 @@ const defaultLists:{[path: string]: TaskList} = {
         id: 'task-1',
         title: 'Go shopping',
         description: 'card description'
+      },
+      'task-2': {
+        id: 'task-1',
+        title: 'Go shopping',
+        description: 'card description'
+      }
+    }
+  },
+  'list-2': {
+    id: 'list-2',
+    title: 'In Progress',
+    tasks: {
+      'task-3': {
+        id: 'task-3',
+        title: 'Go shopping',
+        description: 'card description'
+      },
+      'task-4': {
+        id: 'task-4',
+        title: 'Go shopping',
+        description: 'card description'
+      },
+      'task-7': {
+        id: 'task-7',
+        title: 'Go shoppinggg',
+        description: 'card description'
+      }
+    }
+  },
+  'list-3': {
+    id: 'list-3',
+    title: 'Done',
+    tasks: {
+      'task-3': {
+        id: 'task-5',
+        title: 'Go shopping',
+        description: 'card description'
+      },
+      'task-4': {
+        id: 'task-6',
+        title: 'Go shopping',
+        description: 'card description'
       }
     }
   }
@@ -24,6 +66,7 @@ export class TrelloStorageService {
   constructor() {
     this.lists = JSON.parse(localStorage.getItem(LIST_STORAGE)) || defaultLists;
   }
+  
   getLists() {
     return {...this.lists};
   }
