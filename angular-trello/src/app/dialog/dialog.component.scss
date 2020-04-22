@@ -3,13 +3,14 @@
         width: 25rem;
     }
 
-    &__title {
-        display: block;
-        margin-bottom: 1rem;
-    }
-
+    &__title,
     &__description {
         display: block;
+        word-break: break-all;
+    }
+
+    &__title {
+        margin-bottom: 1rem;
     }
 
     &__actions {
