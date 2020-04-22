@@ -1,20 +1,20 @@
-<div class="main-container">
+<div class="container">
   <h1 class="title mat-display-1"> Trello clone </h1>
 
-  <div class="container" cdkDropListGroup>
-    <app-card-list class="column"
+  <div class="board" cdkDropListGroup>
+    <app-card-list class="board__column"
       [status] = "'TODO'"
       [tasks] = "toDo"
     >
     </app-card-list>
 
-    <app-card-list class="column"
-      [status] = "'IN-PROGRESS'"
+    <app-card-list class="board__column"
+      [status] = "'IN PROGRESS'"
       [tasks] = "inProgress"
     >
     </app-card-list>
 
-    <app-card-list class="column"
+    <app-card-list class="board__column"
       [status] = "'DONE'"
       [tasks] = "done"
     >

@@ -1,19 +1,21 @@
-<mat-list class="card-list">
-    <div mat-subheader> {{ status }} </div>
-    <mat-list
-        class="cards"
-        cdkDropList
-        [cdkDropListData]="tasks"
-        (cdkDropListDropped)="drop($event)">
-        <app-card 
-            mat-list-item 
-            *ngFor="let task of tasks"
-            [task]="task"
-            [status]="status"
-        ></app-card> 
-    </mat-list>
-    <button mat-raised-button *ngIf="status === 'TODO'" (click)="openDialog()">
-        <mat-icon>add</mat-icon>
-        Add card
-    </button>
+<div mat-subheader> {{ status }} </div>
+<mat-list
+    class="cards"
+    cdkDropList
+    [cdkDropListData]="tasks"
+    (cdkDropListDropped)="drop($event)">
+    <app-card 
+        mat-list-item 
+        *ngFor="let task of tasks"
+        [task]="task"
+        [status]="status">
+    </app-card> 
 </mat-list>
+<button 
+    class="button--add"
+    mat-raised-button 
+    *ngIf="status === 'TODO'" 
+    (click)="openDialog()">
+    <mat-icon>add</mat-icon>
+    Add card
+</button>

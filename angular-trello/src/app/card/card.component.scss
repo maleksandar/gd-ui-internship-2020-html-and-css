@@ -2,9 +2,11 @@
     margin-bottom: 1rem;
     cursor: move;
 
-    &__description {
+    &__description,
+    &__title {
         word-break: break-all;
     }
+
     &__actions {
         display: flex;
         justify-content: space-between;

@@ -1,15 +1,11 @@
-.card-list {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-}
-
 .cards {
     max-height: 60vh;
     overflow-y: scroll;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-button {
-    align-self: center;
+.button {
+    &--add {
+        align-self: center;
+    }   
 }

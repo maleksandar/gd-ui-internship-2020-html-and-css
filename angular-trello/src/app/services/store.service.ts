@@ -13,8 +13,8 @@ export class StoreService {
     if(!this.tasks["TODO"]) {
       this.tasks["TODO"] = []
     }
-    if(!this.tasks["IN-PROGRESS"]) {
-      this.tasks["IN-PROGRESS"] = []
+    if(!this.tasks["IN PROGRESS"]) {
+      this.tasks["IN PROGRESS"] = []
     }
     if(!this.tasks["DONE"]) {
       this.tasks["DONE"] = []

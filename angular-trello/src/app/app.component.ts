@@ -9,13 +9,15 @@ import { Task } from './models/task.model';
   providers: [TasksService]
 })
 export class AppComponent {
+  title = 'angular-trello';
+
   public toDo: Task[]; inProgress: Task[]; done: Task[];
 
   constructor(private tasksService: TasksService) { }
 
   ngOnInit(): void {
     this.toDo = this.tasksService.getTasksWithStatus('TODO');
-    this.inProgress = this.tasksService.getTasksWithStatus('IN-PROGRESS');
+    this.inProgress = this.tasksService.getTasksWithStatus('IN PROGRESS');
     this.done = this.tasksService.getTasksWithStatus('DONE');
   }
 

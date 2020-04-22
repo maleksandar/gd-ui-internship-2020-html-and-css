@@ -4,4 +4,4 @@ export interface Task {
     description: string;
 }
 
-export type TaskStatus = 'TODO' | 'IN-PROGRESS' | 'DONE';
+export type TaskStatus = 'TODO' | 'IN PROGRESS' | 'DONE';
