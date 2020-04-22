@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ButtonType } from '../models/button.model';
+import { ButtonType } from '../../models/button.model';
 
 @Component({
   selector: 'app-dialog',

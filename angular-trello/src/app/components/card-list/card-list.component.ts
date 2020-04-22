@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ɵCodegenComponentFactoryResolver } from '@angular/core';
-import { Task, TaskStatus } from '../models/task.model';
-import { TasksService } from '../services/tasks.service';
+import { Task, TaskStatus } from '../../models/task.model';
+import { TasksService } from '../../services/tasks.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { transferArrayItem, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Task, TaskStatus } from '../models/task.model';
+import { Task, TaskStatus } from '../../models/task.model';
 import { MatDialog } from '@angular/material/dialog';
-import { TasksService } from '../services/tasks.service';
+import { TasksService } from '../../services/tasks.service';
 import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({

@@ -5,9 +5,9 @@ import { MaterialModule } from './material/material.module';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CardComponent } from './card/card.component';
-import { CardListComponent } from './card-list/card-list.component';
-import { DialogComponent } from './dialog/dialog.component';
+import { CardComponent } from './components/card/card.component';
+import { CardListComponent } from './components/card-list/card-list.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
