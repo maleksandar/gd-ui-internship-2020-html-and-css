@@ -1,0 +1,8 @@
+@import "../../../angular-trello/src/variables.scss";
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  margin: $component-margin;
+  margin-top: 4rem;
+}
