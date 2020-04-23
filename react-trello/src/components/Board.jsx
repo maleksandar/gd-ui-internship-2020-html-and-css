@@ -2,6 +2,7 @@ import React from "react";
 import { Grid } from '@material-ui/core';
 import TaskList from './TaskList';
 import { makeStyles } from "@material-ui/styles";
+import { connect } from 'react-redux';
 
 const useClasess = makeStyles(({
     board: {
@@ -16,36 +17,7 @@ const useClasess = makeStyles(({
 }))
 
 
-function Board() {
-    const toDo = [
-        {
-            id: 4,
-            title: "Redux",
-            description: "Use redux"
-        }
-    ];
-
-    const inProgress = [
-        {
-            id: 3,
-            title: "Drop and drag",
-            description: "Do drop and drag functionality"
-        }
-    ];
-
-    const done = [
-        {
-            id: 1,
-            title: "Plan project",
-            description: "Do plan of a project"
-        },
-        {
-            id: 2,
-            title: "Basic layout",
-            description: "Do basic layout"
-        }
-    ];
-
+function Board(props) {
     const classes = useClasess();
     return (
             <Grid 
@@ -53,16 +25,20 @@ function Board() {
                 spacing={4}
                 className={classes.board}>
               <Grid item className={classes.column}>
-                <TaskList title="TODO" tasks={toDo}/>
+                <TaskList title="TODO" tasks={props.tasks['TODO']}/>
               </Grid>
               <Grid item className={classes.column}>
-                <TaskList title="IN PROGRESS" tasks={inProgress}/>
+                <TaskList title="IN PROGRESS" tasks={props.tasks['IN PROGRESS']}/>
               </Grid>
               <Grid item className={classes.column}>
-                <TaskList title="DONE" tasks={done}/>
+                <TaskList title="DONE" tasks={props.tasks['DONE']}/>
               </Grid>
           </Grid>
     )
 }
 
-export default Board;
+const mapStateToProps = (state) => ({
+    tasks: state.lists
+});
+
+export default connect(mapStateToProps)(Board);
