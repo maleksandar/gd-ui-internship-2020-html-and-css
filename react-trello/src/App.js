@@ -1,24 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import image from './red-fruit-handing-on-tree-branch.jpg';
+
+import Board from './components/Board'
+
 import './App.css';
 
+const useStyles = makeStyles({
+  root: {
+    backgroundImage:`url(${image})`,
+    backgroundSize: 'cover',
+    height: "100vh",
+  },
+  title: {
+    textAlign: "center",
+    padding: "1rem",
+    textTransform: "uppercase"
+  }
+});
+
 function App() {
+  const classes = useStyles();
+  const title = "Trello React";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.root}>
+      <Typography
+        className={classes.title}
+        variant="h4"
+        component="h1">
+        {title}
+      </Typography>
+      <Board/>
     </div>
   );
 }
