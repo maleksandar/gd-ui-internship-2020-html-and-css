@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-title>
-    {{list.title}}
+    {{ list.title }}
   </mat-card-title>
   <mat-card-content
     cdkDropList
@@ -9,8 +9,8 @@
     (cdkDropListDropped)="drop($event)">
     <app-trello-task
       class="trello-task"
-      *ngFor="let task of list.tasks | keyvalue"
-      [task]="task.value"
+      *ngFor="let task of listTasks"
+      [task]="task"
       cdkDrag>
     </app-trello-task>
   </mat-card-content>
