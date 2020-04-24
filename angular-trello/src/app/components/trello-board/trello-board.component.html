@@ -6,7 +6,7 @@
       cdkDropList
       class="list"
       *ngFor="let list of (board | async).lists"
-      [cdkDropListData]="list.cards"
+      [cdkDropListData]="list"
       (cdkDropListDropped)="drop($event)"
       listID="{{ list.id }}"
       title="{{ list.title }}"

@@ -3,7 +3,6 @@ import { Store } from '@ngrx/store';
 import { List } from '../trello-list/trello-list.model';
 import { Observable } from 'rxjs';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Card } from '../trello-card/trello-card.model';
 
 import * as TrelloListActions from '../trello-list/store/trello-list.actions';
 
@@ -37,43 +36,38 @@ export class TrelloBoardComponent implements OnInit {
     }));
   }
 
-  // TODO: Find better solution
-  // [HACK]: don't use '__ngContext__[20]'
-  drop(event: CdkDragDrop<any[]>) {
-    // @ts-ignore
-    console.log(event.previousContainer);
-    console.log(event.container);
+  drop(event: CdkDragDrop<List>) {
+    const previousContainer = event.previousContainer;
+    const currentContainer = event.container;
+    const previousIndex = event.previousIndex;
+    const currentIndex = event.currentIndex;
 
-    if (event.previousContainer === event.container) {
+    if (previousContainer === currentContainer) {
       moveItemInArray(
-        [...event.container.data],
-        event.previousIndex,
-        event.currentIndex
+        [...currentContainer.data.cards],
+        previousIndex,
+        currentIndex
       );
 
       this.dragCard(
-        // @ts-ignore
-        event.container.__ngContext__[20],
-        // @ts-ignore
-        event.container.__ngContext__[20],
-        event.previousIndex,
-        event.currentIndex
+        currentContainer.data.id,
+        currentContainer.data.id,
+        previousIndex,
+        currentIndex
       );
     } else {
       transferArrayItem(
-        [...event.previousContainer.data],
-        [...event.container.data],
-        event.previousIndex,
-        event.currentIndex
+        [...previousContainer.data.cards],
+        [...currentContainer.data.cards],
+        previousIndex,
+        currentIndex
       );
 
       this.dragCard(
-        // @ts-ignore
-        event.previousContainer.__ngContext__[20],
-        // @ts-ignore
-        event.container.__ngContext__[20],
-        event.previousIndex,
-        event.currentIndex
+        previousContainer.data.id,
+        currentContainer.data.id,
+        previousIndex,
+        currentIndex
       );
     }
   }

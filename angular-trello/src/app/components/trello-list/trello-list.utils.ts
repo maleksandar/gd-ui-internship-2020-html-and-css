@@ -1,20 +1,3 @@
-const deepCopy = (object) => {
-  if (typeof object !== 'object' || object === null) {
-    return object;
-  }
-
-  const newObject = Array.isArray(object) ? [] : {};
-  const keys = Object.keys(object);
-
-  for (const key of keys) {
-    const value = object[key];
-    const isObject = (typeof value === 'object' && value !== null);
-    newObject[key] = isObject ? deepCopy(value) : value;
-  }
-
-  return newObject;
-};
-
 export const addCard = (state, payload) => {
   const { listID, newCard } = payload;
 
@@ -76,8 +59,7 @@ const dragInsideSameList = (lists, payload) => {
     droppableIndexEnd
   } = payload;
 
-  // const list = lists.find(list => droppableIdStart === list.id);
-  const list = getListByCardID(lists, droppableIdStart);
+  const list = getListByID(lists, droppableIdStart);
   const card = list.cards.splice(droppableIndexStart, 1);
   list.cards.splice(droppableIndexEnd, 0, ...card);
 };
@@ -90,25 +72,29 @@ const dragBetweenLists = (lists, payload) => {
     droppableIndexEnd
   } = payload;
 
-  // const listStart = lists.find(list => droppableIdStart === list.id);
-  const listStart = getListByCardID(lists, droppableIdStart);
+  const listStart = getListByID(lists, droppableIdStart);
   const card = listStart.cards.splice(droppableIndexStart, 1);
-  // const listEnd = lists.find(list => droppableIdEnd === list.id);
-  const listEnd = getListByCardID(lists, droppableIdEnd);
+  const listEnd = getListByID(lists, droppableIdEnd);
   listEnd.cards.splice(droppableIndexEnd, 0, ...card);
 };
 
-// TODO: Find how to pass 'listID' from drag and drop
-const getListByCardID = (lists, listID) => {
+const getListByID = (lists, listID) => {
   return lists.find(list => listID === list.id);
 };
 
-// const getListByCardID = (lists, cardID) => {
-//   return lists.find(list => {
-//     for (const card of list.cards) {
-//       if (card.id === cardID) {
-//         return list;
-//       }
-//     }
-//   });
-// };
+const deepCopy = (object) => {
+  if (typeof object !== 'object' || object === null) {
+    return object;
+  }
+
+  const newObject = Array.isArray(object) ? [] : {};
+  const keys = Object.keys(object);
+
+  for (const key of keys) {
+    const value = object[key];
+    const isObject = (typeof value === 'object' && value !== null);
+    newObject[key] = isObject ? deepCopy(value) : value;
+  }
+
+  return newObject;
+};
