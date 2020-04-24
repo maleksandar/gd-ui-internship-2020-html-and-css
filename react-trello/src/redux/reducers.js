@@ -1,5 +1,6 @@
 import { persistReducer } from "redux-persist";
 import storage from 'redux-persist/lib/storage';
+import dragCard from './utils';
 
 const persistConfig = {
     key: 'root',
@@ -41,7 +42,15 @@ const initialState = {
 }
 
 function taskReducer(state = initialState, action) {
-  return state
+    switch(action.type) {
+        case "DRAG_TASK":
+            return {
+                ...state,
+                lists: dragCard(state, action.payload)
+            };
+        default: 
+            return state
+    }
 }
 
 export default persistReducer(persistConfig, taskReducer);

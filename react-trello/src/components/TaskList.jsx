@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Button } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
+import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import Task from "./Task";
 
@@ -35,13 +36,35 @@ function TaskList(props) {
                 className={classes.title}>
                 {props.title} 
             </Typography>
-            <Grid item container spacing={2} className={classes.list}>
-                { 
-                    props.tasks.map(task => 
-                        <Task key={task.id} title={task.title} description={task.description}/>
-                    )
-                } 
-            </Grid>
+            <Droppable droppableId={props.title}>
+                {(provided) => (
+                    <Grid 
+                        item 
+                        container 
+                        spacing={2} 
+                        className={classes.list}
+                        innerRef={provided.innerRef}
+                        {...provided.droppableProps} >
+                        {provided.placeholder}
+                        { props.tasks.map((task, index) => 
+                            <Draggable key={task.id} draggableId={String(task.id)} index={index}> 
+                                {(provided) => (
+                                    <Grid 
+                                        item 
+                                        {...provided.draggableProps}
+                                        {...provided.dragHandleProps}
+                                        innerRef={provided.innerRef}>
+                                        <Task
+                                            key = {task.id} 
+                                            title={task.title} 
+                                            description={task.description}/>
+                                    </Grid>
+                                )}
+                            </Draggable>
+                        )} 
+                </Grid>
+                )}
+            </Droppable>
             { 
                 props.title === 'TODO' ? 
                 <Button
