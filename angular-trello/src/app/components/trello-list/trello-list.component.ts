@@ -4,7 +4,8 @@ import { TrelloService } from "../../services/trello.service";
 import { Task } from 'src/app/models/task.model';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Subscription } from "rxjs";
-
+import { MatDialog } from '@angular/material/dialog';
+import { TrelloDialogComponent } from '../trello-dialog/trello-dialog.component';
 @Component({
   selector: 'app-trello-list',
   templateUrl: './trello-list.component.html',
@@ -15,24 +16,35 @@ export class TrelloListComponent implements OnInit {
   listTasks: Task[];
   private subscription: Subscription;
 
-  constructor(private storageService: TrelloService) { }
+  constructor(private trelloService: TrelloService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.listTasks = this.getTasksFromIds(this.list)
-    this.subscription = this.storageService.taskOrderChanged
+    this.subscription = this.trelloService.tasksChanged
       .subscribe(
         (lists: {[path:string]: TaskList}) => {
           this.listTasks = this.getTasksFromIds(lists[this.list.id])
         }
       );
   }
+
   getTasksFromIds(list) {
-    const allTasks = this.storageService.get('tasks');
+    const allTasks = this.trelloService.get('tasks');
     return list.taskIds.map(taskId => allTasks[taskId]);
   }
 
   drop(event: CdkDragDrop<string[]>){
-    this.storageService.moveTaskOnDrop(event);
+    this.trelloService.moveTaskOnDrop(event);
   }
-  
+
+  openDialog() {
+    const task = new Task('', '', '');
+    const data = {
+      listId: this.list.id,
+      task: task,
+      dialogType: 'add'
+    }
+    this.dialog.open(TrelloDialogComponent, {data: data});
+
+  }
 }

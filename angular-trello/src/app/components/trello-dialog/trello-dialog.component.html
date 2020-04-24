@@ -1,0 +1,58 @@
+<mat-dialog-content class="dialog__content">
+
+  <mat-form-field class="dialog__title" appearance="outline">
+    <mat-label>
+      Task title
+    </mat-label>
+    <input
+      matInput
+      placeholder="Title"
+      [(ngModel)]="data.task.title">
+  </mat-form-field>
+
+  <mat-form-field 
+    appearance="outline">
+    <mat-label>
+      Task Description
+    </mat-label>
+    <textarea
+      matInput
+      rows="5"
+      placeholder="Description"
+      [(ngModel)]="data.task.description">
+    </textarea>
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions 
+  align="end">
+
+  <div class="btn__wrapper">
+    <button
+      color="warn"
+      class="btn btn--delete"
+      mat-button
+      [disabled]="data.dialogType === 'add'"
+      (click)="handleDelete()"
+      [mat-dialog-close]="'delete'">
+      Delete
+    </button>
+  </div>
+
+  <button
+    mat-button
+    mat-dialog-close
+    [mat-dialog-close]="'cancel'">
+    Cancel
+  </button>
+
+  <button
+    color="primary"
+    mat-button
+    [mat-dialog-close]="data"
+    (click)="handleSave()"
+    cdkFocusInitial>
+    Save
+  </button>
+</mat-dialog-actions>
