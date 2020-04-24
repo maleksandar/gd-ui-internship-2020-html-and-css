@@ -38,7 +38,7 @@ export class TrelloListComponent implements OnInit {
   }
 
   openDialog() {
-    const task = new Task('', '', '');
+    const task = new Task('', 'title', 'enter description...');
     const data = {
       listId: this.list.id,
       task: task,

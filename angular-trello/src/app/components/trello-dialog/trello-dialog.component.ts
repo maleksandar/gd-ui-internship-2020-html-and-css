@@ -8,10 +8,13 @@ import { TrelloService } from '../../services/trello.service';
   styleUrls: ['./trello-dialog.component.scss']
 })
 export class TrelloDialogComponent implements OnInit {
+  task: Task;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private trelloService: TrelloService
-  ) { }
+  ) { 
+    this.task = { ...this.data.task };
+  }
 
   ngOnInit(): void {
     
@@ -27,11 +30,11 @@ export class TrelloDialogComponent implements OnInit {
     if(this.data.dialogType === 'add') {
       this.trelloService.addTask(
         this.data.listId, 
-        this.data.task
+        this.task
       );
     } else {
       this.trelloService.updateTask(
-        this.data.task
+        this.task
       );
     }
   }
