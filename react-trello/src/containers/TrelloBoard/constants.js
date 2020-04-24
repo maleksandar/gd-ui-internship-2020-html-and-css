@@ -1,15 +1,11 @@
-import actionTypes from './task.types';
-import { 
-  removeTask,
-  moveTask,
-  removeTaskFromList,
-  generateId,
-  addTask,
-  addTaskToList,
-  updateTask
-} from './task.utils';
+export const actionTypes = {
+  ADD_TASK: 'ADD_TASK',
+  REMOVE_TASK: 'REMOVE_TASK',
+  UPDATE_TASK: 'UPDATE_TASK',
+  MOVE_TASK: 'MOVE_TASK'
+};
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   tasks: {
     'task-1': {
       id: 'task-1',
@@ -65,38 +61,3 @@ const INITIAL_STATE = {
     }
   }
 }
-
-const taskReducer = (state = INITIAL_STATE, {type, payload}) => {
-  switch (type) {
-    case actionTypes.REMOVE_TASK:
-      return {
-        ...state,
-        tasks: removeTask(state, payload.taskId),
-        lists: removeTaskFromList(state, payload)
-      }
-
-    case actionTypes.MOVE_TASK:
-      return {
-        ...state,
-        lists: moveTask(state, payload)
-      }
-      
-    case actionTypes.ADD_TASK:
-      const taskId = generateId(state.tasks);
-      return {
-        ...state,
-        tasks: addTask(state, payload.task, taskId),
-        lists: addTaskToList(state, payload.listId, taskId)
-      }
-    
-    case actionTypes.UPDATE_TASK:
-      return {
-        ...state,
-        tasks: updateTask(state, payload.task)
-      }
-
-    default:
-      return state;
-    }
-}
-export default taskReducer;

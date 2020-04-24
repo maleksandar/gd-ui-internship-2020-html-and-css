@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
-import { toggleModal } from '../redux/TaskModal/taskModal.actions';
-import { removeTask } from '../redux/Task/task.actions';
+import { toggleModal } from '../TrelloModal/actions';
+import { removeTask } from '../TrelloBoard/actions';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { 
@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 const TaskCard = (props) => {
   const {task, listId, innerRef, provided, isDragging } = props;
   const classes = useStyles(isDragging);
-
+  console.log(props);
   return (
   <Grid
     ref={innerRef}

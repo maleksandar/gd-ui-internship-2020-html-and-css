@@ -1,7 +1,6 @@
-import ActionType from './taskModal.types';
-
+import { actionTypes } from './constants';
 export const toggleModal = (taskId, listId) => ({
-  type: ActionType.TOGGLE_MODAL,
+  type: actionTypes.TOGGLE_MODAL,
   payload: {
     taskId,
     listId

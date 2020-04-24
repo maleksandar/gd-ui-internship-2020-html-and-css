@@ -1,7 +1,7 @@
-import ActionType from './task.types';
+import { actionTypes } from './constants';
 
 export const removeTask = (taskId, listId) => ({
-  type: ActionType.REMOVE_TASK,
+  type: actionTypes.REMOVE_TASK,
   payload: {
     taskId,
     listId
@@ -9,7 +9,7 @@ export const removeTask = (taskId, listId) => ({
 });
 
 export const addTask = (task, listId) => ({
-  type: ActionType.ADD_TASK,
+  type: actionTypes.ADD_TASK,
   payload: {
     task,
     listId
@@ -17,14 +17,15 @@ export const addTask = (task, listId) => ({
 });
 
 export const moveTask = (moveResult) => ({
-  type: ActionType.MOVE_TASK,
-  payload: moveResult,
+  type: actionTypes.MOVE_TASK,
+  payload: {
+    moveResult
+  },
 });
 
 export const updateTask = (task) => ({
-  type: ActionType.UPDATE_TASK,
+  type: actionTypes.UPDATE_TASK,
   payload: {
     task
   }
-  
 })

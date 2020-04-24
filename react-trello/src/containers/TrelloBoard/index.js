@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Grid, Container } from '@material-ui/core';
 import { DragDropContext } from 'react-beautiful-dnd';
-import TaskList from '../components/TaskList';
-import { moveTask } from '../redux/Task/task.actions';
-import TaskModal from './TaskModal';
+import TrelloList from '../TrelloList';
+import { moveTask } from './actions';
+import TrelloModal from '../TrelloModal';
 
 const ListContainer = (props) => {
   const { lists, moveTask } = props;
@@ -14,7 +14,7 @@ const ListContainer = (props) => {
     const list = lists[key];
 
     return (
-      <TaskList
+      <TrelloList
         key={list.id}
         list={list}/>
     );
@@ -37,14 +37,14 @@ const ListContainer = (props) => {
 
       </Grid>
 
-      <TaskModal />
+      <TrelloModal />
       
     </Container>
   );
 };
 
 const mapStateToProps = (state) => ({
-  lists: state.task.lists,
+  lists: state.board.lists,
   modal: state.modal
 });
 

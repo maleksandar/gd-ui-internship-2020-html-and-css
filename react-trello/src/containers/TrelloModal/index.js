@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import { Modal, Paper, TextField, Box, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { toggleModal } from '../redux/TaskModal/taskModal.actions';
-import { addTask, removeTask, updateTask } from '../redux/Task/task.actions';
+import { toggleModal } from './actions';
+import { addTask, removeTask, updateTask } from '../TrelloBoard/actions';
 import SaveIcon from '@material-ui/icons/Save';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
@@ -29,7 +29,7 @@ export const TaskModal = (props) => {
     const newTask = {
       id: taskId,
       title: inputTitle.current.value,
-      description: inputDescription.current.value
+      desc: inputDescription.current.value
     }
     taskId? props.updateTask(newTask) : props.addTask(newTask, listId);
     props.toggleModal();
@@ -100,7 +100,7 @@ export const TaskModal = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  tasks: state.task.tasks,
+  tasks: state.board.tasks,
   modal: state.modal
 });
 

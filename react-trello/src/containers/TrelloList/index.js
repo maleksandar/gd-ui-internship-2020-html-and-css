@@ -4,8 +4,8 @@ import { Grid, Paper, Typography, Button } from '@material-ui/core';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import { makeStyles } from '@material-ui/core/styles';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
-import TaskCard from './TaskCard';
-import { toggleModal } from '../redux/TaskModal/taskModal.actions'
+import TrelloCard from '../TrelloCard';
+import { toggleModal } from '../TrelloModal/actions'
 
 const useStyles = makeStyles({
   paper: {
@@ -35,7 +35,7 @@ function TaskList(props) {
   const taskCards = tasksInList.map((task, i) => (
     <Draggable key={task.id} draggableId={task.id} index={i}>
       {(provided, snapshot) => (
-        <TaskCard 
+        <TrelloCard 
           key={task.id}
           listId={list.id}
           provided={provided}
@@ -88,7 +88,7 @@ function TaskList(props) {
   );
 }
 const mapStateToProps = (state) => ({
-  tasks: state.task.tasks
+  tasks: state.board.tasks
 })
 
 const mapDispatchToProps = (dispatch) => ({
