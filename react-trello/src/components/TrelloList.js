@@ -36,8 +36,7 @@ const TrelloList = (props) => {
       listID={listID}
       index={index}
       title={card.title}
-      text={card.text}
-    />
+      text={card.text}/>
   ));
 
   const handleShowActionButton = () => {

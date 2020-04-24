@@ -47,20 +47,19 @@ const TrelloBoard = (props) => {
       key={id}
       listID={id}
       title={title}
-      cards={cards}
-    />
+      cards={cards}/>
   ));
 
   return (
     <Grid container className={classes.container}>
-      <DragDropContext onDragEnd={onDragEnd}>
-        <Typography
-          className={classes.title}
-          variant="h3"
-          component="h1">
-          React Trello Clone
-        </Typography>
+      <Typography
+        className={classes.title}
+        variant="h3"
+        component="h1">
+        React Trello Clone
+      </Typography>
 
+      <DragDropContext onDragEnd={onDragEnd}>
         <Grid item className={classes.row}>
           {trelloLists}
         </Grid>
