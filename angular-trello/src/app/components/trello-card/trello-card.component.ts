@@ -1,12 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { List } from '../trello-list/trello-list.model';
+import { List } from '../../models/trello-list.model';
 
 import { Store } from '@ngrx/store';
-import * as TrelloListActions from '../trello-list/store/trello-list.actions';
+import * as TrelloListActions from '../../store/trello-list.actions';
 
 import { MatDialog } from '@angular/material/dialog';
 import { TrelloModalComponent } from '../trello-modal/trello-modal.component';
-import { ACTION_TYPES } from '../trello-list/store/trello-list.actions';
+import { ACTION_TYPES } from '../../store/trello-list.actions';
+import { Card } from '../../models/trello-card.model';
 
 @Component({
   selector: 'app-trello-card',
@@ -17,9 +18,7 @@ export class TrelloCardComponent implements OnInit {
 
   @Input() index: number;
   @Input() listID: string;
-  @Input() cardID: string;
-  @Input() title: string;
-  @Input() text: string;
+  @Input() card: Card;
 
   constructor(
     private store: Store<{ board: { lists: List[] } }>,
@@ -34,7 +33,7 @@ export class TrelloCardComponent implements OnInit {
 
   deleteCard(): void {
     this.store.dispatch(new TrelloListActions.DeleteCard({
-      cardID: this.cardID,
+      cardID: this.card.id,
       listID: this.listID
     }));
   }
@@ -45,34 +44,20 @@ export class TrelloCardComponent implements OnInit {
 
   getText(): string {
     const CHAR_LIMIT = 200;
-    return this.text.length > CHAR_LIMIT ? `${this.text.substring(0, CHAR_LIMIT - 3)}...` : this.text;
+    const cardText = this.card.text;
+    return cardText.length > CHAR_LIMIT ? `${cardText.substring(0, CHAR_LIMIT - 3)}...` : cardText;
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(TrelloModalComponent, {
+    this.dialog.open(TrelloModalComponent, {
       width: '500px',
       data: {
         listID: this.listID,
-        cardID: this.cardID,
-        title: this.title,
-        text: this.text,
+        cardID: this.card.id,
+        title: this.card.title,
+        text: this.card.text,
         type: ACTION_TYPES.UPDATE_CARD
       }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('[Trello Card]: result - ' + result);
-      // if (result) {
-      //   this.title = result.title;
-      //   this.text = result.text;
-      //
-      //   this.store.dispatch(new TrelloListActions.UpdateCard({
-      //     listID: this.listID,
-      //     cardID: this.cardID,
-      //     title: this.title,
-      //     text: this.text
-      //   }));
-      // }
     });
   }
 }

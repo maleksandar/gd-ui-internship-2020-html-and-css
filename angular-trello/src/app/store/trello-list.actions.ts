@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Card } from '../../trello-card/trello-card.model';
+import { Card } from '../models/trello-card.model';
 
 export const ACTION_TYPES = {
   ADD_CARD: 'ADD_CARD',

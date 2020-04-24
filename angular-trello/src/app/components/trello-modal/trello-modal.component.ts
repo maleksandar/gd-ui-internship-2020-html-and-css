@@ -1,11 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { List } from '../trello-list/trello-list.model';
-import * as TrelloListActions from '../trello-list/store/trello-list.actions';
-import { Card } from '../trello-card/trello-card.model';
+import { List } from '../../models/trello-list.model';
+import * as TrelloListActions from '../../store/trello-list.actions';
+import { Card } from '../../models/trello-card.model';
 import { v4 as uuidv4 } from 'uuid';
-import { ACTION_TYPES } from '../trello-list/store/trello-list.actions';
+import { ACTION_TYPES } from '../../store/trello-list.actions';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 

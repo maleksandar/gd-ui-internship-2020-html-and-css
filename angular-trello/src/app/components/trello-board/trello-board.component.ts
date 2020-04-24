@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { List } from '../trello-list/trello-list.model';
+import { List } from '../../models/trello-list.model';
 import { Observable } from 'rxjs';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
-import * as TrelloListActions from '../trello-list/store/trello-list.actions';
+import * as TrelloListActions from '../../store/trello-list.actions';
 
 @Component({
   selector: 'app-trello-board',

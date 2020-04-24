@@ -8,9 +8,7 @@
       *ngFor="let list of (board | async).lists"
       [cdkDropListData]="list"
       (cdkDropListDropped)="drop($event)"
-      listID="{{ list.id }}"
-      title="{{ list.title }}"
-      [cards]="list.cards">
+      [list]="list">
     </app-trello-list>
   </div>
 </div>

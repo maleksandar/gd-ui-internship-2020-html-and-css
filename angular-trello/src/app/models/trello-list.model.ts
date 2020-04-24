@@ -1,4 +1,4 @@
-import { Card } from '../trello-card/trello-card.model';
+import { Card } from './trello-card.model';
 
 export class List {
   constructor(public id: string, public title: string, public cards: Card[]) {

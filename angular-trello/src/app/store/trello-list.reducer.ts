@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import * as TrelloListActions from './trello-list.actions';
-import { addCard, deleteCard, dragCard, updateCard } from '../trello-list.utils';
+import { addCard, deleteCard, dragCard, updateCard } from './trello-list.utils';
 
 const initialState = {
   lists: [

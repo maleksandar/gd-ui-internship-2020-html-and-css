@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Card } from '../trello-card/trello-card.model';
+import { List } from '../../models/trello-list.model';
 
 @Component({
   selector: 'app-trello-list',
@@ -9,9 +9,7 @@ import { Card } from '../trello-card/trello-card.model';
 })
 export class TrelloListComponent implements OnInit {
 
-  @Input() listID: string;
-  @Input() title: string;
-  @Input() cards: Card[];
+  @Input() list: List;
 
   constructor() {
 
