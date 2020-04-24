@@ -6,6 +6,8 @@ import * as TrelloListActions from '../trello-list/store/trello-list.actions';
 import { Card } from '../trello-card/trello-card.model';
 import { v4 as uuidv4 } from 'uuid';
 import { ACTION_TYPES } from '../trello-list/store/trello-list.actions';
+import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   selector: 'app-trello-modal',
@@ -13,6 +15,16 @@ import { ACTION_TYPES } from '../trello-list/store/trello-list.actions';
   styleUrls: ['./trello-modal.component.scss']
 })
 export class TrelloModalComponent implements OnInit {
+
+  titleFormControl = new FormControl(this.data.title, [
+    Validators.required,
+  ]);
+
+  textFormControl = new FormControl(this.data.text, [
+    Validators.required,
+  ]);
+
+  errorMatcher = new ErrorMatcher();
 
   constructor(
     private store: Store<{ board: { lists: List[] } }>,
@@ -83,5 +95,12 @@ export class TrelloModalComponent implements OnInit {
 
   onInputChange(field: string, input: string): void {
     this.data[field] = input.trim();
+  }
+}
+
+export class ErrorMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }

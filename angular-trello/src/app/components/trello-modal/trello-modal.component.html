@@ -13,9 +13,13 @@
         type="text"
         matInput
         placeholder="Enter a card title"
+        [formControl]="titleFormControl"
+        [errorStateMatcher]="errorMatcher"
         value="{{ data.title }}"
         (input)="onInputChange('title', $event.target.value)">
-<!--      <mat-hint>{{ data.title === '' ? 'Enter a card title!' : ' ' }}</mat-hint>-->
+      <mat-error *ngIf="titleFormControl.hasError('required')">
+        Enter a card title!
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field>
@@ -23,11 +27,16 @@
       <textarea
         matInput
         placeholder="Enter a card text"
+        [formControl]="textFormControl"
+        [errorStateMatcher]="errorMatcher"
         value="{{ data.text }}"
         (input)="onInputChange('text', $event.target.value)"
         cdkTextareaAutosize
         cdkAutosizeMinRows="1"
         cdkAutosizeMaxRows="10"></textarea>
+      <mat-error *ngIf="textFormControl.hasError('required')">
+        Enter a card text!
+      </mat-error>
     </mat-form-field>
   </div>
 
@@ -57,7 +66,7 @@
         color="primary"
         [disabled]="handleDisableSaveButton()"
         (click)="handleModalAction()">
-<!--        [mat-dialog-close]="data">-->
+        <!--        [mat-dialog-close]="data">-->
         <mat-icon>save</mat-icon>
         Save
       </button>
