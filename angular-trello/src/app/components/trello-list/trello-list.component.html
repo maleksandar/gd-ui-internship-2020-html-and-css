@@ -3,6 +3,7 @@
 <div class="container">
   <app-trello-card
     cdkDrag
+    class="card"
     *ngFor="let card of cards; let index = index"
     index="{{ index }}"
     listID="{{ listID }}"
