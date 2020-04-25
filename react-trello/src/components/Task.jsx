@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Card, Typography, CardContent, CardActions, Button } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { connect } from 'react-redux';
+import { deleteTask } from '../redux/actions'
 
 const useStyles = makeStyles(({
   cardActions: {
@@ -14,6 +16,10 @@ const useStyles = makeStyles(({
 
 function Task(props) {
   const clasess = useStyles();
+
+  const handleDelete = () => {
+    props.deleteTask(props.listName, props.id);
+  }
 
   return (
     <Grid item>
@@ -42,6 +48,7 @@ function Task(props) {
           <Button
             color="secondary"
             size="small"
+            onClick={handleDelete}
             startIcon={<DeleteIcon/>}>
             Delete
           </Button>
@@ -51,4 +58,8 @@ function Task(props) {
   )
 }
 
-export default Task;
+const mapDispatchToProps = (dispatch) => ({
+  deleteTask: (listName, id) => dispatch(deleteTask(listName, id)),
+})
+
+export default connect(null, mapDispatchToProps)(Task);

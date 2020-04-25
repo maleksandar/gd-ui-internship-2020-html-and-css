@@ -1,8 +1,18 @@
-const dragCard = (result) => (
+import { actionTypes } from "./types";
+
+export const dragCard = (result) => (
     { 
-        type: "DRAG_TASK",
+        type: actionTypes.DRAG_CARD,
         payload: result, 
     }
 );
 
-export default dragCard;
+export const deleteTask = (listName, id) => (
+    {
+        type: actionTypes.DELETE_TASK,
+        payload: {
+            listName: listName,
+            id: id
+        },
+    }
+)

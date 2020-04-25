@@ -4,7 +4,7 @@ import TaskList from './TaskList';
 import { makeStyles } from "@material-ui/styles";
 import { connect } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
-import dragCard from '../redux/actions';
+import { dragCard } from '../redux/actions';
 
 const useClasess = makeStyles(({
     board: {
@@ -41,7 +41,7 @@ function Board(props) {
 }
 
 const mapStateToProps = (state) => ({
-  tasks: state.lists
+  tasks: state
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,38 +1,44 @@
-const dragCard = (state, result) => {        
-    const { destination, source, draggableId } = result;
+export const dragCard = (state, result) => {        
+    const { destination, source } = result;
 
     if (!destination) {
-        return {...state.lists};
+        return {...state};
     }
 
     if (destination.droppableId === source.droppableId && 
         destination.index === source.index) {
-        return {...state.lists};
+        return {...state};
     }
 
     if (destination.droppableId === source.droppableId) {
-        const tasks = state.lists[source.droppableId];
+        const tasks = [...state[source.droppableId]];
 
         [tasks[source.index], tasks[destination.index]] = 
             [tasks[destination.index], tasks[source.index]];
-
+        
         return {
-            ...state.lists,
-            [draggableId]: tasks
+            ...state,
+            [source.droppableId]: tasks
         }
     } else {
-        const sourceList = state.lists[source.droppableId];
-        const destinationList = state.lists[destination.droppableId];
+        const sourceList = [...state[source.droppableId]];
+        const destinationList = [...state[destination.droppableId]];
 
         destinationList.splice(destination.index, 0, sourceList[source.index]);
         sourceList.splice(source.index, 1);
 
         return {
-            ...state.lists,
-            [source.draggableId]: sourceList,
-            [destination.draggableId]: destinationList
+            ...state,
+            [source.droppableId]: sourceList,
+            [destination.droppableId]: destinationList
         };
     }
 }
 
-export default dragCard;
+export const deleteTask = (state, payload) => {
+    const {listName, id} = payload;
+    const index = state[listName].findIndex(task => task.id === id);
+    state[listName].splice(index, 1);
+
+    return [...state[listName]];
+}

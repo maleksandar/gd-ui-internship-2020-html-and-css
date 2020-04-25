@@ -28,7 +28,6 @@ const useStyles = makeStyles(({
 
 function TaskList(props) {
     const classes = useStyles();
-
     return (
         <Grid container className={classes.column}>
             <Typography 
@@ -55,7 +54,9 @@ function TaskList(props) {
                                         {...provided.dragHandleProps}
                                         innerRef={provided.innerRef}>
                                         <Task
-                                            key = {task.id} 
+                                            key={task.id} 
+                                            listName={props.title}
+                                            id={task.id}
                                             title={task.title} 
                                             description={task.description}/>
                                     </Grid>
@@ -75,7 +76,6 @@ function TaskList(props) {
                 </Button>
                 : null
             }
-            
         </Grid>
     )
 }

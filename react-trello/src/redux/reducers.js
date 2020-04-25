@@ -1,6 +1,8 @@
 import { persistReducer } from "redux-persist";
 import storage from 'redux-persist/lib/storage';
-import dragCard from './utils';
+import { dragCard } from './utils';
+import { deleteTask } from "./utils";
+import { actionTypes } from "./types";
 
 const persistConfig = {
     key: 'root',
@@ -9,45 +11,45 @@ const persistConfig = {
 }
  
 const initialState = {
-    lists: {
-        'TODO' : [
-            {
-                id : 4,
-                title: "Redux",
-                description: "Use redux"
-            } 
-        ],
+    'TODO' : [
+        {
+            id : 4,
+            title: "Redux",
+            description: "Use redux"
+        } 
+    ],
         
-        'IN PROGRESS' : [
-            {
-                id : 2,
-                title: "Initial layout",
-                description: "Do initial layout"
-            },
-            {
-                id : 3,
-                title: "Drag and drop",
-                description: "Do drag and drop functionality"
-            }
-          ],
+    'IN PROGRESS' : [
+        {
+            id : 2,
+            title: "Initial layout",
+            description: "Do initial layout"
+        },
+        {
+            id : 3,
+            title: "Drag and drop",
+            description: "Do drag and drop functionality"
+        }
+    ],
         
-          'DONE' : [
-            {
-                id : 1,
-                title: "Project plan",
-                description: "Do plan of a project"
-            }
-          ],
-    }
+    'DONE' : [
+        {
+            id : 1,
+            title: "Project plan",
+            description: "Do plan of a project"
+        }
+    ],
 }
 
 function taskReducer(state = initialState, action) {
     switch(action.type) {
-        case "DRAG_TASK":
+        case actionTypes.DRAG_CARD:
+            return dragCard(state, action.payload);
+        case actionTypes.DELETE_TASK:
             return {
                 ...state,
-                lists: dragCard(state, action.payload)
-            };
+                [action.payload.listName] : deleteTask(state, action.payload)
+            }
         default: 
             return state
     }
