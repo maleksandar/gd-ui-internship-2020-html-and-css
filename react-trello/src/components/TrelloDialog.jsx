@@ -8,7 +8,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import SaveIcon from '@material-ui/icons/Save';
 import CancelIcon from '@material-ui/icons/Cancel';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { addTask } from '../redux/actions';
+import { addTask, editTask, deleteTask } from '../redux/actions';
 import { connect } from 'react-redux';
 
 const useStyles = makeStyles(({
@@ -25,7 +25,7 @@ const useStyles = makeStyles(({
 
 function TrelloDialog(props) {
     const { open, setOpen } = props;
-    const { addTask, buttonType, title, description, listName } = props;
+    const { addTask, editTask, deleteTask, buttonType, id, title, description, listName } = props;
 
     const titleInput = React.createRef(null);
     const descriptionInput = React.createRef(null);
@@ -37,10 +37,24 @@ function TrelloDialog(props) {
     };
 
     const handleSave = () => {
-        addTask(
-            listName, 
-            titleInput.current.value, 
-            descriptionInput.current.value);
+        id ?
+            editTask(
+                listName, 
+                id,
+                titleInput.current.value,
+                descriptionInput.current.value)
+            :
+            addTask(
+                listName, 
+                titleInput.current.value, 
+                descriptionInput.current.value);
+
+        handleClose();
+    }
+
+    const handleDelete = () => {
+        deleteTask(listName, id);
+
         handleClose();
     }
     
@@ -75,6 +89,7 @@ function TrelloDialog(props) {
                 className={classes.buttonDelete}
                 color="secondary"
                 size="small"
+                onClick={handleDelete}
                 startIcon={<DeleteIcon/>}
                 disabled={buttonType === "DELETE_BUTTON"}>
                 Delete
@@ -100,6 +115,8 @@ function TrelloDialog(props) {
 
 const mapDispatchToProps = (dispatch) => ({
     addTask: (listName, title, description) => dispatch(addTask(listName, title, description)),
+    editTask: (listName, id, title, description) => dispatch(editTask(listName, id, title, description)),
+    deleteTask: (listName, id) => dispatch(deleteTask(listName, id)),
 })
   
 export default connect(null, mapDispatchToProps)(TrelloDialog);

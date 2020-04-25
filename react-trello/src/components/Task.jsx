@@ -5,6 +5,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { connect } from 'react-redux';
 import { deleteTask } from '../redux/actions'
+import TrelloDialog from './TrelloDialog';
 
 const useStyles = makeStyles(({
   cardActions: {
@@ -16,9 +17,16 @@ const useStyles = makeStyles(({
 
 function Task(props) {
   const clasess = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  const {listName, id, title, description} = props;
 
   const handleDelete = () => {
     props.deleteTask(props.listName, props.id);
+  }
+
+  const handleOpenDialog = () => {
+    setOpen(true);
   }
 
   return (
@@ -41,6 +49,7 @@ function Task(props) {
           <Button
             color="primary"
             size="small"
+            onClick={handleOpenDialog}
             startIcon={<EditIcon/>}>
             Edit
           </Button>
@@ -54,6 +63,15 @@ function Task(props) {
           </Button>
         </CardActions>
       </Card>
+
+      <TrelloDialog 
+          open={open}
+          setOpen={setOpen}
+          title={title}
+          description={description}
+          listName={listName}
+          id={id}
+      />
     </Grid>
   )
 }

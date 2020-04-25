@@ -4,6 +4,7 @@ import { actionTypes } from "./types";
 import { dragCard } from './utils';
 import { deleteTask } from "./utils";
 import { addTask } from "./utils";
+import { editTask } from "./utils";
 
 const persistConfig = {
     key: 'root',
@@ -55,6 +56,11 @@ function taskReducer(state = initialState, action) {
             return {
                 ...state,
                 [action.payload.listName] : addTask(state, action.payload)
+            }
+        case actionTypes.EDIT_TASK:
+            return {
+                ...state,
+                [action.payload.listName] : editTask(state, action.payload)
             }
         default: 
             return state

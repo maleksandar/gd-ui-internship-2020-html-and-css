@@ -27,3 +27,15 @@ export const addTask = (listName, title, description) => (
         }
     }
 )
+
+export const editTask = (listName, id, title, description) => (
+    {
+        type: actionTypes.EDIT_TASK,
+        payload: {
+            listName: listName,
+            id: id,
+            title: title,
+            description: description
+        }
+    }
+)

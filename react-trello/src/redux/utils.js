@@ -60,3 +60,20 @@ export const addTask = (state, payload) => {
 
     return tasks;
 }
+
+export const editTask = (state, payload) => {
+    const {listName, id, title, description} = payload;
+    const tasks = [...state[listName]];
+
+    const index = tasks.findIndex(task => task.id === id);
+
+    const task = {
+        id: id,
+        title: title,
+        description: description
+    }
+
+    tasks[index] = task;
+
+    return tasks;
+}
