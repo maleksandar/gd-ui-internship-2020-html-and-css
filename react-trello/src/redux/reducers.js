@@ -1,8 +1,9 @@
 import { persistReducer } from "redux-persist";
 import storage from 'redux-persist/lib/storage';
+import { actionTypes } from "./types";
 import { dragCard } from './utils';
 import { deleteTask } from "./utils";
-import { actionTypes } from "./types";
+import { addTask } from "./utils";
 
 const persistConfig = {
     key: 'root',
@@ -49,6 +50,11 @@ function taskReducer(state = initialState, action) {
             return {
                 ...state,
                 [action.payload.listName] : deleteTask(state, action.payload)
+            }
+        case actionTypes.ADD_TASK:
+            return {
+                ...state,
+                [action.payload.listName] : addTask(state, action.payload)
             }
         default: 
             return state

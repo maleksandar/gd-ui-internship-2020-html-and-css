@@ -5,6 +5,7 @@ import AddIcon from '@material-ui/icons/Add';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import Task from "./Task";
+import TrelloDialog from './TrelloDialog';
 
 const useStyles = makeStyles(({
     column: {
@@ -24,10 +25,16 @@ const useStyles = makeStyles(({
     buttonAdd: {
         alignSelf: 'center',
     }
-  }));
+}));
 
 function TaskList(props) {
+    const [open, setOpen] = React.useState(false);
     const classes = useStyles();
+
+    const handleOpenDialog = () => {
+        setOpen(true);
+    }
+
     return (
         <Grid container className={classes.column}>
             <Typography 
@@ -71,11 +78,21 @@ function TaskList(props) {
                 <Button
                     className={classes.buttonAdd}
                     color="primary"
+                    onClick={handleOpenDialog}
                     startIcon={<AddIcon/>}>
                     Add card
                 </Button>
                 : null
             }
+
+            <TrelloDialog 
+                open={open}
+                setOpen={setOpen}
+                title=''
+                description=''
+                listName={props.title}
+                buttonType="DELETE_BUTTON"
+            />
         </Grid>
     )
 }

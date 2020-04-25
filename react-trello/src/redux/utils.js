@@ -1,3 +1,5 @@
+import { v1 as uuidv1 } from 'uuid';
+
 export const dragCard = (state, result) => {        
     const { destination, source } = result;
 
@@ -37,8 +39,24 @@ export const dragCard = (state, result) => {
 
 export const deleteTask = (state, payload) => {
     const {listName, id} = payload;
-    const index = state[listName].findIndex(task => task.id === id);
-    state[listName].splice(index, 1);
+    const tasks = [...state[listName]];
+    const index = tasks.findIndex(task => task.id === id);
+    tasks.splice(index, 1);
 
-    return [...state[listName]];
+    return tasks;
+}
+
+export const addTask = (state, payload) => {
+    const {listName, title, description} = payload;
+    const tasks = [...state[listName]]
+
+    const task = {
+        id: uuidv1(),
+        title: title,
+        description: description
+    }
+
+    tasks.push(task);
+
+    return tasks;
 }

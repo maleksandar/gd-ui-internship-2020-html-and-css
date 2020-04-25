@@ -16,3 +16,14 @@ export const deleteTask = (listName, id) => (
         },
     }
 )
+
+export const addTask = (listName, title, description) => (
+    {
+        type: actionTypes.ADD_TASK,
+        payload: {
+            listName: listName,
+            title: title,
+            description: description
+        }
+    }
+)
