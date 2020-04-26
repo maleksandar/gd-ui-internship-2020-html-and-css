@@ -17,8 +17,12 @@ const useStyles = makeStyles(({
     },
     list: {
         flexDirection: 'column',
+        flexWrap: 'nowrap',
         paddingBottom: '.8rem',
         minHeight: '2rem',
+        maxHeight: '30rem',
+        overflowY: 'scroll',
+        marginBottom: '.5rem'
     },
     title: {
         margin: '.6rem 0'
