@@ -12,6 +12,7 @@ const useClasess = makeStyles(({
         flexWrap: 'nowrap', 
         overflow: 'scroll',
         alignItems: 'flex-start',
+        width: '100%'
     },
     column: {
         flex: '0 0 20rem',
