@@ -1,5 +1,8 @@
 body {
   margin: 0;
+  background-image: url('./assets/edward-howell-ch0bdm8v4Bc-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
