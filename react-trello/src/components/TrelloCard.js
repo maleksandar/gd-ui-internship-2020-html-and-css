@@ -33,11 +33,12 @@ const useStyles = makeStyles({
 });
 
 const TrelloCard = (props) => {
-  const { listID, cardID, index, title, text, deleteCard } = props;
+  const { listID, card, index, deleteCard } = props;
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
   const handleOpenModalModal = () => {
+    // TODO: Send card title and text
     setOpen(true);
   };
 
@@ -47,13 +48,13 @@ const TrelloCard = (props) => {
   };
 
   const handleDeleteCard = () => {
-    deleteCard(listID, cardID);
+    deleteCard(listID, card.id);
   };
 
   return (
     <Grid item>
       <Draggable
-        draggableId={String(cardID)}
+        draggableId={String(card.id)}
         index={index}>
         {(provided) => (
           <Grid
@@ -67,13 +68,13 @@ const TrelloCard = (props) => {
                   variant="h6"
                   component="h4"
                   gutterBottom>
-                  {title}
+                  {card.title}
                 </Typography>
 
                 <Typography
                   variant="body2"
                   component="p">
-                  {handleTextLength(text)}
+                  {handleTextLength(card.text)}
                 </Typography>
               </CardContent>
 
@@ -101,11 +102,11 @@ const TrelloCard = (props) => {
 
       <TrelloModal
         listID={listID}
-        cardID={cardID}
+        cardID={card.id}
         open={open}
         setOpen={setOpen}
-        cardTitle={title}
-        cardText={text}
+        cardTitle={card.title}
+        cardText={card.text}
         type={ACTION_TYPES.UPDATE_CARD}/>
     </Grid>
   );

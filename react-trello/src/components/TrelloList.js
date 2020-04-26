@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     flex: '0 0 300px',
   },
   container: {
-    overflowX: 'scroll',
+    // overflowX: 'scroll',
     maxHeight: 600,
   },
   title: {
@@ -32,11 +32,9 @@ const TrelloList = (props) => {
   const trelloCards = cards.map((card, index) => (
     <TrelloCard
       key={card.id}
-      cardID={card.id}
+      card={card}
       listID={listID}
-      index={index}
-      title={card.title}
-      text={card.text}/>
+      index={index}/>
   ));
 
   const handleShowActionButton = () => {
@@ -52,8 +50,7 @@ const TrelloList = (props) => {
         {(provided) => (
           <Grid
             item
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
+            {...provided.droppableProps}
             ref={provided.innerRef}>
             <Typography
               className={classes.title}
@@ -67,6 +64,7 @@ const TrelloList = (props) => {
               item
               className={classes.container}>
               {trelloCards}
+              {provided.placeholder}
             </Grid>
           </Grid>
         )}
