@@ -13,11 +13,12 @@ const useStyles = makeStyles(({
         backgroundColor: '#F5F5F5',
         padding: '0 .8rem',
         paddingBottom: '.5rem',
-        borderRadius: '.3rem'
+        borderRadius: '.3rem',
     },
     list: {
         flexDirection: 'column',
-        paddingBottom: '.8rem'
+        paddingBottom: '.8rem',
+        minHeight: '2rem',
     },
     title: {
         margin: '.6rem 0'
@@ -51,7 +52,6 @@ function TaskList(props) {
                         className={classes.list}
                         innerRef={provided.innerRef}
                         {...provided.droppableProps} >
-                        {provided.placeholder}
                         { props.tasks.map((task, index) => 
                             <Draggable key={task.id} draggableId={String(task.id)} index={index}> 
                                 {(provided) => (
@@ -59,7 +59,8 @@ function TaskList(props) {
                                         item 
                                         {...provided.draggableProps}
                                         {...provided.dragHandleProps}
-                                        innerRef={provided.innerRef}>
+                                        innerRef={provided.innerRef}
+                                        >
                                         <Task
                                             key={task.id} 
                                             listName={props.title}
@@ -70,6 +71,7 @@ function TaskList(props) {
                                 )}
                             </Draggable>
                         )} 
+                        {provided.placeholder}
                 </Grid>
                 )}
             </Droppable>
