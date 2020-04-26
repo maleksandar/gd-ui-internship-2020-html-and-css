@@ -1,16 +1,8 @@
-import { persistReducer } from "redux-persist";
-import storage from 'redux-persist/lib/storage';
-import { actionTypes } from "./types";
-import { dragCard } from './utils';
-import { deleteTask } from "./utils";
-import { addTask } from "./utils";
-import { editTask } from "./utils";
-
-const persistConfig = {
-    key: 'root',
-    storage,
-    whiteList: [taskReducer]
-}
+import { actionTypes } from "./tasks.types";
+import { dragCard } from './tasks.utils';
+import { deleteTask } from "./tasks.utils";
+import { addTask } from "./tasks.utils";
+import { editTask } from "./tasks.utils";
  
 const initialState = {
     'TODO' : [
@@ -67,4 +59,4 @@ function taskReducer(state = initialState, action) {
     }
 }
 
-export default persistReducer(persistConfig, taskReducer);
+export default taskReducer;

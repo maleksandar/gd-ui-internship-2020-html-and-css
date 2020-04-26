@@ -4,7 +4,7 @@ import TaskList from './TaskList';
 import { makeStyles } from "@material-ui/styles";
 import { connect } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
-import { dragCard } from '../redux/actions';
+import { dragCard } from '../redux/Tasks/tasks.actions';
 
 const useClasess = makeStyles(({
     board: {
@@ -20,6 +20,7 @@ const useClasess = makeStyles(({
 
 function Board(props) {
   const classes = useClasess();
+  
   return (
     <DragDropContext onDragEnd={props.dragCard}>
       <Grid 
@@ -41,7 +42,7 @@ function Board(props) {
 }
 
 const mapStateToProps = (state) => ({
-  tasks: state
+  tasks: state.tasks
 });
 
 const mapDispatchToProps = (dispatch) => ({

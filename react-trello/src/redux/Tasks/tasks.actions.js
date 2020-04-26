@@ -1,4 +1,4 @@
-import { actionTypes } from "./types";
+import { actionTypes } from "./tasks.types";
 
 export const dragCard = (result) => (
     { 

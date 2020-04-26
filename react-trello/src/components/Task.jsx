@@ -4,7 +4,7 @@ import { Grid, Card, Typography, CardContent, CardActions, Button } from '@mater
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { connect } from 'react-redux';
-import { deleteTask } from '../redux/actions'
+import { deleteTask } from '../redux/Tasks/tasks.actions';
 import TrelloDialog from './TrelloDialog';
 
 const useStyles = makeStyles(({
