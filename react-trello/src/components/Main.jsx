@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Main.scss";
 import Column from "./Column";
 import Modal from "./Modal";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 class Main extends Component {
   state = {
@@ -24,39 +25,62 @@ class Main extends Component {
 
   render() {
     return (
-      <section className="main">
-        <Column
-          handleEdit={this.editTask}
-          handleDelete={this.deleteTask}
-          cards={this.state.cards.toDo}
-          title="ToDo"
-        />
-        <Column
-          handleEdit={this.editTask}
-          handleDelete={this.deleteTask}
-          cards={this.state.cards.inProgress}
-          title="inProgress"
-        />
-        <Column
-          handleEdit={this.editTask}
-          handleDelete={this.deleteTask}
-          cards={this.state.cards.done}
-          title="Done"
-        />
-        <button
-          className="button button--add"
-          onClick={(e) => this.toggleNewModal(e)}
-        >
-          <span>+</span>
-        </button>
-        <Modal
-          data={this.state.newTaskData}
-          handleCancel={(e) => this.toggleNewModal(e)}
-          handleSave={this.saveNewTask}
-        />
-      </section>
+      <DragDropContext onDragEnd={this.onDragEnd}>
+        <section className="main">
+          <Column
+            handleEdit={this.editTask}
+            handleDelete={this.deleteTask}
+            cards={this.state.cards.toDo}
+            title="toDo"
+          />
+          <Column
+            handleEdit={this.editTask}
+            handleDelete={this.deleteTask}
+            cards={this.state.cards.inProgress}
+            title="inProgress"
+          />
+          <Column
+            handleEdit={this.editTask}
+            handleDelete={this.deleteTask}
+            cards={this.state.cards.done}
+            title="done"
+          />
+          <button
+            className="button button--add"
+            onClick={(e) => this.toggleNewModal(e)}
+          >
+            <span>+</span>
+          </button>
+          <Modal
+            data={this.state.newTaskData}
+            handleCancel={(e) => this.toggleNewModal(e)}
+            handleSave={this.saveNewTask}
+          />
+        </section>
+      </DragDropContext>
     );
   }
+
+  onDragEnd = (result, columns, setColumns) => {
+    console.log(result);
+    if (!result.destination) {
+      return;
+    }
+    const source = result.source.droppableId;
+    const dest = result.destination.droppableId;
+    const cardId = Number(result.draggableId);
+
+    let cards = { ...this.state.cards };
+    const card = cards[source].find((card) => card.id === cardId);
+    cards[source] = cards[source].filter((card) => {
+      return card.id !== cardId;
+    });
+    cards[dest].push(card);
+
+    this.setState({
+      cards,
+    });
+  };
 
   deleteTask = (id) => {
     let toDo = this.state.cards.toDo.filter((card) => {
