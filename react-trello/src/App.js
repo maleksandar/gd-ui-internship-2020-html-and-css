@@ -1,17 +1,11 @@
 import React from 'react';
-import { Typography } from '@material-ui/core'
+import Header from './components/Header';
 import TrelloBoard from './containers/TrelloBoard';
 
 function App() {
   return (
     <div>
-      <Typography
-        variant="h2"
-        align="center"
-        gutterBottom
-        component="h1">
-        Trello App
-      </Typography>
+      <Header/>
       <TrelloBoard/>
     </div>
   );
