@@ -3,6 +3,7 @@ import "./Main.scss";
 import Column from "./Column";
 import Modal from "./Modal";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import cloneDeep from "lodash/cloneDeep";
 
 class Main extends Component {
   state = {
@@ -22,6 +23,21 @@ class Main extends Component {
       clearAfterSave: true,
     },
   };
+
+  componentDidMount() {
+    // console.log(this.state);
+    // if (!localStorage.getItem("main-state")) {
+    //   localStorage.setItem("main-state", JSON.stringify(this.state));
+    // } else {
+    //   let state = JSON.parse(localStorage.getItem("main-state"));
+    //   state.newTaskData.modal = false;
+    //   this.setState(state);
+    // }
+  }
+
+  updateLocalStorage() {
+    // localStorage.setItem("main-state", JSON.stringify(this.state));
+  }
 
   render() {
     return (
@@ -62,7 +78,8 @@ class Main extends Component {
   }
 
   onDragEnd = (result, columns, setColumns) => {
-    console.log(result);
+    console.log(this.state.cards);
+
     if (!result.destination) {
       return;
     }
@@ -70,16 +87,21 @@ class Main extends Component {
     const dest = result.destination.droppableId;
     const cardId = Number(result.draggableId);
 
-    let cards = { ...this.state.cards };
-    const card = cards[source].find((card) => card.id === cardId);
+    let cards = cloneDeep(this.state.cards);
+    const cardToMove = cards[source].find((card) => card.id === cardId);
     cards[source] = cards[source].filter((card) => {
       return card.id !== cardId;
     });
-    cards[dest].push(card);
+
+    cards[dest].push(cardToMove);
+    console.log("cards copy after moving", cards);
+    console.log("state", this.state.cards);
 
     this.setState({
       cards,
     });
+    console.log("state after", this.state.cards);
+    //   this.updateLocalStorage();
   };
 
   deleteTask = (id) => {
@@ -100,6 +122,7 @@ class Main extends Component {
     this.setState({
       cards,
     });
+    this.updateLocalStorage();
   };
 
   editTask = (title, description, id) => {
@@ -135,11 +158,12 @@ class Main extends Component {
     this.setState({
       cards,
     });
+    this.updateLocalStorage();
   };
 
   saveNewTask = (title, description) => {
     let descriptionShort = this.shortenDescription(description);
-    let cards = { ...this.state.cards };
+    let cards = cloneDeep(this.state.cards);
     cards.toDo.push({
       title: title,
       description: description,
@@ -151,6 +175,7 @@ class Main extends Component {
       cards,
       lastId,
     });
+    this.updateLocalStorage();
   };
 
   shortenDescription(description) {
@@ -160,11 +185,12 @@ class Main extends Component {
   }
 
   toggleNewModal() {
-    let newTaskData = { ...this.state.newTaskData };
+    let newTaskData = cloneDeep(this.state.newTaskData);
     newTaskData.modal = !this.state.newTaskData.modal;
     this.setState({
       newTaskData,
     });
+    this.updateLocalStorage();
   }
 }
 

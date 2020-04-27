@@ -23,11 +23,6 @@ class Column extends Component {
           </div>
         )}
       </Droppable>
-
-      // <div className="task-list">
-      //   <h2 className="task-list__title">{this.props.title}</h2>
-      //  {this.renderCards()}
-      // </div>
     );
   }
 
@@ -52,12 +47,6 @@ class Column extends Component {
             </div>
           )}
         </Draggable>
-
-        // <Card
-        //   handleDelete={this.props.handleDelete}
-        //   handleEdit={this.props.handleEdit}
-        //   card={card}
-        // />
       );
     });
   }
