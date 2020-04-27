@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf task_06 && rm -rf task_07 && rm -rf dist",
-    "build-angular": "cd angular-trello && npm i && ng build --prod",
+    "build-angular": "cd angular-trello && npm i && ng build",
     "build-react": "cd react-trello && npm i && npm run build",
     "build": "npm run clean && npm run build-angular && npm run build-react && node deploy.js",
     "ng-dev": "cd angular-trello && ng serve",
