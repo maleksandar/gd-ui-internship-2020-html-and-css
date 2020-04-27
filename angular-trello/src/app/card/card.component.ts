@@ -21,7 +21,7 @@ import { WebSocketService } from "../ws.service";
 export class CardComponent implements OnInit {
   @Input()
   card: Card;
-  @Output() cardUpdate: EventEmitter<Card>;
+  @Output() cardUpdate: EventEmitter<Card> = new EventEmitter();
   editingCard = false;
   currentTitle: string;
   zone: NgZone;
@@ -32,7 +32,6 @@ export class CardComponent implements OnInit {
     private _cardService: CardService
   ) {
     this.zone = new NgZone({ enableLongStackTrace: false });
-    this.cardUpdate = new EventEmitter();
   }
 
   ngOnInit() {
