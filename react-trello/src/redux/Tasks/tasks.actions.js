@@ -1,4 +1,4 @@
-import { actionTypes } from "./tasks.types";
+import { actionTypes } from './tasks.types';
 
 export const dragCard = (result) => (
     { 
@@ -12,10 +12,10 @@ export const deleteTask = (listName, id) => (
         type: actionTypes.DELETE_TASK,
         payload: {
             listName: listName,
-            id: id
+            id: id,
         },
     }
-)
+);
 
 export const addTask = (listName, title, description) => (
     {
@@ -23,10 +23,10 @@ export const addTask = (listName, title, description) => (
         payload: {
             listName: listName,
             title: title,
-            description: description
+            description: description,
         }
     }
-)
+);
 
 export const editTask = (listName, id, title, description) => (
     {
@@ -35,7 +35,7 @@ export const editTask = (listName, id, title, description) => (
             listName: listName,
             id: id,
             title: title,
-            description: description
+            description: description,
         }
     }
-)
+);

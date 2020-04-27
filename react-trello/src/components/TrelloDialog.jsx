@@ -1,15 +1,15 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
 import SaveIcon from '@material-ui/icons/Save';
 import CancelIcon from '@material-ui/icons/Cancel';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { addTask, editTask, deleteTask } from '../redux/Tasks/tasks.actions';
+import TextField from '@material-ui/core/TextField';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
 import { connect } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
+import { addTask, editTask, deleteTask } from '../redux/Tasks/tasks.actions';
 import { validateTitle, validateDescription} from '../redux/Error/error.actions';
 
 const useStyles = makeStyles(({
@@ -25,22 +25,23 @@ const useStyles = makeStyles(({
         marginRight: 'auto',
     },
     title: {
-        height: '6rem'
+        height: '6rem',
     },
     description: {
-        height: '10.5rem'
-    }
+        height: '10.5rem',
+    },
 }));
 
 function TrelloDialog(props) {
+    const classes = useStyles();
+
     const { open, setOpen } = props;
-    const { addTask, editTask, deleteTask, buttonType, id, title, description, listName } = props;
+    const { listName, id, title, description, buttonType } = props;
+    const { addTask, editTask, deleteTask } = props;
     const { validateTitle, validateDescription, errors } = props;
 
-    const titleInput = React.createRef(null);
-    const descriptionInput = React.createRef(null);
-
-    const classes = useStyles();
+    const titleInput = React.createRef();
+    const descriptionInput = React.createRef();
 
     const handleClose = () => {
         setOpen(false);
@@ -60,34 +61,33 @@ function TrelloDialog(props) {
                 descriptionInput.current.value.trim());
 
         handleClose();
-    }
+    };
 
     const handleDelete = () => {
         deleteTask(listName, id);
-
         handleClose();
-    }
+    };
 
     const handleTitleChange = () => {
         validateTitle(titleInput.current.value.trim());
-    }
+    };
 
     const handleDescriptionChange = () => {
         validateDescription(descriptionInput.current.value.trim());
-    }
+    };
     
     return (
-        <div>
         <Dialog 
-            open={open}>
+            open={open}
+            onClose={handleClose}>
             <DialogContent
                 className={classes.dialogContent}>
                 <TextField
                     className={classes.title}
-                    label="Card Title"
-                    type="text"
+                    label='Card Title'
+                    type='text'
                     fullWidth
-                    variant="outlined"
+                    variant='outlined'
                     defaultValue={title}
                     inputRef={titleInput}
                     onChange={handleTitleChange}
@@ -96,10 +96,10 @@ function TrelloDialog(props) {
                 />
                 <TextField
                     className={classes.description}
-                    label="Card Description"
-                    type="text"
+                    label='Card Description'
+                    type='text'
                     fullWidth
-                    variant="outlined"
+                    variant='outlined'
                     defaultValue={description}
                     inputRef={descriptionInput}
                     onChange={handleDescriptionChange}
@@ -113,22 +113,22 @@ function TrelloDialog(props) {
                 className={classes.dialogActions}>
             <Button
                 className={classes.buttonDelete}
-                color="secondary"
-                size="small"
+                color='secondary'
+                size='small'
                 onClick={handleDelete}
                 startIcon={<DeleteIcon/>}
-                disabled={buttonType === "DELETE_BUTTON"}>
+                disabled={buttonType === 'DELETE_BUTTON'}>
                 Delete
             </Button>
             <Button
-                size="small"
+                size='small'
                 onClick={handleClose}
                 startIcon={<CancelIcon/>}>
                 Cancel
             </Button>
             <Button
-                color="primary"
-                size="small"
+                color='primary'
+                size='small'
                 onClick={handleSave}
                 disabled={errors.titleError.error || errors.descriptionError.error}
                 startIcon={<SaveIcon/>}>
@@ -136,7 +136,6 @@ function TrelloDialog(props) {
             </Button>
             </DialogActions>
         </Dialog>
-        </div>
     );
 }
 
@@ -150,6 +149,6 @@ const mapDispatchToProps = (dispatch) => ({
     deleteTask: (listName, id) => dispatch(deleteTask(listName, id)),
     validateTitle: (value) => dispatch(validateTitle(value)),
     validateDescription: (value) => dispatch(validateDescription(value)),
-})
+});
   
 export default connect(mapStateToProps, mapDispatchToProps)(TrelloDialog);

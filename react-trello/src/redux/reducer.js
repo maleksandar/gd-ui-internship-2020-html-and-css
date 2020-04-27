@@ -1,4 +1,4 @@
-import { persistReducer } from "redux-persist";
+import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { combineReducers } from 'redux';
 import taskReducer from './Tasks/tasks.reducer';
@@ -12,7 +12,7 @@ const persistConfig = {
 
 const reducer = combineReducers({
   tasks: taskReducer,
-  errors: errorReducer
+  errors: errorReducer,
 });
 
 export default persistReducer(persistConfig, reducer);

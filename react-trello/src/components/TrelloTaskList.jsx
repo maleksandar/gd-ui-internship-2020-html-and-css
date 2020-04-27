@@ -1,11 +1,10 @@
 import React from 'react';
+import TrelloTask from './TrelloTask';
+import TrelloDialog from './TrelloDialog';
+import AddIcon from '@material-ui/icons/Add';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Button } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
-
-import Task from "./Task";
-import TrelloDialog from './TrelloDialog';
 
 const useStyles = makeStyles(({
     column: {
@@ -22,50 +21,50 @@ const useStyles = makeStyles(({
         minHeight: '2rem',
         maxHeight: '30rem',
         overflowY: 'scroll',
-        marginBottom: '.5rem'
+        marginBottom: '.5rem',
     },
     title: {
-        margin: '.6rem 0'
+        margin: '.6rem',
     },
     buttonAdd: {
         alignSelf: 'center',
-    }
+    },
 }));
 
-function TaskList(props) {
-    const [open, setOpen] = React.useState(false);
+function TrelloTaskList(props) {
     const classes = useStyles();
+
+    const [open, setOpen] = React.useState(false);
 
     const handleOpenDialog = () => {
         setOpen(true);
-    }
+    };
 
     return (
         <Grid container className={classes.column}>
             <Typography 
-                variant="subtitle1" 
+                variant='subtitle1' 
                 className={classes.title}>
                 {props.title} 
             </Typography>
             <Droppable droppableId={props.title}>
                 {(provided) => (
-                    <Grid 
-                        item 
+                    <Grid  
                         container 
                         spacing={2} 
                         className={classes.list}
                         innerRef={provided.innerRef}
-                        {...provided.droppableProps} >
-                        { props.tasks.map((task, index) => 
+                        {...provided.droppableProps}>
+                        { 
+                            props.tasks.map((task, index) => 
                             <Draggable key={task.id} draggableId={String(task.id)} index={index}> 
                                 {(provided) => (
                                     <Grid 
                                         item 
                                         {...provided.draggableProps}
                                         {...provided.dragHandleProps}
-                                        innerRef={provided.innerRef}
-                                        >
-                                        <Task
+                                        innerRef={provided.innerRef}>
+                                        <TrelloTask
                                             key={task.id} 
                                             listName={props.title}
                                             id={task.id}
@@ -76,14 +75,14 @@ function TaskList(props) {
                             </Draggable>
                         )} 
                         {provided.placeholder}
-                </Grid>
+                    </Grid>
                 )}
             </Droppable>
             { 
                 props.title === 'TODO' ? 
                 <Button
                     className={classes.buttonAdd}
-                    color="primary"
+                    color='primary'
                     onClick={handleOpenDialog}
                     startIcon={<AddIcon/>}>
                     Add card
@@ -97,10 +96,10 @@ function TaskList(props) {
                 title=''
                 description=''
                 listName={props.title}
-                buttonType="DELETE_BUTTON"
+                buttonType='DELETE_BUTTON'
             />
         </Grid>
-    )
+    );
 }
 
-export default TaskList;
+export default TrelloTaskList;

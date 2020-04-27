@@ -20,46 +20,48 @@ export const dragCard = (state, result) => {
         
         return {
             ...state,
-            [source.droppableId]: tasks
+            [source.droppableId]: tasks,
         }
     } else {
-        const sourceList = [...state[source.droppableId]];
-        const destinationList = [...state[destination.droppableId]];
+        const sourceTasks = [...state[source.droppableId]];
+        const destinationTasks= [...state[destination.droppableId]];
 
-        destinationList.splice(destination.index, 0, sourceList[source.index]);
-        sourceList.splice(source.index, 1);
+        destinationTasks.splice(destination.index, 0, sourceTasks[source.index]);
+        sourceTasks.splice(source.index, 1);
 
         return {
             ...state,
-            [source.droppableId]: sourceList,
-            [destination.droppableId]: destinationList
+            [source.droppableId]: sourceTasks,
+            [destination.droppableId]: destinationTasks,
         };
     }
-}
+};
 
 export const deleteTask = (state, payload) => {
     const {listName, id} = payload;
+
     const tasks = [...state[listName]];
     const index = tasks.findIndex(task => task.id === id);
     tasks.splice(index, 1);
 
     return tasks;
-}
+};
 
 export const addTask = (state, payload) => {
     const {listName, title, description} = payload;
-    const tasks = [...state[listName]]
+
+    const tasks = [...state[listName]];
 
     const task = {
         id: uuidv1(),
         title: title,
-        description: description
-    }
+        description: description,
+    };
 
     tasks.push(task);
 
     return tasks;
-}
+};
 
 export const editTask = (state, payload) => {
     const {listName, id, title, description} = payload;
@@ -70,10 +72,10 @@ export const editTask = (state, payload) => {
     const task = {
         id: id,
         title: title,
-        description: description
-    }
+        description: description,
+    };
 
     tasks[index] = task;
 
     return tasks;
-}
+};

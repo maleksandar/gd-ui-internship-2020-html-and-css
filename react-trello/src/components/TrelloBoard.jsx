@@ -1,45 +1,46 @@
-import React from "react";
-import { Grid } from '@material-ui/core';
-import TaskList from './TaskList';
-import { makeStyles } from "@material-ui/styles";
+import React from 'react';
+import TrelloTaskList from './TrelloTaskList';
 import { connect } from 'react-redux';
+import { Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { dragCard } from '../redux/Tasks/tasks.actions';
 
 const useClasess = makeStyles(({
-    board: {
+    TrelloBoard: {
         margin: '0 auto',
         flexWrap: 'nowrap', 
         overflow: 'scroll',
         alignItems: 'flex-start',
-        width: '100%'
+        width: '100%',
     },
     column: {
         flex: '0 0 20rem',
-    }
+    },
 }))
 
-function Board(props) {
+function TrelloBoard(props) {
   const classes = useClasess();
+  const { tasks } = props;
   
   return (
     <DragDropContext onDragEnd={props.dragCard}>
       <Grid 
-        container 
+        container
         spacing={4}
-        className={classes.board}>
+        className={classes.TrelloBoard}>
         <Grid item className={classes.column}>
-          <TaskList title="TODO" tasks={props.tasks['TODO']}/>
+          <TrelloTaskList title='TODO' tasks={tasks['TODO']}/>
         </Grid>
         <Grid item className={classes.column}>
-          <TaskList title="IN PROGRESS" tasks={props.tasks['IN PROGRESS']}/>
+          <TrelloTaskList title='IN PROGRESS' tasks={tasks['IN PROGRESS']}/>
         </Grid>
         <Grid item className={classes.column}>
-          <TaskList title="DONE" tasks={props.tasks['DONE']}/>
+          <TrelloTaskList title='DONE' tasks={tasks['DONE']}/>
         </Grid>
       </Grid>
     </DragDropContext>       
-  )
+  );
 }
 
 const mapStateToProps = (state) => ({
@@ -48,6 +49,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   dragCard: (result) => dispatch(dragCard(result)),
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Board);
+export default connect(mapStateToProps, mapDispatchToProps)(TrelloBoard);
