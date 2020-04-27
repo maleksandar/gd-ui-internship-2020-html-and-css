@@ -14,7 +14,13 @@ class Column extends Component {
 
   renderCards() {
     return this.props.cards.map((card) => {
-      return <Card card={card} />;
+      return (
+        <Card
+          handleDelete={this.props.handleDelete}
+          handleEdit={this.props.handleEdit}
+          card={card}
+        />
+      );
     });
   }
 }
