@@ -10,15 +10,25 @@ class Modal extends Component {
     return (
       <React.Fragment>
         <div className={this.getClassesMain()}>
+          <div className="modal__modal-title">{this.props.data.title}</div>
+
+          <label htmlFor="title" className="form-control__label">
+            Title
+          </label>
           <input
             type="text"
-            className="form-control new-task__title"
+            id="title"
+            className="form-control modal__title"
             placeholder="Title"
             onChange={(e) => this.updateTitle(e)}
             value={this.state.title}
           />
 
+          <label htmlFor="description" className="form-control__label">
+            Task description
+          </label>
           <textarea
+            id="description"
             type="text"
             className="form-control modal__content"
             placeholder="Task description"
@@ -26,10 +36,18 @@ class Modal extends Component {
             value={this.state.description}
           ></textarea>
           <div className="modal__button-container">
-            <button onClick={() => this.onSave()} className="btn btn-success">
+            <button
+              onClick={() => this.onSave()}
+              className="modal__button modal__button--save"
+            >
               Save
             </button>
-            <button onClick={() => this.onCancel()}>Cancel</button>
+            <button
+              className="modal__button modal__button--cancel"
+              onClick={() => this.onCancel()}
+            >
+              Cancel
+            </button>
           </div>
         </div>
         <div className={this.getClassesOverlay()}></div>

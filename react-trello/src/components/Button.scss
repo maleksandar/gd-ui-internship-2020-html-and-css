@@ -32,7 +32,7 @@
   }
 
   &--delete {
-    background-color: rgb(189, 33, 33);
+    background-color: $warning-color;
     color: white;
   }
 }
