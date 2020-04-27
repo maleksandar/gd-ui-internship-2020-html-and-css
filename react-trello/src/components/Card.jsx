@@ -12,6 +12,9 @@ class Card extends Component {
       clearAfterSave: false,
     },
   };
+  componentDidMount() {
+    console.log("card created", this.props);
+  }
 
   render() {
     const { title, id, description, descriptionShort } = this.props.card;

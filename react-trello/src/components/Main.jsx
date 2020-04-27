@@ -25,18 +25,18 @@ class Main extends Component {
   };
 
   componentDidMount() {
-    // console.log(this.state);
-    // if (!localStorage.getItem("main-state")) {
-    //   localStorage.setItem("main-state", JSON.stringify(this.state));
-    // } else {
-    //   let state = JSON.parse(localStorage.getItem("main-state"));
-    //   state.newTaskData.modal = false;
-    //   this.setState(state);
-    // }
+    console.log(this.state);
+    if (!localStorage.getItem("main-state")) {
+      localStorage.setItem("main-state", JSON.stringify(this.state));
+    } else {
+      let state = JSON.parse(localStorage.getItem("main-state"));
+      state.newTaskData.modal = false;
+      this.setState(state);
+    }
   }
 
   updateLocalStorage() {
-    // localStorage.setItem("main-state", JSON.stringify(this.state));
+    localStorage.setItem("main-state", JSON.stringify(this.state));
   }
 
   render() {
@@ -79,7 +79,6 @@ class Main extends Component {
 
   onDragEnd = (result, columns, setColumns) => {
     console.log(this.state.cards);
-
     if (!result.destination) {
       return;
     }
@@ -94,14 +93,13 @@ class Main extends Component {
     });
 
     cards[dest].push(cardToMove);
-    console.log("cards copy after moving", cards);
-    console.log("state", this.state.cards);
 
-    this.setState({
-      cards,
-    });
-    console.log("state after", this.state.cards);
-    //   this.updateLocalStorage();
+    this.setState(
+      {
+        cards,
+      },
+      this.updateLocalStorage
+    );
   };
 
   deleteTask = (id) => {
@@ -119,10 +117,12 @@ class Main extends Component {
       inProgress,
       done,
     };
-    this.setState({
-      cards,
-    });
-    this.updateLocalStorage();
+    this.setState(
+      {
+        cards,
+      },
+      this.updateLocalStorage
+    );
   };
 
   editTask = (title, description, id) => {
@@ -155,10 +155,12 @@ class Main extends Component {
       inProgress,
       done,
     };
-    this.setState({
-      cards,
-    });
-    this.updateLocalStorage();
+    this.setState(
+      {
+        cards,
+      },
+      this.updateLocalStorage
+    );
   };
 
   saveNewTask = (title, description) => {
@@ -171,11 +173,13 @@ class Main extends Component {
       id: this.state.lastId,
     });
     let lastId = this.state.lastId + 1;
-    this.setState({
-      cards,
-      lastId,
-    });
-    this.updateLocalStorage();
+    this.setState(
+      {
+        cards,
+        lastId,
+      },
+      this.updateLocalStorage
+    );
   };
 
   shortenDescription(description) {
@@ -187,10 +191,12 @@ class Main extends Component {
   toggleNewModal() {
     let newTaskData = cloneDeep(this.state.newTaskData);
     newTaskData.modal = !this.state.newTaskData.modal;
-    this.setState({
-      newTaskData,
-    });
-    this.updateLocalStorage();
+    this.setState(
+      {
+        newTaskData,
+      },
+      this.updateLocalStorage
+    );
   }
 }
 

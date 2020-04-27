@@ -6,11 +6,7 @@ import { Droppable, Draggable } from "react-beautiful-dnd";
 class Column extends Component {
   render() {
     return (
-      <Droppable
-        className="dropabble"
-        droppableId={this.props.title}
-        type="PERSON"
-      >
+      <Droppable className="dropabble" droppableId={this.props.title}>
         {(provided, snapshot) => (
           <div
             className="task-list"
@@ -27,11 +23,13 @@ class Column extends Component {
   }
 
   renderCards() {
-    return this.props.cards.map((card, index) => {
-      const indexString = index.toString();
-
+    return this.props.cards.map((card) => {
       return (
-        <Draggable draggableId={indexString} index={index} key={indexString}>
+        <Draggable
+          draggableId={card.id.toString()}
+          index={card.id}
+          key={card.id.toString()}
+        >
           {(provided, snapshot) => (
             <div
               className="draggable"
