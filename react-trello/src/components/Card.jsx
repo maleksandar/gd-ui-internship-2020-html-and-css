@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./Card.scss";
 import Modal from "./Modal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 class Card extends Component {
   state = {
@@ -28,13 +30,16 @@ class Card extends Component {
               onClick={() => this.toggleEditModal()}
               className="button button--action button--edit"
             >
-              E
+              <FontAwesomeIcon className="button--action__icon" icon={faEdit} />
             </button>
             <button
               onClick={() => this.props.handleDelete(this.props.card.id)}
               className="button button--action button--delete"
             >
-              D
+              <FontAwesomeIcon
+                className="button--action__icon"
+                icon={faTrash}
+              />
             </button>
           </div>
         </div>
