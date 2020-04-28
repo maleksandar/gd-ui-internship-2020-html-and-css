@@ -1,121 +1,199 @@
-<div class="task-list task-list--todo"
-    cdkDropList 
-    #toDoList="cdkDropList" 
-    [cdkDropListData] = "toDo"
-    [cdkDropListConnectedTo] = "[inProgressList, doneList]"
-    (cdkDropListDropped) = "onDrop($event)"
+<div
+  class="task-list task-list--todo"
+  cdkDropList
+  #toDoList="cdkDropList"
+  [cdkDropListData]="toDo"
+  [cdkDropListConnectedTo]="[inProgressList, doneList]"
+  (cdkDropListDropped)="onDrop($event)"
 >
-    <h2 class="task-list__title">
-        toDo
-    </h2>
-    <div class="card cdk-drag-animating" *ngFor="let item of toDo; let i = index" cdkDrag>
-        <div class="card__title">{{item.title}}</div>
-        <div class="description-buttons-container">
-        <div class="card__description">{{item.descriptionShort}}</div>
-        <div class="button-container">
-        <button (click)="openEditTask(toDo, i)" class="button button--action button--edit">
-            E
-        </button>
-        <button (click)="deleteTask(toDo, i)" class="button button--action button--delete">
-            D
-        </button>
-        </div>
-        </div>  
-    </div>
-</div>
-
-
-<div class="task-list task-list--todo"
-    cdkDropList 
-    #inProgressList="cdkDropList" 
-    [cdkDropListData] = "inProgress"
-    [cdkDropListConnectedTo] = "[toDoList, doneList]"
-    (cdkDropListDropped) = "onDrop($event)"
->
-    <h2 class="task-list__title">
-        InProgress
-    </h2>
-    <div class="card cdk-drag-animating" *ngFor="let item of inProgress; let i = index" cdkDrag>
-        <div class="card__title">{{item.title}}</div>
-        <div class="description-buttons-container">
-            <div class="card__description">{{item.descriptionShort}}</div>
-            <div class="button-container">
-            <button (click)="openEditTask(inProgress, i)" class="button button--action button--edit">
-                E
-            </button>
-            <button (click)="deleteTask(inProgress, i)" class="button button--action button--delete">
-                D
-            </button>
-            </div>
-            </div>  
-    </div>
-</div>
-
-<div class="task-list task-list--todo"
-    cdkDropList 
-    #doneList="cdkDropList" 
-    [cdkDropListData] = "done"
-    [cdkDropListConnectedTo] = "[toDoList, inProgressList]"
-    (cdkDropListDropped) = "onDrop($event)"
->
-    <h2 class="task-list__title">
-        Done
-    </h2>
-    <div class="card cdk-drag-animating" *ngFor="let item of done; let i = index" cdkDrag>
-        <div class="card__title">{{item.title}}</div>
-        <div class="description-buttons-container">
-            <div class="card__description">{{item.descriptionShort}}</div>
-            <div class="button-container">
-            <button (click)="openEditTask(done, i)" class="button button--action button--edit">
-                E
-            </button>
-            <button (click)="deleteTask(done, i)" class="button button--action button--delete">
-                D
-            </button>
-            </div>
-            </div>  
-    </div>
-</div>
-
-<button class="button button--add" (click) = " toggleNewTaskModal()"><span>+</span></button>
-
-<div class="modal" [class.modal--active] = "newTaskModal">  
-    <input type="text" class="form-control new-task__title"
-        required
-        placeholder="Title"
-        [(ngModel)]="newTaskTitle"
+  <h2 class="task-list__title">
+    toDo
+  </h2>
+  <div
+    class="card cdk-drag-animating"
+    *ngFor="let item of toDo; let i = index"
+    cdkDrag
+  >
+    <div class="card__title">{{ item.title }}</div>
+    <div class="description-buttons-container">
+      <div class="card__description">{{ item.descriptionShort }}</div>
+      <div class="button-container">
+        <button
+          (click)="openEditTask(toDo, i)"
+          class="button button--action button--edit"
         >
+          <fa-icon class="button--action__icon" [icon]="faEdit"></fa-icon>
+        </button>
+        <button
+          (click)="deleteTask(toDo, i)"
+          class="button button--action button--delete"
+        >
+          <fa-icon class="button--action__icon" [icon]="faTrash"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <textarea type="text" class="form-control modal__content" 
-        placeholder="Task description"
-        required
-        [(ngModel)]="newTaskContent" 
+<div
+  class="task-list task-list--todo"
+  cdkDropList
+  #inProgressList="cdkDropList"
+  [cdkDropListData]="inProgress"
+  [cdkDropListConnectedTo]="[toDoList, doneList]"
+  (cdkDropListDropped)="onDrop($event)"
+>
+  <h2 class="task-list__title">
+    InProgress
+  </h2>
+  <div
+    class="card cdk-drag-animating"
+    *ngFor="let item of inProgress; let i = index"
+    cdkDrag
+  >
+    <div class="card__title">{{ item.title }}</div>
+    <div class="description-buttons-container">
+      <div class="card__description">{{ item.descriptionShort }}</div>
+      <div class="button-container">
+        <button
+          (click)="openEditTask(inProgress, i)"
+          class="button button--action button--edit"
+        >
+          <fa-icon class="button--action__icon" [icon]="faEdit"></fa-icon>
+        </button>
+        <button
+          (click)="deleteTask(inProgress, i)"
+          class="button button--action button--delete"
+        >
+          <fa-icon class="button--action__icon" [icon]="faTrash"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="task-list task-list--todo"
+  cdkDropList
+  #doneList="cdkDropList"
+  [cdkDropListData]="done"
+  [cdkDropListConnectedTo]="[toDoList, inProgressList]"
+  (cdkDropListDropped)="onDrop($event)"
+>
+  <h2 class="task-list__title">
+    Done
+  </h2>
+  <div
+    class="card cdk-drag-animating"
+    *ngFor="let item of done; let i = index"
+    cdkDrag
+  >
+    <div class="card__title">{{ item.title }}</div>
+    <div class="description-buttons-container">
+      <div class="card__description">{{ item.descriptionShort }}</div>
+      <div class="button-container">
+        <button
+          (click)="openEditTask(done, i)"
+          class="button button--action button--edit"
+        >
+          <fa-icon class="button--action__icon" [icon]="faEdit"></fa-icon>
+        </button>
+        <button
+          (click)="deleteTask(done, i)"
+          class="button button--action button--delete"
+        >
+          <fa-icon class="button--action__icon" [icon]="faTrash"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="button button--add" (click)="toggleNewTaskModal()">
+  <span>+</span>
+</button>
+
+<div class="modal" [class.modal--active]="newTaskModal">
+  <div class="modal__modal-title">Create new task</div>
+  <label for="title" class="form-control__label">
+    Title
+  </label>
+  <input
+    type="text"
+    class="form-control modal__title"
+    required
+    placeholder="Title"
+    [(ngModel)]="newTaskTitle"
+    autocomplete="off"
+  />
+  <label for="description" class="form-control__label">
+    Task description
+  </label>
+
+  <textarea
+    type="text"
+    class="form-control modal__content"
+    placeholder="Task description"
+    required
+    [(ngModel)]="newTaskContent"
+  >
+  </textarea>
+  <div class="modal__button-container">
+    <button
+      [disabled]="disableSaveNew()"
+      class="modal__button modal__button--save"
+      (click)="createNewTask()"
     >
-    </textarea>
-    <div class="modal__button-container">
-        <button class="btn btn-success" (click)="createNewTask()">Save</button>
-        <button (click)="toggleNewTaskModal()">Cancel</button> 
-    </div>
+      Save
+    </button>
+    <button
+      class="modal__button modal__button--cancel"
+      (click)="toggleNewTaskModal()"
+    >
+      Cancel
+    </button>
+  </div>
 </div>
 
-<div class="modal" [class.modal--active] = "editTaskModal">  
-    <input type="text" class="form-control modal__title"
-        required
-        placeholder="Title"
-        [(ngModel)]="editTaskTitle"
-        >
-    
-    <textarea type="text" class="form-control modal__content" 
+<div class="modal" [class.modal--active]="editTaskModal">
+  <div class="modal__modal-title">Edit this task</div>
+  <label for="title" class="form-control__label">
+    Title
+  </label>
+  <input
+    type="text"
+    class="form-control modal__title"
+    required
+    placeholder="Title"
+    [(ngModel)]="editTaskTitle"
+  />
+  <label for="description" class="form-control__label">
+    Task description
+  </label>
+  <textarea
+    type="text"
+    class="form-control modal__content"
     placeholder="Task description"
     required
     [(ngModel)]="editTaskContent"
+  >
+  </textarea>
+
+  <div class="modal__button-container">
+    <button
+      class="modal__button modal__button--save"
+      (click)="saveEditedTask()"
+      [disabled]="disableSaveEdit()"
     >
-    </textarea>
-    
-    <div class="modal__button-container">
-    <button class="btn btn-success" (click)="saveEditedTask()">Save</button>
-    <button (click)="editTaskModal = false; toggleModalOverlay()">Cancel</button>
-    </div>
+      Save
+    </button>
+    <button
+      class="modal__button modal__button--cancel"
+      (click)="editTaskModal = false; toggleModalOverlay()"
+    >
+      Cancel
+    </button>
+  </div>
 </div>
 
-<div class="modal__overlay " [class.modal__overlay--active] = "modalOverlay"></div>
+<div class="modal__overlay" [class.modal__overlay--active]="modalOverlay"></div>

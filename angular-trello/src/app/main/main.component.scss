@@ -2,174 +2,237 @@
 @import "../../styles.scss";
 @import "../../mixins.scss";
 
+$modal-elements-width: 30rem;
+
 :host {
-    display: flex;
-    justify-content: space-between;
-    margin: $component-margin;
-    margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  margin: $component-margin;
+  margin-top: 4rem;
 }
 
 .task-list {
-    width: calc(100vw/3 - 6rem);
-    background-color: $component-background-color-light;
-    border-radius: $component-border-radius;
-    box-shadow: $component-box-shadow;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: scroll;
-    height: calc(100vh - 18rem); //sto ovo nece calc(100vh - $header-height)
-   
+  width: calc(100vw / 3 - 6rem);
+  background-color: $component-background-color-light;
+  border-radius: $component-border-radius;
+  box-shadow: $component-box-shadow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+  height: calc(100vh - 18rem); //sto ovo nece calc(100vh - $header-height)
 
-    &__title {
-        font-size: 2rem;
-        color: $h1-font-color-light;
-        margin: 2rem auto;
-    }
+  &__title {
+    font-size: 2rem;
+    color: $h1-font-color-light;
+    margin: 2rem auto;
+  }
 }
 
 .card {
-    background-color: $color-secodary-light;
-    width: 80%;
-    border-radius: $component-border-radius;
-    box-shadow: $component-box-shadow;
+  background-color: $color-secodary-light;
+  width: 80%;
+  border-radius: $component-border-radius;
+  box-shadow: $component-box-shadow;
+  margin: 1rem;
+  text-align: center;
+
+  &__title {
+    font-size: 1.8rem;
+    padding: 0.7rem;
+    background-color: $color-primary-light;
+    border-radius: $component-border-radius $component-border-radius 0 0;
+    color: white;
+  }
+
+  &__description {
+    max-width: 75%;
     margin: 1rem;
-    text-align: center;
-
-    &__title {
-        font-size: 1.8rem;
-        padding: 0.7rem;
-        background-color: $color-primary-light;
-        border-radius: $component-border-radius $component-border-radius 0 0;
-        color: white;
-    
-    }
-    
-    &__description {
-        max-width: 75%;
-        margin: 1rem ;
-        word-wrap: break-word;
-        text-align: left;
-        font-size: 1.2rem;
-    }
-
+    word-wrap: break-word;
+    text-align: left;
+    font-size: 1.2rem;
+  }
 }
 
 .description-buttons-container {
-    display: flex;
-    margin: 0.5rem auto;
-    justify-content: space-between;
+  display: flex;
+  margin: 0.5rem auto;
+  justify-content: space-between;
 }
 
 .button-container {
-    width: 4rem;
-    display: flex;
-    flex-direction: column;
-    margin: 0.5rem 1rem;
-    justify-content: center;
+  width: 4rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 1rem;
+  justify-content: center;
 }
 
 .cdk-drag-animating {
-    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-  }
-
-
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
 
 .button {
-
-    &--add {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 7rem;
-        height: 7rem;
-        border-radius: 50%;
-        margin-left: 2rem;
-        margin-bottom: 2rem;
-        background-color: $color-primary-light;
-        border: none;
-        font-size: 5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 0.3rem 0.7rem rgba(0, 0, 0, 0.178);
-        color: white;
+  &--add {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    background-color: $color-primary-light;
+    border: none;
+    font-size: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0.3rem 0.7rem rgba(0, 0, 0, 0.178);
+    color: white;
+    transition: all 0.3s;
+    &:hover {
+      background-color: lighten($color-primary-light, $amount: 7);
     }
-
-    &--action {
-        border-radius: 50%;
-        height: 3.2rem;
-        width: 3.2rem;
-        border: none;
-        box-shadow: 0 0.3rem 0.7rem rgba(0, 0, 0, 0.178);
-
+    &:active {
+      transform: translateY(0.3rem);
+      box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.23);
     }
+  }
 
-    &--edit {
-        margin-bottom: 1rem;
-        background-color: lighten($color-secodary-light, 10%);
+  &--action {
+    border-radius: 50%;
+    height: 3.2rem;
+    width: 3.2rem;
+    border: none;
+    box-shadow: 0 0.3rem 0.7rem rgba(0, 0, 0, 0.178);
+    transition: all 0.3s;
+    &:active {
+      transform: translateY(0.15rem);
+      box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.23);
     }
-
-    &--delete {
-        background-color: rgb(189, 33, 33);
-        color: white;
-   
+    &__icon {
+      font-size: 1rem;
     }
+  }
 
+  &--edit {
+    margin-bottom: 1rem;
+    background-color: lighten($color-secodary-light, 10%);
+    &:hover {
+      background-color: lighten($color-secodary-light, 15%);
+    }
+  }
+
+  &--delete {
+    background-color: $warning-color;
+    color: white;
+    &:hover {
+      background-color: lighten($warning-color, $amount: 7);
+    }
+  }
 }
-
 
 .modal {
-    position: fixed;
-   display: none;
-    @include center-absolute;
-    background-color: white;
-    width: 80rem;
-    height: 40rem;
-    z-index: 2;
-    padding: 5rem 20rem;
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: lighten($color-secodary-light, $amount: 15%);
+  width: 80rem;
+  height: 45rem;
+  z-index: 2;
+  padding: 5rem 20rem;
+  border-radius: $component-border-radius;
+  box-shadow: $component-box-shadow;
+  @include center-absolute;
+  top: -100rem;
+  transition: all 0.5s;
+
+  &--active {
+    display: flex;
+    top: 50%;
+  }
+
+  &__modal-title {
+    font-size: 3rem;
+    margin-bottom: 2.5rem;
+    text-align: left;
+    font-weight: bold;
+    width: $modal-elements-width;
+  }
+
+  .form-control {
+    background-color: lighten($color-secodary-light, $amount: 15%);
     border-radius: $component-border-radius;
-    box-shadow: $component-box-shadow;
+    border: 0.3rem solid $color-primary-light;
+    word-wrap: break-word;
+    outline: none;
+    width: $modal-elements-width;
+    padding: 1rem;
+    margin-bottom: 1.3rem;
+    font-size: 1.3rem;
+    font-weight: 500;
 
-   
-
-    .form-control {
-        border: none;
-        background-color: red;
-        word-wrap: break-word;
+    &__label {
+      display: block;
+      width: $modal-elements-width;
+      text-align: left;
+      font-weight: bold;
+      font-size: 2rem;
+      margin-bottom: 0.7rem;
     }
 
-    &__title {
-        margin: 1rem;
+    &:focus {
+      box-shadow: 0 0 0.7rem $color-primary-light;
     }
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.13);
+  }
 
-    &__content {
-        height: 10rem;
+  &__title {
+    height: 4rem;
+  }
+
+  &__content {
+    height: 10rem;
+    resize: none;
+  }
+
+  &__button {
+    border: none;
+    border-radius: $component-border-radius;
+    width: 8rem;
+    height: 3rem;
+    margin: 1rem;
+    transition: all 0.5s;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.13);
+    font-weight: bold;
+    outline: none;
+
+    &--cancel {
+      background-color: $warning-color;
+      color: white;
     }
+    &--save {
+      background-color: $color-secodary-light;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all 0.5s;
 
     &--active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        
-        
+      display: block;
+      width: 100vw;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.555);
+      z-index: 1;
     }
-
-    &__overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.555);
-        z-index: 1;
-        display: none;
-
-        &--active {
-            display: block
-        }
-    }
-
+  }
 }
-
