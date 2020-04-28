@@ -7,3 +7,7 @@
   margin: $component-margin;
   margin-top: 4rem;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}

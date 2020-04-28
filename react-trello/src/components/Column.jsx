@@ -36,7 +36,7 @@ class Column extends Component {
         >
           {(provided, snapshot) => (
             <div
-              className="draggable"
+              className="draggable task-list__card"
               ref={provided.innerRef}
               {...provided.draggableProps}
               {...provided.dragHandleProps}

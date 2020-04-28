@@ -1,4 +1,5 @@
 .button {
+  outline: none;
   &--add {
     position: absolute;
     bottom: 0;
@@ -16,6 +17,16 @@
     justify-content: center;
     box-shadow: 0 0.3rem 0.7rem rgba(0, 0, 0, 0.178);
     color: white;
+
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: lighten($color-primary-light, $amount: 7);
+    }
+    &:active {
+      transform: translateY(0.3rem);
+      box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.23);
+    }
   }
 
   &--action {
@@ -24,15 +35,27 @@
     width: 3.2rem;
     border: none;
     box-shadow: 0 0.3rem 0.7rem rgba(0, 0, 0, 0.178);
+    transition: all 0.3s;
+    &:active {
+      transform: translateY(0.15rem);
+      box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.23);
+    }
   }
 
   &--edit {
     margin-bottom: 1rem;
     background-color: lighten($color-secodary-light, 10%);
+    &:hover {
+      background-color: lighten($color-secodary-light, 15%);
+    }
   }
 
   &--delete {
     background-color: $warning-color;
     color: white;
+
+    &:hover {
+      background-color: lighten($warning-color, $amount: 7);
+    }
   }
 }

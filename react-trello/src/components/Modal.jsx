@@ -22,6 +22,7 @@ class Modal extends Component {
             placeholder="Title"
             onChange={(e) => this.updateTitle(e)}
             value={this.state.title}
+            autocomplete="off"
           />
 
           <label htmlFor="description" className="form-control__label">
@@ -34,11 +35,13 @@ class Modal extends Component {
             placeholder="Task description"
             onChange={(e) => this.updateDescription(e)}
             value={this.state.description}
+            autocomplete="off"
           ></textarea>
           <div className="modal__button-container">
             <button
               onClick={() => this.onSave()}
               className="modal__button modal__button--save"
+              disabled={this.disableSave()}
             >
               Save
             </button>
@@ -52,6 +55,12 @@ class Modal extends Component {
         </div>
         <div className={this.getClassesOverlay()}></div>
       </React.Fragment>
+    );
+  }
+
+  disableSave() {
+    return !(
+      this.state.title.length !== 0 && this.state.description.length !== 0
     );
   }
 

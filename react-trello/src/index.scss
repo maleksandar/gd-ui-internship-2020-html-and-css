@@ -114,3 +114,11 @@ html {
 body {
   background-color: $background-color-light;
 }
+
+.button {
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
