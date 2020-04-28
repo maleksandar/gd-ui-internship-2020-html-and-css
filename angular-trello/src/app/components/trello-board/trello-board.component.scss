@@ -7,7 +7,15 @@
 .row {
   display: flex;
   align-items: flex-start;
-  overflow: scroll;
+  overflow-x: scroll;
+  width: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 }
 
 .list {
