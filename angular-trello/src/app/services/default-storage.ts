@@ -1,8 +1,4 @@
-import { Injectable } from '@angular/core';
-import { TaskList } from '../models/taskList.model';
-import { Task } from '../models/task.model';
-
-const defaultLists:{[path: string]: TaskList} = {
+export const defaultLists = {
   'list-1': {
     id: 'list-1',
     title: 'todo',
@@ -17,10 +13,16 @@ const defaultLists:{[path: string]: TaskList} = {
     id: 'list-3',
     title: 'Done',
     taskIds: ['task-2','task-3']
-  }
+  },
+  [Symbol.iterator]: function* () {
+    let properties = Object.keys(this);
+    for (let i of properties) {
+        yield [i, this[i]];
+    }
+}  
 }
 
-const defaultTasks:{[path: string]: Task} = {
+export const defaultTasks = {
   'task-1': {
     id: 'task-1',
     title: 'Go shopping',
@@ -35,21 +37,12 @@ const defaultTasks:{[path: string]: Task} = {
     id: 'task-3',
     title: 'Learn a new framework',
     description: 'card description'
+  },
+  [Symbol.iterator]: function* () {
+    let properties = Object.keys(this);
+    for (let i of properties) {
+        yield [i, this[i]];
+    }
   }
 }
 
-@Injectable({
-  providedIn: 'root'
-})
-export class DefaultStorageService {
-
-  constructor() { }
-
-  getDefaultLists() {
-    return defaultLists;
-  }
-
-  getDefaultTasks() {
-    return defaultTasks;
-  }
-}

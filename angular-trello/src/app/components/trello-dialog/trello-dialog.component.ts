@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { Task } from 'src/app/models/task.model';
-import { TrelloService } from '../../services/trello.service';
+import { TrelloCardService } from '../../services/trello-card.service';
 @Component({
   selector: 'app-trello-dialog',
   templateUrl: './trello-dialog.component.html',
@@ -11,7 +11,7 @@ export class TrelloDialogComponent implements OnInit {
   task: Task;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private trelloService: TrelloService
+    private trelloCardService: TrelloCardService
   ) { 
     this.task = { ...this.data.task };
   }
@@ -20,7 +20,7 @@ export class TrelloDialogComponent implements OnInit {
     
   }
   handleDelete() {
-    this.trelloService.removeTask(
+    this.trelloCardService.removeTask(
       this.data.listId,
       this.data.task
     );
@@ -28,12 +28,12 @@ export class TrelloDialogComponent implements OnInit {
   
   handleSave() {
     if(this.data.dialogType === 'add') {
-      this.trelloService.addTask(
+      this.trelloCardService.addTask(
         this.data.listId, 
         this.task
       );
     } else {
-      this.trelloService.updateTask(
+      this.trelloCardService.updateTask(
         this.task
       );
     }

@@ -14,7 +14,7 @@ import {
 @Injectable({
   providedIn: 'root'
 })
-export class TrelloService {
+export class TrelloCardService {
   tasksChanged = new Subject<{[path:string]: TaskList}>();
   private lists: {[path: string]: TaskList};
   private tasks: {[path: string]: Task};

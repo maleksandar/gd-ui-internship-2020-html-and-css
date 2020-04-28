@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TaskList } from 'src/app/models/taskList.model';
-import { TrelloService } from "../../services/trello.service";
+import { TrelloCardService } from "../../services/trello-card.service";
 import { Task } from 'src/app/models/task.model';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Subscription } from "rxjs";
@@ -16,11 +16,11 @@ export class TrelloListComponent implements OnInit {
   listTasks: Task[];
   private subscription: Subscription;
 
-  constructor(private trelloService: TrelloService, public dialog: MatDialog) { }
+  constructor(private trelloCardService: TrelloCardService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.listTasks = this.getTasksFromIds(this.list)
-    this.subscription = this.trelloService.tasksChanged
+    this.subscription = this.trelloCardService.tasksChanged
       .subscribe(
         (lists: {[path:string]: TaskList}) => {
           this.listTasks = this.getTasksFromIds(lists[this.list.id])
@@ -29,16 +29,20 @@ export class TrelloListComponent implements OnInit {
   }
 
   getTasksFromIds(list) {
-    const allTasks = this.trelloService.get('tasks');
+    const allTasks = this.trelloCardService.get('tasks');
     return list.taskIds.map(taskId => allTasks[taskId]);
   }
 
   drop(event: CdkDragDrop<string[]>){
-    this.trelloService.moveTaskOnDrop(event);
+    this.trelloCardService.moveTaskOnDrop(event);
   }
 
   openDialog() {
-    const task = new Task('', 'title', 'enter description...');
+    const task: Task = {
+      id: '',
+      title: 'title',
+      description: 'enter description...'
+    }
     const data = {
       listId: this.list.id,
       task: task,

@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Task } from 'src/app/models/task.model';
 import { MatDialog } from '@angular/material/dialog';
 import { TrelloDialogComponent } from '../trello-dialog/trello-dialog.component';
-import { TrelloService } from '../../services/trello.service';
+import { TrelloCardService } from '../../services/trello-card.service';
 
 @Component({
   selector: 'app-trello-task',
@@ -14,7 +14,7 @@ export class TrelloTaskComponent implements OnInit {
   @Input() listId: string;
   constructor(
     private dialog: MatDialog,
-    private trelloService: TrelloService
+    private trelloService: TrelloCardService
   ) { }
 
   ngOnInit(): void {

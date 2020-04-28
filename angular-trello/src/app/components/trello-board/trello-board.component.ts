@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TrelloService } from '../../services/trello.service';
+import { TrelloCardService } from '../../services/trello-card.service';
 import { TaskList } from 'src/app/models/taskList.model';
 @Component({
   selector: 'app-trello-board',
@@ -9,10 +9,10 @@ import { TaskList } from 'src/app/models/taskList.model';
 export class TrelloBoardComponent implements OnInit {
   lists: {[path:string]: TaskList};
 
-  constructor(private storageService: TrelloService) { }
+  constructor(private trelloCardService: TrelloCardService) { }
 
   ngOnInit(): void {
-    this.lists = this.storageService.get('lists');
+    this.lists = this.trelloCardService.get('lists');
   }
 
 }

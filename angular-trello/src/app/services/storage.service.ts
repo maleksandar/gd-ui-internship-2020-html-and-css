@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TaskList } from '../models/taskList.model';
-import { DefaultStorageService } from './default-storage.service';
+import { defaultLists, defaultTasks } from './default-storage';
 const LIST_KEYS = 'listKeys';
 const TASK_KEYS = 'taskKeys';
 
@@ -11,7 +10,7 @@ export class StorageService {
   private listKeys: string[];
   private taskKeys: string[];
  
-  constructor(private defaultStorage: DefaultStorageService) {
+  constructor() {
     this.listKeys = JSON.parse(localStorage.getItem(LIST_KEYS)) || [];
     this.taskKeys = JSON.parse(localStorage.getItem(TASK_KEYS)) || [];
     if(this.listKeys.length === 0) {
@@ -50,14 +49,11 @@ export class StorageService {
    }
 
    importDefaults() {
-    const defaultLists = this.defaultStorage.getDefaultLists();
-    const defaultTasks = this.defaultStorage.getDefaultTasks();
-
-    for(let list in defaultLists) {
-      this.post(defaultLists[list], 'listKeys');
+    for(let list of defaultLists) {
+      this.post(list, 'listKeys');
     }
-    for(let task in defaultTasks) {
-      this.post(defaultTasks[task], 'taskKeys');
+    for(let task of defaultTasks) {
+      this.post(task, 'taskKeys');
     }
    }
 }
