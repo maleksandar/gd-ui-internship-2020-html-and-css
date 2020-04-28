@@ -1,0 +1,39 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  cursor: pointer;
+}
+p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: $paragraph-color;
+}
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script:300,400,700');
+
+section {
+  padding: 20px 0;
+
+  @include m-query(md) {
+    padding: 35px 0;
+  }
+  @include m-query(xl) {
+    padding: 60px 0;
+  }
+}

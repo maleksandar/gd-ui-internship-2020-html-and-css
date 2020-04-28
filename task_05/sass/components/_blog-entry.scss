@@ -1,0 +1,105 @@
+.blog-entry {
+    position: relative;
+
+    &__photo {
+        margin-bottom: $blog-content-margin-bottom;
+        width: 100%;
+    }
+
+    &__title {
+        display: block;
+        color: $blog-title-font-color;
+        text-transform: uppercase;
+        text-align: left;
+        margin-bottom: $blog-content-margin-bottom;
+    }
+
+    &__date {
+        background-color: $blog-accent-color;
+        position: absolute;
+        top: 40%;
+        left: -3%;
+        color: $blog-date-font-color;
+        
+        padding: 0.8rem 1.5rem;
+
+
+        &__number {
+            font-weight: bold;
+            font-size: 2.5rem;
+        }
+
+        &__month {
+            font-size: 1.2rem;
+            font-weight: 200;
+            font-style: italic;
+        }
+    }
+
+    &__text {
+        text-align: left;
+        color: $blog-text-font-color;
+    }
+
+    &__text:after {
+        display: block;
+        content: '';
+        height: 1px;
+        margin-top: $blog-content-margin-bottom;
+        margin-bottom: $blog-content-margin-bottom;
+        background-color: $blog-underline-color;
+    }
+
+    
+
+    &__counts {
+       display: flex;
+       align-items: center; 
+    }
+
+    &__count {
+        margin-right: 1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    &__count-icon {
+        color: $blog-accent-color;
+        font-size: 1.5rem;
+        margin-right: 0.5rem;
+    }
+
+    &__count-number {
+        display: inline-block;
+        color: $blog-text-font-color;
+        font-style: italic;
+    }
+
+    @include m-query(md) {
+        &__date {
+            top: 23%;
+        }
+    }
+
+    @include m-query(lg) {
+        &__date {
+            top:35%;  
+            padding: 1rem 1.8rem;
+    
+            &__number {
+                font-size: 3rem;
+            }
+    
+            &__month {
+                font-size: 1.5rem;          
+            }
+        }
+
+    }
+
+    @include m-query(xs) {
+        &__date {
+            top:33%;
+        }
+    }
+}

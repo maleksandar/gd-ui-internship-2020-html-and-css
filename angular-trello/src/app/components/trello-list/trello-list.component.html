@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-title>
+    {{ list.title }}
+  </mat-card-title>
+  <mat-card-content
+    cdkDropList
+    class="task-container"
+    [cdkDropListData]="list"
+    (cdkDropListDropped)="drop($event)">
+    <app-trello-task
+      class="trello-task"
+      *ngFor="let task of listTasks"
+      [task]="task"
+      [listId]="list.id"
+      cdkDrag>
+    </app-trello-task>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      class="btn"
+      mat-button
+      color="primary"
+      (click)="openDialog()">
+      ADD NEW TASK
+    </button>
+  </mat-card-actions>
+</mat-card>

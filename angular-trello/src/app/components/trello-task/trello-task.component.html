@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-title>
+    {{task.title}}
+  </mat-card-title>
+  <mat-card-content>
+    {{task.description}}
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-button color="primary"
+      (click)="openDialog()">
+      EDIT
+    </button>
+    <button
+      mat-button color="warn"
+      (click)="deleteTask()">
+      DELETE
+    </button>
+  </mat-card-actions>
+</mat-card>

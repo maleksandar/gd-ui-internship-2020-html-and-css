@@ -1,0 +1,30 @@
+.layout-wrap{
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 100px 1fr 30px;
+    grid-template-columns:  1fr minmax(60%, calc(100vw - 300px)) 1fr;
+}
+
+.header{
+    background-color: lightcoral;
+    grid-column: 1 / 4;
+}
+
+.middle{
+    grid-column: 2;
+    background-color: lightblue;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    font-size: 32px;
+    color: white;
+}
+
+.sidebar{
+    background-color: rgb(238, 149, 149);
+}
+
+.footer{
+    grid-column: 1 / 4;
+    background-color: lightcoral;
+}

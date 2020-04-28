@@ -1,0 +1,14 @@
+.gallery {
+  @include m-query(sm) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    &__item {
+      &:nth-child(3) {
+        grid-row: span 2;
+      }
+    }
+  }
+  @include m-query(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

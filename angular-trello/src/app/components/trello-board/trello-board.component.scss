@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+}
+
+.trello-list {
+  display: block;
+  width: 330px;
+  min-height: 100px;
+  padding: 20px;
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+}

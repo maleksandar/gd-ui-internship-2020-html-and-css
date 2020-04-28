@@ -1,0 +1,74 @@
+.card {
+  position: relative;
+  padding: 3rem 0 2rem 0;
+  width: 50vw;
+  min-width: 60rem;
+  margin: 0 auto;
+  border-bottom: 2px solid;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 32%;
+    height: 100%;
+    top: 0;
+  }
+  &::before {
+    left: 0;
+    border-left: 2px solid;
+    border-top: 2px solid;
+  }
+  &::after {
+    content: '';
+    right: 0;
+    border-top: 2px solid;
+    border-right: 2px solid;
+  }
+  &__item {
+    display: grid;
+    justify-items: center;
+  }
+  &__title {
+    position: absolute;
+    font-size: 3rem;
+    text-transform: uppercase;
+    top: 0;
+    left: 50%;
+    width: 60%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+  &__text {
+    margin: 2rem auto;
+    width: 60%;
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    &--secondary {
+      width: 50%;
+    }
+  }
+  &__icon {
+    width: 5rem;
+  }
+
+  &--light {
+    color: $color-light;
+  }
+  &--dark {
+    color: $color-dark;
+  }
+
+  @media only screen and (max-width: $bp-md) {
+    min-width: 10rem;
+    width: 90vw;
+    padding: 1rem 0 0.5rem 0;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 20%;
+    }
+  }
+}

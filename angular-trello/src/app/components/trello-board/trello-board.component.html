@@ -1,0 +1,8 @@
+<div class="container"
+  cdkDropListGroup>
+  <app-trello-list
+    class="trello-list"
+    *ngFor="let list of lists | keyvalue"
+    [list]="list.value"
+  ></app-trello-list>
+</div>

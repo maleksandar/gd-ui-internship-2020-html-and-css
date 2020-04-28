@@ -1,0 +1,31 @@
+.header__carousel {
+    background-image:
+    $primary-color-gradient
+    , url(../img/bg-header.jpg);
+    background-size: cover;
+    background-position: center;
+    
+    .btn {
+        margin-bottom: 6rem;
+    }
+
+    .btn--header {
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+
+    @include m-query(lg) {
+       
+
+        .primary-heading {
+            padding-top: 10rem;
+        }
+
+        .btn {
+            width: 12rem;
+            margin-top: 2rem;
+            margin-bottom: 10rem;
+        }
+    }
+}
+

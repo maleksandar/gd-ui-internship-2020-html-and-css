@@ -1,0 +1,13 @@
+.social-link {
+  display: inline-block;
+  font-size: 24px;
+  color: #f38181;
+  background-color: #fce38a;
+  margin-right: 1px;
+  padding: 10px;
+  transition: all 0.4s;
+  &:hover {
+    color: white;
+    background-color: rgba(243, 129, 129, 0.9);
+  }
+}

@@ -1,0 +1,50 @@
+@mixin m-query($breakpoint) {
+
+  @if $breakpoint == xs {
+    @media only screen and (max-width: 320px) { //iphone 5/se
+      @content;
+    }
+  }
+
+  @if $breakpoint == sm {
+    @media only screen and (min-width: 576px) {
+      @content;
+    }
+  }
+  @if $breakpoint == md {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint == lg {
+    @media only screen and (min-width: 992px) {
+      @content;
+    }
+  }
+  @if $breakpoint == xl {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+@mixin absolute($top: null, $right: null, $bottom: null, $left: null) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+@mixin size($width: null, $height: null) {
+  width: $width;
+  height: $height;
+}
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+
