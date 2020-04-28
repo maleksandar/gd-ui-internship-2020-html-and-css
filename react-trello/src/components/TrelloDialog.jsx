@@ -75,7 +75,7 @@ function TrelloDialog(props) {
     const handleDescriptionChange = () => {
         validateDescription(descriptionInput.current.value.trim());
     };
-    
+
     return (
         <Dialog 
             open={open}

@@ -2,9 +2,11 @@ import React from 'react';
 import TrelloTask from './TrelloTask';
 import TrelloDialog from './TrelloDialog';
 import AddIcon from '@material-ui/icons/Add';
+import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Button } from '@material-ui/core';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
+import { validateTitle, validateDescription } from '../redux/Error/error.actions';
 
 const useStyles = makeStyles(({
     column: {
@@ -20,7 +22,7 @@ const useStyles = makeStyles(({
         paddingBottom: '.8rem',
         minHeight: '2rem',
         maxHeight: '30rem',
-        overflowY: 'scroll',
+        overflowY: 'auto',
         marginBottom: '.5rem',
     },
     title: {
@@ -34,9 +36,12 @@ const useStyles = makeStyles(({
 function TrelloTaskList(props) {
     const classes = useStyles();
 
-    const [open, setOpen] = React.useState(false);
+    const [ open, setOpen ] = React.useState(false);
+    const { validateTitle, validateDescription } = props;
 
     const handleOpenDialog = () => {
+        validateTitle('');
+        validateDescription('');
         setOpen(true);
     };
 
@@ -102,4 +107,9 @@ function TrelloTaskList(props) {
     );
 }
 
-export default TrelloTaskList;
+const mapDispatchToProps = (dispatch) => ({
+    validateTitle: (value) => dispatch(validateTitle(value)),
+    validateDescription: (value) => dispatch(validateDescription(value)),
+});
+  
+export default connect(null, mapDispatchToProps)(TrelloTaskList);

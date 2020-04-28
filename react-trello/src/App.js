@@ -8,12 +8,15 @@ const useStyles = makeStyles({
   root: {
     backgroundImage:`url(${image})`,
     backgroundSize: 'cover',
-    height: '100vh',
+    minHeight: '100vh',
+    overflowY: 'auto',
   },
   title: {
+    boxSizing: 'border-box',
     textAlign: 'center',
     padding: '1rem',
     textTransform: 'uppercase',
+    height: '4.3rem',
   },
 });
 
