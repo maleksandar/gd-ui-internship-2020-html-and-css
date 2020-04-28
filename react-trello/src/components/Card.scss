@@ -1,0 +1,41 @@
+@import "./variables.scss";
+@import "./Button.scss";
+
+.card {
+  background-color: $color-secodary-light;
+  width: 80%;
+  border-radius: $component-border-radius;
+  box-shadow: $component-box-shadow;
+  margin: 1rem auto;
+  text-align: center;
+
+  &__title {
+    font-size: 1.8rem;
+    padding: 0.7rem;
+    background-color: $color-primary-light;
+    border-radius: $component-border-radius $component-border-radius 0 0;
+    color: white;
+  }
+
+  &__description {
+    max-width: 75%;
+    margin: 1rem;
+    word-wrap: break-word;
+    text-align: left;
+    font-size: 1.2rem;
+  }
+}
+
+.description-buttons-container {
+  display: flex;
+  margin: 0.5rem auto;
+  justify-content: space-between;
+}
+
+.button-container {
+  width: 4rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 1rem;
+  justify-content: center;
+}

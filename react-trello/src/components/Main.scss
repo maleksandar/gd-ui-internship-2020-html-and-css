@@ -1,0 +1,13 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  margin: $component-margin;
+  margin-top: 4rem;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

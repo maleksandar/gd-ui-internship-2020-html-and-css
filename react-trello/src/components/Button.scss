@@ -1,0 +1,66 @@
+.button {
+  outline: none;
+
+  &--add {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    background-color: $color-primary-light;
+    border: none;
+    font-size: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0.3rem 0.7rem rgba(0, 0, 0, 0.178);
+    color: white;
+
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: lighten($color-primary-light, $amount: 7);
+    }
+    &:active {
+      transform: translateY(0.3rem);
+      box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.23);
+    }
+  }
+
+  &--action {
+    border-radius: 50%;
+    height: 3.2rem;
+    width: 3.2rem;
+    border: none;
+    box-shadow: 0 0.3rem 0.7rem rgba(0, 0, 0, 0.178);
+    transition: all 0.3s;
+    &:active {
+      transform: translateY(0.15rem);
+      box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.23);
+    }
+
+    &__icon {
+      font-size: 1rem;
+    }
+  }
+
+  &--edit {
+    margin-bottom: 1rem;
+    background-color: lighten($color-secodary-light, 10%);
+    &:hover {
+      background-color: lighten($color-secodary-light, 15%);
+    }
+  }
+
+  &--delete {
+    background-color: $warning-color;
+    color: white;
+
+    &:hover {
+      background-color: lighten($warning-color, $amount: 7);
+    }
+  }
+}

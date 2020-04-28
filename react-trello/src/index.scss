@@ -1,5 +1,17 @@
-@import "./variables.scss";
-//RESET
+@import "./../../angular-trello/src/variables.scss";
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
 
 html,
 body,
@@ -99,18 +111,14 @@ html {
   font-size: 62.5%; // 1rem = 10px, 10px/16px = 62.5%
 }
 
-:host {
-  display: block;
-}
-
 body {
   background-color: $background-color-light;
 }
 
-body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
 .button {
   outline: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

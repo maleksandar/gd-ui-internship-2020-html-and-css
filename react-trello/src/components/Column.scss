@@ -1,0 +1,32 @@
+@import "./variables.scss";
+
+.task-list {
+  width: calc(100vw / 3 - 6rem);
+  background-color: $component-background-color-light;
+  border-radius: $component-border-radius;
+  box-shadow: $component-box-shadow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+  height: calc(100vh - 18rem); //sto ovo nece calc(100vh - $header-height)
+
+  &__title {
+    font-size: 2rem;
+    color: $h1-font-color-light;
+    margin: 2rem auto;
+  }
+
+  &__list {
+    min-height: 50rem;
+    width: 100%;
+  }
+
+  &__card {
+    margin-bottom: 3rem;
+  }
+}
+
+.draggable {
+  width: 100%;
+}
