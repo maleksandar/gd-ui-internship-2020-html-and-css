@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 const TaskCard = (props) => {
   const {task, listId, innerRef, provided, isDragging } = props;
   const classes = useStyles(isDragging);
-  console.log(props);
+  
   return (
   <Grid
     ref={innerRef}

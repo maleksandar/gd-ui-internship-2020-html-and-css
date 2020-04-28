@@ -6,6 +6,16 @@ const trelloBoardReducer = (state = INITIAL_STATE, {type, payload}) =>
   produce(state, draft => {
     switch (type) {
 
+      case actionTypes.FETCH_TASKS_START:
+        draft.isFetching = true;
+        break;
+
+      case actionTypes.FETCH_TASKS_SUCCESS:
+        draft.lists = payload.lists;
+        draft.tasks = payload.tasks;
+        draft.isFetching = false;
+        break;
+
       case actionTypes.REMOVE_TASK:
         const { listId, taskId } = payload;
         delete draft.tasks[taskId];

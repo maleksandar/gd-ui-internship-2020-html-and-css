@@ -7,7 +7,6 @@ import taskModalReducer from './containers/TrelloModal/reducer';
 const persistConfig = {
   key: 'root',
   storage: localStorage,
-  whitelist: ['board']
 }
 
 const rootReducer = combineReducers({

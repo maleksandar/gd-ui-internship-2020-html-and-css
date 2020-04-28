@@ -1,55 +1,60 @@
-import React from 'react';
+import React, { Component} from 'react';
 import { connect } from 'react-redux';
 import { Grid, Container } from '@material-ui/core';
 import { DragDropContext } from 'react-beautiful-dnd';
+import { moveTask, fetchTasksStart } from './actions';
 import TrelloList from '../TrelloList';
-import { moveTask } from './actions';
 import TrelloModal from '../TrelloModal';
+import Spinner from './Spinner';
 
-const ListContainer = (props) => {
-  const { lists, moveTask } = props;
-  const keys = Object.keys(lists);
+class ListContainer extends Component {
   
-  const taskLists = keys.map((key) => {
-    const list = lists[key];
+  componentDidMount() {
+    this.props.fetchTasks();
+  }
+
+  render() {
+    const { lists, moveTask, isFetching } = this.props;  
+    const keys = Object.keys(lists);
+    const taskLists = keys.map((key) => {
+      const list = lists[key];
+      return (
+        <TrelloList
+          key={list.id}
+          list={list}/>
+      );
+    });
 
     return (
-      <TrelloList
-        key={list.id}
-        list={list}/>
-    );
-  });
-
-  return (
-    <Container
-      maxWidth="xl">
-
-      <Grid 
-        container
-        style={{flexWrap:'nowrap'}}
-        spacing={7} 
-        alignItems="flex-start">
-
-        <DragDropContext
-          onDragEnd={moveTask}>
-          {taskLists}
-        </DragDropContext>
-
-      </Grid>
-
-      <TrelloModal />
+      isFetching? <Spinner/> :
+      <Container
+        maxWidth="xl">
+        <Grid 
+          container
+          style={{flexWrap:'nowrap'}}
+          spacing={7} 
+          alignItems="flex-start">
+            <DragDropContext
+              onDragEnd={moveTask}>
+              {taskLists}
+            </DragDropContext>
+        </Grid>
+        <TrelloModal />
       
-    </Container>
-  );
+      </Container>
+    );
+  }
 };
 
 const mapStateToProps = (state) => ({
   lists: state.board.lists,
-  modal: state.modal
+  modal: state.modal,
+  isFetching: state.board.isFetching
 });
 
 const mapDispatchToProps = (dispatch) => ({
   moveTask: (moveResult) => dispatch(moveTask(moveResult)),
+  fetchTasks: () => dispatch(fetchTasksStart())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListContainer);

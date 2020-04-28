@@ -29,3 +29,17 @@ export const updateTask = (task) => ({
     task
   }
 })
+
+export const fetchTasksStart = () => ({
+  type: actionTypes.FETCH_TASKS_START
+})
+
+export const fetchTasksSuccess = data => ({
+  type: actionTypes.FETCH_TASKS_SUCCESS,
+  payload: data
+});
+
+export const fetchTasksFailure = errorMessage => ({
+  type: actionTypes.FETCH_TASKS_FAILURE,
+  payload: errorMessage
+});
