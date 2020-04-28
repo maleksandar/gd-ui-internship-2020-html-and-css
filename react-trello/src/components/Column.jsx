@@ -6,19 +6,23 @@ import { Droppable, Draggable } from "react-beautiful-dnd";
 class Column extends Component {
   render() {
     return (
-      <Droppable className="dropabble" droppableId={this.props.title}>
-        {(provided, snapshot) => (
-          <div
-            className="task-list"
-            {...provided.droppableProps}
-            ref={provided.innerRef}
-          >
-            <h2 className="task-list__title">{this.props.title}</h2>
-            {this.renderCards()}
-            {provided.placeholder}
-          </div>
-        )}
-      </Droppable>
+      <React.Fragment>
+        <div className="task-list">
+          <h2 className="task-list__title">{this.props.title}</h2>
+          <Droppable className="dropabble" droppableId={this.props.title}>
+            {(provided, snapshot) => (
+              <div
+                className="task-list__list"
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+              >
+                {this.renderCards()}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </div>
+      </React.Fragment>
     );
   }
 
