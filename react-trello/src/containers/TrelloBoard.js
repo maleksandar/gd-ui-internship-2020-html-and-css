@@ -14,12 +14,19 @@ const useStyles = makeStyles({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    padding: '0 16px',
+    padding: '0 16px'
   },
   row: {
     display: 'flex',
     alignItems: 'flex-start',
-    overflow: 'scroll',
+    overflowX: 'scroll',
+    width: '100%',
+    scrollbarWidth: 'none',
+    msOverflowStyle: 'none',
+    '&::-webkit-scrollbar': {
+      width: 0,
+      height: 0
+    }
   },
   title: {
     textAlign: 'center',

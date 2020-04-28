@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     flex: '0 0 300px',
   },
   container: {
-    overflowX: 'scroll',
+    overflowY: 'scroll',
     maxHeight: 600,
   },
   title: {
