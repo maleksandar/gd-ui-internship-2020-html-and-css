@@ -12,7 +12,7 @@
     (blur)="updateCard()"
     [(ngModel)]="card.title"
   ></textarea>
-  <button (mousedown)="deleteCard()" (blur)="updateCard()">
+  <button (mousedown)="deleteCard(card)" (blur)="updateCard()">
     DELETE
   </button>
 </li>
