@@ -29,6 +29,7 @@ const useStyles = makeStyles({
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 500,
+    maxWidth: '90vw',
     backgroundColor: '#fff',
     padding: 16,
   },
