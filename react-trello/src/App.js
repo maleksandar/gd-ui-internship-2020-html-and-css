@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Board from './components/Board';
+import Board from './views/board/Board';
 
 class App extends Component {
 

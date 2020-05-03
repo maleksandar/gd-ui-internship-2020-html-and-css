@@ -1,59 +1,12 @@
-<div class="container" id="container">
-  <div class="column">
-    <h1 class="title">To Do</h1>
+<div class="container">
+  <div cdkDropListGroup>
+    <div class="board" cdkDropListGroup>
+      <app-card-list [status]="'TODO'" [tasks]="toDo"> </app-card-list>
 
-    <app-todo-list
-      [tasks]="todos"
-      [status]="'todo'"
-      cdkDropList
-      [cdkDropListData]="todos"
-      (cdkDropListDropped)="drop($event)"
-      #todoList="cdkDropList"
-      [cdkDropListConnectedTo]="[inProgressList]"
-      class="example-list"
-      (selectId)="selectIdOfTask($event)"
-    ></app-todo-list>
+      <app-card-list [status]="'INPROGRESS'" [tasks]="inProgress">
+      </app-card-list>
 
-    <a href="#popup" class="btn-add">&#43; Add</a>
-  </div>
-
-  <div class="column">
-    <h1 class="title">In Progress</h1>
-
-    <app-todo-list
-      [tasks]="inProgress"
-      [status]="'inprogress'"
-      cdkDropList
-      [cdkDropListData]="inProgress"
-      (cdkDropListDropped)="drop($event)"
-      #inProgressList="cdkDropList"
-      [cdkDropListConnectedTo]="[doneList]"
-      class="example-list"
-      (selectId)="selectIdOfTask($event)"
-    ></app-todo-list>
-  </div>
-
-  <div class="column">
-    <h1 class="title">Done</h1>
-
-    <app-todo-list
-      [tasks]="dones"
-      [status]="'done'"
-      cdkDropList
-      [cdkDropListData]="dones"
-      (cdkDropListDropped)="drop($event)"
-      #doneList="cdkDropList"
-      class="example-list"
-      (selectId)="selectIdOfTask($event)"
-    ></app-todo-list>
+      <app-card-list [status]="'DONE'" [tasks]="done"> </app-card-list>
+    </div>
   </div>
 </div>
-
-<app-add-task></app-add-task>
-
-<app-edit-task
-  [title]="title"
-  [description]="description"
-  (editedTitle)="editTitleOfTask($event)"
-  (editedDesc)="editDescriptionOfTask($event)"
-></app-edit-task>

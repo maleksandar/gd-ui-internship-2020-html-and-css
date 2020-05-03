@@ -1,0 +1,49 @@
+.mat-container {
+  width: 50rem;
+  height: 25rem;
+  position: relative;
+
+  .cancel-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+  }
+
+  .dialog-title {
+    margin: 0 0 1rem;
+  }
+
+  .edit-form {
+    display: flex;
+    flex-direction: column;
+
+    .title-input,
+    .description-input {
+      font-size: 1.5rem;
+    }
+
+    .desc-textarea {
+      resize: none;
+    }
+
+    .alert-message {
+      margin-bottom: 1rem;
+      margin-top: -1rem;
+    }
+
+    .button-group {
+      display: flex;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+
+      .button-cancel {
+        margin-right: auto;
+      }
+
+      .button-delete {
+        margin-right: 0.7rem;
+      }
+    }
+  }
+}

@@ -1,27 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { AppComponent } from './app.component';
-import { TodoComponent } from './todo/todo.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
-
+import { MaterialModule } from './material/material.module';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { AddTaskComponent } from './add-task/add-task.component';
-import { EditTaskComponent } from './edit-task/edit-task.component';
-import { TodoServiceService } from './todo-service.service';
-import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TasksService } from './services/tasks.service';
+import { CardComponent } from './components/card/card.component';
+import { CardListComponent } from './components/card-list/card-list.component';
+import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoComponent,
-    TodoListComponent,
-    AddTaskComponent,
-    EditTaskComponent,
+    CardComponent,
+    CardListComponent,
+    EditDialogComponent,
   ],
-  imports: [BrowserModule, FormsModule, DragDropModule, AppRoutingModule],
-  providers: [TodoServiceService],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    DragDropModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+  ],
+  providers: [TasksService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
