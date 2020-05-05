@@ -1,12 +1,14 @@
 import React from 'react';
-import TrelloDialog from './TrelloDialog';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Grid, Card, Typography, CardContent, CardActions, Button } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { connect } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
-import { deleteTask } from '../redux/Tasks/tasks.actions';
+
 import { validateTitle, validateDescription } from '../redux/Error/error.actions';
-import { Grid, Card, Typography, CardContent, CardActions, Button } from '@material-ui/core';
+import { deleteTask } from '../redux/Tasks/tasks.actions';
+import TrelloDialog from './TrelloDialog';
 
 const useStyles = makeStyles(({
   cardActions: {
@@ -19,14 +21,10 @@ function TrelloTask(props) {
   const clasess = useStyles();
 
   const [open, setOpen] = React.useState(false);
-
-  const { listName, id, title, description } = props;
-  const { deleteTask } = props;
-  const { validateTitle, validateDescription } = props;
-
+  const { listName, id, title, description, deleteTask, validateTitle, validateDescription } = props;
 
   const handleDelete = () => {
-    deleteTask(props.listName, props.id);
+    deleteTask(listName, id);
   };
 
   const handleOpenDialog = () => {
@@ -42,12 +40,12 @@ function TrelloTask(props) {
           <Typography
             variant='h6'
             gutterBottom>
-            {props.title}
+            {title}
           </Typography>
 
           <Typography
             variant='body1'>
-            {props.description}
+            {description}
           </Typography>
         </CardContent>
 
@@ -56,7 +54,8 @@ function TrelloTask(props) {
             color='primary'
             size='small'
             onClick={handleOpenDialog}
-            startIcon={<EditIcon/>}>
+            startIcon={<EditIcon/>}
+          >
             Edit
           </Button>
 
@@ -64,7 +63,8 @@ function TrelloTask(props) {
             color='secondary'
             size='small'
             onClick={handleDelete}
-            startIcon={<DeleteIcon/>}>
+            startIcon={<DeleteIcon/>}
+          >
             Delete
           </Button>
         </CardActions>
@@ -81,10 +81,13 @@ function TrelloTask(props) {
   );
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  deleteTask: (listName, id) => dispatch(deleteTask(listName, id)),
-  validateTitle: (value) => dispatch(validateTitle(value)),
-  validateDescription: (value) => dispatch(validateDescription(value)),
-});
+const mapDispatchToProps = (dispatch) => bindActionCreators(
+  {
+    deleteTask,
+    validateTitle,
+    validateDescription
+  },
+  dispatch
+);
 
 export default connect(null, mapDispatchToProps)(TrelloTask);

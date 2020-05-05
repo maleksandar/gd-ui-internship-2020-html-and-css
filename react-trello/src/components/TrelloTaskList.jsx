@@ -1,11 +1,13 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Grid, Typography, Button } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import AddIcon from '@material-ui/icons/Add';
+import { Droppable, Draggable } from 'react-beautiful-dnd';
+
 import TrelloTask from './TrelloTask';
 import TrelloDialog from './TrelloDialog';
-import AddIcon from '@material-ui/icons/Add';
-import { connect } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography, Button } from '@material-ui/core';
-import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { validateTitle, validateDescription } from '../redux/Error/error.actions';
 
 const useStyles = makeStyles(({
@@ -37,7 +39,7 @@ function TrelloTaskList(props) {
     const classes = useStyles();
 
     const [ open, setOpen ] = React.useState(false);
-    const { validateTitle, validateDescription } = props;
+    const { tasks, title, validateTitle, validateDescription } = props;
 
     const handleOpenDialog = () => {
         validateTitle('');
@@ -49,32 +51,36 @@ function TrelloTaskList(props) {
         <Grid container className={classes.column}>
             <Typography 
                 variant='subtitle1' 
-                className={classes.title}>
-                {props.title} 
+                className={classes.title}
+            >
+                {title} 
             </Typography>
-            <Droppable droppableId={props.title}>
+            <Droppable droppableId={title}>
                 {(provided) => (
                     <Grid  
                         container 
                         spacing={2} 
                         className={classes.list}
                         innerRef={provided.innerRef}
-                        {...provided.droppableProps}>
+                        {...provided.droppableProps}
+                    >
                         { 
-                            props.tasks.map((task, index) => 
+                            tasks.map((task, index) => 
                             <Draggable key={task.id} draggableId={String(task.id)} index={index}> 
                                 {(provided) => (
                                     <Grid 
                                         item 
                                         {...provided.draggableProps}
                                         {...provided.dragHandleProps}
-                                        innerRef={provided.innerRef}>
+                                        innerRef={provided.innerRef}
+                                    >
                                         <TrelloTask
                                             key={task.id} 
-                                            listName={props.title}
+                                            listName={title}
                                             id={task.id}
                                             title={task.title} 
-                                            description={task.description}/>
+                                            description={task.description}
+                                        />
                                     </Grid>
                                 )}
                             </Draggable>
@@ -84,12 +90,13 @@ function TrelloTaskList(props) {
                 )}
             </Droppable>
             { 
-                props.title === 'TODO' ? 
+                title === 'TODO' ? 
                 <Button
                     className={classes.buttonAdd}
                     color='primary'
                     onClick={handleOpenDialog}
-                    startIcon={<AddIcon/>}>
+                    startIcon={<AddIcon/>}
+                >
                     Add card
                 </Button>
                 : null
@@ -100,16 +107,19 @@ function TrelloTaskList(props) {
                 setOpen={setOpen}
                 title=''
                 description=''
-                listName={props.title}
+                listName={title}
                 buttonType='DELETE_BUTTON'
             />
         </Grid>
     );
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    validateTitle: (value) => dispatch(validateTitle(value)),
-    validateDescription: (value) => dispatch(validateDescription(value)),
-});
+const mapDispatchToProps = (dispatch) => bindActionCreators(
+    {
+      validateTitle,
+      validateDescription
+    },
+    dispatch
+  );
   
 export default connect(null, mapDispatchToProps)(TrelloTaskList);

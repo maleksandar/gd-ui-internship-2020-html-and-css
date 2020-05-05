@@ -11,19 +11,18 @@ export const deleteTask = (listName, id) => (
     {
         type: actionTypes.DELETE_TASK,
         payload: {
-            listName: listName,
-            id: id,
+            listName,
+            id,
         },
     }
 );
 
-export const addTask = (listName, title, description) => (
+export const addTask = (listName, task) => (
     {
         type: actionTypes.ADD_TASK,
         payload: {
-            listName: listName,
-            title: title,
-            description: description,
+            listName,
+            task,
         }
     }
 );
@@ -32,10 +31,10 @@ export const editTask = (listName, id, title, description) => (
     {
         type: actionTypes.EDIT_TASK,
         payload: {
-            listName: listName,
-            id: id,
-            title: title,
-            description: description,
+            listName,
+            id,
+            title,
+            description,
         }
     }
 );

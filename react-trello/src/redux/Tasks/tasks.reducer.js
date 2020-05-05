@@ -1,7 +1,5 @@
 import { actionTypes } from './tasks.types';
 import { dragCard } from './tasks.utils';
-import { deleteTask } from './tasks.utils';
-import { addTask } from './tasks.utils';
 import { editTask } from './tasks.utils';
  
 const initialState = {
@@ -17,12 +15,17 @@ function taskReducer(state = initialState, action) {
         case actionTypes.DELETE_TASK:
             return {
                 ...state,
-                [action.payload.listName] : deleteTask(state, action.payload),
+                [action.payload.listName]: state[action.payload.listName].filter(item => (
+                    item.id !== action.payload.id
+                ))
             };
         case actionTypes.ADD_TASK:
             return {
                 ...state,
-                [action.payload.listName] : addTask(state, action.payload),
+                [action.payload.listName]: [
+                    ...state[action.payload.listName],
+                    action.payload.task
+                ],
             };
         case actionTypes.EDIT_TASK:
             return {

@@ -4,7 +4,7 @@ export const validateTitle = (value) => (
     { 
         type: errorTypes.TITLE_ERROR,
         payload: {
-            value : value,
+            value,
         }
     }
 );
@@ -13,7 +13,7 @@ export const validateDescription = (value) => (
     { 
         type: errorTypes.DESCRIPTION_ERROR,
         payload: {
-            value : value,
+            value,
         }
     }
 );
