@@ -1,0 +1,56 @@
+<form #userForm="ngForm" class="add-form">
+  <mat-form-field appearance="fill" class="title-input">
+    <mat-label>Title</mat-label>
+    <input
+      matInput
+      autofocus
+      required
+      [(ngModel)]="title"
+      #titleInput="ngModel"
+      placeholder="Enter a title for this card..."
+      name="title"
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="titleInput.touched && !titleInput.valid"
+    >
+      Title is required.
+    </div>
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="description-input">
+    <mat-label>Description</mat-label>
+    <textarea
+      matInput
+      rows="3"
+      required
+      [(ngModel)]="description"
+      name="description"
+      #descriptionInput="ngModel"
+      placeholder="Enter a description for this card..."
+    ></textarea>
+    <div
+      class="alert alert-danger"
+      *ngIf="descriptionInput.touched && !descriptionInput.valid"
+    >
+      Description is required.
+    </div>
+  </mat-form-field>
+  <div class="button-group">
+    <button class="button-cancel" mat-raised-button (click)="closeAddForm()">
+      <mat-icon class="icon">cancel</mat-icon>
+      Cancel
+    </button>
+
+    <button
+      class="button-save"
+      mat-raised-button
+      mat-button
+      color="primary"
+      (click)="onHandleSave()"
+      [disabled]="userForm.invalid"
+    >
+      <mat-icon class="icon">save</mat-icon>
+      Save
+    </button>
+  </div>
+</form>

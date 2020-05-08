@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Task } from 'src/app/models/tasks.model';
-import { TasksService } from 'src/app/services/tasks.service';
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -21,10 +20,7 @@ export class CardListComponent implements OnInit {
   description: string;
   isFormOpen: boolean = false;
 
-  constructor(
-    private taskService: TasksService,
-    private storeService: StoreService
-  ) {}
+  constructor(private storeService: StoreService) {}
 
   ngOnInit(): void {}
 
@@ -32,15 +28,8 @@ export class CardListComponent implements OnInit {
     this.isFormOpen = true;
   }
 
-  closeAddForm() {
-    this.isFormOpen = false;
-  }
-
-  onHandleSave() {
-    this.taskService.addTask(this.title, this.description);
-    this.title = '';
-    this.description = '';
-    this.isFormOpen = false;
+  onCloseForm(isFormOpen) {
+    this.isFormOpen = isFormOpen;
   }
 
   drop(event: CdkDragDrop<string[]>) {

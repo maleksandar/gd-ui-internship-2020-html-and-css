@@ -9,6 +9,7 @@ import { TasksService } from './services/tasks.service';
 import { CardComponent } from './components/card/card.component';
 import { CardListComponent } from './components/card-list/card-list.component';
 import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
+import { AddTaskComponent } from './components/add-task/add-task.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { EditDialogComponent } from './components/edit-dialog/edit-dialog.compon
     CardComponent,
     CardListComponent,
     EditDialogComponent,
+    AddTaskComponent,
   ],
   imports: [
     BrowserModule,
