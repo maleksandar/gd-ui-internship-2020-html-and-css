@@ -1,0 +1,24 @@
+.add-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title-input,
+  .description-input {
+    padding: 0;
+    width: 90%;
+    margin: 0;
+    font-size: 1.3rem;
+  }
+
+  textarea {
+    resize: none !important;
+  }
+
+  .button-group {
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+  }
+}

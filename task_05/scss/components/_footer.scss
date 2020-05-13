@@ -1,0 +1,371 @@
+.footer-section {
+    margin-bottom: 60px;
+    margin-top: 60px;
+    padding: 0 20px;
+
+    &__flex-row {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__mogo {
+        width: 33%;
+        &__title {
+            font-family: "Montserrat", sans-serif;
+            font-size: 18px;
+            color: $grey;
+            font-weight: 700;
+            font-size: 35px;
+        }
+
+        &__text {
+            font-family: "Roboto", sans-serif;
+            font-size: 13px;
+            color: $light-grey;
+            line-height: 20px;
+            margin: 40px 0 50px 0;
+        }
+
+        &__followers {
+            font-family: "Montserrat", sans-serif;
+            font-size: 18px;
+            color: $dark-grey;
+            font-weight: 500;
+            margin-bottom: 20px;
+
+            &__icons {
+                &__text {
+                    display: inline-block;
+                    font-family: "Roboto", sans-serif;
+                    font-style: italic;
+                    font-size: 15px;
+                    color: $light-grey;
+                    margin-right: 20px;
+                }
+
+                i {
+                    color: $light-green;
+
+                    &:not(:last-child) {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+
+        &__underline {
+            width: 100%;
+            height: 2px;
+            display: inline-block;
+            background-color: $border-color-white-grey;
+            margin-bottom: 20px;
+        }
+
+        &__email {
+            width: 231px;
+            height: 43px;
+            border: 1px solid $border-color-white-grey;
+            padding: 15px;
+            font-size: 15px;
+            font-style: italic;
+            color: $grey;
+            font-family: "Roboto", sans-serif;
+            margin: 20px -4px 0 0;
+        }
+
+        &__button {
+            width: 152px;
+            height: 42px;
+            background-color: $light-green;
+            color: white;
+            font-family: "Montserrat", sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            font-weight: 600;
+            border: none;
+        }
+    }
+
+    &__blogs {
+        margin-left: 40px;
+        width: 33%;
+
+        &__title {
+            font-family: "Montserrat", sans-serif;
+            color: $dark-grey;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 1px;
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+
+        &__blog {
+            &--blog1,
+            &--blog2 {
+                margin-bottom: 30px;
+            }
+
+            &--blog1,
+            &--blog2,
+            &--blog3 {
+                display: flex;
+            }
+
+            &__img {
+                justify-content: center;
+                align-self: center;
+                width: 121px;
+                height: 81px;
+                margin-right: 25px;
+            }
+
+            &__text {
+                color: $dark-grey;
+                font-size: 12px;
+                font-family: "Montserrat", sans-serif;
+                text-transform: uppercase;
+                line-height: 12px;
+                font-weight: 600;
+            }
+
+            &__date {
+                margin-top: 0;
+                font-size: 13px;
+                color: $light-grey;
+                font-style: italic;
+                font-family: "Roboto", sans-serif;
+            }
+        }
+
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__instagram {
+        margin-left: 40px;
+
+        &__title {
+            font-family: "Montserrat", sans-serif;
+            color: $dark-grey;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 1px;
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+
+        &__grid-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 2px;
+        }
+
+        &__text {
+            font-family: "Roboto", sans-serif;
+            font-size: 13px;
+            font-style: italic;
+            color: $light-grey;
+            margin-top: 20px;
+        }
+    }
+
+    &__underline {
+        display: inline-block;
+        width: 100%;
+        height: 2px;
+        background-color: $border-color-white-grey;
+        margin: 60px 0;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__copyrights {
+        text-align: center;
+        font-family: "Montserrat", sans-serif;
+        color: $dark-grey;
+        font-size: 14px;
+        font-weight: 500;
+
+        p {
+            display: inline-block;
+            margin: 25px 0 0;
+        }
+
+        &--color {
+            display: inline-block;
+            color: $rose;
+        }
+    }
+
+    &__flex {
+        display: flex;
+    }
+}
+
+@media (max-width: 1020px) {
+    .footer-section {
+        &__flex-row {
+            flex-direction: column;
+            padding: 0;
+        }
+
+        &__mogo {
+            width: 100%;
+            margin-bottom: 20px;
+
+            &__title {
+                margin: 0 0 20px;
+            }
+
+            &__text {
+                margin: 0 0 30px;
+                line-height: 15px;
+                font-size: 13px;
+
+                p {
+                    margin: 0;
+                }
+            }
+
+            &__followers {
+                font-size: 15px;
+                margin-bottom: 10px;
+
+                &__icons {
+                    &__text {
+                        font-size: 13px;
+                        margin-right: 12px;
+                    }
+
+                    i {
+                        &:not(:last-child) {
+                            margin-right: 15px;
+                        }
+                    }
+                }
+            }
+
+            &__underline {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+
+            &__email {
+                width: 260px;
+                height: 36px;
+                font-size: 12px;
+                margin-top: 0;
+            }
+
+            &__button {
+                width: 140px;
+                height: 36px;
+                font-size: 12px;
+            }
+        }
+
+        &__blogs {
+            max-width: 100%;
+            margin: 10px 0 20px 0;
+
+            &__title {
+                margin-bottom: 20px;
+            }
+
+            &__blog {
+                width: 100%;
+
+                &__img {
+                    margin-right: 12px;
+                }
+
+                &__text {
+                    margin: 0;
+                    font-size: 10px;
+                    line-height: 10px;
+
+                    p {
+                        margin: 0;
+                    }
+                }
+
+                &__date {
+                    margin: 5px 0 0;
+                    font-size: 10px;
+                }
+
+                &--blog1,
+                &--blog2 {
+                    margin-bottom: 15px;
+                }
+            }
+
+            .flex-column {
+                justify-content: center;
+            }
+        }
+
+        &__instagram {
+            margin: 0;
+
+            &__title {
+                margin-bottom: 20px;
+            }
+
+            &__text {
+                margin-top: 10px;
+                font-size: 11px;
+            }
+
+            &__grid-images {
+                width: 88px;
+            }
+        }
+
+        &__underline {
+            padding: 0 20px;
+            width: 95%;
+            margin: 15px 0 10px;
+        }
+
+        &__copyrights {
+            font-size: 9px;
+            p {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-section {
+        &__mogo {
+            &__followers {
+                &__icons {
+                    i {
+                        &:not(:last-child) {
+                            margin-right: 6px;
+                        }
+                    }
+                }
+            }
+
+            &__email {
+                width: 150px;
+                height: 36px;
+            }
+
+            &__button {
+                width: 120px;
+                height: 36px;
+            }
+        }
+    }
+}

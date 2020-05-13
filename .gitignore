@@ -1,3 +1,5 @@
+/task_04/node_modules
+/task_05/node_modules
 # IDE ignores
 .idea/
 .vscode/

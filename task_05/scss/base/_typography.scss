@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat:400,500,700|Roboto:300i,400,400i,700&display=swap" rel="stylesheet');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+.first-heading {
+  font-family: "Kaushan Script", cursive;
+  color: $dark-grey;
+  font-weight: normal;
+}
+
+.second-heading {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.header-underline {
+  width: 50px;
+  height: 2px;
+  background-color: $rose;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 420px) {
+  .first-heading,
+  .second-heading {
+    font-size: 20px;
+  }
+}

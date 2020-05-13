@@ -1,0 +1,36 @@
+<div class="card-list-container">
+  <div mat-subheader class="subheader">{{ status }}</div>
+
+  <div
+    cdkDropList
+    [cdkDropListData]="tasks"
+    class="drag-list"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <app-card
+      mat-list-item
+      *ngFor="let task of tasks"
+      [task]="task"
+      [status]="status"
+    >
+    </app-card>
+  </div>
+
+  <button
+    class="button-add"
+    mat-raised-button
+    *ngIf="status === 'TODO' && !isFormOpen"
+    (click)="toogleButton()"
+  >
+    <mat-icon class="icon">add</mat-icon>
+    Add card
+  </button>
+
+  <div *ngIf="status === 'TODO' && isFormOpen" class="form-container">
+    <app-add-task
+      [title]="title"
+      [description]="description"
+      (isFormOpen)="onCloseForm($event)"
+    ></app-add-task>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+.card-list-container {
+  width: 32rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(211, 211, 211, 0.7);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-radius: 0.4rem;
+  margin-right: 1.2rem;
+
+  .subheader {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+  }
+
+  .drag-list {
+    padding: 1rem;
+  }
+
+  .button-add {
+    margin-bottom: 1.5rem;
+    width: 90%;
+  }
+
+  .form-container {
+    width: 100%;
+  }
+}

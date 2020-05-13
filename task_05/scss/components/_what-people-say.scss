@@ -1,0 +1,178 @@
+.what-people-say {
+  background: url("../../assets/what-people-say-background.jpg") no-repeat center center / cover;
+  height: 750px;
+  position: relative;
+  padding: 60px 0;
+  margin-bottom: 80px;
+
+  &__header-container {
+    @include header-container-style;
+  }
+
+  &__contant-container {
+    padding: 0 20px;
+    margin-top: 80px;
+    
+    &--person1,
+    &--person2,
+    &--person3,
+    &--person4 {
+      display: flex;
+      max-width: 550px;
+    }
+
+    &--person1,
+    &--person3{
+      margin-right: 30px;
+    }
+
+    &--person2,
+    &--person4 {
+      margin-left: 30px;
+    }
+
+    &__img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-right: 50px;
+    }
+
+    &__info {
+      &__name {
+        font-size: 14px;
+        font-family: "Montserrat", sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      &__role {
+        font-size: 15px;
+        font-family: "Roboto", sans-serif;
+        font-style: italic;
+        color: $dark-grey;
+        font-weight: 300;
+        margin-top: 10px;
+      }
+      &__underline {
+        width: 50px;
+        height: 2px;
+        background-color: $rose;
+        display: inline-block;
+        margin-top: 15px;
+      }
+      &__text {
+        font-size: 13px;
+        font-family: "Roboto", sans-serif;
+        color: $light-grey;
+        line-height: 20px;
+        margin-top: 25px;
+      }
+    }
+  }
+
+  .row {
+    display: flex;
+    margin-bottom: 60px;
+  }
+
+  .column1,
+  .column2 {
+    width: 50%;
+    display: flex;
+  }
+
+  .column1{
+    justify-content: flex-end;
+  }
+
+  .column2{
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width:900px){
+  .what-people-say{
+    padding: 30px 0;
+
+    &__contant-container{
+      &__info{
+        &__text{
+          line-height: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .what-people-say {
+    padding: 20px 0;
+    height: 100%;
+    margin-bottom: 40px;
+
+    .row {
+      flex-direction: column;
+      margin-bottom: 0;
+      padding: 0 20px;
+    }
+
+    .column1,
+    .column2 {
+      width: 100%;
+    }
+
+    .column1{
+      justify-content: flex-start;
+    }
+
+    &__header-container {
+      margin-bottom: 60px;
+    }
+
+    &__contant-container {
+      padding: 0 20px;
+
+      &--person1,
+      &--person2,
+      &--person3,
+      &--person4 {
+        margin-bottom: 40px;
+      }
+
+      &--person1,
+      &--person3 {
+        margin-right: 0;
+      }
+
+      &--person2,
+      &--person4 {
+        margin-left: 0;
+      }
+
+      &__img {
+        width: 80px;
+        height: 80px;
+        margin-right: 30px;
+      }
+
+      &__info {
+        &__role {
+          margin-top: 5;
+        }
+
+        &__underline {
+          margin: 10px 0;
+        }
+
+        &__text {
+          margin-top: 0;
+          line-height: 17px;
+
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

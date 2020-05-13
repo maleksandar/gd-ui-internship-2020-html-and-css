@@ -1,0 +1,81 @@
+<div class="mat-container">
+  <mat-icon class="cancel-icon" (click)="closeEditDialog()">cancel</mat-icon>
+  <h1 mat-dialog-title class="dialog-title">Edit task</h1>
+  <div mat-dialog-content>
+    <form #userForm="ngForm" class="edit-form">
+      <mat-form-field class="title-input">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          placeholder="Edit title"
+          value="{{ data.title }}"
+          [(ngModel)]="data.title"
+          name="title"
+          autofocus
+          required
+          #titleInput="ngModel"
+        />
+      </mat-form-field>
+      <div
+        class="alert alert-danger alert-message"
+        *ngIf="titleInput.touched && !titleInput.valid"
+      >
+        Title is required.
+      </div>
+
+      <mat-form-field class="description-input">
+        <mat-label>Description</mat-label>
+        <textarea
+          class="desc-textarea"
+          matInput
+          placeholder="Edit description"
+          value="{{ data.description }}"
+          [(ngModel)]="data.description"
+          name="description"
+          rows="2"
+          required
+          #descriptionInput="ngModel"
+        ></textarea>
+      </mat-form-field>
+      <div
+        class="alert alert-danger alert-message"
+        *ngIf="descriptionInput.touched && !descriptionInput.valid"
+      >
+        Description is required.
+      </div>
+
+      <div class="button-group">
+        <button
+          class="button-cancel"
+          mat-raised-button
+          (click)="closeEditDialog()"
+        >
+          <mat-icon class="icon">cancel</mat-icon>
+          Cancel
+        </button>
+
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="onHandleDelete()"
+          class="button-delete"
+        >
+          <mat-icon>delete</mat-icon>
+          Delete
+        </button>
+
+        <button
+          class="button-save"
+          mat-raised-button
+          mat-button
+          color="primary"
+          (click)="onHandleSave()"
+          [disabled]="userForm.invalid"
+        >
+          <mat-icon class="icon">save</mat-icon>
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

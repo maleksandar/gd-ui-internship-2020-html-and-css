@@ -1,0 +1,120 @@
+.services {
+  padding: 80px 0;
+  .container {
+    position: relative;
+    width: 80%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+    .section-heading {
+      text-transform: uppercase;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 1;
+      position: relative;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #333;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 50px;
+        height: 2px;
+        background: #f38181;
+        transform: translateX(-50%);
+      }
+
+      .sub-heading {
+        display: block;
+        text-transform: none;
+        font-weight: 400;
+        font-family: "Kaushan Script", cursive;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .section-content {
+      .fw {
+        display: flex;
+        flex-wrap: wrap;
+
+        .item {
+          display: inline-block;
+          position: relative;
+          min-height: 1px;
+          padding-right: 15px;
+          padding-left: 15px;
+          width: 33.3%;
+
+          &:not(:nth-last-child(-n + 3)) {
+            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+          }
+
+          .row {
+            display: flex;
+
+            .service-icon {
+              font-size: 30px;
+              margin-right: 20px;
+              color: #95e1d3;
+            }
+
+            div {
+              .service-title {
+                font-weight: 500;
+                font-size: 14px;
+                margin-top: 12px;
+                margin-bottom: 5px;
+                color: #333;
+                text-transform: uppercase;
+                font-family: "Montserrat", sans-serif;
+              }
+
+              p {
+                color: #999;
+                font-size: 13px;
+                font-weight: 400;
+                overflow-x: hidden;
+                position: relative;
+                font-family: "Roboto", sans-serif;
+                margin-bottom: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    .container {
+      width: 100%;
+      .section-content {
+        .fw {
+          .item {
+            width: 100%;
+
+            &:not(:nth-last-child(-n + 1)) {
+              border-bottom: 1px solid #e5e5e5;
+              margin-bottom: 20px;
+              padding-bottom: 10px;
+            }
+          }
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}

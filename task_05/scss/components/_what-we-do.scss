@@ -1,0 +1,256 @@
+.what-we-do {
+  &__header-container {
+    @include header-container-style;
+  }
+
+  &__collapse-menu {
+    width: 601px;
+    margin-left: 30px;
+    position: relative;
+
+    &__img {
+      margin-right: 20px;
+    }
+  }
+
+  &__text {
+    @include section-text-style;
+  }
+
+  .flex-container-pic-menu {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0 80px 0;
+    padding: 0 20px;
+  }
+
+  &__collapsible {
+    background-color: white;
+    color: $dark-grey;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: 1px solid $border-color-white-grey;
+    border-bottom: none;
+    text-align: left;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      background-color: rgba(85, 85, 85, 0.2);
+    }
+
+    &:after,
+    &.active:after {
+      color: $grey;
+      float: right;
+      margin-left: 5px;
+      position: absolute;
+      right: 30px;
+      font-size: 40px;
+    }
+
+    &:after {
+      content: "\02C5";
+    }
+
+    &.active:after {
+      content: "\02C4";
+    }
+  }
+
+  &__content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: white;
+    border: 1px solid $border-color-white-grey;
+    border-top: none;
+    font-family: "Roboto", sans-serif;
+    color: $dark-grey;
+    line-height: 25px;
+    text-align: justify;
+    color: $light-grey;
+    font-style: italic;
+  }
+
+  &__message {
+    background-color: $nearly-white;
+    height: 291px;
+    width: 100%;
+    @include meesage-container-style;
+
+    &__img {
+      border: solid $light-green;
+      padding: 45px;
+    }
+
+    &__content {
+      @include message_contant-style;
+    }
+  }
+
+  .arrow-left,
+  .arrow-right {
+    color: $grey;
+    font-size: 30px;
+  }
+
+  .arrow-left {
+    margin-right: 60px;
+  }
+
+  .arrow-right {
+    margin-left: 60px;
+  }
+
+  .signature {
+    @include signature-style;
+  }
+}
+
+@media (max-width: 900px) {
+  .what-we-do {
+    .flex-container-pic-menu {
+      padding: 0 20px;
+      margin: 30px 0 60px 0;
+    }
+
+    &__text {
+      line-height: 15px;
+      font-size: 13px;
+      margin-top: 40px;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    &__picture {
+      width: 52%;
+      align-self: center;
+    }
+
+    &__collapse-menu {
+      width: 42%;
+      margin: 20px 0 30px 0;
+      align-self: center;
+
+      &__img {
+        width: 25px;
+      }
+    }
+
+    &__content {
+      p {
+        font-size: 14px;
+      }
+    }
+
+    &__collapsible {
+      font-size: 13px;
+
+      &:after {
+        font-size: 30px;
+      }
+    }
+
+    &__message {
+      height: 100%;
+      margin-bottom: 30px;
+
+      &__img {
+        padding: 18px;
+        width: 90px;
+      }
+
+      &__content {
+        font-size: 11px;
+        margin-left: 30px;
+        margin-top: 30px;
+        line-height: 15px;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    .arrow-left {
+      margin-right: 30px;
+      padding-left: 20px;
+    }
+
+    .arrow-right {
+      margin-left: 30px;
+      padding-right: 20px;
+    }
+
+    .arrow-left,
+    .arrow-right {
+      font-size: 20px;
+    }
+
+    .signature {
+      &__underline {
+        width: 40px;
+      }
+
+      &__name {
+        font-size: 13px;
+      }
+    }
+  }
+
+  .first-heading {
+    font-size: 20px;
+  }
+
+  .second-heading {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .what-we-do {
+    &__header-container {
+      pad: 0 20px;
+    }
+
+    .flex-container-pic-menu {
+      flex-direction: column;
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
+
+    &__picture {
+      width: 100%;
+    }
+
+    &__collapse-menu {
+      width: 100%;
+    }
+
+    &__message {
+      &__img {
+        padding: 15px;
+        width: 70px;
+      }
+    }
+
+    .arrow-left {
+      margin-right: 20px;
+      margin-left: 5px;
+    }
+
+    .arrow-right {
+      margin-left: 20px;
+      margin-right: 5px;
+    }
+  }
+}

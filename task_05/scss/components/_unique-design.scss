@@ -1,0 +1,115 @@
+.unique-design {
+  padding: 80px 0;
+  padding-bottom: 0;
+  margin-bottom: 30px;
+  background: #e0e0e0 url(../../assets/unique-design/bg-unique-design.jpg) no-repeat center center / cover;
+
+  .container {
+    width: 80%;
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+    .section-heading {
+      margin: 5px 0 10px;
+      color: #333;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 1;
+      position: relative;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #333;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 50px;
+        height: 2px;
+        background: #f38181;
+        transform: translateX(-50%);
+      }
+
+      .sub-heading {
+        display: block;
+        text-transform: none;
+        font-weight: 400;
+        font-family: 'Kaushan Script', cursive;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .section-content {
+      .devices {
+        position: relative;
+        text-align: center;
+
+        img {
+          border: none;
+          max-width: 100%;
+          vertical-align: middle;
+        }
+
+        .tablet {
+          width: 380px;
+        }
+
+        .mobile {
+          position: absolute;
+          bottom: -60px;
+          left: 50%;
+          margin-left: 140px;
+          width: 170px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:900px){
+  .unique-design{
+    .container{
+      .section-content{
+        .devices{
+          .tablet {
+            width: 250px;
+          }
+  
+          .mobile {
+            margin-left: 65px;
+            bottom: -32px;
+            width: 110px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:420px){
+  .unique-design{
+    .container{
+      .section-content{
+        .devices{
+          .tablet {
+            width: 200px;
+          }
+  
+          .mobile {
+            margin-left: 48px;
+            bottom: -32px;
+            width: 90px;
+          }
+        }
+      }
+    }
+  }
+}
