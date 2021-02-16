@@ -1,0 +1,19 @@
+<mat-card class="card" cdkDrag>
+    <mat-card-title class="card__description"> 
+      {{ task.title }} 
+    </mat-card-title>
+    <mat-card-content class="card__description">
+        {{ task.description }}
+    </mat-card-content>
+    <mat-card-actions class="card__actions">
+      <button mat-raised-button color="primary" (click)="openDialog()">
+        <mat-icon class="icon">edit</mat-icon>
+          Edit
+      </button>
+      <button mat-raised-button  color="warn" (click)="onDeleteButtonClick()">
+        <mat-icon class="icon">delete</mat-icon>
+          Delete
+      </button>
+    </mat-card-actions>
+</mat-card>
+  

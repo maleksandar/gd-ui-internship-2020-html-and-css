@@ -1,0 +1,15 @@
+.cards {
+    max-height: 30rem;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+.button {
+    &--add {
+        align-self: center;
+    }   
+}
+
+.icon {
+    padding-bottom: 0.2rem;
+}

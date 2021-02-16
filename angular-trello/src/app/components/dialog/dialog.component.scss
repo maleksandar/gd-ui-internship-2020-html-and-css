@@ -1,0 +1,26 @@
+.dialog {
+    &__content {
+        width: 25rem;
+    }
+
+    &__title,
+    &__description {
+        display: block;
+    }
+
+    &__title {
+        margin-bottom: 1rem;
+    }
+
+    &__actions {
+        display: flex;
+        
+        &--delete {
+            margin-right: auto;
+        }
+    }
+}
+
+.icon {
+    padding-bottom: .2rem;
+}

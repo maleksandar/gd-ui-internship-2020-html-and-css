@@ -1,0 +1,72 @@
+<div mat-dialog-content class="dialog__content">
+    <mat-form-field hideRequiredMarker appearance="outline" class="dialog__title">
+        <mat-label> Card Title </mat-label>
+        <input 
+            matInput 
+            type="text"
+            #title="ngModel"
+            class="dialog_title"
+            [(ngModel)]="data.title"
+            value="data.title"
+            required
+            minlength="4"
+            maxlength="20"/> 
+        <mat-error *ngIf="title.errors?.required">
+            Title is <strong> required! </strong>
+        </mat-error>
+        <mat-error *ngIf="title.errors?.minlength">
+            Length of title must be <strong> between 4 and 20 characters </strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field hideRequiredMarker appearance="outline" class="dialog__description"> 
+        <mat-label> Card Description </mat-label>
+        <textarea 
+            matInput 
+            type="text"
+            #description="ngModel"
+            class="dialog_description"
+            [(ngModel)]="data.description"
+            value="data.description"
+            required
+            minlength="10"
+            maxlength="400"
+            rows="5"
+            cdkTextareaAutosize>
+        </textarea> 
+        <mat-error *ngIf="description.errors?.required">
+            Description is <strong> required! </strong>
+        </mat-error>
+        <mat-error *ngIf="description.errors?.minlength">
+            Length of description must be <strong> between 10 and 400 characters </strong>
+        </mat-error>
+    </mat-form-field> 
+</div>
+<div mat-dialog-actions class="dialog__actions">
+    <button 
+        class="dialog__actions--delete"
+        mat-raised-button 
+        color="warn"
+        (click)="data.buttonType = 'DELETE'"
+        [mat-dialog-close]="data" 
+        [disabled]="data.buttonType === 'ADD'"> 
+        <mat-icon class="icon">delete</mat-icon>
+        Delete
+    </button>
+    <button 
+        mat-button 
+        (click)="data.buttonType = 'CANCEL'"
+        [mat-dialog-close]="data"> 
+        <mat-icon class="icon">cancel</mat-icon>
+        Cancel 
+    </button>
+    <button 
+        mat-raised-button 
+        color="primary"
+        (click)="data.buttonType = 'SAVE'"
+        [mat-dialog-close]="data" 
+        [disabled]="description.invalid || title.invalid"> 
+        <mat-icon class="icon">save</mat-icon>
+        Save  
+    </button>
+</div>

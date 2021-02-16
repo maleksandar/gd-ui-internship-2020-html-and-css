@@ -1,0 +1,7 @@
+.container {
+	@include make-container();
+
+	@media screen and (min-width: 992px) {
+		padding: 5rem;
+	}
+}
